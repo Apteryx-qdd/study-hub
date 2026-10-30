@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L1 · 线性方程组与高斯消元 · 四讲复习提纲（L1–L4）</title>
+
+
+
+
+<style>
+:root{
+  --l1:#2f6f9f; --l1b:#eaf3fa;
+  --l2:#7a51a6; --l2b:#f4eefa;
+  --l3:#2f8f6f; --l3b:#e9f6f1;
+  --l4:#b4703a; --l4b:#fdf2e8;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px; line-height:1.75;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{
+  background:linear-gradient(135deg,#123a5c 0%,#1c527f 55%,#2f6f9f 100%);
+  color:#fff;padding:46px 0 34px;margin-bottom:26px;
+}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.22em;font-size:12px;opacity:.75;text-transform:uppercase}
+h1{font-size:31px;margin:10px 0 6px;font-weight:700;letter-spacing:.5px}
+.sub{opacity:.9;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+  padding:4px 12px;border-radius:999px;font-size:13px}
+nav.toc{
+  position:sticky;top:0;z-index:20;background:rgba(251,252,253,.93);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-bottom:28px
+}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 6px;padding-top:10px;border-top:2px solid var(--line)}
+h2 .num{display:inline-block;background:#123a5c;color:#fff;border-radius:8px;
+  font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px}
+h4{font-size:15.5px;margin:18px 0 6px;color:#243447}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0 4px}
+.chain span{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 13px;font-size:14px}
+.chain i{color:#a8b4c0;font-style:normal}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:16px 0;
+  box-shadow:0 1px 2px rgba(16,32,48,.04)}
+.card.l1{border-left:5px solid var(--l1)} .card.l2{border-left:5px solid var(--l2)}
+.card.l3{border-left:5px solid var(--l3)} .card.l4{border-left:5px solid var(--l4)}
+.card h3{margin-top:0}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;margin-right:6px;
+  font-weight:700;letter-spacing:.04em}
+.t1{background:var(--l1b);color:var(--l1)} .t2{background:var(--l2b);color:var(--l2)}
+.t3{background:var(--l3b);color:var(--l3)} .t4{background:var(--l4b);color:var(--l4)}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0}
+.thm b{color:#123a5c}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+li::marker{color:#8b99a8}
+.k{font-weight:700;color:#123a5c}
+.mono{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:14px}
+math{font-size:1.02em}
+.formula{background:#f7f9fb;border-left:3px solid #b9c6d3;padding:9px 14px;border-radius:0 8px 8px 0;
+  margin:10px 0;font-size:15px;overflow-x:auto}
+pre.mat{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:13.6px;line-height:1.5;
+  background:#f7f9fb;border:1px solid var(--line);border-left:3px solid #b9c6d3;padding:11px 15px;
+  border-radius:0 8px 8px 0;overflow-x:auto;margin:10px 0;white-space:pre;color:#1c2733}
+pre.mat b{color:#a45c14;font-weight:700}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;background:#fff}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:#f2f5f9;font-weight:700;color:#243447}
+tbody tr:nth-child(even){background:#fafbfc}
+.warn{background:#fff8f0;border:1px solid #f4d9bd;border-left:5px solid #d98b3a;border-radius:10px;
+  padding:12px 16px;margin:12px 0}
+.warn b{color:#a45c14}
+.ok{background:#f1f8f4;border:1px solid #cfe7d9;border-left:5px solid #2f8f6f;border-radius:10px;
+  padding:12px 16px;margin:12px 0}
+.ok b{color:#1f6b51}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;color:#123a5c;outline:none}
+details[open] summary{margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.q{margin:18px 0 0}
+.q .stem{font-weight:600}
+.ans{color:#1f6b51}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.mindmap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;
+  max-height:82vh;overflow:auto}
+.mindmap svg{display:block;width:100%;height:auto;aspect-ratio:1254/2924;min-width:900px}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.pill{display:inline-block;background:#eef2f6;border-radius:999px;padding:2px 10px;font-size:12.5px;color:#465768;margin-right:6px}
+@media print{
+  nav.toc{position:static} details{border:1px solid #ccc} .card{box-shadow:none}
+  body{font-size:12pt} .mindmap{max-height:none;overflow:visible;border:none;padding:0}
+}
+</style>
+
+    /* --- 锚点跳转增强 --- */
+    h2[id], h3[id], div[id]{scroll-margin-top: 78px;}
+    nav.toc a{cursor:pointer;}
+    nav.toc a.active{background:#e3ecf4;color:#123a5c;font-weight:700;}
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="../../../index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="../../../subjects/linear-algebra.html">线性代数</a><span style="opacity:.45">/</span>
+<b>L1 · 线性方程组与高斯消元</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="map.html">0</a><a href="mindmap.html">1</a><a href="l1.html" class=cur>2</a><a href="l2.html">3</a><a href="l3.html">4</a><a href="l4.html">5</a><a href="cheat.html">6</a><a href="pit.html">7</a><a href="quiz.html">8</a><a href="plan.html">9</a><a href="inv.html">10</a></div></div>
+<div class="chunkmain">
+<h2 id="l1"><span class="num">2</span>L1 · 线性方程组与高斯消元</h2>
+
+
+<div class="card l1">
+  <h3><span class="tag t1">定义</span>线性方程与线性方程组</h3>
+  <p><b>线性方程</b>（n 个未知量）指可以写成</p>
+  <div class="formula">a₁x₁ + a₂x₂ + ⋯ + a<sub>n</sub>x<sub>n</sub> = b，其中 a₁,…,a<sub>n</sub>, b 都是常数</div>
+  <p>关键特征：每个变量只出现<b>一次幂</b>，并且只被<b>常数</b>相乘。所以下列都<b>不是</b>线性的：</p>
+  <p><span class="pill">xy（变量相乘）</span><span class="pill">x²（幂次≠1）</span><span class="pill">1/x（倒数）</span><span class="pill">sin x（非线性函数）</span><span class="pill">√x</span></p>
+  <p><b>线性方程组</b>：m 个方程、n 个未知量；<b>解</b>是一个有序数组 (s₁,…,s<sub>n</sub>)，它<b>同时</b>满足每一个方程；所有解构成<b>解集</b>。</p>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">核心</span>三种解的情形与“相容”</h3>
+  <p>任何线性方程组只有三种可能：</p>
+  <ol>
+    <li><b>唯一解</b>（unique）：R² 中两直线交于一点；</li>
+    <li><b>无穷多解</b>（infinitely many）：两直线重合；</li>
+    <li><b>无解</b>（no solution）：两直线平行且不重合。</li>
+  </ol>
+  <p><span class="k">相容 consistent</span> = 至少有一个解；<span class="k">不相容 inconsistent</span> = 无解。</p>
+  <div class="formula">R² 中：相交 ⇒ 唯一解　|　重合 ⇒ 无穷多解　|　平行不重合 ⇒ 无解</div>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">方法</span>等价方程组与三种方程运算</h3>
+  <p>两个方程组<b>等价</b>（equivalent）⇔ 解集完全相同。我们不必直接解原方程组，而是把它变成更简单但<b>等价</b>的方程组。允许的三种运算：</p>
+  <ol>
+    <li>交换两个方程；</li>
+    <li>用一个<b>非零</b>常数乘某个方程；</li>
+    <li>把一个方程的倍数加到另一个方程上。</li>
+  </ol>
+  <div class="ok"><b>为什么可以这样做？</b>三种运算都是<b>可逆</b>的（能原路退回去），所以既不会丢解，也不会增解——解集不变。<br>
+  <span style="font-size:13.5px;color:#465768">注意：这里的“可逆”指<b>运算本身可逆</b>，跟“求矩阵的逆 A<sup>−1</sup>”是两件事（求逆见文末<b>附录 A</b>）。</span></div>
+  <p><b>例</b>（L1 幻灯片）：x − y = 1, x + y = 3 ⟺ x − y = 1, y = 1。后者容易，直接回代得 x = 2, y = 1。</p>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">方法</span>回代 back substitution</h3>
+  <p>当方程组呈<b>三角形</b>（最后一个方程只含最后的变量）时，从下往上逐个解出：</p>
+  <ol>
+    <li>先解最后一个方程，得到最后一个变量；</li>
+    <li>把已知值代回上一个方程；</li>
+    <li>重复，直到所有变量都求出。</li>
+  </ol>
+  <div class="formula">例：x − y + z = 2，y + 3z = 5，5z = 10 ⟹ z = 2 → y = −1 → x = −1</div>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">对象</span>增广矩阵、矩阵、向量</h3>
+  <p>反复抄写变量太麻烦，于是只记录<b>系数</b>与<b>常数项</b>（竖线左边是系数矩阵 A，右边是 b）：</p>
+<pre class="mat">  x − y − z = 2            [ 1  −1  −1 |  2 ]
+  3x − 3y + 2z = 16   ⟹    [ 3  −3   2 | 16 ]
+  2x −  y +  z = 9         [ 2  −1   1 |  9 ]</pre>
+  <ul>
+    <li><b>矩阵</b>：数的矩形排列；m 行 n 列 ⟹ <b>m×n 矩阵</b>；第 i 行第 j 列的元素记 a<sub>ij</sub>。</li>
+    <li><b>向量</b>：有序数组（n×1 为列向量，1×n 为行向量）。</li>
+    <li>矩阵记号<b>不是新问题</b>，只是一种更紧凑的存储方式；最终可以写成 <span class="mono">Ax = b</span>。</li>
+  </ul>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">方法</span>初等行变换与行阶梯形（REF）</h3>
+  <p>三种方程运算翻译成矩阵语言，就是三种<b>初等行变换</b>：</p>
+  <table>
+    <tr><th>方程运算</th><th>矩阵记号</th><th>备注</th></tr>
+    <tr><td>交换两式</td><td class="mono">R<sub>i</sub> ↔ R<sub>j</sub></td><td>可逆</td></tr>
+    <tr><td>乘非零常数</td><td class="mono">R<sub>i</sub> ← k R<sub>i</sub></td><td>要求 k ≠ 0</td></tr>
+    <tr><td>加另一式的倍数</td><td class="mono">R<sub>i</sub> ← R<sub>i</sub> + k R<sub>j</sub></td><td>可逆（再减回去）</td></tr>
+  </table>
+  <div class="thm">
+    <b>行阶梯形（row echelon form, REF）</b>满足：<br>
+    ① 全零行必须放在最下面；<br>
+    ② 每个非零行的第一个非零元，必须严格位于上一行第一个非零元的<b>右侧</b>。<br>
+    （阶梯形不要求主元是 1，也不要求主元上方为 0；这些是 RREF 的额外要求。）
+  </div>
+  <p><b>主元 pivot</b>：用来消去其下方元素的那个首非零元。策略是：找主元 → 用它把下面清成 0 → 换到下一列 → 重复。</p>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">算法</span>高斯消元四步 + 完整例题</h3>
+  <ol>
+    <li>写出增广矩阵 [A | b]；</li>
+    <li>用初等行变换化成行阶梯形；</li>
+    <li>把阶梯形翻译回方程组；</li>
+    <li>回代求解。</li>
+  </ol>
+  <p><b>例</b>：解 2y + 3z = 8，2x + 3y + z = 5，x − y − 2z = −5。（逐步竖写，箭头右边是这一步执行的行变换。）</p>
+<pre class="mat">  [ 0   2   3 |   8 ]                            第 1 列全是 0 开头，先换个"好主元"
+  [ 2   3   1 |   5 ]        R₁ ↔ R₃
+  [ 1  −1  −2 |  −5 ]
+
+  [ 1  −1  −2 |  −5 ]        R₂ ← R₂ − 2R₁     用主元 1 把下面清 0
+  [ 0   5   5 |  15 ]        R₃ 已经是 0，不用动
+  [ 0   2   3 |   8 ]
+
+  [ 1  −1  −2 |  −5 ]        R₂ ← (1/5)·R₂     主元化成 1，方便计算
+  [ 0   1   1 |   3 ]
+  [ 0   2   3 |   8 ]
+
+  [ 1  −1  −2 |  −5 ]        R₃ ← R₃ − 2R₂     第二列也清 0 → 行阶梯形
+  [ 0   1   1 |   3 ]
+  [ 0   0   1 |   2 ]</pre>
+  <p>回代：z = 2 → y + 2 = 3 ⇒ y = 1 → x − 1 − 4 = −5 ⇒ x = 0。所以解是 <b>(x, y, z) = (0, 1, 2)</b>。</p>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">小结</span>本讲必须会做的事</h3>
+  <ul>
+    <li>判断一个方程是不是线性的；</li>
+    <li>说出“解一个方程组”是什么意思，以及三种解的个数情形；</li>
+    <li>写出增广矩阵，做初等行变换，化成 REF，再回代；</li>
+    <li>理解“等价变换不改变解集”是整章的<b>方法论地基</b>。</li>
+  </ul>
+</div>
+
+<!-- ============ 3. L2 ============ -->
+
+</div>
+<div class="chunknav"><a href="mindmap.html">← 思维导图</a><a href="l2.html">L2 · 张成集与线性无关 →</a></div>
+</body></html>

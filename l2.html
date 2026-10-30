@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L2 · 张成集与线性无关 · 四讲复习提纲（L1–L4）</title>
+
+
+
+
+<style>
+:root{
+  --l1:#2f6f9f; --l1b:#eaf3fa;
+  --l2:#7a51a6; --l2b:#f4eefa;
+  --l3:#2f8f6f; --l3b:#e9f6f1;
+  --l4:#b4703a; --l4b:#fdf2e8;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px; line-height:1.75;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{
+  background:linear-gradient(135deg,#123a5c 0%,#1c527f 55%,#2f6f9f 100%);
+  color:#fff;padding:46px 0 34px;margin-bottom:26px;
+}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.22em;font-size:12px;opacity:.75;text-transform:uppercase}
+h1{font-size:31px;margin:10px 0 6px;font-weight:700;letter-spacing:.5px}
+.sub{opacity:.9;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+  padding:4px 12px;border-radius:999px;font-size:13px}
+nav.toc{
+  position:sticky;top:0;z-index:20;background:rgba(251,252,253,.93);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-bottom:28px
+}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 6px;padding-top:10px;border-top:2px solid var(--line)}
+h2 .num{display:inline-block;background:#123a5c;color:#fff;border-radius:8px;
+  font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px}
+h4{font-size:15.5px;margin:18px 0 6px;color:#243447}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0 4px}
+.chain span{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 13px;font-size:14px}
+.chain i{color:#a8b4c0;font-style:normal}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:16px 0;
+  box-shadow:0 1px 2px rgba(16,32,48,.04)}
+.card.l1{border-left:5px solid var(--l1)} .card.l2{border-left:5px solid var(--l2)}
+.card.l3{border-left:5px solid var(--l3)} .card.l4{border-left:5px solid var(--l4)}
+.card h3{margin-top:0}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;margin-right:6px;
+  font-weight:700;letter-spacing:.04em}
+.t1{background:var(--l1b);color:var(--l1)} .t2{background:var(--l2b);color:var(--l2)}
+.t3{background:var(--l3b);color:var(--l3)} .t4{background:var(--l4b);color:var(--l4)}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0}
+.thm b{color:#123a5c}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+li::marker{color:#8b99a8}
+.k{font-weight:700;color:#123a5c}
+.mono{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:14px}
+math{font-size:1.02em}
+.formula{background:#f7f9fb;border-left:3px solid #b9c6d3;padding:9px 14px;border-radius:0 8px 8px 0;
+  margin:10px 0;font-size:15px;overflow-x:auto}
+pre.mat{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:13.6px;line-height:1.5;
+  background:#f7f9fb;border:1px solid var(--line);border-left:3px solid #b9c6d3;padding:11px 15px;
+  border-radius:0 8px 8px 0;overflow-x:auto;margin:10px 0;white-space:pre;color:#1c2733}
+pre.mat b{color:#a45c14;font-weight:700}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;background:#fff}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:#f2f5f9;font-weight:700;color:#243447}
+tbody tr:nth-child(even){background:#fafbfc}
+.warn{background:#fff8f0;border:1px solid #f4d9bd;border-left:5px solid #d98b3a;border-radius:10px;
+  padding:12px 16px;margin:12px 0}
+.warn b{color:#a45c14}
+.ok{background:#f1f8f4;border:1px solid #cfe7d9;border-left:5px solid #2f8f6f;border-radius:10px;
+  padding:12px 16px;margin:12px 0}
+.ok b{color:#1f6b51}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;color:#123a5c;outline:none}
+details[open] summary{margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.q{margin:18px 0 0}
+.q .stem{font-weight:600}
+.ans{color:#1f6b51}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.mindmap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;
+  max-height:82vh;overflow:auto}
+.mindmap svg{display:block;width:100%;height:auto;aspect-ratio:1254/2924;min-width:900px}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.pill{display:inline-block;background:#eef2f6;border-radius:999px;padding:2px 10px;font-size:12.5px;color:#465768;margin-right:6px}
+@media print{
+  nav.toc{position:static} details{border:1px solid #ccc} .card{box-shadow:none}
+  body{font-size:12pt} .mindmap{max-height:none;overflow:visible;border:none;padding:0}
+}
+</style>
+
+    /* --- 锚点跳转增强 --- */
+    h2[id], h3[id], div[id]{scroll-margin-top: 78px;}
+    nav.toc a{cursor:pointer;}
+    nav.toc a.active{background:#e3ecf4;color:#123a5c;font-weight:700;}
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="../../../index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="../../../subjects/linear-algebra.html">线性代数</a><span style="opacity:.45">/</span>
+<b>L2 · 张成集与线性无关</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="map.html">0</a><a href="mindmap.html">1</a><a href="l1.html">2</a><a href="l2.html" class=cur>3</a><a href="l3.html">4</a><a href="l4.html">5</a><a href="cheat.html">6</a><a href="pit.html">7</a><a href="quiz.html">8</a><a href="plan.html">9</a><a href="inv.html">10</a></div></div>
+<div class="chunkmain">
+<h2 id="l2"><span class="num">3</span>L2 · 张成集与线性无关</h2>
+
+
+<div class="card l2">
+  <h3><span class="tag t2">核心视角</span>把 Ax = b 看成“列的组合”</h3>
+  <p>把 A 按列拆开：A = [a₁ a₂ ⋯ a<sub>n</sub>]，则</p>
+  <div class="formula">Ax = x₁a₁ + x₂a₂ + ⋯ + x<sub>n</sub>a<sub>n</sub> = b</div>
+  <p>于是“解方程组”= 问：<b>取什么系数，能让 A 的各列组合出 b？</b></p>
+  <div class="thm">
+    <b>定理（相容性的列形式）</b>：以 [A | b] 为增广矩阵的方程组<b>相容</b> ⇔ <b>b 是 A 的列向量的线性组合</b> ⇔ b ∈ span{a₁,…,a<sub>n</sub>}。
+  </div>
+  <p>几何含义：唯一解 ⇒ b 落在 span 中且表示方式唯一；无穷多解 ⇒ b 在 span 中但表示方式不唯一；无解 ⇒ b 根本不在 span 中。</p>
+</div>
+
+<div class="card l2">
+  <h3><span class="tag t2">定义</span>线性组合与张成</h3>
+  <p><b>线性组合</b>：给定 v₁,…,v<sub>k</sub>，形如 c₁v₁ + c₂v₂ + ⋯ + c<sub>k</sub>v<sub>k</sub> 的表达式（c<sub>i</sub> ∈ ℝ）。</p>
+  <p><b>张成</b> span(S) = 所有线性组合构成的集合：</p>
+  <div class="formula">span{v₁,…,v<sub>k</sub>} = { c₁v₁ + ⋯ + c<sub>k</sub>v<sub>k</sub> : c₁,…,c<sub>k</sub> ∈ ℝ }</div>
+  <p>若 span(S) = ℝⁿ，则称 S 是 ℝⁿ 的<b>张成集</b>（spanning set）：这些向量足够多，可以“搭出”空间中每个向量。</p>
+  <p><b>四种组合</b>（同一个式子，不同的系数限制）：</p>
+  <table>
+    <tr><th>类型</th><th>形式</th><th>系数限制</th><th>得到</th></tr>
+    <tr><td>线性组合 linear</td><td>Σ θ<sub>i</sub>x<sub>i</sub></td><td>θ<sub>i</sub> ∈ ℝ</td><td>子空间 span{x<sub>i</sub>}</td></tr>
+    <tr><td>锥组合 conic</td><td>Σ θ<sub>i</sub>x<sub>i</sub></td><td>θ<sub>i</sub> ≥ 0</td><td>凸锥</td></tr>
+    <tr><td>仿射组合 affine</td><td>Σ θ<sub>i</sub>x<sub>i</sub></td><td>Σθ<sub>i</sub> = 1</td><td>仿射空间</td></tr>
+    <tr><td>凸组合 convex</td><td>Σ θ<sub>i</sub>x<sub>i</sub></td><td>θ<sub>i</sub> ≥ 0 且 Σθ<sub>i</sub> = 1</td><td>凸集</td></tr>
+  </table>
+</div>
+
+<div class="card l2">
+  <h3><span class="tag t2">几何</span>span 长什么样</h3>
+  <ul>
+    <li><b>一个</b>非零向量 → 过原点的<b>直线</b>；零向量 → 只有 {0}。</li>
+    <li><b>两个不平行</b>的向量（ℝ² 中）→ 整个平面（ℝ²）；平行则退化为一条直线。</li>
+    <li>ℝ³ 中 u = (1,0,3), v = (−1,1,−3) 不平行 ⟹ span{u,v} 是过原点的<b>平面</b>；由 x = s−t, y = t, z = 3s−3t 消去 s,t 得 <b>z = 3x</b>。</li>
+    <li><b>标准单位向量</b> e₁,…,e<sub>n</sub>（第 i 个位置为 1，其余为 0）满足 x = x₁e₁ + ⋯ + x<sub>n</sub>e<sub>n</sub>，故 <b>span{e₁,…,e<sub>n</sub>} = ℝⁿ</b>。</li>
+  </ul>
+</div>
+
+<div class="card l2">
+  <h3><span class="tag t2">定义</span>线性相关 / 线性无关</h3>
+  <div class="thm">
+    <b>线性相关</b>（dependent）：存在<b>不全为零</b>的 c₁,…,c<sub>k</sub> 使 c₁v₁ + ⋯ + c<sub>k</sub>v<sub>k</sub> = 0。<br>
+    <b>线性无关</b>（independent）：c₁v₁ + ⋯ + c<sub>k</sub>v<sub>k</sub> = 0 <b>只有</b>平凡解 c₁ = ⋯ = c<sub>k</sub> = 0。
+  </div>
+  <p>两种说法等价：<b>相关 ⇔ 至少有一个向量可以写成其余向量的线性组合</b>（“有多余信息”）。</p>
+  <p><b>证明思路</b>：若 v₁ = c₂v₂ + ⋯ + c<sub>m</sub>v<sub>m</sub>，则 v₁ − c₂v₂ − ⋯ − c<sub>m</sub>v<sub>m</sub> = 0 是非平凡组合；反之若有 c₁ ≠ 0，两边除以 c₁ 解出 v₁。</p>
+  <p><b>两个向量的速判</b>：相关 ⇔ 一个是另一个的标量倍（如 v = −2u ⟹ 2u + v = 0）。</p>
+</div>
+
+<div class="card l2">
+  <h3><span class="tag t2">判定</span>矩阵视角：Ac = 0</h3>
+  <p>把 v₁,…,v<sub>m</sub> 放进矩阵的<b>列</b>：A = [v₁ v₂ ⋯ v<sub>m</sub>]，则</p>
+  <div class="formula">c₁v₁ + ⋯ + c<sub>m</sub>v<sub>m</sub> = 0　⟺　Ac = 0（齐次方程组）</div>
+  <div class="thm">
+    <b>判定定理</b>：v₁,…,v<sub>m</sub> 线性无关 ⇔ Ac = 0 <b>只有零解</b> ⇔ A 化成阶梯形后<b>每一列都是主元列</b>（没有自由变量）。
+  </div>
+  <p><b>操作四步</b>：① 把向量按列排成 A；② 解齐次方程组 Ac = 0；③ 对 A 做行化简；④ 看有没有自由变量——<b>无自由变量 ⇒ 无关；有自由变量 ⇒ 相关</b>。</p>
+  <p><b>例</b>：v₁ = (1,1,0), v₂ = (0,1,1), v₃ = (1,0,1)。解 c₁ + c₃ = 0, c₁ + c₂ = 0, c₂ + c₃ = 0，行化简后得 c₃ = c₂ = c₁ = 0 ⇒ <b>线性无关</b>。</p>
+  <div class="warn">
+    <b>数量上限</b>：ℝⁿ 中<b>超过 n 个</b>向量一定线性相关（如 ℝ² 中不可能有 3 个无关向量，因为 (1,1) = (1,0) + (0,1)）。
+  </div>
+</div>
+
+<div class="card l2">
+  <h3><span class="tag t2">联系</span>span 与无关：一对互补的问题</h3>
+  <ul>
+    <li><b>span</b> 问：这些向量<b>够不够</b>生成整个空间？（“能不能覆盖”）</li>
+    <li><b>线性无关</b> 问：这些向量里<b>有没有多余</b>的？（“能不能精简”）</li>
+    <li>既 span ℝ³ 又线性无关的例子：{e₁, e₂, e₃} —— 这正是标准基特别重要的原因，也直接引出下一讲的“<b>基</b>”。</li>
+  </ul>
+</div>
+
+<!-- ============ 4. L3 ============ -->
+
+</div>
+<div class="chunknav"><a href="l1.html">← L1 · 线性方程组与高斯消元</a><a href="l3.html">L3 · 行空间、基、维数、秩 →</a></div>
+</body></html>

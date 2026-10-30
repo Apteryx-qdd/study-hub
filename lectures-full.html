@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MATH 0280 复习提纲 · 矩阵与线性代数（L1–L4）</title>
+<style>
+:root{
+  --l1:#2f6f9f; --l1b:#eaf3fa;
+  --l2:#7a51a6; --l2b:#f4eefa;
+  --l3:#2f8f6f; --l3b:#e9f6f1;
+  --l4:#b4703a; --l4b:#fdf2e8;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px; line-height:1.75;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{
+  background:linear-gradient(135deg,#123a5c 0%,#1c527f 55%,#2f6f9f 100%);
+  color:#fff;padding:46px 0 34px;margin-bottom:26px;
+}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.22em;font-size:12px;opacity:.75;text-transform:uppercase}
+h1{font-size:31px;margin:10px 0 6px;font-weight:700;letter-spacing:.5px}
+.sub{opacity:.9;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+  padding:4px 12px;border-radius:999px;font-size:13px}
+nav.toc{
+  position:sticky;top:0;z-index:20;background:rgba(251,252,253,.93);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-bottom:28px
+}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 6px;padding-top:10px;border-top:2px solid var(--line)}
+h2 .num{display:inline-block;background:#123a5c;color:#fff;border-radius:8px;
+  font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px}
+h4{font-size:15.5px;margin:18px 0 6px;color:#243447}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0 4px}
+.chain span{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 13px;font-size:14px}
+.chain i{color:#a8b4c0;font-style:normal}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:16px 0;
+  box-shadow:0 1px 2px rgba(16,32,48,.04)}
+.card.l1{border-left:5px solid var(--l1)} .card.l2{border-left:5px solid var(--l2)}
+.card.l3{border-left:5px solid var(--l3)} .card.l4{border-left:5px solid var(--l4)}
+.card h3{margin-top:0}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;margin-right:6px;
+  font-weight:700;letter-spacing:.04em}
+.t1{background:var(--l1b);color:var(--l1)} .t2{background:var(--l2b);color:var(--l2)}
+.t3{background:var(--l3b);color:var(--l3)} .t4{background:var(--l4b);color:var(--l4)}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0}
+.thm b{color:#123a5c}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+li::marker{color:#8b99a8}
+.k{font-weight:700;color:#123a5c}
+.mono{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:14px}
+math{font-size:1.02em}
+.formula{background:#f7f9fb;border-left:3px solid #b9c6d3;padding:9px 14px;border-radius:0 8px 8px 0;
+  margin:10px 0;font-size:15px;overflow-x:auto}
+pre.mat{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:13.6px;line-height:1.5;
+  background:#f7f9fb;border:1px solid var(--line);border-left:3px solid #b9c6d3;padding:11px 15px;
+  border-radius:0 8px 8px 0;overflow-x:auto;margin:10px 0;white-space:pre;color:#1c2733}
+pre.mat b{color:#a45c14;font-weight:700}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;background:#fff}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:#f2f5f9;font-weight:700;color:#243447}
+tbody tr:nth-child(even){background:#fafbfc}
+.warn{background:#fff8f0;border:1px solid #f4d9bd;border-left:5px solid #d98b3a;border-radius:10px;
+  padding:12px 16px;margin:12px 0}
+.warn b{color:#a45c14}
+.ok{background:#f1f8f4;border:1px solid #cfe7d9;border-left:5px solid #2f8f6f;border-radius:10px;
+  padding:12px 16px;margin:12px 0}
+.ok b{color:#1f6b51}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;color:#123a5c;outline:none}
+details[open] summary{margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.q{margin:18px 0 0}
+.q .stem{font-weight:600}
+.ans{color:#1f6b51}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.mindmap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;
+  max-height:82vh;overflow:auto}
+.mindmap svg{display:block;width:100%;height:auto;aspect-ratio:1254/2924;min-width:900px}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.pill{display:inline-block;background:#eef2f6;border-radius:999px;padding:2px 10px;font-size:12.5px;color:#465768;margin-right:6px}
+@media print{
+  nav.toc{position:static} details{border:1px solid #ccc} .card{box-shadow:none}
+  body{font-size:12pt} .mindmap{max-height:none;overflow:visible;border:none;padding:0}
+}
+</style>
+
+    /* --- 锚点跳转增强 --- */
+    h2[id], h3[id], div[id]{scroll-margin-top: 78px;}
+    nav.toc a{cursor:pointer;}
+    nav.toc a.active{background:#e3ecf4;color:#123a5c;font-weight:700;}
+</head>
+<body id="top">
+<div class="docbar" id="docbar"><div class="docbar-in">
+<a href="../../index.html">← 资料库</a><span style="opacity:.45">/</span>
+<a href="../../subjects/linear-algebra.html">线性代数</a><span style="opacity:.45">/</span>
+<b>四讲复习提纲（L1–L4）</b>
+<span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+<a class="pdfbtn" href="../../assets/pdf/MATH0280_复习提纲_手机版.pdf" target="_blank" rel="noopener">打开 PDF</a>
+</div></div>
+<style>
+.docbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px;line-height:1.6}
+.docbar-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.docbar a{color:#a9c6de;text-decoration:none}
+.docbar a:hover{color:#fff;text-decoration:underline}
+.docbar b{color:#fff;font-weight:600}
+.docbar .spacer{flex:1;min-width:8px}
+.docbar .pdfbtn{border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:1px 12px;color:#fff}
+.docbar .pdfbtn:hover{background:rgba(255,255,255,.14);text-decoration:none}
+@media print{.docbar{display:none}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">MATH 0280 · Matrices and Linear Algebra</div>
+    <h1>矩阵与线性代数 · 期中复习提纲</h1>
+    <div class="sub">Lecture 1–4 知识点总结 + 思维导图 + 自测题（Guanqiang “Tim” Zhou，Sichuan University – Auckland Institute）</div>
+    <div class="meta">
+      <span class="chip">L1 09/17 线性方程组与高斯消元</span>
+      <span class="chip">L2 09/24 张成集与线性无关</span>
+      <span class="chip">L3 10/08 行空间·基·维数·秩</span>
+      <span class="chip">L4 10/13 子空间与矩阵运算</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#map">⓪ 四讲主线</a>
+    <a href="#mindmap">① 思维导图</a>
+    <a href="#l1">② L1 方程组</a>
+    <a href="#l2">③ L2 张成/无关</a>
+    <a href="#l3">④ L3 基与秩</a>
+    <a href="#l4">⑤ L4 子空间/矩阵</a>
+    <a href="#cheat">⑥ 速查表</a>
+    <a href="#pit">⑦ 易错点</a>
+    <a href="#quiz">⑧ 自测题</a>
+    <a href="#plan">⑨ 复习计划</a>
+    <a href="#inv">Ⓐ 附录·求逆 A⁻¹</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ 0. 主线 ============ -->
+<h2 id="map"><span class="num">0</span>四讲主线：一条线串起来</h2>
+<p class="lead">这四讲不是四块独立内容，而是同一件事不断“升维”：<b>解方程 → 把方程写成矩阵 → 用消元读出结构</b>。</p>
+
+<div class="chain">
+  <span>线性方程组</span><i>→</i>
+  <span>等价变形（不改变解集）</span><i>→</i>
+  <span>增广矩阵 [A|b]</span><i>→</i>
+  <span>初等行变换 / 行阶梯形</span><i>→</i>
+  <span>Ax = b（列的组合）</span><i>→</i>
+  <span>span / 线性无关</span><i>→</i>
+  <span>行空间·基·维数·秩</span><i>→</i>
+  <span>子空间 + 秩定理</span><i>→</i>
+  <span>矩阵代数（乘法·转置）</span>
+</div>
+
+<div class="card">
+  <h3>一句话概括每一讲</h3>
+  <ul>
+    <li><b class="k">L1</b>：高斯消元 = 用三种<b>可逆</b>的方程运算，把方程组变形成三角形，再从下往上回代。</li>
+    <li><b class="k">L2</b>：解 <span class="mono">Ax=b</span> 等价于问「<b>b 能不能写成 A 的列向量的线性组合</b>」，系数 (x₁,…,xₙ) 就是答案；而<b>线性无关</b>问的是「有没有多余的向量」。</li>
+    <li><b class="k">L3</b>：把向量<b>按行</b>堆成矩阵 → 行空间；行变换不改变行空间 → 于是<b>阶梯形的非零行</b>就是一组基，其个数 = <b>维数 = 秩</b>。</li>
+    <li><b class="k">L4</b>：行空间、列空间、零空间都是<b>子空间</b>；<span class="mono">rank(A) + nullity(A) = n</span>；最后把矩阵当成一种“数”，研究它的加法、乘法、转置。</li>
+  </ul>
+</div>
+
+<!-- ============ 1. 思维导图 ============ -->
+<h2 id="mindmap"><span class="num">1</span>思维导图</h2>
+<p class="lead">四个分支对应四讲；每个分支先记住“标题框”，再往下回忆具体条目（复习时可以用手遮住条目自测）。</p>
+<div class="mindmap">
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MATH0280 L1-L4 思维导图" width="100%" height="auto" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1254 2924" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1254" height="2924" fill="#fbfcfd"/>
+<path d="M231.0,1462.0 C330.5,1462.0 330.5,360.5 430.0,360.5" fill="none" stroke="#2f6f9f" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,60.5 790.0,60.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,110.5 790.0,110.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,160.5 790.0,160.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,210.5 790.0,210.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,260.5 790.0,260.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,310.5 790.0,310.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,360.5 790.0,360.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,410.5 790.0,410.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,460.5 790.0,460.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,510.5 790.0,510.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,560.5 790.0,560.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,610.5 790.0,610.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,660.5 790.0,660.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M231.0,1462.0 C330.5,1462.0 330.5,1046.5 430.0,1046.5" fill="none" stroke="#7a51a6" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,771.5 790.0,771.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,821.5 790.0,821.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,871.5 790.0,871.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,921.5 790.0,921.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,971.5 790.0,971.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1021.5 790.0,1021.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1071.5 790.0,1071.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1121.5 790.0,1121.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1171.5 790.0,1171.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1221.5 790.0,1221.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1271.5 790.0,1271.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1321.5 790.0,1321.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M231.0,1462.0 C330.5,1462.0 330.5,1707.5 430.0,1707.5" fill="none" stroke="#2f8f6f" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1432.5 790.0,1432.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1482.5 790.0,1482.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1532.5 790.0,1532.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1582.5 790.0,1582.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1632.5 790.0,1632.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1682.5 790.0,1682.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1732.5 790.0,1732.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1782.5 790.0,1782.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1832.5 790.0,1832.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1882.5 790.0,1882.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1932.5 790.0,1932.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1982.5 790.0,1982.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M231.0,1462.0 C330.5,1462.0 330.5,2468.5 430.0,2468.5" fill="none" stroke="#b4703a" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2093.5 790.0,2093.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2143.5 790.0,2143.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2193.5 790.0,2193.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2243.5 790.0,2243.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2293.5 790.0,2293.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2343.5 790.0,2343.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2393.5 790.0,2393.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2443.5 790.0,2443.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2493.5 790.0,2493.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2543.5 790.0,2543.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2593.5 790.0,2593.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2643.5 790.0,2643.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2693.5 790.0,2693.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2743.5 790.0,2743.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2793.5 790.0,2793.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2843.5 790.0,2843.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<rect x="50.0" y="1411.5" width="181.0" height="101.0" rx="10" fill="#123a5c" stroke="#123a5c" stroke-width="1.2"/>
+<text x="64.0" y="1441.8" font-size="21" fill="#ffffff" font-weight="bold">MATH 0280</text>
+<text x="64.0" y="1468.8" font-size="21" fill="#ffffff" font-weight="bold">矩阵与线性代数</text>
+<text x="64.0" y="1495.8" font-size="21" fill="#ffffff" font-weight="bold">L1-L4 知识地图</text>
+<rect x="430.0" y="328.0" width="222.0" height="65.0" rx="10" fill="#2f6f9f" stroke="#2f6f9f" stroke-width="1.2"/>
+<text x="444.0" y="354.6" font-size="17" fill="#ffffff" font-weight="bold">L1 线性方程组与高斯消元</text>
+<text x="444.0" y="390.6" font-size="12" fill="#ffffff" fill-opacity="0.85">09/17</text>
+<rect x="790.0" y="40.0" width="414.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="40.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="64.8" font-size="15" fill="#1c2733" font-weight="normal">线性方程 a1x1 + … + anxn = b：变量一次幂、只乘常数</text>
+<rect x="790.0" y="90.0" width="279.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="90.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="114.8" font-size="15" fill="#1c2733" font-weight="normal">线性方程组：m 个方程、n 个未知量</text>
+<rect x="790.0" y="140.0" width="263.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="140.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="164.8" font-size="15" fill="#1c2733" font-weight="normal">解：同时满足每个方程的有序数组</text>
+<rect x="790.0" y="190.0" width="276.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="190.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="214.8" font-size="15" fill="#1c2733" font-weight="normal">解的三种情形：唯一 / 无穷多 / 无解</text>
+<rect x="790.0" y="240.0" width="299.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="240.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="264.8" font-size="15" fill="#1c2733" font-weight="normal">相容 consistent；不相容 inconsistent</text>
+<rect x="790.0" y="290.0" width="218.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="290.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="314.8" font-size="15" fill="#1c2733" font-weight="normal">等价方程组：解集完全相同</text>
+<rect x="790.0" y="340.0" width="353.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="340.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="364.8" font-size="15" fill="#1c2733" font-weight="normal">三种方程运算：交换两式、乘非零常数、行倍加</text>
+<rect x="790.0" y="390.0" width="278.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="390.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="414.8" font-size="15" fill="#1c2733" font-weight="normal">回代：从最后一个方程往上依次求解</text>
+<rect x="790.0" y="440.0" width="287.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="440.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="464.8" font-size="15" fill="#1c2733" font-weight="normal">增广矩阵 [A|b]：只记录系数与常数项</text>
+<rect x="790.0" y="490.0" width="319.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="490.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="514.8" font-size="15" fill="#1c2733" font-weight="normal">矩阵 = 矩形数表 (m×n)；向量 = 有序数组</text>
+<rect x="790.0" y="540.0" width="323.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="540.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="564.8" font-size="15" fill="#1c2733" font-weight="normal">初等行变换：换行、倍乘、倍加，解集不变</text>
+<rect x="790.0" y="590.0" width="323.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="590.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="614.8" font-size="15" fill="#1c2733" font-weight="normal">行阶梯形 REF：零行在最下，主元逐行右移</text>
+<rect x="790.0" y="640.0" width="298.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="640.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="664.8" font-size="15" fill="#1c2733" font-weight="normal">主元 pivot；高斯消元四步 → 回代求解</text>
+<rect x="430.0" y="1014.0" width="188.0" height="65.0" rx="10" fill="#7a51a6" stroke="#7a51a6" stroke-width="1.2"/>
+<text x="444.0" y="1040.6" font-size="17" fill="#ffffff" font-weight="bold">L2 张成集与线性无关</text>
+<text x="444.0" y="1076.6" font-size="12" fill="#ffffff" fill-opacity="0.85">09/24</text>
+<rect x="790.0" y="751.0" width="307.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="751.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="775.8" font-size="15" fill="#1c2733" font-weight="normal">列视角：Ax = x1a1 + x2a2 + … + xnan</text>
+<rect x="790.0" y="801.0" width="311.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="801.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="825.8" font-size="15" fill="#1c2733" font-weight="normal">Ax = b 相容 当且仅当 b 是 A 的列的组合</text>
+<rect x="790.0" y="851.0" width="271.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="851.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="875.8" font-size="15" fill="#1c2733" font-weight="normal">线性组合 c1v1 + c2v2 + … + ckvk</text>
+<rect x="790.0" y="901.0" width="245.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="901.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="925.8" font-size="15" fill="#1c2733" font-weight="normal">四种组合：线性 / 锥 / 仿射 / 凸</text>
+<rect x="790.0" y="951.0" width="309.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="951.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="975.8" font-size="15" fill="#1c2733" font-weight="normal">张成 span(S) = 全部线性组合构成的集合</text>
+<rect x="790.0" y="1001.0" width="306.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1001.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1025.8" font-size="15" fill="#1c2733" font-weight="normal">标准单位向量 ei；Rn = span{e1, …, en}</text>
+<rect x="790.0" y="1051.0" width="324.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1051.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1075.8" font-size="15" fill="#1c2733" font-weight="normal">一个非零向量 → 直线；两个不平行 → 平面</text>
+<rect x="790.0" y="1101.0" width="306.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1101.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1125.8" font-size="15" fill="#1c2733" font-weight="normal">线性相关：有不全为零的系数使组合为 0</text>
+<rect x="790.0" y="1151.0" width="308.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1151.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1175.8" font-size="15" fill="#1c2733" font-weight="normal">线性无关：只有全 0 系数才能使组合为 0</text>
+<rect x="790.0" y="1201.0" width="292.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1201.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1225.8" font-size="15" fill="#1c2733" font-weight="normal">Ac = 0 只有零解 当且仅当 列向量无关</text>
+<rect x="790.0" y="1251.0" width="293.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1251.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1275.8" font-size="15" fill="#1c2733" font-weight="normal">无自由变量则无关；有自由变量则相关</text>
+<rect x="790.0" y="1301.0" width="258.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1301.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1325.8" font-size="15" fill="#1c2733" font-weight="normal">Rn 中超过 n 个向量一定线性相关</text>
+<rect x="430.0" y="1675.0" width="192.0" height="65.0" rx="10" fill="#2f8f6f" stroke="#2f8f6f" stroke-width="1.2"/>
+<text x="444.0" y="1701.6" font-size="17" fill="#ffffff" font-weight="bold">L3 行空间·基·维数·秩</text>
+<text x="444.0" y="1737.6" font-size="12" fill="#ffffff" fill-opacity="0.85">10/08</text>
+<rect x="790.0" y="1412.0" width="245.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1412.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1436.8" font-size="15" fill="#1c2733" font-weight="normal">两种堆叠：行堆叠 A / 列堆叠 B</text>
+<rect x="790.0" y="1462.0" width="331.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1462.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1486.8" font-size="15" fill="#1c2733" font-weight="normal">行空间 row(A) = span{A 的各行}，在 Rn 中</text>
+<rect x="790.0" y="1512.0" width="334.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1512.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1536.8" font-size="15" fill="#1c2733" font-weight="normal">初等行变换不改变行空间：row(A) = row(R)</text>
+<rect x="790.0" y="1562.0" width="194.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1562.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1586.8" font-size="15" fill="#1c2733" font-weight="normal">基 = 张成 S + 线性无关</text>
+<rect x="790.0" y="1612.0" width="241.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1612.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1636.8" font-size="15" fill="#1c2733" font-weight="normal">基 = 极小张成集 = 极大无关组</text>
+<rect x="790.0" y="1662.0" width="303.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1662.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1686.8" font-size="15" fill="#1c2733" font-weight="normal">维数 dim(S) = 任意一组基中向量的个数</text>
+<rect x="790.0" y="1712.0" width="209.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1712.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1736.8" font-size="15" fill="#1c2733" font-weight="normal">秩 rank(A) = dim row(A)</text>
+<rect x="790.0" y="1762.0" width="308.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1762.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1786.8" font-size="15" fill="#1c2733" font-weight="normal">基定理：同一空间的任意两组基个数相同</text>
+<rect x="790.0" y="1812.0" width="320.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1812.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1836.8" font-size="15" fill="#1c2733" font-weight="normal">坐标唯一：v = c1v1 + … + ckvk 表示唯一</text>
+<rect x="790.0" y="1862.0" width="219.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1862.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1886.8" font-size="15" fill="#1c2733" font-weight="normal">坐标向量 [v]B = (c1, …, ck)</text>
+<rect x="790.0" y="1912.0" width="308.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1912.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1936.8" font-size="15" fill="#1c2733" font-weight="normal">列方法：主元列对应的原矩阵的列构成基</text>
+<rect x="790.0" y="1962.0" width="331.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1962.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1986.8" font-size="15" fill="#1c2733" font-weight="normal">行方法 vs 列方法：同一空间、两组不同的基</text>
+<rect x="430.0" y="2436.0" width="188.0" height="65.0" rx="10" fill="#b4703a" stroke="#b4703a" stroke-width="1.2"/>
+<text x="444.0" y="2462.6" font-size="17" fill="#ffffff" font-weight="bold">L4 子空间与矩阵运算</text>
+<text x="444.0" y="2498.6" font-size="12" fill="#ffffff" fill-opacity="0.85">10/13</text>
+<rect x="790.0" y="2073.0" width="293.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2073.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2097.8" font-size="15" fill="#1c2733" font-weight="normal">子空间：含零向量；对加法、数乘封闭</text>
+<rect x="790.0" y="2123.0" width="248.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2123.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2147.8" font-size="15" fill="#1c2733" font-weight="normal">等价条件：对一切线性组合封闭</text>
+<rect x="790.0" y="2173.0" width="237.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2173.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2197.8" font-size="15" fill="#1c2733" font-weight="normal">span(v1, …, vk) 一定是子空间</text>
+<rect x="790.0" y="2223.0" width="297.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2223.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2247.8" font-size="15" fill="#1c2733" font-weight="normal">三个子空间：row(A)、col(A)、null(A)</text>
+<rect x="790.0" y="2273.0" width="283.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2273.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2297.8" font-size="15" fill="#1c2733" font-weight="normal">b 在 col(A) 中 当且仅当 Ax = b 相容</text>
+<rect x="790.0" y="2323.0" width="278.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2323.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2347.8" font-size="15" fill="#1c2733" font-weight="normal">行变换保行空间，但一般不保列空间</text>
+<rect x="790.0" y="2373.0" width="243.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2373.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2397.8" font-size="15" fill="#1c2733" font-weight="normal">行空间基：RREF 的全部非零行</text>
+<rect x="790.0" y="2423.0" width="267.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2423.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2447.8" font-size="15" fill="#1c2733" font-weight="normal">列空间基：主元列所对应的 A 的列</text>
+<rect x="790.0" y="2473.0" width="320.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2473.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2497.8" font-size="15" fill="#1c2733" font-weight="normal">零空间 null(A) = {x : Ax = 0}，必为子空间</text>
+<rect x="790.0" y="2523.0" width="246.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2523.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2547.8" font-size="15" fill="#1c2733" font-weight="normal">零度 nullity(A) = 自由变量个数</text>
+<rect x="790.0" y="2573.0" width="322.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2573.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2597.8" font-size="15" fill="#1c2733" font-weight="normal">秩定理：rank(A) + nullity(A) = n（列数）</text>
+<rect x="790.0" y="2623.0" width="353.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2623.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2647.8" font-size="15" fill="#1c2733" font-weight="normal">矩阵乘法 c_ij = Σ a_ik b_kj；(m×n)(n×r)=m×r</text>
+<rect x="790.0" y="2673.0" width="291.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2673.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2697.8" font-size="15" fill="#1c2733" font-weight="normal">三种视角：列组合 / 行组合 / 外积之和</text>
+<rect x="790.0" y="2723.0" width="338.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2723.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2747.8" font-size="15" fill="#1c2733" font-weight="normal">不满足交换律；(A+B)² = A² + AB + BA + B²</text>
+<rect x="790.0" y="2773.0" width="181.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2773.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2797.8" font-size="15" fill="#1c2733" font-weight="normal">A² = O 推不出 A = O</text>
+<rect x="790.0" y="2823.0" width="364.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2823.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2847.8" font-size="15" fill="#1c2733" font-weight="normal">转置 (AB)^T = B^T A^T；A+A^T、AA^T 对称</text>
+</svg>
+</div>
+<p style="font-size:13px;color:var(--muted)">同目录下另有 <span class="mono">mindmap.png</span>（高清图）与 <span class="mono">mindmap.svg</span>（矢量图），可单独打印或放大。</p>
+
+<!-- ============ 2. L1 ============ -->
+<h2 id="l1"><span class="num">2</span>L1 · 线性方程组与高斯消元</h2>
+
+<div class="card l1">
+  <h3><span class="tag t1">定义</span>线性方程与线性方程组</h3>
+  <p><b>线性方程</b>（n 个未知量）指可以写成</p>
+  <div class="formula">a₁x₁ + a₂x₂ + ⋯ + a<sub>n</sub>x<sub>n</sub> = b，其中 a₁,…,a<sub>n</sub>, b 都是常数</div>
+  <p>关键特征：每个变量只出现<b>一次幂</b>，并且只被<b>常数</b>相乘。所以下列都<b>不是</b>线性的：</p>
+  <p><span class="pill">xy（变量相乘）</span><span class="pill">x²（幂次≠1）</span><span class="pill">1/x（倒数）</span><span class="pill">sin x（非线性函数）</span><span class="pill">√x</span></p>
+  <p><b>线性方程组</b>：m 个方程、n 个未知量；<b>解</b>是一个有序数组 (s₁,…,s<sub>n</sub>)，它<b>同时</b>满足每一个方程；所有解构成<b>解集</b>。</p>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">核心</span>三种解的情形与“相容”</h3>
+  <p>任何线性方程组只有三种可能：</p>
+  <ol>
+    <li><b>唯一解</b>（unique）：R² 中两直线交于一点；</li>
+    <li><b>无穷多解</b>（infinitely many）：两直线重合；</li>
+    <li><b>无解</b>（no solution）：两直线平行且不重合。</li>
+  </ol>
+  <p><span class="k">相容 consistent</span> = 至少有一个解；<span class="k">不相容 inconsistent</span> = 无解。</p>
+  <div class="formula">R² 中：相交 ⇒ 唯一解　|　重合 ⇒ 无穷多解　|　平行不重合 ⇒ 无解</div>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">方法</span>等价方程组与三种方程运算</h3>
+  <p>两个方程组<b>等价</b>（equivalent）⇔ 解集完全相同。我们不必直接解原方程组，而是把它变成更简单但<b>等价</b>的方程组。允许的三种运算：</p>
+  <ol>
+    <li>交换两个方程；</li>
+    <li>用一个<b>非零</b>常数乘某个方程；</li>
+    <li>把一个方程的倍数加到另一个方程上。</li>
+  </ol>
+  <div class="ok"><b>为什么可以这样做？</b>三种运算都是<b>可逆</b>的（能原路退回去），所以既不会丢解，也不会增解——解集不变。<br>
+  <span style="font-size:13.5px;color:#465768">注意：这里的“可逆”指<b>运算本身可逆</b>，跟“求矩阵的逆 A<sup>−1</sup>”是两件事（求逆见文末<b>附录 A</b>）。</span></div>
+  <p><b>例</b>（L1 幻灯片）：x − y = 1, x + y = 3 ⟺ x − y = 1, y = 1。后者容易，直接回代得 x = 2, y = 1。</p>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">方法</span>回代 back substitution</h3>
+  <p>当方程组呈<b>三角形</b>（最后一个方程只含最后的变量）时，从下往上逐个解出：</p>
+  <ol>
+    <li>先解最后一个方程，得到最后一个变量；</li>
+    <li>把已知值代回上一个方程；</li>
+    <li>重复，直到所有变量都求出。</li>
+  </ol>
+  <div class="formula">例：x − y + z = 2，y + 3z = 5，5z = 10 ⟹ z = 2 → y = −1 → x = −1</div>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">对象</span>增广矩阵、矩阵、向量</h3>
+  <p>反复抄写变量太麻烦，于是只记录<b>系数</b>与<b>常数项</b>（竖线左边是系数矩阵 A，右边是 b）：</p>
+<pre class="mat">  x − y − z = 2            [ 1  −1  −1 |  2 ]
+  3x − 3y + 2z = 16   ⟹    [ 3  −3   2 | 16 ]
+  2x −  y +  z = 9         [ 2  −1   1 |  9 ]</pre>
+  <ul>
+    <li><b>矩阵</b>：数的矩形排列；m 行 n 列 ⟹ <b>m×n 矩阵</b>；第 i 行第 j 列的元素记 a<sub>ij</sub>。</li>
+    <li><b>向量</b>：有序数组（n×1 为列向量，1×n 为行向量）。</li>
+    <li>矩阵记号<b>不是新问题</b>，只是一种更紧凑的存储方式；最终可以写成 <span class="mono">Ax = b</span>。</li>
+  </ul>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">方法</span>初等行变换与行阶梯形（REF）</h3>
+  <p>三种方程运算翻译成矩阵语言，就是三种<b>初等行变换</b>：</p>
+  <table>
+    <tr><th>方程运算</th><th>矩阵记号</th><th>备注</th></tr>
+    <tr><td>交换两式</td><td class="mono">R<sub>i</sub> ↔ R<sub>j</sub></td><td>可逆</td></tr>
+    <tr><td>乘非零常数</td><td class="mono">R<sub>i</sub> ← k R<sub>i</sub></td><td>要求 k ≠ 0</td></tr>
+    <tr><td>加另一式的倍数</td><td class="mono">R<sub>i</sub> ← R<sub>i</sub> + k R<sub>j</sub></td><td>可逆（再减回去）</td></tr>
+  </table>
+  <div class="thm">
+    <b>行阶梯形（row echelon form, REF）</b>满足：<br>
+    ① 全零行必须放在最下面；<br>
+    ② 每个非零行的第一个非零元，必须严格位于上一行第一个非零元的<b>右侧</b>。<br>
+    （阶梯形不要求主元是 1，也不要求主元上方为 0；这些是 RREF 的额外要求。）
+  </div>
+  <p><b>主元 pivot</b>：用来消去其下方元素的那个首非零元。策略是：找主元 → 用它把下面清成 0 → 换到下一列 → 重复。</p>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">算法</span>高斯消元四步 + 完整例题</h3>
+  <ol>
+    <li>写出增广矩阵 [A | b]；</li>
+    <li>用初等行变换化成行阶梯形；</li>
+    <li>把阶梯形翻译回方程组；</li>
+    <li>回代求解。</li>
+  </ol>
+  <p><b>例</b>：解 2y + 3z = 8，2x + 3y + z = 5，x − y − 2z = −5。（逐步竖写，箭头右边是这一步执行的行变换。）</p>
+<pre class="mat">  [ 0   2   3 |   8 ]                            第 1 列全是 0 开头，先换个"好主元"
+  [ 2   3   1 |   5 ]        R₁ ↔ R₃
+  [ 1  −1  −2 |  −5 ]
+
+  [ 1  −1  −2 |  −5 ]        R₂ ← R₂ − 2R₁     用主元 1 把下面清 0
+  [ 0   5   5 |  15 ]        R₃ 已经是 0，不用动
+  [ 0   2   3 |   8 ]
+
+  [ 1  −1  −2 |  −5 ]        R₂ ← (1/5)·R₂     主元化成 1，方便计算
+  [ 0   1   1 |   3 ]
+  [ 0   2   3 |   8 ]
+
+  [ 1  −1  −2 |  −5 ]        R₃ ← R₃ − 2R₂     第二列也清 0 → 行阶梯形
+  [ 0   1   1 |   3 ]
+  [ 0   0   1 |   2 ]</pre>
+  <p>回代：z = 2 → y + 2 = 3 ⇒ y = 1 → x − 1 − 4 = −5 ⇒ x = 0。所以解是 <b>(x, y, z) = (0, 1, 2)</b>。</p>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">小结</span>本讲必须会做的事</h3>
+  <ul>
+    <li>判断一个方程是不是线性的；</li>
+    <li>说出“解一个方程组”是什么意思，以及三种解的个数情形；</li>
+    <li>写出增广矩阵，做初等行变换，化成 REF，再回代；</li>
+    <li>理解“等价变换不改变解集”是整章的<b>方法论地基</b>。</li>
+  </ul>
+</div>
+
+<!-- ============ 3. L2 ============ -->
+<h2 id="l2"><span class="num">3</span>L2 · 张成集与线性无关</h2>
+
+<div class="card l2">
+  <h3><span class="tag t2">核心视角</span>把 Ax = b 看成“列的组合”</h3>
+  <p>把 A 按列拆开：A = [a₁ a₂ ⋯ a<sub>n</sub>]，则</p>
+  <div class="formula">Ax = x₁a₁ + x₂a₂ + ⋯ + x<sub>n</sub>a<sub>n</sub> = b</div>
+  <p>于是“解方程组”= 问：<b>取什么系数，能让 A 的各列组合出 b？</b></p>
+  <div class="thm">
+    <b>定理（相容性的列形式）</b>：以 [A | b] 为增广矩阵的方程组<b>相容</b> ⇔ <b>b 是 A 的列向量的线性组合</b> ⇔ b ∈ span{a₁,…,a<sub>n</sub>}。
+  </div>
+  <p>几何含义：唯一解 ⇒ b 落在 span 中且表示方式唯一；无穷多解 ⇒ b 在 span 中但表示方式不唯一；无解 ⇒ b 根本不在 span 中。</p>
+</div>
+
+<div class="card l2">
+  <h3><span class="tag t2">定义</span>线性组合与张成</h3>
+  <p><b>线性组合</b>：给定 v₁,…,v<sub>k</sub>，形如 c₁v₁ + c₂v₂ + ⋯ + c<sub>k</sub>v<sub>k</sub> 的表达式（c<sub>i</sub> ∈ ℝ）。</p>
+  <p><b>张成</b> span(S) = 所有线性组合构成的集合：</p>
+  <div class="formula">span{v₁,…,v<sub>k</sub>} = { c₁v₁ + ⋯ + c<sub>k</sub>v<sub>k</sub> : c₁,…,c<sub>k</sub> ∈ ℝ }</div>
+  <p>若 span(S) = ℝⁿ，则称 S 是 ℝⁿ 的<b>张成集</b>（spanning set）：这些向量足够多，可以“搭出”空间中每个向量。</p>
+  <p><b>四种组合</b>（同一个式子，不同的系数限制）：</p>
+  <table>
+    <tr><th>类型</th><th>形式</th><th>系数限制</th><th>得到</th></tr>
+    <tr><td>线性组合 linear</td><td>Σ θ<sub>i</sub>x<sub>i</sub></td><td>θ<sub>i</sub> ∈ ℝ</td><td>子空间 span{x<sub>i</sub>}</td></tr>
+    <tr><td>锥组合 conic</td><td>Σ θ<sub>i</sub>x<sub>i</sub></td><td>θ<sub>i</sub> ≥ 0</td><td>凸锥</td></tr>
+    <tr><td>仿射组合 affine</td><td>Σ θ<sub>i</sub>x<sub>i</sub></td><td>Σθ<sub>i</sub> = 1</td><td>仿射空间</td></tr>
+    <tr><td>凸组合 convex</td><td>Σ θ<sub>i</sub>x<sub>i</sub></td><td>θ<sub>i</sub> ≥ 0 且 Σθ<sub>i</sub> = 1</td><td>凸集</td></tr>
+  </table>
+</div>
+
+<div class="card l2">
+  <h3><span class="tag t2">几何</span>span 长什么样</h3>
+  <ul>
+    <li><b>一个</b>非零向量 → 过原点的<b>直线</b>；零向量 → 只有 {0}。</li>
+    <li><b>两个不平行</b>的向量（ℝ² 中）→ 整个平面（ℝ²）；平行则退化为一条直线。</li>
+    <li>ℝ³ 中 u = (1,0,3), v = (−1,1,−3) 不平行 ⟹ span{u,v} 是过原点的<b>平面</b>；由 x = s−t, y = t, z = 3s−3t 消去 s,t 得 <b>z = 3x</b>。</li>
+    <li><b>标准单位向量</b> e₁,…,e<sub>n</sub>（第 i 个位置为 1，其余为 0）满足 x = x₁e₁ + ⋯ + x<sub>n</sub>e<sub>n</sub>，故 <b>span{e₁,…,e<sub>n</sub>} = ℝⁿ</b>。</li>
+  </ul>
+</div>
+
+<div class="card l2">
+  <h3><span class="tag t2">定义</span>线性相关 / 线性无关</h3>
+  <div class="thm">
+    <b>线性相关</b>（dependent）：存在<b>不全为零</b>的 c₁,…,c<sub>k</sub> 使 c₁v₁ + ⋯ + c<sub>k</sub>v<sub>k</sub> = 0。<br>
+    <b>线性无关</b>（independent）：c₁v₁ + ⋯ + c<sub>k</sub>v<sub>k</sub> = 0 <b>只有</b>平凡解 c₁ = ⋯ = c<sub>k</sub> = 0。
+  </div>
+  <p>两种说法等价：<b>相关 ⇔ 至少有一个向量可以写成其余向量的线性组合</b>（“有多余信息”）。</p>
+  <p><b>证明思路</b>：若 v₁ = c₂v₂ + ⋯ + c<sub>m</sub>v<sub>m</sub>，则 v₁ − c₂v₂ − ⋯ − c<sub>m</sub>v<sub>m</sub> = 0 是非平凡组合；反之若有 c₁ ≠ 0，两边除以 c₁ 解出 v₁。</p>
+  <p><b>两个向量的速判</b>：相关 ⇔ 一个是另一个的标量倍（如 v = −2u ⟹ 2u + v = 0）。</p>
+</div>
+
+<div class="card l2">
+  <h3><span class="tag t2">判定</span>矩阵视角：Ac = 0</h3>
+  <p>把 v₁,…,v<sub>m</sub> 放进矩阵的<b>列</b>：A = [v₁ v₂ ⋯ v<sub>m</sub>]，则</p>
+  <div class="formula">c₁v₁ + ⋯ + c<sub>m</sub>v<sub>m</sub> = 0　⟺　Ac = 0（齐次方程组）</div>
+  <div class="thm">
+    <b>判定定理</b>：v₁,…,v<sub>m</sub> 线性无关 ⇔ Ac = 0 <b>只有零解</b> ⇔ A 化成阶梯形后<b>每一列都是主元列</b>（没有自由变量）。
+  </div>
+  <p><b>操作四步</b>：① 把向量按列排成 A；② 解齐次方程组 Ac = 0；③ 对 A 做行化简；④ 看有没有自由变量——<b>无自由变量 ⇒ 无关；有自由变量 ⇒ 相关</b>。</p>
+  <p><b>例</b>：v₁ = (1,1,0), v₂ = (0,1,1), v₃ = (1,0,1)。解 c₁ + c₃ = 0, c₁ + c₂ = 0, c₂ + c₃ = 0，行化简后得 c₃ = c₂ = c₁ = 0 ⇒ <b>线性无关</b>。</p>
+  <div class="warn">
+    <b>数量上限</b>：ℝⁿ 中<b>超过 n 个</b>向量一定线性相关（如 ℝ² 中不可能有 3 个无关向量，因为 (1,1) = (1,0) + (0,1)）。
+  </div>
+</div>
+
+<div class="card l2">
+  <h3><span class="tag t2">联系</span>span 与无关：一对互补的问题</h3>
+  <ul>
+    <li><b>span</b> 问：这些向量<b>够不够</b>生成整个空间？（“能不能覆盖”）</li>
+    <li><b>线性无关</b> 问：这些向量里<b>有没有多余</b>的？（“能不能精简”）</li>
+    <li>既 span ℝ³ 又线性无关的例子：{e₁, e₂, e₃} —— 这正是标准基特别重要的原因，也直接引出下一讲的“<b>基</b>”。</li>
+  </ul>
+</div>
+
+<!-- ============ 4. L3 ============ -->
+<h2 id="l3"><span class="num">4</span>L3 · 行空间、基、维数、秩</h2>
+
+<div class="card l3">
+  <h3><span class="tag t3">起点</span>同一组向量的两种堆法</h3>
+  <p>给定 v₁,…,v<sub>k</sub> ∈ ℝⁿ，可以堆成<b>行</b>，也可以堆成<b>列</b>：</p>
+  <div class="formula">
+    <b>行堆叠</b>：A 的每一行就是一个向量（A 是 k×n）　　<b>列堆叠</b>：B = [v₁ v₂ ⋯ v<sub>k</sub>]（B 是 n×k）</div>
+  <ul>
+    <li>行图 → 引出 <b>行空间</b> 与 <b>秩</b>；</li>
+    <li>列图 → 引出<b>求基的第二种方法</b>（列方法）；</li>
+    <li>两者“暗中是一回事”：给出的基<b>大小相同</b>（都等于秩）。</li>
+  </ul>
+</div>
+
+<div class="card l3">
+  <h3><span class="tag t3">定义</span>行空间与“行变换不改变行空间”</h3>
+  <div class="thm">
+    <b>定义</b>：row(A) = span{A 的各行}（是 ℝⁿ 的子空间，n = 列数）。<br>
+    <b>关键事实</b>：若 B 与 A 行等价（row equivalent），则 <b>row(B) = row(A)</b>。
+  </div>
+  <p><b>证明思路</b>：行变换使 B 的每一行都是 A 的行的线性组合 ⇒ row(B) ⊆ row(A)；运算可逆，反过来也成立 ⇒ row(A) ⊆ row(B)。</p>
+  <p><b>直觉</b>：化简过程中“消掉的”信息其实都是原来各行的组合，所以张成的集合没变；化到阶梯形后，非零行就是“去掉冗余后剩下的东西”。</p>
+  <p><b>例</b>：A = [1 2 3; 2 4 6] → [1 2 3; 0 0 0]，所以 row(A) = span{(1,2,3)}，是 ℝ³ 中过原点的一条<b>直线</b>（维数 1）。</p>
+</div>
+
+<div class="card l3">
+  <h3><span class="tag t3">定义</span>基（basis）· 维数（dimension）· 秩（rank）</h3>
+  <div class="thm">
+    <b>基</b>：集合 {b₁,…,b<sub>k</sub>} 若①张成 S 且②线性无关，就称为 S 的一组基。<br>
+    记忆：<b>基 = 极小张成集 = 极大线性无关组</b>。
+  </div>
+  <p><b>维数</b> dim(S)：任意一组基中向量的<b>个数</b>（下面用“基定理”保证这个数不依赖于选哪组基）。</p>
+  <p><b>秩</b> rank(A) = dim row(A)（L4 还会证明它同时等于 dim col(A)）。</p>
+  <p><b>怎么算</b>：把 A 化成阶梯形，数<b>非零行的个数</b>。</p>
+  <div class="formula">例：rank[1 2; 2 4] = 1，rank[1 2; 3 4] = 2，rank[0 0; 0 0] = 0，dim{0} = 0（约定），dim ℝⁿ = n</div>
+</div>
+
+<div class="card l3">
+  <h3><span class="tag t3">定理</span>基定理：任意两组基大小相同</h3>
+  <div class="thm">
+    <b>Basis Theorem</b>：同一空间 S 的任意两组基所含向量个数相同。因此“维数”是良定义的。
+  </div>
+  <p><b>证明思路</b>（考试常考“说出思路”）：设 B = {u₁,…,u<sub>r</sub>}，C = {v₁,…,v<sub>s</sub>} 都是基，反设 r &lt; s。因为 B 张成 S，可把每个 v<sub>i</sub> 写成 v<sub>i</sub> = Σ<sub>j</sub> a<sub>ij</sub>u<sub>j</sub>。</p>
+  <p>若有 c₁v₁ + ⋯ + c<sub>s</sub>v<sub>s</sub> = 0，代入并整理得关于 c 的<b>齐次方程组</b>：Σ<sub>i</sub> c<sub>i</sub>a<sub>ij</sub> = 0（j = 1,…,r）。这是 <b>r 个方程、s 个未知数</b>且 r &lt; s，必有<b>非零解</b>；于是 C 线性相关，矛盾。故 r ≥ s；对称地 s ≥ r，所以 r = s。</p>
+  <p><b>直觉版本</b>：在 ℝⁿ 里，任意 n+1 个向量必相关，所以基不可能“更小”或“更大”。</p>
+</div>
+
+<div class="card l3">
+  <h3><span class="tag t3">定理</span>坐标的唯一性</h3>
+  <div class="thm">
+    <b>定理</b>：若 {v₁,…,v<sub>k</sub>} 是 S 的一组基，则每个 v ∈ S 都<b>唯一</b>地写成 v = c₁v₁ + ⋯ + c<sub>k</sub>v<sub>k</sub>。
+  </div>
+  <p><b>证明</b>：设两种写法，相减得 (c₁−d₁)v₁ + ⋯ + (c<sub>k</sub>−d<sub>k</sub>)v<sub>k</sub> = 0；由线性无关，所有系数为 0，故 c<sub>i</sub> = d<sub>i</sub>。</p>
+  <p>这些系数称为 v 关于基 B 的<b>坐标</b>，记作坐标向量 [v]<sub>B</sub> = (c₁,…,c<sub>k</sub>)。</p>
+  <div class="ok"><b>小结论</b>：关于<b>标准基</b> E = {e₁,e₂,e₃} 的坐标向量就是向量本身：[v]<sub>E</sub> = v。</div>
+</div>
+
+<div class="card l3">
+  <h3><span class="tag t3">方法</span>行方法与列方法（同一空间，两组不同的基）</h3>
+  <table>
+    <tr><th></th><th>行方法</th><th>列方法</th></tr>
+    <tr><td>怎么堆</td><td>向量作为 A 的<b>行</b></td><td>向量作为 A 的<b>列</b></td></tr>
+    <tr><td>求什么</td><td>row(A) 的基</td><td>span{v₁,…,v<sub>k</sub>}（= col(A)）的基</td></tr>
+    <tr><td>基是谁</td><td>化简后矩阵的<b>非零行</b></td><td><b>主元列</b>所对应的<b>原矩阵</b>的列</td></tr>
+    <tr><td>为什么</td><td>行变换不改变行空间</td><td>行变换不改变列之间的<b>相关关系</b></td></tr>
+  </table>
+  <p><b>列方法例题</b>：u = (1,2,3), v = (2,1,0), w = (0,3,6)，把它们按列堆成矩阵再化简：</p>
+<pre class="mat">  [ 1   2   0 ]                 [ 1   2   0 ]                 [ 1   0   2 ]
+  [ 2   1   3 ]   R₂−2R₁, R₃−3R₁ [ 0  −3   3 ]   R₂÷(−3), R₃+2R₂ [ 0   1  −1 ]
+  [ 3   0   6 ]                 [ 0  −6   6 ]                 [ 0   0   0 ]</pre>
+  <p>所以 <b>{(1,2,3), (2,1,0)}</b> 是 span(u,v,w) 的一组基；第三列是多余的（w = 2u − v）。行方法得到的是 <b>{(1,2,3), (0,1,2)}</b>——<b>不同的基，但都是 2 个</b>，这就是基定理。</p>
+  <div class="warn"><b>最容易踩的坑</b>：列方法中，基向量必须回到<b>原矩阵 A</b> 去取那几列，<b>不能</b>用化简后的列（行变换会改变列空间）。</div>
+</div>
+
+<!-- ============ 5. L4 ============ -->
+<h2 id="l4"><span class="num">5</span>L4 · 子空间与矩阵运算</h2>
+
+<div class="card l4">
+  <h3><span class="tag t4">定义</span>子空间（subspace）</h3>
+  <div class="thm">
+    S ⊆ ℝⁿ 是<b>子空间</b>，当且仅当：<br>
+    ① <b>0 ∈ S</b>；② 对<b>加法</b>封闭：u, v ∈ S ⇒ u + v ∈ S；③ 对<b>数乘</b>封闭：u ∈ S, c ∈ ℝ ⇒ cu ∈ S。
+  </div>
+  <p><b>等价条件</b>：S 对一切<b>线性组合</b>封闭（c₁u₁ + ⋯ + c<sub>k</sub>u<sub>k</sub> ∈ S）。</p>
+  <div class="thm"><b>定理</b>：span(v₁,…,v<sub>k</sub>) 一定是子空间。（验证：0 = 0v₁+⋯+0v<sub>k</sub>；两组组合相加仍是组合；乘常数仍是组合。）</div>
+  <p><b>是子空间的例子</b>：ℝ³ 中过原点的直线与平面；S = {(x,y,z) : x = 3y, z = −2y} = span{(3,1,−2)}。</p>
+  <p><b>不是子空间的例子</b>：S = {(x, x²)}（抛物线）。含 0 满足，但对加法不封闭：(1,1) + (2,4) = (3,5)，而 5 ≠ 3²。<b>举一个反例就足以否定</b>。</p>
+</div>
+
+<div class="card l4">
+  <h3><span class="tag t4">定义</span>矩阵的三个子空间</h3>
+  <p>设 A 是 <b>m×n</b> 矩阵（m 行 n 列）：</p>
+  <table>
+    <tr><th>子空间</th><th>定义</th><th>所在空间</th><th>维数</th></tr>
+    <tr><td><b>行空间</b> row(A)</td><td>A 的各行的张成</td><td>ℝⁿ</td><td class="mono">rank(A)</td></tr>
+    <tr><td><b>列空间</b> col(A)</td><td>A 的各列的张成 = {Ax : x ∈ ℝⁿ}</td><td>ℝᵐ</td><td class="mono">rank(A)</td></tr>
+    <tr><td><b>零空间</b> null(A)</td><td>{x ∈ ℝⁿ : Ax = 0}（齐次方程组的解集）</td><td>ℝⁿ</td><td class="mono">nullity(A)</td></tr>
+  </table>
+  <p><b>重要等价</b>：b ∈ col(A) ⇔ 方程组 Ax = b <b>相容</b>。（因为 Ax 恰好是 A 的列的组合。）</p>
+  <p><b>零空间为什么是子空间</b>：A0 = 0；A(u+v) = Au + Av = 0；A(cu) = cAu = 0。</p>
+</div>
+
+<div class="card l4">
+  <h3><span class="tag t4">方法</span>求三组基的标准流程</h3>
+  <ol>
+    <li>把 A 化成 <b>RREF</b>（简化行阶梯形）；</li>
+    <li><b>rank(A)</b> = 非零行的个数 = 主元个数；</li>
+    <li><b>row(A) 的基</b> = RREF 的<b>非零行</b>；</li>
+    <li><b>col(A) 的基</b> = 主元列所对应的、<b>原矩阵 A</b> 的列；</li>
+    <li><b>null(A) 的基</b>：把主元变量用自由变量表示，每个自由变量取一次参数，得到一组基向量；<b>nullity</b> = 自由变量的个数。</li>
+  </ol>
+  <p><b>贯穿全章的例题</b>：A 是 4×5 矩阵，它的 RREF 为（竖线只是分隔，主元在第 1、2、4 列）：</p>
+<pre class="mat">  R = [ 1   0   1   0  −1 ]
+      [ 0   1   2   0   3 ]
+      [ 0   0   0   1   4 ]
+      [ 0   0   0   0   0 ]</pre>
+  <ul>
+    <li>rank(A) = 3；dim row(A) = dim col(A) = 3。</li>
+    <li>row(A) 的基：{(1,0,1,0,−1), (0,1,2,0,3), (0,0,0,1,4)}。</li>
+    <li>col(A) 的基：A 的第 1、2、4 列。</li>
+    <li>零空间：x₁ = −s + t，x₂ = −2s − 3t，x₃ = s，x₄ = −4t，x₅ = t，所以基为 {(−1,−2,1,0,0), (1,−3,0,−4,1)}，nullity = 2。</li>
+    <li>验证秩定理：3 + 2 = 5 = 列数 ✓</li>
+  </ul>
+</div>
+
+<div class="card l4">
+  <h3><span class="tag t4">定理</span>行空间与列空间维数相等；秩定理</h3>
+  <div class="thm">
+    <b>定理</b>：对任意 m×n 矩阵 A，dim row(A) = dim col(A) = <b>rank(A)</b>；且 rank(A<sup>T</sup>) = rank(A)。<br>
+    <b>证明思路</b>：设 RREF 为 R，有 r 个主元 1。row(A) = row(R) ⇒ dim row(A) = r；R 的 r 个主元列是 ℝᵐ 中的 e₁,…,e<sub>r</sub>，其余列都是它们的组合，且 A 与 R 的列具有相同的相关关系 ⇒ dim col(A) = dim col(R) = r。
+  </div>
+  <div class="thm">
+    <b>秩定理（Rank Theorem）</b>：若 A 是 m×n 矩阵，则
+    <div class="formula" style="margin:6px 0 0">rank(A) + nullity(A) = n（列数）</div>
+  </div>
+  <p><b>证明</b>：RREF 中 r 个主元变量、n − r 个自由变量；nullity 等于自由变量的个数，故 nullity = n − r = n − rank(A)。</p>
+  <p><b>用法</b>：只需要 nullity 时不必真的解 Ax = 0。例：4×4 矩阵 N 已有 2 个非零行 ⇒ rank = 2 ⇒ nullity = 4 − 2 = 2。</p>
+</div>
+
+<div class="card l4">
+  <h3><span class="tag t4">运算</span>矩阵加法与数乘</h3>
+  <ul>
+    <li><b>相等</b>：维数相同 + 对应元素相同（维数不同一律不相等）。</li>
+    <li><b>加法</b>：(A+B)<sub>ij</sub> = a<sub>ij</sub> + b<sub>ij</sub>，要求<b>同维数</b>；否则无定义。</li>
+    <li><b>数乘</b>：(kA)<sub>ij</sub> = k·a<sub>ij</sub>。</li>
+    <li><b>减法</b>：A − B = A + (−B)；<b>零矩阵</b> O：A + O = A，A − A = O。</li>
+  </ul>
+  <p>性质（与实数一致）：交换律、结合律、分配律 k(A+B) = kA + kB、(k+ℓ)A = kA + ℓA、k(ℓA) = (kℓ)A、1A = A。</p>
+  <p><b>特殊矩阵</b>：方阵（行数=列数）、对角矩阵（非对角元全 0）、单位矩阵 I<sub>n</sub>（主对角线全 1）。</p>
+</div>
+
+<div class="card l4">
+  <h3><span class="tag t4">运算</span>矩阵乘法</h3>
+  <div class="thm">
+    <b>维数规则</b>：(m×n)·(n×r) = <b>m×r</b>，即“左边列数 = 右边行数”才能相乘；结果行数跟左边、列数跟右边。
+  </div>
+  <div class="formula">c<sub>ij</sub> = Σ<sub>k=1..n</sub> a<sub>ik</sub>b<sub>kj</sub> = A 的第 i 行 · B 的第 j 列（点积）</div>
+  <p><b>例</b>：A = [1 3 2; 0 −1 1]（2×3），B = [4 −1; 1 2; 3 0]（3×2），则 AB 为 2×2，其中 c₁₁ = 1·4 + 3·1 + 2·3 = 13，等等。</p>
+  <h4>三种等价视角（考试爱考“解释含义”）</h4>
+  <ul>
+    <li><b>列组合</b>：AB = [Ab₁ ⋯ Ab<sub>r</sub>]，AB 的每一列都是 A 的列的组合。</li>
+    <li><b>行组合</b>：AB 的每一行都是 B 的行的组合。</li>
+    <li><b>外积之和</b>：A = [a₁ ⋯ a<sub>n</sub>]，B 按行拆，则 AB = a₁B₁ + ⋯ + a<sub>n</sub>B<sub>n</sub>（每个 a<sub>k</sub>B<sub>k</sub> 是 m×r 的外积）。</li>
+  </ul>
+  <p><b>单位向量的作用</b>：Ae<sub>j</sub> = A 的第 j 列；e<sub>i</sub><sup>T</sup>A = A 的第 i 行。</p>
+  <p><b>性质</b>：结合律 A(BC) = (AB)C；左右分配律；k(AB) = (kA)B = A(kB)；I<sub>m</sub>A = A = AI<sub>n</sub>。</p>
+</div>
+
+<div class="card l4">
+  <h3><span class="tag t4">差异</span>矩阵与实数的三点不同</h3>
+  <ol>
+    <li><b>不可交换</b>：一般 AB ≠ BA（反例：A = [2 4; −1 −2]，B = [1 0; 1 1]）。</li>
+    <li><b>没有消去律</b>：AB = AC 推不出 B = C。</li>
+    <li><b>A² = O 不代表 A = O</b>：A = [2 4; −1 −2] 满足 A² = O。</li>
+  </ol>
+  <p>因此平方展开要小心：</p>
+  <div class="formula">(A+B)² = A² + AB + BA + B²　（只有当 AB = BA 时才化简为 A² + 2AB + B²）</div>
+  <p><b>幂</b>：A⁰ = I，A<sup>r</sup>A<sup>s</sup> = A<sup>r+s</sup>，(A<sup>r</sup>)<sup>s</sup> = A<sup>rs</sup>。<br>
+  <b>周期性例子</b>：B = [0 −1; 1 0] 满足 B² = −I，B³ = −B，B⁴ = I，所以幂以 4 为周期。</p>
+</div>
+
+<div class="card l4">
+  <h3><span class="tag t4">运算</span>转置与对称矩阵</h3>
+  <div class="formula">(A<sup>T</sup>)<sub>ij</sub> = a<sub>ji</sub>（m×n → n×m，行列互换）</div>
+  <p><b>性质</b>：(A<sup>T</sup>)<sup>T</sup> = A；(A+B)<sup>T</sup> = A<sup>T</sup> + B<sup>T</sup>；(kA)<sup>T</sup> = kA<sup>T</sup>；</p>
+  <div class="thm"><b>乘积转置法则（顺序反转）</b>：(AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup>；推广 (A₁A₂⋯A<sub>k</sub>)<sup>T</sup> = A<sub>k</sub><sup>T</sup>⋯A₁<sup>T</sup>；(A<sup>r</sup>)<sup>T</sup> = (A<sup>T</sup>)<sup>r</sup>。</div>
+  <p><b>对称矩阵</b>：A<sup>T</sup> = A（等价于 a<sub>ij</sub> = a<sub>ji</sub>，关于主对角线镜像对称；对角元任意）。</p>
+  <p><b>构造对称矩阵</b>：(a) A 为方阵时 A + A<sup>T</sup> 对称；(b) 对任意矩阵 A，<b>AA<sup>T</sup> 与 A<sup>T</sup>A 都对称</b>（即使 A 不是方阵）。</p>
+  <p><b>点积</b>：u·v = u₁v₁ + ⋯ + u<sub>n</sub>v<sub>n</sub> = <b>u<sup>T</sup>v</b>（行向量乘列向量，得到 1×1）。</p>
+</div>
+
+<!-- ============ 6. 速查表 ============ -->
+<h2 id="cheat"><span class="num">6</span>速查表：一张表记住所有判定</h2>
+
+<table>
+  <tr><th>问题</th><th>等价条件</th><th>怎么算 / 怎么判</th></tr>
+  <tr><td>Ax = b 相容？</td><td>b ∈ col(A)（b 是 A 的列的组合）</td><td>化 [A|b]；出现 [0 ⋯ 0 | c≠0] 行 ⇒ 不相容</td></tr>
+  <tr><td>解唯一？</td><td>相容 且 无自由变量（每列都是主元列）</td><td>rank(A) = n（未知数个数）</td></tr>
+  <tr><td>有无穷多解？</td><td>相容 且 有自由变量</td><td>rank(A) &lt; n，且相容</td></tr>
+  <tr><td>v₁,…,v<sub>m</sub> 无关？</td><td>Ac = 0 只有零解</td><td>列堆叠后无自由变量；m ≤ n</td></tr>
+  <tr><td>是否张成 ℝⁿ？</td><td>col(A) = ℝⁿ</td><td>rank(A) = n（对方阵即满秩）</td></tr>
+  <tr><td>是不是子空间？</td><td>含 0 + 对加法、数乘封闭</td><td>过原点的直线/平面、span、row/col/null 都是</td></tr>
+  <tr><td>row(A) 的基</td><td>RREF 的非零行</td><td>个数 = rank(A)，位于 ℝⁿ</td></tr>
+  <tr><td>col(A) 的基</td><td>主元列对应的<b>原矩阵</b>的列</td><td>个数 = rank(A)，位于 ℝᵐ</td></tr>
+  <tr><td>null(A) 的基</td><td>自由变量取参数得到的解向量</td><td>个数 = nullity = n − rank(A)</td></tr>
+</table>
+
+<div class="card">
+  <h3>五个“数字”之间的关系（必背）</h3>
+  <div class="formula">
+    设 A 为 m×n，r = rank(A)，则<br>
+    • row(A) ⊆ ℝⁿ，dim = r　　• col(A) ⊆ ℝᵐ，dim = r<br>
+    • null(A) ⊆ ℝⁿ，dim = n − r　　• <b>r + (n − r) = n</b><br>
+    • r ≤ min(m, n)；r = n ⇒ 列无关；r = m ⇒ col(A) = ℝᵐ（行满秩 ⇒ 必相容）
+  </div>
+</div>
+
+<!-- ============ 7. 易错点 ============ -->
+<h2 id="pit"><span class="num">7</span>十个最容易丢分的点</h2>
+
+<div class="warn"><b>1. 行变换只保行空间，不保列空间。</b>所以求 col(A) 的基时，主元列确定“编号”，但向量必须回到原矩阵 A 里取。</div>
+<div class="warn"><b>2. 秩定理里是 n（列数），不是行数。</b>rank + nullity = 列数。</div>
+<div class="warn"><b>3. 堆法不能混。</b>求 row(A) 用行堆叠（按行化简看非零行）；求 span{vᵢ}（= col）用列堆叠 + 主元列。</div>
+<div class="warn"><b>4. AB ≠ BA。</b>写 (A+B)² 时不要漏掉 AB 与 BA 两个不同的项。</div>
+<div class="warn"><b>5. 没有消去律。</b>AB = AC 或 A² = O 都不能推出“约掉 A”。</div>
+<div class="warn"><b>6. 相容性先判，再谈解的数量。</b>[0 ⋯ 0 | c]（c ≠ 0）出现 ⇒ 无解；此时即便有自由变量也不是“无穷多解”。</div>
+<div class="warn"><b>7. 主元可以是任意非零数。</b>REF 不要求主元为 1；RREF 才要求主元为 1 且其所在列其余元素为 0。</div>
+<div class="warn"><b>8. ℝⁿ 中 m &gt; n 个向量一定相关。</b>所以“3 个向量在 ℝ² 中无关”这种选项永远错。</div>
+<div class="warn"><b>9. Ax = b 的解集一般不是子空间</b>（除非 b = 0）。只有齐次方程组 Ax = 0 的解集（= null(A)）才是子空间。</div>
+<div class="warn"><b>10. 乘积转置要反序：</b>(AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup>，不是 A<sup>T</sup>B<sup>T</sup>。</div>
+
+<!-- ============ 8. 自测题 ============ -->
+<h2 id="quiz"><span class="num">8</span>自测题（先遮住答案）</h2>
+<p class="lead">建议：先独立做，再展开核对；做错的题在旁边标上对应讲次，最后回到第 2–5 节重看。</p>
+
+<h3>A. L1：方程组与消元</h3>
+
+<div class="q">
+  <div class="stem">1. 下列哪些是线性方程？(a) 3x − 4y = 7　(b) xy + z = 1　(c) x² + y = 3　(d) 2x + 3y = 7　(e) sin x + y = 0</div>
+  <details><summary>答案</summary><div class="ans">只有 (a)、(d)。(b) 变量相乘，(c) 二次，(e) 非线性函数。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">2. 解方程组 2x − y = 3，x + 3y = 5。</div>
+  <details><summary>答案</summary><div class="ans">由第二式 x = 5 − 3y，代入第一式：2(5−3y) − y = 3 ⇒ 10 − 7y = 3 ⇒ y = 1，x = 2。验证：4−1=3 ✓，2+3=5 ✓。解 (x,y) = (2,1)，是两直线交点，唯一解。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">3. 增广矩阵化为 <span class="mono">[1 2 3 | 4; 0 0 1 | 2; 0 0 0 | 0]</span>。问：相容吗？有唯一解吗？</div>
+  <details><summary>答案</summary><div class="ans">相容（没有 [0 0 0 | c≠0] 行）。主元在第 1、3 列，第 2 列是自由变量列 ⇒ <b>有无穷多解</b>。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">4. 判断相容性：x + 2y = 3，2x + 4y = 7。</div>
+  <details><summary>答案</summary><div class="ans">第二行减 2 倍第一行得 [0 0 | 1]，即 0 = 1 ⇒ <b>不相容（无解）</b>。几何上两条平行直线。</div></details>
+</div>
+
+<h3>B. L2：张成与线性无关</h3>
+
+<div class="q">
+  <div class="stem">5. (5, −2, 3) 是否是 (1,0,3) 与 (1,−1,−3) 的线性组合？</div>
+  <details><summary>答案</summary><div class="ans">要解 x(1,0,3) + y(1,−1,−3) = (5,−2,3)：x + y = 5，−y = −2，3x − 3y = 3 ⇒ y = 2，x = 3，第三式 9 − 6 = 3 ✓。<b>是</b>，且 (5,−2,3) = 3(1,0,3) + 2(1,−1,−3)。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">6. (2, 3, 4) 是否是 (1,0,3) 与 (1,−1,−3) 的线性组合？</div>
+  <details><summary>答案</summary><div class="ans">x + y = 2，−y = 3，3x − 3y = 4 ⇒ y = −3，x = 5，但 3·5 − 3·(−3) = 24 ≠ 4。<b>不是</b>（方程组不相容）。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">7. 判断 u = (1,2), v = (−2,−4) 是否线性无关。</div>
+  <details><summary>答案</summary><div class="ans">v = −2u ⇒ 2u + v = 0 是非平凡组合 ⇒ <b>线性相关</b>。两个向量相关 ⇔ 互为标量倍。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">8. 判断 (1,1,0), (0,1,1), (1,0,1) 是否线性无关。</div>
+  <details><summary>答案</summary><div class="ans">设 c₁(1,1,0) + c₂(0,1,1) + c₃(1,0,1) = 0，得 c₁ + c₃ = 0，c₁ + c₂ = 0，c₂ + c₃ = 0。解得 c₁ = c₂ = c₃ = 0 ⇒ <b>线性无关</b>（也可看行列式 = 2 ≠ 0）。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">9. ℝ³ 中能否有 4 个线性无关的向量？为什么？</div>
+  <details><summary>答案</summary><div class="ans">不能。ℝⁿ 中任意 &gt; n 个向量必线性相关：把 4 个向量按列堆成 3×4 矩阵，齐次方程组有 4 个未知数、rank ≤ 3，必有自由变量 ⇒ 存在非零解。</div></details>
+</div>
+
+<h3>C. L3：基、维数、秩</h3>
+
+<div class="q">
+  <div class="stem">10. 求 A = [1 2; 3 4] 的 rank，并给出 row(A) 的一组基。</div>
+  <details><summary>答案</summary><div class="ans">化成 [1 2; 0 −2]（R2 − 3R1），两个非零行 ⇒ rank(A) = 2。row(A) 的基可取 {(1,2), (3,4)}，或阶梯形的 {(1,2), (0,−2)}。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">11. 求 A = 4×5 矩阵（RREF 主元在第 1、2、4 列）的 rank、dim row、dim col、nullity。</div>
+  <details><summary>答案</summary><div class="ans">rank = 3，dim row(A) = 3，dim col(A) = 3，自由变量 = 2（第 3、5 列）⇒ nullity = 2。检验 3 + 2 = 5 ✓。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">12. 求 null(A) 的一组基，其中 A = [1 2 3; 2 4 6]。</div>
+  <details><summary>答案</summary><div class="ans">RREF = [1 2 3; 0 0 0]，rank = 1，nullity = 3 − 1 = 2。x₁ = −2s − 3t，x₂ = s，x₃ = t ⇒ 基 {(−2,1,0), (−3,0,1)}。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">13. 若 A 是 3×3 且 Ax = 0 只有零解，求 rank(A) 与 nullity(A)。</div>
+  <details><summary>答案</summary><div class="ans">nullity = 0（只有零解，零空间只有 {0}）⇒ rank = 3 − 0 = 3，即 A 满秩、三列都线性无关。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">14. span{(1,0,3), (−1,1,−3)} 是 ℝ³ 中的什么？写出它的方程。</div>
+  <details><summary>答案</summary><div class="ans">两向量不平行 ⇒ 过原点的平面。由 (x,y,z) = s(1,0,3) + t(−1,1,−3) 得 y = t，x = s − t，z = 3s − 3t = 3(s−t) = 3x，即平面 <b>z = 3x</b>（或 3x − z = 0）。</div></details>
+</div>
+
+<h3>D. L4：子空间与矩阵运算</h3>
+
+<div class="q">
+  <div class="stem">15. S = {(x,y) : y = x²} 是 ℝ² 的子空间吗？</div>
+  <details><summary>答案</summary><div class="ans">不是。虽然 (0,0) ∈ S，但 (1,1) + (2,4) = (3,5)，而 5 ≠ 3²，对加法不封闭。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">16. S = {(x,y,z) : x + y + z = 0} 是子空间吗？维数是多少？</div>
+  <details><summary>答案</summary><div class="ans">是。它是齐次方程的解集（一个过原点的平面）：0 满足；两个解之和、解的倍数仍满足。维数 2，基如 {(1,−1,0), (1,0,−1)}。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">17. 计算 AB 与 BA，其中 A = [1 2; 3 4]，B = [0 1; 1 0]。</div>
+  <details><summary>答案</summary><div class="ans">AB = [1·0+2·1, 1·1+2·0; 3·0+4·1, 3·1+4·0] = [2 1; 4 3]；BA = [0·1+1·3, 0·2+1·4; 1·1+0·3, 1·2+0·4] = [3 4; 1 2]。<b>AB ≠ BA</b>。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">18. A 是 2×3，B 是 4×3。AB、BA 分别能否定义？</div>
+  <details><summary>答案</summary><div class="ans">AB 需 3 = 4，不行；BA 需 3 = 2，也不行。两者都无定义。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">19. 举一个 A ≠ O 但 A² = O 的 2×2 矩阵，并说明它推翻了哪条“常识”。</div>
+  <details><summary>答案</summary><div class="ans">A = [2 4; −1 −2]，则 A² = [4−4, 8−8; −2+2, −4+4] = O。它说明矩阵里 <b>A² = O 推不出 A = O</b>（也不能“约去” A）。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">20. 设 A 为 3×4，证明 AA<sup>T</sup> 是对称矩阵，并说出它的维数。</div>
+  <details><summary>答案</summary><div class="ans">(AA<sup>T</sup>)<sup>T</sup> = (A<sup>T</sup>)<sup>T</sup>A<sup>T</sup> = AA<sup>T</sup>，故对称。A 是 3×4 ⇒ A<sup>T</sup> 是 4×3 ⇒ AA<sup>T</sup> 是 3×3。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">21. 若 rank(A) = rank([A|b]) = 2，A 是 3×4 的矩阵，问方程组 Ax = b 解的情况。</div>
+  <details><summary>答案</summary><div class="ans">相容（rank 未因加入 b 而增大）。n = 4，自由变量 = 4 − 2 = 2 &gt; 0 ⇒ <b>无穷多解</b>。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">22. 设 v₁, v₂, v₃ 线性无关，判断 w₁ = v₁ + v₂, w₂ = v₂ + v₃, w₃ = v₁ + v₃ 是否线性无关。</div>
+  <details><summary>答案</summary><div class="ans">无关。设 c₁w₁ + c₂w₂ + c₃w₃ = 0，整理得 (c₁+c₃)v₁ + (c₁+c₂)v₂ + (c₂+c₃)v₃ = 0。由 v 无关得 c₁+c₃ = c₁+c₂ = c₂+c₃ = 0，解得 c₁ = c₂ = c₃ = 0。</div></details>
+</div>
+
+<!-- ============ 9. 计划 ============ -->
+<h2 id="plan"><span class="num">9</span>三天冲刺复习计划</h2>
+
+<div class="two">
+  <div class="card l1">
+    <h3>Day 1 · 把“算”练熟</h3>
+    <ul>
+      <li>读第 2 节，默写：三种方程运算、REF 两条要求、高斯消元四步。</li>
+      <li>手算 3 个方程组（含一个无解、一个无穷多解），每个都写出全程行变换记号。</li>
+      <li>读第 3 节，做自测 1–9。</li>
+    </ul>
+  </div>
+  <div class="card l3">
+    <h3>Day 2 · 把“结构”打通</h3>
+    <ul>
+      <li>读第 4 节，背：基的定义、基定理结论、坐标唯一性。</li>
+      <li>找 2 个 3×4 / 4×5 矩阵，完整走一遍“RREF → rank → row 基 → col 基 → null 基 → 验证秩定理”。</li>
+      <li>做自测 10–14。</li>
+    </ul>
+  </div>
+</div>
+<div class="two">
+  <div class="card l4">
+    <h3>Day 3 · 补“代数”+ 模拟</h3>
+    <ul>
+      <li>读第 5 节矩阵运算部分，默写：维数规则、c<sub>ij</sub> 公式、三种视角、(AB)<sup>T</sup> 规则。</li>
+      <li>做自测 15–22；错题回到对应小节。</li>
+      <li>合上讲义，用第 1 节的思维导图口述四讲内容（每个分支说出 ≥ 3 条）。</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>考前 30 分钟只看这些</h3>
+    <ul>
+      <li>第 6 节速查表（判定对照）。</li>
+      <li>第 7 节十个易错点。</li>
+      <li>公式：rank + nullity = n；(AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup>；(A+B)² = A²+AB+BA+B²。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ 附录 A ============ -->
+<h2 id="inv"><span class="num">A</span>附录 · 补充：怎么求逆矩阵 A<sup>−1</sup></h2>
+<p class="lead">这一节<b>不在这四讲讲义里</b>（L1–L4 没讲逆矩阵），但它是“高斯消元 → 行变换”最直接的应用，考试或后续课程几乎必用，所以补充在这里。</p>
+
+<div class="card">
+  <h3><span class="tag t1">第 0 步</span>先把概念说清</h3>
+  <div class="thm">
+    <b>定义</b>：设 A 是<b>方阵</b>（n×n）。若存在同阶方阵 B 使得
+    <div class="formula" style="margin:6px 0 0">AB = BA = I<sub>n</sub>，</div>
+    则称 A <b>可逆</b>（invertible / nonsingular），B 就是 A 的<b>逆矩阵</b>，记作 A<sup>−1</sup>。
+  </div>
+  <ul>
+    <li>只有<b>方阵</b>才谈“逆”（m×n 且 m ≠ n 时不存在 A<sup>−1</sup>）。</li>
+    <li>逆是<b>唯一</b>的：若 B、C 都是逆，则 B = BI = B(AC) = (BA)C = IC = C。</li>
+    <li>“可逆”和文件里行变换的“可逆”是两回事：后者说“运算能退回去”，前者说“矩阵存在逆”。两者有联系（都是可逆的），但定义不同。</li>
+  </ul>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">方法一</span>通用方法：对 [A | I] 做行变换（Gauss–Jordan）</h3>
+  <div class="thm">
+    <b>核心操作</b>：把单位矩阵 I 拼在 A 右边，得到 n×2n 的增广矩阵 [A | I]，然后<b>只用行变换</b>把左边化成 I：
+    <div class="formula" style="margin:6px 0 0">[ A | I ]　──行变换──→　[ I | A<sup>−1</sup> ]</div>
+    右边自动变成 A<sup>−1</sup>。
+  </div>
+  <p><b>具体步骤</b>（和化 RREF 完全一样，只是要一路化到左边是 I）：</p>
+  <ol>
+    <li>写出 [A | I]（左边 A，右边同阶单位阵）；</li>
+    <li>第 1 列：把 (1,1) 位置做成主元 1（必要时换行），用它把<b>同列其它位置全清成 0</b>；</li>
+    <li>对第 2、3、… 列重复：先把下一个主元做成 1，再把这一列上下都清 0；</li>
+    <li>左边成为 I 后，<b>右边就是 A<sup>−1</sup></b>；</li>
+    <li>验算：随便乘一列，检查 AA<sup>−1</sup> = I。</li>
+  </ol>
+  <div class="ok"><b>为什么这样能行？</b>每一次行变换相当于在左边乘一个初等矩阵 E。若用 E<sub>k</sub>⋯E<sub>2</sub>E<sub>1</sub> 把 A 变成 I，即 (E<sub>k</sub>⋯E<sub>1</sub>)A = I，那么括号里的矩阵按定义就是 A<sup>−1</sup>；而它作用在右边的 I 上，正好得到 A<sup>−1</sup>。所以“左边 A→I 的过程”会同步把“右边 I→A<sup>−1</sup>”。</div>
+  <p><b>等价理解</b>：求 A<sup>−1</sup> 的第 j 列，就是解方程组 Ax = e<sub>j</sub>。把所有 j 一次解完、共用同一套行变换，就是 [A | I] → [I | A<sup>−1</sup>]。</p>
+</div>
+
+<div class="card l1">
+  <h3><span class="tag t1">例题</span>求 A = [[1,2,3],[0,1,4],[5,6,0]] 的逆</h3>
+<pre class="mat">  [ A | I ]                     操作
+
+  [ 1   2   3 |  1   0   0 ]
+  [ 0   1   4 |  0   1   0 ]
+  [ 5   6   0 |  0   0   1 ]
+
+  [ 1   2   3 |  1   0   0 ]   R3 ← R3 − 5R1        第 1 列下方清 0
+  [ 0   1   4 |  0   1   0 ]
+  [ 0  −4 −15 | −5   0   1 ]
+
+  [ 1   0  −5 |  1  −2   0 ]   R1 ← R1 − 2R2        第 2 列上方清 0
+  [ 0   1   4 |  0   1   0 ]
+  [ 0  −4 −15 | −5   0   1 ]
+
+  [ 1   0  −5 |  1  −2   0 ]   R3 ← R3 + 4R2        第 2 列下方清 0
+  [ 0   1   4 |  0   1   0 ]
+  [ 0   0   1 | −5   4   1 ]   ← 已出现主元 1
+
+  [ 1   0   0 | −24  18  5 ]   R1 ← R1 + 5R3        第 3 列上方清 0
+  [ 0   1   4 |   0   1  0 ]
+  [ 0   0   1 |  −5   4  1 ]
+
+  [ 1   0   0 | −24  18   5 ]  R2 ← R2 − 4R3        左边 = I，完成
+  [ 0   1   0 |  20 −15  −4 ]
+  [ 0   0   1 |  −5   4   1 ]</pre>
+  <div class="formula">A<sup>−1</sup> = [[−24, 18, 5], [20, −15, −4], [−5, 4, 1]]</div>
+  <p><b>验算</b>：用 A 的每一行去乘 A<sup>−1</sup> 的各列，应当得到 I。</p>
+  <ul>
+    <li>第 1 行 × 第 1 列：1(−24) + 2(20) + 3(−5) = −24 + 40 − 15 = <b>1</b> ✓</li>
+    <li>第 1 行 × 第 2 列：1(18) + 2(−15) + 3(4) = 18 − 30 + 12 = <b>0</b> ✓</li>
+    <li>第 1 行 × 第 3 列：1(5) + 2(−4) + 3(1) = 5 − 8 + 3 = <b>0</b> ✓</li>
+    <li>第 2 行 × 第 2 列：0(18) + 1(−15) + 4(4) = −15 + 16 = <b>1</b> ✓</li>
+    <li>第 3 行 × 第 1 列：5(−24) + 6(20) + 0(−5) = −120 + 120 = <b>0</b> ✓</li>
+    <li>第 3 行 × 第 3 列：5(5) + 6(−4) + 0(1) = 25 − 24 = <b>1</b> ✓</li>
+  </ul>
+  <p>其余位置同样为 0（对角线为 1），所以结果正确。</p>
+</div>
+
+<div class="card l3">
+  <h3><span class="tag t3">方法二</span>2×2 的公式法（最快）</h3>
+  <div class="thm">
+    若 ad − bc ≠ 0，则
+    <div class="formula" style="margin:6px 0 0">[[a, b], [c, d]]<sup>−1</sup> = 1/(ad − bc) · [[d, −b], [−c, a]]</div>
+    口诀：<b>主对角互换、副对角变号、整体除以 (ad − bc)</b>。
+  </div>
+  <p><b>例</b>：[[4,7],[2,6]]，ad − bc = 24 − 14 = 10，所以逆 = (1/10)[[6,−7],[−2,4]] = [[0.6,−0.7],[−0.2,0.4]]。</p>
+  <p><b>例</b>：[[2,1],[5,3]]，ad − bc = 6 − 5 = 1，所以逆 = [[3,−1],[−5,2]]。</p>
+  <p>3×3 及以上没有这种“一眼写出”的公式；学了行列式以后可以用 <b>A<sup>−1</sup> = adj(A)/det(A)</b>，但计算量通常比行变换大，考试还是推荐 [A | I]。</p>
+</div>
+
+<div class="card l4">
+  <h3><span class="tag t4">什么时候没有逆</span>行变换卡住的时候</h3>
+  <p>如果化 [A | I] 的过程中，<b>左边出现了整行全 0</b>（主元做不满 n 个），那就说明 A <b>不可逆</b>——此时左边永远变不成 I，右边也不会是答案。</p>
+<pre class="mat">  A = [ 1   2 ]      [ A | I ] = [ 1  2 | 1  0 ]   R2←R2−2R1   [ 1  2 |  1  0 ]
+      [ 2   4 ]                  [ 2  4 | 0  1 ]   ────────→   [ 0  0 | −2  1 ]</pre>
+  <p>左边第 2 行全 0，右边却是 (−2, 1) ≠ 0，无解 ⇒ <b>A 不可逆（singular）</b>。这也解释了“为什么第 2 行本来就是第 1 行的 2 倍”。</p>
+  <p><b>一串等价条件（把四讲内容串起来，务必记住）</b>：对 n×n 矩阵 A，下列命题全部等价：</p>
+  <ul>
+    <li>A 可逆（A<sup>−1</sup> 存在）；</li>
+    <li>rank(A) = n（<b>满秩</b>，n 个主元）；</li>
+    <li>A 的 n 个列<b>线性无关</b>（L2）；</li>
+    <li>null(A) = {0}，即 nullity(A) = 0（L4）；</li>
+    <li>Ax = 0 只有零解；</li>
+    <li>对任意 b，Ax = b 有<b>唯一</b>解 x = A<sup>−1</sup>b。</li>
+  </ul>
+  <p>（等学了行列式，还可以加上 det(A) ≠ 0。）</p>
+</div>
+
+<div class="card l4">
+  <h3><span class="tag t4">用处</span>用逆矩阵解方程组</h3>
+  <p>若 A 可逆，Ax = b 的解直接是 <b>x = A<sup>−1</sup>b</b>。例：解 2x + y = 3，5x + 3y = 1。上面已求得 [[2,1],[5,3]]<sup>−1</sup> = [[3,−1],[−5,2]]，于是</p>
+  <div class="formula">x = [[3,−1],[−5,2]]·[3;1] = [9−1; −15+2] = [8; −13]</div>
+  <p>验证：2·8 + (−13) = 3 ✓；5·8 + 3(−13) = 40 − 39 = 1 ✓。</p>
+  <div class="warn"><b>但当 b 只有一组时不要真的求逆</b>：直接对 [A | b] 做高斯消元更快；求逆适合“同一个 A、很多个不同的 b”的情形（求一次 A<sup>−1</sup>，之后每次只做一次矩阵乘法）。</div>
+</div>
+
+<div class="card">
+  <h3><span class="tag t2">易错</span>求逆时的 5 个坑</h3>
+  <ol>
+    <li><b>不能做列变换。</b>[A | I] 里只能用<b>行</b>变换；用列变换会破坏左右两半的对应关系。</li>
+    <li><b>不能只化到阶梯形就停。</b>必须是左边 = I（主元为 1，且主元所在列其余全 0），所以要做到底（RREF 级别）。</li>
+    <li><b>(A + B)<sup>−1</sup> ≠ A<sup>−1</sup> + B<sup>−1</sup>。</b>加法没有这种公式。</li>
+    <li><b>乘积要反序</b>：(AB)<sup>−1</sup> = B<sup>−1</sup>A<sup>−1</sup>（和转置一样“反序”）；另外 (A<sup>T</sup>)<sup>−1</sup> = (A<sup>−1</sup>)<sup>T</sup>、(kA)<sup>−1</sup> = (1/k)A<sup>−1</sup>（k ≠ 0）。</li>
+    <li><b>非方阵没有逆</b>；方阵也可能没有逆（见上一节），先判断再动手。</li>
+  </ol>
+</div>
+
+<div class="card">
+  <h3><span class="tag t2">练习</span>4 题（先做，再展开）</h3>
+
+  <div class="q">
+    <div class="stem">1. 求 [[3, 1],[2, 1]] 的逆。</div>
+    <details><summary>答案</summary><div class="ans">ad − bc = 3·1 − 1·2 = 1 ⇒ 逆 = [[1, −1], [−2, 3]]。验算：3·1 + 1·(−2) = 1，3·(−1) + 1·3 = 0 ✓</div></details>
+  </div>
+
+  <div class="q">
+    <div class="stem">2. 用 [A | I] 求 [[1, 2],[3, 4]] 的逆。</div>
+    <details><summary>答案</summary><div class="ans">[1 2 | 1 0; 3 4 | 0 1] → R2−3R1 → [1 2 | 1 0; 0 −2 | −3 1] → R2÷(−2) → [1 2 | 1 0; 0 1 | 3/2 −1/2] → R1−2R2 → [1 0 | −2 1; 0 1 | 3/2 −1/2]。所以逆 = [[−2, 1], [3/2, −1/2]]（与 1/(ad−bc) 公式一致：ad−bc = −2）。</div></details>
+  </div>
+
+  <div class="q">
+    <div class="stem">3. 判断 [[1, 2, 3],[2, 4, 6],[1, 1, 1]] 是否可逆，并说明理由。</div>
+    <details><summary>答案</summary><div class="ans">不可逆。第 2 行 = 2×第 1 行，做 R2 − 2R1 会出现整行 0 ⇒ 主元不足 3 个 ⇒ rank ≤ 2 &lt; 3，不满秩，所以没有逆（也可由 nullity ≥ 1 说明 Ax=0 有非零解）。</div></details>
+  </div>
+
+  <div class="q">
+    <div class="stem">4. 已知 A、B 都可逆，化简 (A B<sup>T</sup>)<sup>−1</sup>。</div>
+    <details><summary>答案</summary><div class="ans">(AB<sup>T</sup>)<sup>−1</sup> = (B<sup>T</sup>)<sup>−1</sup>A<sup>−1</sup> = (B<sup>−1</sup>)<sup>T</sup>A<sup>−1</sup>。注意顺序要反过来。</div></details>
+  </div>
+</div>
+
+<footer>
+  依据 lecture1–lecture4 的 MATH0280 讲义（2026/09/17、09/24、10/08、10/13）整理；
+  公式与例题均取自讲义内容，个别处补足了推导细节。用浏览器打开可直接打印为 PDF。
+</footer>
+
+</div>
+
+<script>
+(function () {
+  function target(id) { return document.getElementById(id); }
+  function jump(id) {
+    var t = target(id);
+    if (!t) { return false; }
+    var y = t.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - 70;
+    if (y < 0) { y = 0; }
+    try { window.scrollTo({ top: y, behavior: 'smooth' }); }
+    catch (e) { window.scrollTo(0, y); }
+    try { history.replaceState(null, '', '#' + id); } catch (e2) {}
+    return true;
+  }
+  function linkOf(el) {
+    while (el && el !== document.body) {
+      if (el.tagName === 'A' && el.getAttribute && (el.getAttribute('href') || '').charAt(0) === '#') {
+        return el;
+      }
+      el = el.parentNode;
+    }
+    return null;
+  }
+  document.addEventListener('click', function (ev) {
+    var a = linkOf(ev.target);
+    if (!a) { return; }
+    var id = (a.getAttribute('href') || '').slice(1);
+    if (id && jump(id)) { ev.preventDefault(); }
+  }, false);
+
+  // 高亮当前小节
+  var links = [].slice.call(document.querySelectorAll('nav.toc a[href^="#"]'));
+  if (!links.length) { return; }
+  function highlight() {
+    var pos = (window.pageYOffset || document.documentElement.scrollTop) + 120, cur = null;
+    links.forEach(function (a) {
+      var t = target(a.getAttribute('href').slice(1));
+      if (t && t.offsetTop <= pos) { cur = a; }
+    });
+    links.forEach(function (a) { a.classList.toggle('active', a === cur); });
+  }
+  window.addEventListener('scroll', highlight, { passive: true });
+  highlight();
+})();
+</script>
+</body>
+</html>

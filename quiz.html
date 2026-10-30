@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自测题（先遮住答案） · 四讲复习提纲（L1–L4）</title>
+
+
+
+
+<style>
+:root{
+  --l1:#2f6f9f; --l1b:#eaf3fa;
+  --l2:#7a51a6; --l2b:#f4eefa;
+  --l3:#2f8f6f; --l3b:#e9f6f1;
+  --l4:#b4703a; --l4b:#fdf2e8;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px; line-height:1.75;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{
+  background:linear-gradient(135deg,#123a5c 0%,#1c527f 55%,#2f6f9f 100%);
+  color:#fff;padding:46px 0 34px;margin-bottom:26px;
+}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.22em;font-size:12px;opacity:.75;text-transform:uppercase}
+h1{font-size:31px;margin:10px 0 6px;font-weight:700;letter-spacing:.5px}
+.sub{opacity:.9;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+  padding:4px 12px;border-radius:999px;font-size:13px}
+nav.toc{
+  position:sticky;top:0;z-index:20;background:rgba(251,252,253,.93);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-bottom:28px
+}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 6px;padding-top:10px;border-top:2px solid var(--line)}
+h2 .num{display:inline-block;background:#123a5c;color:#fff;border-radius:8px;
+  font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px}
+h4{font-size:15.5px;margin:18px 0 6px;color:#243447}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0 4px}
+.chain span{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 13px;font-size:14px}
+.chain i{color:#a8b4c0;font-style:normal}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:16px 0;
+  box-shadow:0 1px 2px rgba(16,32,48,.04)}
+.card.l1{border-left:5px solid var(--l1)} .card.l2{border-left:5px solid var(--l2)}
+.card.l3{border-left:5px solid var(--l3)} .card.l4{border-left:5px solid var(--l4)}
+.card h3{margin-top:0}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;margin-right:6px;
+  font-weight:700;letter-spacing:.04em}
+.t1{background:var(--l1b);color:var(--l1)} .t2{background:var(--l2b);color:var(--l2)}
+.t3{background:var(--l3b);color:var(--l3)} .t4{background:var(--l4b);color:var(--l4)}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0}
+.thm b{color:#123a5c}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+li::marker{color:#8b99a8}
+.k{font-weight:700;color:#123a5c}
+.mono{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:14px}
+math{font-size:1.02em}
+.formula{background:#f7f9fb;border-left:3px solid #b9c6d3;padding:9px 14px;border-radius:0 8px 8px 0;
+  margin:10px 0;font-size:15px;overflow-x:auto}
+pre.mat{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:13.6px;line-height:1.5;
+  background:#f7f9fb;border:1px solid var(--line);border-left:3px solid #b9c6d3;padding:11px 15px;
+  border-radius:0 8px 8px 0;overflow-x:auto;margin:10px 0;white-space:pre;color:#1c2733}
+pre.mat b{color:#a45c14;font-weight:700}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;background:#fff}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:#f2f5f9;font-weight:700;color:#243447}
+tbody tr:nth-child(even){background:#fafbfc}
+.warn{background:#fff8f0;border:1px solid #f4d9bd;border-left:5px solid #d98b3a;border-radius:10px;
+  padding:12px 16px;margin:12px 0}
+.warn b{color:#a45c14}
+.ok{background:#f1f8f4;border:1px solid #cfe7d9;border-left:5px solid #2f8f6f;border-radius:10px;
+  padding:12px 16px;margin:12px 0}
+.ok b{color:#1f6b51}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;color:#123a5c;outline:none}
+details[open] summary{margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.q{margin:18px 0 0}
+.q .stem{font-weight:600}
+.ans{color:#1f6b51}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.mindmap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;
+  max-height:82vh;overflow:auto}
+.mindmap svg{display:block;width:100%;height:auto;aspect-ratio:1254/2924;min-width:900px}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.pill{display:inline-block;background:#eef2f6;border-radius:999px;padding:2px 10px;font-size:12.5px;color:#465768;margin-right:6px}
+@media print{
+  nav.toc{position:static} details{border:1px solid #ccc} .card{box-shadow:none}
+  body{font-size:12pt} .mindmap{max-height:none;overflow:visible;border:none;padding:0}
+}
+</style>
+
+    /* --- 锚点跳转增强 --- */
+    h2[id], h3[id], div[id]{scroll-margin-top: 78px;}
+    nav.toc a{cursor:pointer;}
+    nav.toc a.active{background:#e3ecf4;color:#123a5c;font-weight:700;}
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="../../../index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="../../../subjects/linear-algebra.html">线性代数</a><span style="opacity:.45">/</span>
+<b>自测题（先遮住答案）</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="map.html">0</a><a href="mindmap.html">1</a><a href="l1.html">2</a><a href="l2.html">3</a><a href="l3.html">4</a><a href="l4.html">5</a><a href="cheat.html">6</a><a href="pit.html">7</a><a href="quiz.html" class=cur>8</a><a href="plan.html">9</a><a href="inv.html">10</a></div></div>
+<div class="chunkmain">
+<h2 id="quiz"><span class="num">8</span>自测题（先遮住答案）</h2>
+
+<p class="lead">建议：先独立做，再展开核对；做错的题在旁边标上对应讲次，最后回到第 2–5 节重看。</p>
+
+<h3>A. L1：方程组与消元</h3>
+
+<div class="q">
+  <div class="stem">1. 下列哪些是线性方程？(a) 3x − 4y = 7　(b) xy + z = 1　(c) x² + y = 3　(d) 2x + 3y = 7　(e) sin x + y = 0</div>
+  <details><summary>答案</summary><div class="ans">只有 (a)、(d)。(b) 变量相乘，(c) 二次，(e) 非线性函数。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">2. 解方程组 2x − y = 3，x + 3y = 5。</div>
+  <details><summary>答案</summary><div class="ans">由第二式 x = 5 − 3y，代入第一式：2(5−3y) − y = 3 ⇒ 10 − 7y = 3 ⇒ y = 1，x = 2。验证：4−1=3 ✓，2+3=5 ✓。解 (x,y) = (2,1)，是两直线交点，唯一解。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">3. 增广矩阵化为 <span class="mono">[1 2 3 | 4; 0 0 1 | 2; 0 0 0 | 0]</span>。问：相容吗？有唯一解吗？</div>
+  <details><summary>答案</summary><div class="ans">相容（没有 [0 0 0 | c≠0] 行）。主元在第 1、3 列，第 2 列是自由变量列 ⇒ <b>有无穷多解</b>。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">4. 判断相容性：x + 2y = 3，2x + 4y = 7。</div>
+  <details><summary>答案</summary><div class="ans">第二行减 2 倍第一行得 [0 0 | 1]，即 0 = 1 ⇒ <b>不相容（无解）</b>。几何上两条平行直线。</div></details>
+</div>
+
+<h3>B. L2：张成与线性无关</h3>
+
+<div class="q">
+  <div class="stem">5. (5, −2, 3) 是否是 (1,0,3) 与 (1,−1,−3) 的线性组合？</div>
+  <details><summary>答案</summary><div class="ans">要解 x(1,0,3) + y(1,−1,−3) = (5,−2,3)：x + y = 5，−y = −2，3x − 3y = 3 ⇒ y = 2，x = 3，第三式 9 − 6 = 3 ✓。<b>是</b>，且 (5,−2,3) = 3(1,0,3) + 2(1,−1,−3)。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">6. (2, 3, 4) 是否是 (1,0,3) 与 (1,−1,−3) 的线性组合？</div>
+  <details><summary>答案</summary><div class="ans">x + y = 2，−y = 3，3x − 3y = 4 ⇒ y = −3，x = 5，但 3·5 − 3·(−3) = 24 ≠ 4。<b>不是</b>（方程组不相容）。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">7. 判断 u = (1,2), v = (−2,−4) 是否线性无关。</div>
+  <details><summary>答案</summary><div class="ans">v = −2u ⇒ 2u + v = 0 是非平凡组合 ⇒ <b>线性相关</b>。两个向量相关 ⇔ 互为标量倍。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">8. 判断 (1,1,0), (0,1,1), (1,0,1) 是否线性无关。</div>
+  <details><summary>答案</summary><div class="ans">设 c₁(1,1,0) + c₂(0,1,1) + c₃(1,0,1) = 0，得 c₁ + c₃ = 0，c₁ + c₂ = 0，c₂ + c₃ = 0。解得 c₁ = c₂ = c₃ = 0 ⇒ <b>线性无关</b>（也可看行列式 = 2 ≠ 0）。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">9. ℝ³ 中能否有 4 个线性无关的向量？为什么？</div>
+  <details><summary>答案</summary><div class="ans">不能。ℝⁿ 中任意 &gt; n 个向量必线性相关：把 4 个向量按列堆成 3×4 矩阵，齐次方程组有 4 个未知数、rank ≤ 3，必有自由变量 ⇒ 存在非零解。</div></details>
+</div>
+
+<h3>C. L3：基、维数、秩</h3>
+
+<div class="q">
+  <div class="stem">10. 求 A = [1 2; 3 4] 的 rank，并给出 row(A) 的一组基。</div>
+  <details><summary>答案</summary><div class="ans">化成 [1 2; 0 −2]（R2 − 3R1），两个非零行 ⇒ rank(A) = 2。row(A) 的基可取 {(1,2), (3,4)}，或阶梯形的 {(1,2), (0,−2)}。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">11. 求 A = 4×5 矩阵（RREF 主元在第 1、2、4 列）的 rank、dim row、dim col、nullity。</div>
+  <details><summary>答案</summary><div class="ans">rank = 3，dim row(A) = 3，dim col(A) = 3，自由变量 = 2（第 3、5 列）⇒ nullity = 2。检验 3 + 2 = 5 ✓。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">12. 求 null(A) 的一组基，其中 A = [1 2 3; 2 4 6]。</div>
+  <details><summary>答案</summary><div class="ans">RREF = [1 2 3; 0 0 0]，rank = 1，nullity = 3 − 1 = 2。x₁ = −2s − 3t，x₂ = s，x₃ = t ⇒ 基 {(−2,1,0), (−3,0,1)}。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">13. 若 A 是 3×3 且 Ax = 0 只有零解，求 rank(A) 与 nullity(A)。</div>
+  <details><summary>答案</summary><div class="ans">nullity = 0（只有零解，零空间只有 {0}）⇒ rank = 3 − 0 = 3，即 A 满秩、三列都线性无关。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">14. span{(1,0,3), (−1,1,−3)} 是 ℝ³ 中的什么？写出它的方程。</div>
+  <details><summary>答案</summary><div class="ans">两向量不平行 ⇒ 过原点的平面。由 (x,y,z) = s(1,0,3) + t(−1,1,−3) 得 y = t，x = s − t，z = 3s − 3t = 3(s−t) = 3x，即平面 <b>z = 3x</b>（或 3x − z = 0）。</div></details>
+</div>
+
+<h3>D. L4：子空间与矩阵运算</h3>
+
+<div class="q">
+  <div class="stem">15. S = {(x,y) : y = x²} 是 ℝ² 的子空间吗？</div>
+  <details><summary>答案</summary><div class="ans">不是。虽然 (0,0) ∈ S，但 (1,1) + (2,4) = (3,5)，而 5 ≠ 3²，对加法不封闭。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">16. S = {(x,y,z) : x + y + z = 0} 是子空间吗？维数是多少？</div>
+  <details><summary>答案</summary><div class="ans">是。它是齐次方程的解集（一个过原点的平面）：0 满足；两个解之和、解的倍数仍满足。维数 2，基如 {(1,−1,0), (1,0,−1)}。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">17. 计算 AB 与 BA，其中 A = [1 2; 3 4]，B = [0 1; 1 0]。</div>
+  <details><summary>答案</summary><div class="ans">AB = [1·0+2·1, 1·1+2·0; 3·0+4·1, 3·1+4·0] = [2 1; 4 3]；BA = [0·1+1·3, 0·2+1·4; 1·1+0·3, 1·2+0·4] = [3 4; 1 2]。<b>AB ≠ BA</b>。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">18. A 是 2×3，B 是 4×3。AB、BA 分别能否定义？</div>
+  <details><summary>答案</summary><div class="ans">AB 需 3 = 4，不行；BA 需 3 = 2，也不行。两者都无定义。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">19. 举一个 A ≠ O 但 A² = O 的 2×2 矩阵，并说明它推翻了哪条“常识”。</div>
+  <details><summary>答案</summary><div class="ans">A = [2 4; −1 −2]，则 A² = [4−4, 8−8; −2+2, −4+4] = O。它说明矩阵里 <b>A² = O 推不出 A = O</b>（也不能“约去” A）。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">20. 设 A 为 3×4，证明 AA<sup>T</sup> 是对称矩阵，并说出它的维数。</div>
+  <details><summary>答案</summary><div class="ans">(AA<sup>T</sup>)<sup>T</sup> = (A<sup>T</sup>)<sup>T</sup>A<sup>T</sup> = AA<sup>T</sup>，故对称。A 是 3×4 ⇒ A<sup>T</sup> 是 4×3 ⇒ AA<sup>T</sup> 是 3×3。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">21. 若 rank(A) = rank([A|b]) = 2，A 是 3×4 的矩阵，问方程组 Ax = b 解的情况。</div>
+  <details><summary>答案</summary><div class="ans">相容（rank 未因加入 b 而增大）。n = 4，自由变量 = 4 − 2 = 2 &gt; 0 ⇒ <b>无穷多解</b>。</div></details>
+</div>
+
+<div class="q">
+  <div class="stem">22. 设 v₁, v₂, v₃ 线性无关，判断 w₁ = v₁ + v₂, w₂ = v₂ + v₃, w₃ = v₁ + v₃ 是否线性无关。</div>
+  <details><summary>答案</summary><div class="ans">无关。设 c₁w₁ + c₂w₂ + c₃w₃ = 0，整理得 (c₁+c₃)v₁ + (c₁+c₂)v₂ + (c₂+c₃)v₃ = 0。由 v 无关得 c₁+c₃ = c₁+c₂ = c₂+c₃ = 0，解得 c₁ = c₂ = c₃ = 0。</div></details>
+</div>
+
+<!-- ============ 9. 计划 ============ -->
+
+</div>
+<div class="chunknav"><a href="pit.html">← 十个最容易丢分的点</a><a href="plan.html">三天冲刺复习计划 →</a></div>
+</body></html>

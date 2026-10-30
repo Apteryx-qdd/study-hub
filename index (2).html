@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>期中冲刺 · 考点版 · 线性代数</title>
+
+
+
+
+<style>
+:root{
+  --s21:#2f6f9f; --s21b:#eaf3fa;
+  --s22:#1f7a8c; --s22b:#e6f4f6;
+  --s23:#7a51a6; --s23b:#f4eefa;
+  --s31:#2f8f6f; --s31b:#e9f6f1;
+  --s32:#5b8c3a; --s32b:#f0f6e8;
+  --s33:#b4703a; --s33b:#fdf2e8;
+  --s35:#a8455a; --s35b:#fbeef0;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.75}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#123a5c 0%,#1c527f 50%,#2f6f9f 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.75}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.92;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:42px 0 6px;padding-top:10px;border-top:2px solid var(--line)}
+h2 .num{display:inline-block;background:#123a5c;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:24px 0 8px}
+h4{font-size:15.5px;margin:16px 0 6px;color:#243447}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:15px 0;box-shadow:0 1px 2px rgba(16,32,48,.04)}
+.card.s21{border-left:5px solid var(--s21)} .card.s22{border-left:5px solid var(--s22)}
+.card.s23{border-left:5px solid var(--s23)} .card.s31{border-left:5px solid var(--s31)}
+.card.s32{border-left:5px solid var(--s32)} .card.s33{border-left:5px solid var(--s33)}
+.card.s35{border-left:5px solid var(--s35)}
+.card h3{margin-top:0}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;margin-right:6px;font-weight:700}
+.t21{background:var(--s21b);color:var(--s21)} .t22{background:var(--s22b);color:var(--s22)}
+.t23{background:var(--s23b);color:var(--s23)} .t31{background:var(--s31b);color:var(--s31)}
+.t32{background:var(--s32b);color:var(--s32)} .t33{background:var(--s33b);color:var(--s33)}
+.t35{background:var(--s35b);color:var(--s35)}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0}
+.thm b{color:#123a5c}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.k{font-weight:700;color:#123a5c}
+.mono{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:14px}
+.formula{background:#f7f9fb;border-left:3px solid #b9c6d3;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+pre.mat{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:13.6px;line-height:1.5;background:#f7f9fb;
+  border:1px solid var(--line);border-left:3px solid #b9c6d3;padding:11px 15px;border-radius:0 8px 8px 0;
+  overflow-x:auto;margin:10px 0;white-space:pre;color:#1c2733}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.5px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f2f5f9;font-weight:700;color:#243447}
+tbody tr:nth-child(even){background:#fafbfc}
+.warn{background:#fff8f0;border:1px solid #f4d9bd;border-left:5px solid #d98b3a;border-radius:10px;padding:12px 16px;margin:12px 0}
+.warn b{color:#a45c14}
+.ok{background:#f1f8f4;border:1px solid #cfe7d9;border-left:5px solid #2f8f6f;border-radius:10px;padding:12px 16px;margin:12px 0}
+.ok b{color:#1f6b51}
+.exam{background:#fdf2f2;border:1px solid #f0cfd3;border-left:5px solid #a8455a;border-radius:10px;padding:12px 16px;margin:12px 0}
+.exam b{color:#8b2f42}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;color:#123a5c;outline:none}
+details[open] summary{margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.q{margin:16px 0 0}
+.q .stem{font-weight:600}
+.ans{color:#1f6b51}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media (max-width:780px){.grid{grid-template-columns:1fr}}
+.pill{display:inline-block;background:#eef2f6;border-radius:999px;padding:2px 10px;font-size:12.5px;color:#465768;margin:2px 6px 2px 0}
+.map{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:16px 0}
+@media (max-width:900px){.map{grid-template-columns:1fr 1fr}}
+.map .m{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.map .m .h{font-weight:700;font-size:14.5px;margin-bottom:4px}
+.map .m .w{font-size:12px;color:var(--muted);margin-bottom:6px}
+.map .m ul{margin:4px 0 0 16px;font-size:13.3px;line-height:1.6}
+.mindmap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;margin:16px 0;max-height:82vh;overflow:auto}
+.mindmap svg{display:block;width:100%;height:auto;aspect-ratio:1195/3557;min-width:900px}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media print{nav.toc{position:static}.card{box-shadow:none}body{font-size:12pt}}
+</style>
+
+    /* --- 锚点跳转增强 --- */
+    h2[id], h3[id], div[id]{scroll-margin-top: 78px;}
+    nav.toc a{cursor:pointer;}
+    nav.toc a.active{background:#e3ecf4;color:#123a5c;font-weight:700;}
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="../../../index.html">← 资料库</a><span style="opacity:.45">/</span>
+<a href="../../../subjects/linear-algebra.html">线性代数</a><span style="opacity:.45">/</span>
+<b>期中冲刺 · 考点版</b><span class="spacer"></span>
+<a class="btn" href="../midterm-full.html">完整单页版</a> <a class="btn" href="../../../assets/pdf/MATH0280_期中冲刺_手机版.pdf" target="_blank">PDF</a>
+</div></div>
+<div class="chunkmain">
+  <div class="eyebrow" style="letter-spacing:.22em;font-size:12px;color:#8a97a6;text-transform:uppercase">MATH 0280</div>
+  <h1 style="font-size:29px;margin:8px 0 6px;color:#123a5c">期中冲刺 · 考点版</h1>
+  <p style="color:#5d6b7a;font-size:14.5px;max-width:820px">按考试范围重排的七节考点：定义/定理/算法/例题、九类题型模板、速查表、易错点、60 分钟模拟卷（含答案）。</p>
+  <div style="margin:10px 0 18px"><span class="chip">期中</span><span class="chip">考点</span><span class="chip">模拟卷</span></div>
+  <div class="toclist"><a href="map.html"><span class="n">0</span>考点地图：先看清战场</a><a href="s21.html"><span class="n">1</span>§2.1 线性方程组入门</a><a href="s22.html"><span class="n">2</span>§2.2 直接法：高斯消元（本节是全场核心）</a><a href="s23.html"><span class="n">3</span>§2.3 张成集与线性无关</a><a href="s31.html"><span class="n">4</span>§3.1 矩阵运算</a><a href="s32.html"><span class="n">5</span>§3.2 矩阵代数（性质与“反常识”）</a><a href="s33.html"><span class="n">6</span>§3.3 逆矩阵（大题高发区）</a><a href="s35.html"><span class="n">7</span>§3.5 子空间（只考这一块）</a><a href="model.html"><span class="n">8</span>九类必考题型：看到题就知道写什么</a><a href="cheat.html"><span class="n">9</span>速查表</a><a href="pit.html"><span class="n">10</span>十二个高频失分点</a><a href="mock.html"><span class="n">11</span>60 分钟模拟卷（10 题，100 分）</a></div>
+  <p style="color:#8a97a6;font-size:13px;margin-top:16px">点击任意章节进入独立页面；页面内无锚点、无需脚本，任何阅读器都能正常跳转。</p>
+</div>
+</body></html>
