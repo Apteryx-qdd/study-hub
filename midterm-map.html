@@ -1,0 +1,450 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>考点地图：先看清战场 · 期中冲刺 · 考点版</title>
+
+
+
+
+<style>
+:root{
+  --s21:#2f6f9f; --s21b:#eaf3fa;
+  --s22:#1f7a8c; --s22b:#e6f4f6;
+  --s23:#7a51a6; --s23b:#f4eefa;
+  --s31:#2f8f6f; --s31b:#e9f6f1;
+  --s32:#5b8c3a; --s32b:#f0f6e8;
+  --s33:#b4703a; --s33b:#fdf2e8;
+  --s35:#a8455a; --s35b:#fbeef0;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.75}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#123a5c 0%,#1c527f 50%,#2f6f9f 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.75}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.92;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:42px 0 6px;padding-top:10px;border-top:2px solid var(--line)}
+h2 .num{display:inline-block;background:#123a5c;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:24px 0 8px}
+h4{font-size:15.5px;margin:16px 0 6px;color:#243447}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:15px 0;box-shadow:0 1px 2px rgba(16,32,48,.04)}
+.card.s21{border-left:5px solid var(--s21)} .card.s22{border-left:5px solid var(--s22)}
+.card.s23{border-left:5px solid var(--s23)} .card.s31{border-left:5px solid var(--s31)}
+.card.s32{border-left:5px solid var(--s32)} .card.s33{border-left:5px solid var(--s33)}
+.card.s35{border-left:5px solid var(--s35)}
+.card h3{margin-top:0}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;margin-right:6px;font-weight:700}
+.t21{background:var(--s21b);color:var(--s21)} .t22{background:var(--s22b);color:var(--s22)}
+.t23{background:var(--s23b);color:var(--s23)} .t31{background:var(--s31b);color:var(--s31)}
+.t32{background:var(--s32b);color:var(--s32)} .t33{background:var(--s33b);color:var(--s33)}
+.t35{background:var(--s35b);color:var(--s35)}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0}
+.thm b{color:#123a5c}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.k{font-weight:700;color:#123a5c}
+.mono{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:14px}
+.formula{background:#f7f9fb;border-left:3px solid #b9c6d3;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+pre.mat{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:13.6px;line-height:1.5;background:#f7f9fb;
+  border:1px solid var(--line);border-left:3px solid #b9c6d3;padding:11px 15px;border-radius:0 8px 8px 0;
+  overflow-x:auto;margin:10px 0;white-space:pre;color:#1c2733}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.5px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f2f5f9;font-weight:700;color:#243447}
+tbody tr:nth-child(even){background:#fafbfc}
+.warn{background:#fff8f0;border:1px solid #f4d9bd;border-left:5px solid #d98b3a;border-radius:10px;padding:12px 16px;margin:12px 0}
+.warn b{color:#a45c14}
+.ok{background:#f1f8f4;border:1px solid #cfe7d9;border-left:5px solid #2f8f6f;border-radius:10px;padding:12px 16px;margin:12px 0}
+.ok b{color:#1f6b51}
+.exam{background:#fdf2f2;border:1px solid #f0cfd3;border-left:5px solid #a8455a;border-radius:10px;padding:12px 16px;margin:12px 0}
+.exam b{color:#8b2f42}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;color:#123a5c;outline:none}
+details[open] summary{margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.q{margin:16px 0 0}
+.q .stem{font-weight:600}
+.ans{color:#1f6b51}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media (max-width:780px){.grid{grid-template-columns:1fr}}
+.pill{display:inline-block;background:#eef2f6;border-radius:999px;padding:2px 10px;font-size:12.5px;color:#465768;margin:2px 6px 2px 0}
+.map{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:16px 0}
+@media (max-width:900px){.map{grid-template-columns:1fr 1fr}}
+.map .m{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.map .m .h{font-weight:700;font-size:14.5px;margin-bottom:4px}
+.map .m .w{font-size:12px;color:var(--muted);margin-bottom:6px}
+.map .m ul{margin:4px 0 0 16px;font-size:13.3px;line-height:1.6}
+.mindmap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;margin:16px 0;max-height:82vh;overflow:auto}
+.mindmap svg{display:block;width:100%;height:auto;aspect-ratio:1195/3557;min-width:900px}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media print{nav.toc{position:static}.card{box-shadow:none}body{font-size:12pt}}
+</style>
+
+    /* --- 锚点跳转增强 --- */
+    h2[id], h3[id], div[id]{scroll-margin-top: 78px;}
+    nav.toc a{cursor:pointer;}
+    nav.toc a.active{background:#e3ecf4;color:#123a5c;font-weight:700;}
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="midterm-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-linear-algebra.html">线性代数</a><span style="opacity:.45">/</span>
+<b>考点地图：先看清战场</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="midterm-map.html" class=cur>0</a><a href="midterm-s21.html">1</a><a href="midterm-s22.html">2</a><a href="midterm-s23.html">3</a><a href="midterm-s31.html">4</a><a href="midterm-s32.html">5</a><a href="midterm-s33.html">6</a><a href="midterm-s35.html">7</a><a href="midterm-model.html">8</a><a href="midterm-cheat.html">9</a><a href="midterm-pit.html">10</a><a href="midterm-mock.html">11</a></div></div>
+<div class="chunkmain">
+<h2 id="map"><span class="num">0</span>考点地图：先看清战场</h2>
+
+<p class="lead">七节内容其实是三条链：<b>解方程（2.1→2.2）→ 用方程回答向量问题（2.3）</b>；<b>算矩阵（3.1→3.2）→ 求逆并用它解方程（3.3）</b>；<b>子空间（3.5）</b>是唯一“概念题”为主的一节。</p>
+
+<div class="map">
+  <div class="m"><div class="h" style="color:#2f6f9f">§2.1 线性方程组入门</div><div class="w">概念为主 · 分值小</div>
+    <ul><li>线性方程判定</li><li>三种解的个数</li><li>相容/不相容</li><li>几何解释</li></ul></div>
+  <div class="m"><div class="h" style="color:#1f7a8c">§2.2 直接法（高斯消元）</div><div class="w">计算核心 · 分值最大</div>
+    <ul><li>化 REF / RREF</li><li>主元与自由变量</li><li>判断无解/唯一/无穷</li><li>含参数讨论</li><li>齐次方程组</li></ul></div>
+  <div class="m"><div class="h" style="color:#7a51a6">§2.3 张成与线性无关</div><div class="w">计算+证明 · 分值大</div>
+    <ul><li>是否线性组合</li><li>span 的几何意义</li><li>相关性判定</li><li>求参数使相关</li></ul></div>
+  <div class="m"><div class="h" style="color:#2f8f6f">§3.1 矩阵运算</div><div class="w">计算题 · 必得分</div>
+    <ul><li>维数规则</li><li>AB 逐元素</li><li>转置、对称</li><li>矩阵幂、分块</li></ul></div>
+  <div class="m"><div class="h" style="color:#5b8c3a">§3.2 矩阵代数</div><div class="w">判断/证明 · 易错</div>
+    <ul><li>结合律（含证明）</li><li>(AB)ᵀ = BᵀAᵀ</li><li>不可交换、无消去律</li><li>(A+B)² 展开</li></ul></div>
+  <div class="m"><div class="h" style="color:#b4703a">§3.3 逆矩阵</div><div class="w">大题高发 · 必考</div>
+    <ul><li>2×2 公式</li><li>[A|I] → [I|A⁻¹]</li><li>(AB)⁻¹ 反序</li><li>可逆的等价条件</li><li>用逆解 Ax=b</li></ul></div>
+  <div class="m"><div class="h" style="color:#a8455a">§3.5 子空间（只考这块）</div><div class="w">概念+判断 · 稳定拿分</div>
+    <ul><li>三条件判定</li><li>span / null 是子空间</li><li>反例构造</li><li>不考基与维数</li></ul></div>
+  <div class="m" style="background:#f7f9fb"><div class="h">复习优先级</div><div class="w">按性价比排序</div>
+    <ul><li>① §2.2 消元（最重）</li><li>② §3.3 求逆</li><li>③ §3.1/3.2 矩阵运算</li><li>④ §2.3 判定</li><li>⑤ §3.5 子空间</li><li>⑥ §2.1 概念</li></ul></div>
+</div>
+
+<div class="exam"><b>三个最容易丢分的“范围陷阱”</b>：① 3.5 只考 subspace —— 不要花时间算基、维数、秩，但要知道 null(A)、span 是子空间；② 2.1 的概念题（线性/非线性、相容性）常以选择题出现，别裸考；③ 3.2 的“判断命题真假”几乎必有一题，见第 10 节。</div>
+
+<h3>思维导图（七节一图）</h3>
+<p class="lead">同目录下另有 <span class="mono">mindmap_exam.png</span>（高清）与 <span class="mono">mindmap_exam.svg</span>（矢量），可单独打印。</p>
+<div class="mindmap">
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MATH0280 期中考点思维导图" width="100%" height="auto" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1195 3557" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1195" height="3557" fill="#fbfcfd"/>
+<path d="M304.0,1778.5 C367.0,1778.5 367.0,210.5 430.0,210.5" fill="none" stroke="#2f6f9f" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M573.0,210.5 C681.5,210.5 681.5,60.5 790.0,60.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,210.5 C681.5,210.5 681.5,110.5 790.0,110.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,210.5 C681.5,210.5 681.5,160.5 790.0,160.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,210.5 C681.5,210.5 681.5,210.5 790.0,210.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,210.5 C681.5,210.5 681.5,260.5 790.0,260.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,210.5 C681.5,210.5 681.5,310.5 790.0,310.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,210.5 C681.5,210.5 681.5,360.5 790.0,360.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M304.0,1778.5 C367.0,1778.5 367.0,696.5 430.0,696.5" fill="none" stroke="#1f7a8c" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M556.0,696.5 C673.0,696.5 673.0,471.5 790.0,471.5" fill="none" stroke="#1f7a8c" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,696.5 C673.0,696.5 673.0,521.5 790.0,521.5" fill="none" stroke="#1f7a8c" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,696.5 C673.0,696.5 673.0,571.5 790.0,571.5" fill="none" stroke="#1f7a8c" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,696.5 C673.0,696.5 673.0,621.5 790.0,621.5" fill="none" stroke="#1f7a8c" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,696.5 C673.0,696.5 673.0,671.5 790.0,671.5" fill="none" stroke="#1f7a8c" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,696.5 C673.0,696.5 673.0,721.5 790.0,721.5" fill="none" stroke="#1f7a8c" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,696.5 C673.0,696.5 673.0,771.5 790.0,771.5" fill="none" stroke="#1f7a8c" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,696.5 C673.0,696.5 673.0,821.5 790.0,821.5" fill="none" stroke="#1f7a8c" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,696.5 C673.0,696.5 673.0,871.5 790.0,871.5" fill="none" stroke="#1f7a8c" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,696.5 C673.0,696.5 673.0,921.5 790.0,921.5" fill="none" stroke="#1f7a8c" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M304.0,1778.5 C367.0,1778.5 367.0,1257.5 430.0,1257.5" fill="none" stroke="#7a51a6" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M573.0,1257.5 C681.5,1257.5 681.5,1032.5 790.0,1032.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,1257.5 C681.5,1257.5 681.5,1082.5 790.0,1082.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,1257.5 C681.5,1257.5 681.5,1132.5 790.0,1132.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,1257.5 C681.5,1257.5 681.5,1182.5 790.0,1182.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,1257.5 C681.5,1257.5 681.5,1232.5 790.0,1232.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,1257.5 C681.5,1257.5 681.5,1282.5 790.0,1282.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,1257.5 C681.5,1257.5 681.5,1332.5 790.0,1332.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,1257.5 C681.5,1257.5 681.5,1382.5 790.0,1382.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,1257.5 C681.5,1257.5 681.5,1432.5 790.0,1432.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M573.0,1257.5 C681.5,1257.5 681.5,1482.5 790.0,1482.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M304.0,1778.5 C367.0,1778.5 367.0,1768.5 430.0,1768.5" fill="none" stroke="#2f8f6f" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M556.0,1768.5 C673.0,1768.5 673.0,1593.5 790.0,1593.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,1768.5 C673.0,1768.5 673.0,1643.5 790.0,1643.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,1768.5 C673.0,1768.5 673.0,1693.5 790.0,1693.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,1768.5 C673.0,1768.5 673.0,1743.5 790.0,1743.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,1768.5 C673.0,1768.5 673.0,1793.5 790.0,1793.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,1768.5 C673.0,1768.5 673.0,1843.5 790.0,1843.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,1768.5 C673.0,1768.5 673.0,1893.5 790.0,1893.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,1768.5 C673.0,1768.5 673.0,1943.5 790.0,1943.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M304.0,1778.5 C367.0,1778.5 367.0,2254.5 430.0,2254.5" fill="none" stroke="#5b8c3a" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M556.0,2254.5 C673.0,2254.5 673.0,2054.5 790.0,2054.5" fill="none" stroke="#5b8c3a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,2254.5 C673.0,2254.5 673.0,2104.5 790.0,2104.5" fill="none" stroke="#5b8c3a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,2254.5 C673.0,2254.5 673.0,2154.5 790.0,2154.5" fill="none" stroke="#5b8c3a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,2254.5 C673.0,2254.5 673.0,2204.5 790.0,2204.5" fill="none" stroke="#5b8c3a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,2254.5 C673.0,2254.5 673.0,2254.5 790.0,2254.5" fill="none" stroke="#5b8c3a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,2254.5 C673.0,2254.5 673.0,2304.5 790.0,2304.5" fill="none" stroke="#5b8c3a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,2254.5 C673.0,2254.5 673.0,2354.5 790.0,2354.5" fill="none" stroke="#5b8c3a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,2254.5 C673.0,2254.5 673.0,2404.5 790.0,2404.5" fill="none" stroke="#5b8c3a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M556.0,2254.5 C673.0,2254.5 673.0,2454.5 790.0,2454.5" fill="none" stroke="#5b8c3a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M304.0,1778.5 C367.0,1778.5 367.0,2765.5 430.0,2765.5" fill="none" stroke="#b4703a" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M539.0,2765.5 C664.5,2765.5 664.5,2565.5 790.0,2565.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M539.0,2765.5 C664.5,2765.5 664.5,2615.5 790.0,2615.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M539.0,2765.5 C664.5,2765.5 664.5,2665.5 790.0,2665.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M539.0,2765.5 C664.5,2765.5 664.5,2715.5 790.0,2715.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M539.0,2765.5 C664.5,2765.5 664.5,2765.5 790.0,2765.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M539.0,2765.5 C664.5,2765.5 664.5,2815.5 790.0,2815.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M539.0,2765.5 C664.5,2765.5 664.5,2865.5 790.0,2865.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M539.0,2765.5 C664.5,2765.5 664.5,2915.5 790.0,2915.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M539.0,2765.5 C664.5,2765.5 664.5,2965.5 790.0,2965.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M304.0,1778.5 C367.0,1778.5 367.0,3276.5 430.0,3276.5" fill="none" stroke="#a8455a" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M607.0,3276.5 C698.5,3276.5 698.5,3076.5 790.0,3076.5" fill="none" stroke="#a8455a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M607.0,3276.5 C698.5,3276.5 698.5,3126.5 790.0,3126.5" fill="none" stroke="#a8455a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M607.0,3276.5 C698.5,3276.5 698.5,3176.5 790.0,3176.5" fill="none" stroke="#a8455a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M607.0,3276.5 C698.5,3276.5 698.5,3226.5 790.0,3226.5" fill="none" stroke="#a8455a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M607.0,3276.5 C698.5,3276.5 698.5,3276.5 790.0,3276.5" fill="none" stroke="#a8455a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M607.0,3276.5 C698.5,3276.5 698.5,3326.5 790.0,3326.5" fill="none" stroke="#a8455a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M607.0,3276.5 C698.5,3276.5 698.5,3376.5 790.0,3376.5" fill="none" stroke="#a8455a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M607.0,3276.5 C698.5,3276.5 698.5,3426.5 790.0,3426.5" fill="none" stroke="#a8455a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M607.0,3276.5 C698.5,3276.5 698.5,3476.5 790.0,3476.5" fill="none" stroke="#a8455a" stroke-width="1.4" stroke-opacity="0.6"/>
+<rect x="50.0" y="1728.0" width="254.0" height="101.0" rx="10" fill="#123a5c" stroke="#123a5c" stroke-width="1.2"/>
+<text x="64.0" y="1758.3" font-size="21" fill="#ffffff" font-weight="bold">MATH 0280</text>
+<text x="64.0" y="1785.3" font-size="21" fill="#ffffff" font-weight="bold">期中考点地图</text>
+<text x="64.0" y="1812.3" font-size="21" fill="#ffffff" font-weight="bold">2.1-2.3 · 3.1-3.3 · 3.5</text>
+<rect x="430.0" y="178.0" width="143.0" height="65.0" rx="10" fill="#2f6f9f" stroke="#2f6f9f" stroke-width="1.2"/>
+<text x="444.0" y="204.6" font-size="17" fill="#ffffff" font-weight="bold">2.1 方程组入门</text>
+<text x="444.0" y="240.6" font-size="12" fill="#ffffff" fill-opacity="0.85">概念</text>
+<rect x="790.0" y="40.0" width="263.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="40.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="64.8" font-size="15" fill="#1c2733" font-weight="normal">线性方程：变量一次幂、只乘常数</text>
+<rect x="790.0" y="90.0" width="262.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="90.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="114.8" font-size="15" fill="#1c2733" font-weight="normal">非线性：xy、x²、1/x、sin x、√x</text>
+<rect x="790.0" y="140.0" width="267.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="140.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="164.8" font-size="15" fill="#1c2733" font-weight="normal">解 = 同时满足所有方程的有序数组</text>
+<rect x="790.0" y="190.0" width="231.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="190.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="214.8" font-size="15" fill="#1c2733" font-weight="normal">三种解：唯一 / 无穷多 / 无解</text>
+<rect x="790.0" y="240.0" width="299.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="240.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="264.8" font-size="15" fill="#1c2733" font-weight="normal">相容 consistent；不相容 inconsistent</text>
+<rect x="790.0" y="290.0" width="198.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="290.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="314.8" font-size="15" fill="#1c2733" font-weight="normal">几何：R² 直线、R³ 平面</text>
+<rect x="790.0" y="340.0" width="266.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="340.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="364.8" font-size="15" fill="#1c2733" font-weight="normal">三种方程运算（可逆 ⇒ 解集不变）</text>
+<rect x="430.0" y="664.0" width="126.0" height="65.0" rx="10" fill="#1f7a8c" stroke="#1f7a8c" stroke-width="1.2"/>
+<text x="444.0" y="690.6" font-size="17" fill="#ffffff" font-weight="bold">2.2 高斯消元</text>
+<text x="444.0" y="726.6" font-size="12" fill="#ffffff" fill-opacity="0.85">最重</text>
+<rect x="790.0" y="451.0" width="137.0" height="41.0" rx="10" fill="#e6f4f6" stroke="#1f7a8c" stroke-width="1.2"/>
+<rect x="790.0" y="451.0" width="5" height="41.0" fill="#1f7a8c"/>
+<text x="810.0" y="475.8" font-size="15" fill="#1c2733" font-weight="normal">增广矩阵 [A|b]</text>
+<rect x="790.0" y="501.0" width="263.0" height="41.0" rx="10" fill="#e6f4f6" stroke="#1f7a8c" stroke-width="1.2"/>
+<rect x="790.0" y="501.0" width="5" height="41.0" fill="#1f7a8c"/>
+<text x="810.0" y="525.8" font-size="15" fill="#1c2733" font-weight="normal">三种初等行变换：换、倍乘、倍加</text>
+<rect x="790.0" y="551.0" width="244.0" height="41.0" rx="10" fill="#e6f4f6" stroke="#1f7a8c" stroke-width="1.2"/>
+<rect x="790.0" y="551.0" width="5" height="41.0" fill="#1f7a8c"/>
+<text x="810.0" y="575.8" font-size="15" fill="#1c2733" font-weight="normal">REF：零行最下、主元逐行右移</text>
+<rect x="790.0" y="601.0" width="254.0" height="41.0" rx="10" fill="#e6f4f6" stroke="#1f7a8c" stroke-width="1.2"/>
+<rect x="790.0" y="601.0" width="5" height="41.0" fill="#1f7a8c"/>
+<text x="810.0" y="625.8" font-size="15" fill="#1c2733" font-weight="normal">RREF：主元为 1 且该列其余为 0</text>
+<rect x="790.0" y="651.0" width="157.0" height="41.0" rx="10" fill="#e6f4f6" stroke="#1f7a8c" stroke-width="1.2"/>
+<rect x="790.0" y="651.0" width="5" height="41.0" fill="#1f7a8c"/>
+<text x="810.0" y="675.8" font-size="15" fill="#1c2733" font-weight="normal">主元列 / 自由变量</text>
+<rect x="790.0" y="701.0" width="188.0" height="41.0" rx="10" fill="#e6f4f6" stroke="#1f7a8c" stroke-width="1.2"/>
+<rect x="790.0" y="701.0" width="5" height="41.0" fill="#1f7a8c"/>
+<text x="810.0" y="725.8" font-size="15" fill="#1c2733" font-weight="normal">相容：没有 [0…0|c] 行</text>
+<rect x="790.0" y="751.0" width="293.0" height="41.0" rx="10" fill="#e6f4f6" stroke="#1f7a8c" stroke-width="1.2"/>
+<rect x="790.0" y="751.0" width="5" height="41.0" fill="#1f7a8c"/>
+<text x="810.0" y="775.8" font-size="15" fill="#1c2733" font-weight="normal">唯一：无自由变量；无穷：有自由变量</text>
+<rect x="790.0" y="801.0" width="278.0" height="41.0" rx="10" fill="#e6f4f6" stroke="#1f7a8c" stroke-width="1.2"/>
+<rect x="790.0" y="801.0" width="5" height="41.0" fill="#1f7a8c"/>
+<text x="810.0" y="825.8" font-size="15" fill="#1c2733" font-weight="normal">齐次：必有解；非零解：有自由变量</text>
+<rect x="790.0" y="851.0" width="196.0" height="41.0" rx="10" fill="#e6f4f6" stroke="#1f7a8c" stroke-width="1.2"/>
+<rect x="790.0" y="851.0" width="5" height="41.0" fill="#1f7a8c"/>
+<text x="810.0" y="875.8" font-size="15" fill="#1c2733" font-weight="normal">通解 = 特解 + 齐次通解</text>
+<rect x="790.0" y="901.0" width="255.0" height="41.0" rx="10" fill="#e6f4f6" stroke="#1f7a8c" stroke-width="1.2"/>
+<rect x="790.0" y="901.0" width="5" height="41.0" fill="#1f7a8c"/>
+<text x="810.0" y="925.8" font-size="15" fill="#1c2733" font-weight="normal">含参：看末行 (0…0|表达式) 讨论</text>
+<rect x="430.0" y="1225.0" width="143.0" height="65.0" rx="10" fill="#7a51a6" stroke="#7a51a6" stroke-width="1.2"/>
+<text x="444.0" y="1251.6" font-size="17" fill="#ffffff" font-weight="bold">2.3 张成与无关</text>
+<text x="444.0" y="1287.6" font-size="12" fill="#ffffff" fill-opacity="0.85">判定</text>
+<rect x="790.0" y="1012.0" width="218.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1012.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1036.8" font-size="15" fill="#1c2733" font-weight="normal">线性组合 c1v1 + … + ckvk</text>
+<rect x="790.0" y="1062.0" width="181.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1062.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1086.8" font-size="15" fill="#1c2733" font-weight="normal">span = 全部线性组合</text>
+<rect x="790.0" y="1112.0" width="227.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1112.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1136.8" font-size="15" fill="#1c2733" font-weight="normal">b 在 span 中：即 [A|b] 相容</text>
+<rect x="790.0" y="1162.0" width="319.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1162.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1186.8" font-size="15" fill="#1c2733" font-weight="normal">几何：1 个向量→直线，2 个不平行→平面</text>
+<rect x="790.0" y="1212.0" width="231.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1212.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1236.8" font-size="15" fill="#1c2733" font-weight="normal">相关：存在非平凡组合等于 0</text>
+<rect x="790.0" y="1262.0" width="198.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1262.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1286.8" font-size="15" fill="#1c2733" font-weight="normal">无关：只有平凡解 c = 0</text>
+<rect x="790.0" y="1312.0" width="248.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1312.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1336.8" font-size="15" fill="#1c2733" font-weight="normal">相关：某向量是其余向量的组合</text>
+<rect x="790.0" y="1362.0" width="224.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1362.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1386.8" font-size="15" fill="#1c2733" font-weight="normal">判定：Ac = 0 有无自由变量</text>
+<rect x="790.0" y="1412.0" width="216.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1412.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1436.8" font-size="15" fill="#1c2733" font-weight="normal">Rn 中 m &gt; n 个向量必相关</text>
+<rect x="790.0" y="1462.0" width="173.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1462.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1486.8" font-size="15" fill="#1c2733" font-weight="normal">无关：表示方式唯一</text>
+<rect x="430.0" y="1736.0" width="126.0" height="65.0" rx="10" fill="#2f8f6f" stroke="#2f8f6f" stroke-width="1.2"/>
+<text x="444.0" y="1762.6" font-size="17" fill="#ffffff" font-weight="bold">3.1 矩阵运算</text>
+<text x="444.0" y="1798.6" font-size="12" fill="#ffffff" fill-opacity="0.85">计算</text>
+<rect x="790.0" y="1573.0" width="237.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1573.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1597.8" font-size="15" fill="#1c2733" font-weight="normal">相等：同维数 + 对应元素相等</text>
+<rect x="790.0" y="1623.0" width="218.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1623.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1647.8" font-size="15" fill="#1c2733" font-weight="normal">加法、数乘、减法、零矩阵</text>
+<rect x="790.0" y="1673.0" width="232.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1673.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1697.8" font-size="15" fill="#1c2733" font-weight="normal">乘法维数 (m×n)(n×r) = m×r</text>
+<rect x="790.0" y="1723.0" width="227.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1723.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1747.8" font-size="15" fill="#1c2733" font-weight="normal">c_ij = Σ a_ik b_kj（行乘列）</text>
+<rect x="790.0" y="1773.0" width="248.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1773.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1797.8" font-size="15" fill="#1c2733" font-weight="normal">列视角：AB 的列 = A 乘 B 的列</text>
+<rect x="790.0" y="1823.0" width="280.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1823.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1847.8" font-size="15" fill="#1c2733" font-weight="normal">转置 (A^T)_ij = a_ji；对称 A^T = A</text>
+<rect x="790.0" y="1873.0" width="263.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1873.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1897.8" font-size="15" fill="#1c2733" font-weight="normal">幂：A⁰ = I；A^r A^s = A^{r+s}</text>
+<rect x="790.0" y="1923.0" width="242.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1923.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1947.8" font-size="15" fill="#1c2733" font-weight="normal">分块：AB = a1B1 + … + anBn</text>
+<rect x="430.0" y="2222.0" width="126.0" height="65.0" rx="10" fill="#5b8c3a" stroke="#5b8c3a" stroke-width="1.2"/>
+<text x="444.0" y="2248.6" font-size="17" fill="#ffffff" font-weight="bold">3.2 矩阵代数</text>
+<text x="444.0" y="2284.6" font-size="12" fill="#ffffff" fill-opacity="0.85">证明/判断</text>
+<rect x="790.0" y="2034.0" width="186.0" height="41.0" rx="10" fill="#f0f6e8" stroke="#5b8c3a" stroke-width="1.2"/>
+<rect x="790.0" y="2034.0" width="5" height="41.0" fill="#5b8c3a"/>
+<text x="810.0" y="2058.8" font-size="15" fill="#1c2733" font-weight="normal">结合律 A(BC) = (AB)C</text>
+<rect x="790.0" y="2084.0" width="217.0" height="41.0" rx="10" fill="#f0f6e8" stroke="#5b8c3a" stroke-width="1.2"/>
+<rect x="790.0" y="2084.0" width="5" height="41.0" fill="#5b8c3a"/>
+<text x="810.0" y="2108.8" font-size="15" fill="#1c2733" font-weight="normal">分配律 A(B+C) = AB + AC</text>
+<rect x="790.0" y="2134.0" width="190.0" height="41.0" rx="10" fill="#f0f6e8" stroke="#5b8c3a" stroke-width="1.2"/>
+<rect x="790.0" y="2134.0" width="5" height="41.0" fill="#5b8c3a"/>
+<text x="810.0" y="2158.8" font-size="15" fill="#1c2733" font-weight="normal">k(AB) = (kA)B = A(kB)</text>
+<rect x="790.0" y="2184.0" width="174.0" height="41.0" rx="10" fill="#f0f6e8" stroke="#5b8c3a" stroke-width="1.2"/>
+<rect x="790.0" y="2184.0" width="5" height="41.0" fill="#5b8c3a"/>
+<text x="810.0" y="2208.8" font-size="15" fill="#1c2733" font-weight="normal">单位阵 I·A = A = A·I</text>
+<rect x="790.0" y="2234.0" width="246.0" height="41.0" rx="10" fill="#f0f6e8" stroke="#5b8c3a" stroke-width="1.2"/>
+<rect x="790.0" y="2234.0" width="5" height="41.0" fill="#5b8c3a"/>
+<text x="810.0" y="2258.8" font-size="15" fill="#1c2733" font-weight="normal">(AB)^T = B^T A^T（顺序反）</text>
+<rect x="790.0" y="2284.0" width="266.0" height="41.0" rx="10" fill="#f0f6e8" stroke="#5b8c3a" stroke-width="1.2"/>
+<rect x="790.0" y="2284.0" width="5" height="41.0" fill="#5b8c3a"/>
+<text x="810.0" y="2308.8" font-size="15" fill="#1c2733" font-weight="normal">A + A^T、AA^T、A^T A 都对称</text>
+<rect x="790.0" y="2334.0" width="187.0" height="41.0" rx="10" fill="#f0f6e8" stroke="#5b8c3a" stroke-width="1.2"/>
+<rect x="790.0" y="2334.0" width="5" height="41.0" fill="#5b8c3a"/>
+<text x="810.0" y="2358.8" font-size="15" fill="#1c2733" font-weight="normal">AB ≠ BA（不可交换）</text>
+<rect x="790.0" y="2384.0" width="271.0" height="41.0" rx="10" fill="#f0f6e8" stroke="#5b8c3a" stroke-width="1.2"/>
+<rect x="790.0" y="2384.0" width="5" height="41.0" fill="#5b8c3a"/>
+<text x="810.0" y="2408.8" font-size="15" fill="#1c2733" font-weight="normal">没有消去律；A² = O 推不出 A = O</text>
+<rect x="790.0" y="2434.0" width="233.0" height="41.0" rx="10" fill="#f0f6e8" stroke="#5b8c3a" stroke-width="1.2"/>
+<rect x="790.0" y="2434.0" width="5" height="41.0" fill="#5b8c3a"/>
+<text x="810.0" y="2458.8" font-size="15" fill="#1c2733" font-weight="normal">(A+B)² = A² + AB + BA + B²</text>
+<rect x="430.0" y="2733.0" width="109.0" height="65.0" rx="10" fill="#b4703a" stroke="#b4703a" stroke-width="1.2"/>
+<text x="444.0" y="2759.6" font-size="17" fill="#ffffff" font-weight="bold">3.3 逆矩阵</text>
+<text x="444.0" y="2795.6" font-size="12" fill="#ffffff" fill-opacity="0.85">大题</text>
+<rect x="790.0" y="2545.0" width="214.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2545.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2569.8" font-size="15" fill="#1c2733" font-weight="normal">定义 AB = BA = I；逆唯一</text>
+<rect x="790.0" y="2595.0" width="292.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2595.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2619.8" font-size="15" fill="#1c2733" font-weight="normal">2×2 公式：1/(ad−bc)·[[d,−b],[−c,a]]</text>
+<rect x="790.0" y="2645.0" width="250.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2645.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2669.8" font-size="15" fill="#1c2733" font-weight="normal">[A|I] → [I|A^-1]（只用行变换）</text>
+<rect x="790.0" y="2695.0" width="222.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2695.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2719.8" font-size="15" fill="#1c2733" font-weight="normal">初等矩阵：左乘 = 做行变换</text>
+<rect x="790.0" y="2745.0" width="327.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2745.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2769.8" font-size="15" fill="#1c2733" font-weight="normal">可逆的等价说法：RREF=I / det≠0 / 列无关</text>
+<rect x="790.0" y="2795.0" width="249.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2795.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2819.8" font-size="15" fill="#1c2733" font-weight="normal">(AB)^-1 = B^-1 A^-1（反序）</text>
+<rect x="790.0" y="2845.0" width="355.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2845.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2869.8" font-size="15" fill="#1c2733" font-weight="normal">(A^T)^-1 = (A^-1)^T；(kA)^-1 = k^-1 A^-1</text>
+<rect x="790.0" y="2895.0" width="176.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2895.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2919.8" font-size="15" fill="#1c2733" font-weight="normal">解方程：x = A^-1 b</text>
+<rect x="790.0" y="2945.0" width="210.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2945.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2969.8" font-size="15" fill="#1c2733" font-weight="normal">奇异：出现零行 / det = 0</text>
+<rect x="430.0" y="3244.0" width="177.0" height="65.0" rx="10" fill="#a8455a" stroke="#a8455a" stroke-width="1.2"/>
+<text x="444.0" y="3270.6" font-size="17" fill="#ffffff" font-weight="bold">3.5 子空间（仅此）</text>
+<text x="444.0" y="3306.6" font-size="12" fill="#ffffff" fill-opacity="0.85">概念</text>
+<rect x="790.0" y="3056.0" width="281.0" height="41.0" rx="10" fill="#fbeef0" stroke="#a8455a" stroke-width="1.2"/>
+<rect x="790.0" y="3056.0" width="5" height="41.0" fill="#a8455a"/>
+<text x="810.0" y="3080.8" font-size="15" fill="#1c2733" font-weight="normal">三条件：0∈S；加法封闭；数乘封闭</text>
+<rect x="790.0" y="3106.0" width="218.0" height="41.0" rx="10" fill="#fbeef0" stroke="#a8455a" stroke-width="1.2"/>
+<rect x="790.0" y="3106.0" width="5" height="41.0" fill="#a8455a"/>
+<text x="810.0" y="3130.8" font-size="15" fill="#1c2733" font-weight="normal">等价：对一切线性组合封闭</text>
+<rect x="790.0" y="3156.0" width="166.0" height="41.0" rx="10" fill="#fbeef0" stroke="#a8455a" stroke-width="1.2"/>
+<rect x="790.0" y="3156.0" width="5" height="41.0" fill="#a8455a"/>
+<text x="810.0" y="3180.8" font-size="15" fill="#1c2733" font-weight="normal">span 一定是子空间</text>
+<rect x="790.0" y="3206.0" width="245.0" height="41.0" rx="10" fill="#fbeef0" stroke="#a8455a" stroke-width="1.2"/>
+<rect x="790.0" y="3206.0" width="5" height="41.0" fill="#a8455a"/>
+<text x="810.0" y="3230.8" font-size="15" fill="#1c2733" font-weight="normal">null(A) = {x : Ax = 0} 是子空间</text>
+<rect x="790.0" y="3256.0" width="224.0" height="41.0" rx="10" fill="#fbeef0" stroke="#a8455a" stroke-width="1.2"/>
+<rect x="790.0" y="3256.0" width="5" height="41.0" fill="#a8455a"/>
+<text x="810.0" y="3280.8" font-size="15" fill="#1c2733" font-weight="normal">过原点的直线/平面是子空间</text>
+<rect x="790.0" y="3306.0" width="229.0" height="41.0" rx="10" fill="#fbeef0" stroke="#a8455a" stroke-width="1.2"/>
+<rect x="790.0" y="3306.0" width="5" height="41.0" fill="#a8455a"/>
+<text x="810.0" y="3330.8" font-size="15" fill="#1c2733" font-weight="normal">不是：y = x²（加法不封闭）</text>
+<rect x="790.0" y="3356.0" width="232.0" height="41.0" rx="10" fill="#fbeef0" stroke="#a8455a" stroke-width="1.2"/>
+<rect x="790.0" y="3356.0" width="5" height="41.0" fill="#a8455a"/>
+<text x="810.0" y="3380.8" font-size="15" fill="#1c2733" font-weight="normal">不是：xy = 0（并集不封闭）</text>
+<rect x="790.0" y="3406.0" width="261.0" height="41.0" rx="10" fill="#fbeef0" stroke="#a8455a" stroke-width="1.2"/>
+<rect x="790.0" y="3406.0" width="5" height="41.0" fill="#a8455a"/>
+<text x="810.0" y="3430.8" font-size="15" fill="#1c2733" font-weight="normal">不是：不过原点的平面（不含 0）</text>
+<rect x="790.0" y="3456.0" width="218.0" height="41.0" rx="10" fill="#fbeef0" stroke="#a8455a" stroke-width="1.2"/>
+<rect x="790.0" y="3456.0" width="5" height="41.0" fill="#a8455a"/>
+<text x="810.0" y="3480.8" font-size="15" fill="#1c2733" font-weight="normal">不考：基、维数、秩的计算</text>
+</svg>
+</div>
+
+<!-- ================= §2.1 ================= -->
+
+</div>
+<div class="chunknav"><span class="dim">← 已是第一节</span><a href="midterm-s21.html">§2.1 线性方程组入门 →</a></div>
+</body></html>

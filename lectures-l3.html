@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L3 · 行空间、基、维数、秩 · 四讲复习提纲（L1–L4）</title>
+
+
+
+
+<style>
+:root{
+  --l1:#2f6f9f; --l1b:#eaf3fa;
+  --l2:#7a51a6; --l2b:#f4eefa;
+  --l3:#2f8f6f; --l3b:#e9f6f1;
+  --l4:#b4703a; --l4b:#fdf2e8;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px; line-height:1.75;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{
+  background:linear-gradient(135deg,#123a5c 0%,#1c527f 55%,#2f6f9f 100%);
+  color:#fff;padding:46px 0 34px;margin-bottom:26px;
+}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.22em;font-size:12px;opacity:.75;text-transform:uppercase}
+h1{font-size:31px;margin:10px 0 6px;font-weight:700;letter-spacing:.5px}
+.sub{opacity:.9;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+  padding:4px 12px;border-radius:999px;font-size:13px}
+nav.toc{
+  position:sticky;top:0;z-index:20;background:rgba(251,252,253,.93);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-bottom:28px
+}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 6px;padding-top:10px;border-top:2px solid var(--line)}
+h2 .num{display:inline-block;background:#123a5c;color:#fff;border-radius:8px;
+  font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px}
+h4{font-size:15.5px;margin:18px 0 6px;color:#243447}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0 4px}
+.chain span{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 13px;font-size:14px}
+.chain i{color:#a8b4c0;font-style:normal}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:16px 0;
+  box-shadow:0 1px 2px rgba(16,32,48,.04)}
+.card.l1{border-left:5px solid var(--l1)} .card.l2{border-left:5px solid var(--l2)}
+.card.l3{border-left:5px solid var(--l3)} .card.l4{border-left:5px solid var(--l4)}
+.card h3{margin-top:0}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;margin-right:6px;
+  font-weight:700;letter-spacing:.04em}
+.t1{background:var(--l1b);color:var(--l1)} .t2{background:var(--l2b);color:var(--l2)}
+.t3{background:var(--l3b);color:var(--l3)} .t4{background:var(--l4b);color:var(--l4)}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0}
+.thm b{color:#123a5c}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+li::marker{color:#8b99a8}
+.k{font-weight:700;color:#123a5c}
+.mono{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:14px}
+math{font-size:1.02em}
+.formula{background:#f7f9fb;border-left:3px solid #b9c6d3;padding:9px 14px;border-radius:0 8px 8px 0;
+  margin:10px 0;font-size:15px;overflow-x:auto}
+pre.mat{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:13.6px;line-height:1.5;
+  background:#f7f9fb;border:1px solid var(--line);border-left:3px solid #b9c6d3;padding:11px 15px;
+  border-radius:0 8px 8px 0;overflow-x:auto;margin:10px 0;white-space:pre;color:#1c2733}
+pre.mat b{color:#a45c14;font-weight:700}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;background:#fff}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:#f2f5f9;font-weight:700;color:#243447}
+tbody tr:nth-child(even){background:#fafbfc}
+.warn{background:#fff8f0;border:1px solid #f4d9bd;border-left:5px solid #d98b3a;border-radius:10px;
+  padding:12px 16px;margin:12px 0}
+.warn b{color:#a45c14}
+.ok{background:#f1f8f4;border:1px solid #cfe7d9;border-left:5px solid #2f8f6f;border-radius:10px;
+  padding:12px 16px;margin:12px 0}
+.ok b{color:#1f6b51}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;color:#123a5c;outline:none}
+details[open] summary{margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.q{margin:18px 0 0}
+.q .stem{font-weight:600}
+.ans{color:#1f6b51}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.mindmap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;
+  max-height:82vh;overflow:auto}
+.mindmap svg{display:block;width:100%;height:auto;aspect-ratio:1254/2924;min-width:900px}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.pill{display:inline-block;background:#eef2f6;border-radius:999px;padding:2px 10px;font-size:12.5px;color:#465768;margin-right:6px}
+@media print{
+  nav.toc{position:static} details{border:1px solid #ccc} .card{box-shadow:none}
+  body{font-size:12pt} .mindmap{max-height:none;overflow:visible;border:none;padding:0}
+}
+</style>
+
+    /* --- 锚点跳转增强 --- */
+    h2[id], h3[id], div[id]{scroll-margin-top: 78px;}
+    nav.toc a{cursor:pointer;}
+    nav.toc a.active{background:#e3ecf4;color:#123a5c;font-weight:700;}
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="lectures-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-linear-algebra.html">线性代数</a><span style="opacity:.45">/</span>
+<b>L3 · 行空间、基、维数、秩</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="lectures-map.html">0</a><a href="lectures-mindmap.html">1</a><a href="lectures-l1.html">2</a><a href="lectures-l2.html">3</a><a href="lectures-l3.html" class=cur>4</a><a href="lectures-l4.html">5</a><a href="lectures-cheat.html">6</a><a href="lectures-pit.html">7</a><a href="lectures-quiz.html">8</a><a href="lectures-plan.html">9</a><a href="lectures-inv.html">10</a></div></div>
+<div class="chunkmain">
+<h2 id="l3"><span class="num">4</span>L3 · 行空间、基、维数、秩</h2>
+
+
+<div class="card l3">
+  <h3><span class="tag t3">起点</span>同一组向量的两种堆法</h3>
+  <p>给定 v₁,…,v<sub>k</sub> ∈ ℝⁿ，可以堆成<b>行</b>，也可以堆成<b>列</b>：</p>
+  <div class="formula">
+    <b>行堆叠</b>：A 的每一行就是一个向量（A 是 k×n）　　<b>列堆叠</b>：B = [v₁ v₂ ⋯ v<sub>k</sub>]（B 是 n×k）</div>
+  <ul>
+    <li>行图 → 引出 <b>行空间</b> 与 <b>秩</b>；</li>
+    <li>列图 → 引出<b>求基的第二种方法</b>（列方法）；</li>
+    <li>两者“暗中是一回事”：给出的基<b>大小相同</b>（都等于秩）。</li>
+  </ul>
+</div>
+
+<div class="card l3">
+  <h3><span class="tag t3">定义</span>行空间与“行变换不改变行空间”</h3>
+  <div class="thm">
+    <b>定义</b>：row(A) = span{A 的各行}（是 ℝⁿ 的子空间，n = 列数）。<br>
+    <b>关键事实</b>：若 B 与 A 行等价（row equivalent），则 <b>row(B) = row(A)</b>。
+  </div>
+  <p><b>证明思路</b>：行变换使 B 的每一行都是 A 的行的线性组合 ⇒ row(B) ⊆ row(A)；运算可逆，反过来也成立 ⇒ row(A) ⊆ row(B)。</p>
+  <p><b>直觉</b>：化简过程中“消掉的”信息其实都是原来各行的组合，所以张成的集合没变；化到阶梯形后，非零行就是“去掉冗余后剩下的东西”。</p>
+  <p><b>例</b>：A = [1 2 3; 2 4 6] → [1 2 3; 0 0 0]，所以 row(A) = span{(1,2,3)}，是 ℝ³ 中过原点的一条<b>直线</b>（维数 1）。</p>
+</div>
+
+<div class="card l3">
+  <h3><span class="tag t3">定义</span>基（basis）· 维数（dimension）· 秩（rank）</h3>
+  <div class="thm">
+    <b>基</b>：集合 {b₁,…,b<sub>k</sub>} 若①张成 S 且②线性无关，就称为 S 的一组基。<br>
+    记忆：<b>基 = 极小张成集 = 极大线性无关组</b>。
+  </div>
+  <p><b>维数</b> dim(S)：任意一组基中向量的<b>个数</b>（下面用“基定理”保证这个数不依赖于选哪组基）。</p>
+  <p><b>秩</b> rank(A) = dim row(A)（L4 还会证明它同时等于 dim col(A)）。</p>
+  <p><b>怎么算</b>：把 A 化成阶梯形，数<b>非零行的个数</b>。</p>
+  <div class="formula">例：rank[1 2; 2 4] = 1，rank[1 2; 3 4] = 2，rank[0 0; 0 0] = 0，dim{0} = 0（约定），dim ℝⁿ = n</div>
+</div>
+
+<div class="card l3">
+  <h3><span class="tag t3">定理</span>基定理：任意两组基大小相同</h3>
+  <div class="thm">
+    <b>Basis Theorem</b>：同一空间 S 的任意两组基所含向量个数相同。因此“维数”是良定义的。
+  </div>
+  <p><b>证明思路</b>（考试常考“说出思路”）：设 B = {u₁,…,u<sub>r</sub>}，C = {v₁,…,v<sub>s</sub>} 都是基，反设 r &lt; s。因为 B 张成 S，可把每个 v<sub>i</sub> 写成 v<sub>i</sub> = Σ<sub>j</sub> a<sub>ij</sub>u<sub>j</sub>。</p>
+  <p>若有 c₁v₁ + ⋯ + c<sub>s</sub>v<sub>s</sub> = 0，代入并整理得关于 c 的<b>齐次方程组</b>：Σ<sub>i</sub> c<sub>i</sub>a<sub>ij</sub> = 0（j = 1,…,r）。这是 <b>r 个方程、s 个未知数</b>且 r &lt; s，必有<b>非零解</b>；于是 C 线性相关，矛盾。故 r ≥ s；对称地 s ≥ r，所以 r = s。</p>
+  <p><b>直觉版本</b>：在 ℝⁿ 里，任意 n+1 个向量必相关，所以基不可能“更小”或“更大”。</p>
+</div>
+
+<div class="card l3">
+  <h3><span class="tag t3">定理</span>坐标的唯一性</h3>
+  <div class="thm">
+    <b>定理</b>：若 {v₁,…,v<sub>k</sub>} 是 S 的一组基，则每个 v ∈ S 都<b>唯一</b>地写成 v = c₁v₁ + ⋯ + c<sub>k</sub>v<sub>k</sub>。
+  </div>
+  <p><b>证明</b>：设两种写法，相减得 (c₁−d₁)v₁ + ⋯ + (c<sub>k</sub>−d<sub>k</sub>)v<sub>k</sub> = 0；由线性无关，所有系数为 0，故 c<sub>i</sub> = d<sub>i</sub>。</p>
+  <p>这些系数称为 v 关于基 B 的<b>坐标</b>，记作坐标向量 [v]<sub>B</sub> = (c₁,…,c<sub>k</sub>)。</p>
+  <div class="ok"><b>小结论</b>：关于<b>标准基</b> E = {e₁,e₂,e₃} 的坐标向量就是向量本身：[v]<sub>E</sub> = v。</div>
+</div>
+
+<div class="card l3">
+  <h3><span class="tag t3">方法</span>行方法与列方法（同一空间，两组不同的基）</h3>
+  <table>
+    <tr><th></th><th>行方法</th><th>列方法</th></tr>
+    <tr><td>怎么堆</td><td>向量作为 A 的<b>行</b></td><td>向量作为 A 的<b>列</b></td></tr>
+    <tr><td>求什么</td><td>row(A) 的基</td><td>span{v₁,…,v<sub>k</sub>}（= col(A)）的基</td></tr>
+    <tr><td>基是谁</td><td>化简后矩阵的<b>非零行</b></td><td><b>主元列</b>所对应的<b>原矩阵</b>的列</td></tr>
+    <tr><td>为什么</td><td>行变换不改变行空间</td><td>行变换不改变列之间的<b>相关关系</b></td></tr>
+  </table>
+  <p><b>列方法例题</b>：u = (1,2,3), v = (2,1,0), w = (0,3,6)，把它们按列堆成矩阵再化简：</p>
+<pre class="mat">  [ 1   2   0 ]                 [ 1   2   0 ]                 [ 1   0   2 ]
+  [ 2   1   3 ]   R₂−2R₁, R₃−3R₁ [ 0  −3   3 ]   R₂÷(−3), R₃+2R₂ [ 0   1  −1 ]
+  [ 3   0   6 ]                 [ 0  −6   6 ]                 [ 0   0   0 ]</pre>
+  <p>所以 <b>{(1,2,3), (2,1,0)}</b> 是 span(u,v,w) 的一组基；第三列是多余的（w = 2u − v）。行方法得到的是 <b>{(1,2,3), (0,1,2)}</b>——<b>不同的基，但都是 2 个</b>，这就是基定理。</p>
+  <div class="warn"><b>最容易踩的坑</b>：列方法中，基向量必须回到<b>原矩阵 A</b> 去取那几列，<b>不能</b>用化简后的列（行变换会改变列空间）。</div>
+</div>
+
+<!-- ============ 5. L4 ============ -->
+
+</div>
+<div class="chunknav"><a href="lectures-l2.html">← L2 · 张成集与线性无关</a><a href="lectures-l4.html">L4 · 子空间与矩阵运算 →</a></div>
+</body></html>

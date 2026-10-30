@@ -1,0 +1,387 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>思维导图 · 四讲复习提纲（L1–L4）</title>
+
+
+
+
+<style>
+:root{
+  --l1:#2f6f9f; --l1b:#eaf3fa;
+  --l2:#7a51a6; --l2b:#f4eefa;
+  --l3:#2f8f6f; --l3b:#e9f6f1;
+  --l4:#b4703a; --l4b:#fdf2e8;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px; line-height:1.75;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{
+  background:linear-gradient(135deg,#123a5c 0%,#1c527f 55%,#2f6f9f 100%);
+  color:#fff;padding:46px 0 34px;margin-bottom:26px;
+}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.22em;font-size:12px;opacity:.75;text-transform:uppercase}
+h1{font-size:31px;margin:10px 0 6px;font-weight:700;letter-spacing:.5px}
+.sub{opacity:.9;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+  padding:4px 12px;border-radius:999px;font-size:13px}
+nav.toc{
+  position:sticky;top:0;z-index:20;background:rgba(251,252,253,.93);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-bottom:28px
+}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 6px;padding-top:10px;border-top:2px solid var(--line)}
+h2 .num{display:inline-block;background:#123a5c;color:#fff;border-radius:8px;
+  font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px}
+h4{font-size:15.5px;margin:18px 0 6px;color:#243447}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0 4px}
+.chain span{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 13px;font-size:14px}
+.chain i{color:#a8b4c0;font-style:normal}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:16px 0;
+  box-shadow:0 1px 2px rgba(16,32,48,.04)}
+.card.l1{border-left:5px solid var(--l1)} .card.l2{border-left:5px solid var(--l2)}
+.card.l3{border-left:5px solid var(--l3)} .card.l4{border-left:5px solid var(--l4)}
+.card h3{margin-top:0}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;margin-right:6px;
+  font-weight:700;letter-spacing:.04em}
+.t1{background:var(--l1b);color:var(--l1)} .t2{background:var(--l2b);color:var(--l2)}
+.t3{background:var(--l3b);color:var(--l3)} .t4{background:var(--l4b);color:var(--l4)}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0}
+.thm b{color:#123a5c}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+li::marker{color:#8b99a8}
+.k{font-weight:700;color:#123a5c}
+.mono{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:14px}
+math{font-size:1.02em}
+.formula{background:#f7f9fb;border-left:3px solid #b9c6d3;padding:9px 14px;border-radius:0 8px 8px 0;
+  margin:10px 0;font-size:15px;overflow-x:auto}
+pre.mat{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:13.6px;line-height:1.5;
+  background:#f7f9fb;border:1px solid var(--line);border-left:3px solid #b9c6d3;padding:11px 15px;
+  border-radius:0 8px 8px 0;overflow-x:auto;margin:10px 0;white-space:pre;color:#1c2733}
+pre.mat b{color:#a45c14;font-weight:700}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;background:#fff}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:#f2f5f9;font-weight:700;color:#243447}
+tbody tr:nth-child(even){background:#fafbfc}
+.warn{background:#fff8f0;border:1px solid #f4d9bd;border-left:5px solid #d98b3a;border-radius:10px;
+  padding:12px 16px;margin:12px 0}
+.warn b{color:#a45c14}
+.ok{background:#f1f8f4;border:1px solid #cfe7d9;border-left:5px solid #2f8f6f;border-radius:10px;
+  padding:12px 16px;margin:12px 0}
+.ok b{color:#1f6b51}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;color:#123a5c;outline:none}
+details[open] summary{margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.q{margin:18px 0 0}
+.q .stem{font-weight:600}
+.ans{color:#1f6b51}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.mindmap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;
+  max-height:82vh;overflow:auto}
+.mindmap svg{display:block;width:100%;height:auto;aspect-ratio:1254/2924;min-width:900px}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.pill{display:inline-block;background:#eef2f6;border-radius:999px;padding:2px 10px;font-size:12.5px;color:#465768;margin-right:6px}
+@media print{
+  nav.toc{position:static} details{border:1px solid #ccc} .card{box-shadow:none}
+  body{font-size:12pt} .mindmap{max-height:none;overflow:visible;border:none;padding:0}
+}
+</style>
+
+    /* --- 锚点跳转增强 --- */
+    h2[id], h3[id], div[id]{scroll-margin-top: 78px;}
+    nav.toc a{cursor:pointer;}
+    nav.toc a.active{background:#e3ecf4;color:#123a5c;font-weight:700;}
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="lectures-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-linear-algebra.html">线性代数</a><span style="opacity:.45">/</span>
+<b>思维导图</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="lectures-map.html">0</a><a href="lectures-mindmap.html" class=cur>1</a><a href="lectures-l1.html">2</a><a href="lectures-l2.html">3</a><a href="lectures-l3.html">4</a><a href="lectures-l4.html">5</a><a href="lectures-cheat.html">6</a><a href="lectures-pit.html">7</a><a href="lectures-quiz.html">8</a><a href="lectures-plan.html">9</a><a href="lectures-inv.html">10</a></div></div>
+<div class="chunkmain">
+<h2 id="mindmap"><span class="num">1</span>思维导图</h2>
+
+<p class="lead">四个分支对应四讲；每个分支先记住“标题框”，再往下回忆具体条目（复习时可以用手遮住条目自测）。</p>
+<div class="mindmap">
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MATH0280 L1-L4 思维导图" width="100%" height="auto" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1254 2924" font-family="Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+<rect width="1254" height="2924" fill="#fbfcfd"/>
+<path d="M231.0,1462.0 C330.5,1462.0 330.5,360.5 430.0,360.5" fill="none" stroke="#2f6f9f" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,60.5 790.0,60.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,110.5 790.0,110.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,160.5 790.0,160.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,210.5 790.0,210.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,260.5 790.0,260.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,310.5 790.0,310.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,360.5 790.0,360.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,410.5 790.0,410.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,460.5 790.0,460.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,510.5 790.0,510.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,560.5 790.0,560.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,610.5 790.0,610.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M652.0,360.5 C721.0,360.5 721.0,660.5 790.0,660.5" fill="none" stroke="#2f6f9f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M231.0,1462.0 C330.5,1462.0 330.5,1046.5 430.0,1046.5" fill="none" stroke="#7a51a6" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,771.5 790.0,771.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,821.5 790.0,821.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,871.5 790.0,871.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,921.5 790.0,921.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,971.5 790.0,971.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1021.5 790.0,1021.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1071.5 790.0,1071.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1121.5 790.0,1121.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1171.5 790.0,1171.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1221.5 790.0,1221.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1271.5 790.0,1271.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,1046.5 C704.0,1046.5 704.0,1321.5 790.0,1321.5" fill="none" stroke="#7a51a6" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M231.0,1462.0 C330.5,1462.0 330.5,1707.5 430.0,1707.5" fill="none" stroke="#2f8f6f" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1432.5 790.0,1432.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1482.5 790.0,1482.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1532.5 790.0,1532.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1582.5 790.0,1582.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1632.5 790.0,1632.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1682.5 790.0,1682.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1732.5 790.0,1732.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1782.5 790.0,1782.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1832.5 790.0,1832.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1882.5 790.0,1882.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1932.5 790.0,1932.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M622.0,1707.5 C706.0,1707.5 706.0,1982.5 790.0,1982.5" fill="none" stroke="#2f8f6f" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M231.0,1462.0 C330.5,1462.0 330.5,2468.5 430.0,2468.5" fill="none" stroke="#b4703a" stroke-width="3.0" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2093.5 790.0,2093.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2143.5 790.0,2143.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2193.5 790.0,2193.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2243.5 790.0,2243.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2293.5 790.0,2293.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2343.5 790.0,2343.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2393.5 790.0,2393.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2443.5 790.0,2443.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2493.5 790.0,2493.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2543.5 790.0,2543.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2593.5 790.0,2593.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2643.5 790.0,2643.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2693.5 790.0,2693.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2743.5 790.0,2743.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2793.5 790.0,2793.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<path d="M618.0,2468.5 C704.0,2468.5 704.0,2843.5 790.0,2843.5" fill="none" stroke="#b4703a" stroke-width="1.4" stroke-opacity="0.6"/>
+<rect x="50.0" y="1411.5" width="181.0" height="101.0" rx="10" fill="#123a5c" stroke="#123a5c" stroke-width="1.2"/>
+<text x="64.0" y="1441.8" font-size="21" fill="#ffffff" font-weight="bold">MATH 0280</text>
+<text x="64.0" y="1468.8" font-size="21" fill="#ffffff" font-weight="bold">矩阵与线性代数</text>
+<text x="64.0" y="1495.8" font-size="21" fill="#ffffff" font-weight="bold">L1-L4 知识地图</text>
+<rect x="430.0" y="328.0" width="222.0" height="65.0" rx="10" fill="#2f6f9f" stroke="#2f6f9f" stroke-width="1.2"/>
+<text x="444.0" y="354.6" font-size="17" fill="#ffffff" font-weight="bold">L1 线性方程组与高斯消元</text>
+<text x="444.0" y="390.6" font-size="12" fill="#ffffff" fill-opacity="0.85">09/17</text>
+<rect x="790.0" y="40.0" width="414.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="40.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="64.8" font-size="15" fill="#1c2733" font-weight="normal">线性方程 a1x1 + … + anxn = b：变量一次幂、只乘常数</text>
+<rect x="790.0" y="90.0" width="279.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="90.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="114.8" font-size="15" fill="#1c2733" font-weight="normal">线性方程组：m 个方程、n 个未知量</text>
+<rect x="790.0" y="140.0" width="263.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="140.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="164.8" font-size="15" fill="#1c2733" font-weight="normal">解：同时满足每个方程的有序数组</text>
+<rect x="790.0" y="190.0" width="276.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="190.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="214.8" font-size="15" fill="#1c2733" font-weight="normal">解的三种情形：唯一 / 无穷多 / 无解</text>
+<rect x="790.0" y="240.0" width="299.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="240.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="264.8" font-size="15" fill="#1c2733" font-weight="normal">相容 consistent；不相容 inconsistent</text>
+<rect x="790.0" y="290.0" width="218.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="290.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="314.8" font-size="15" fill="#1c2733" font-weight="normal">等价方程组：解集完全相同</text>
+<rect x="790.0" y="340.0" width="353.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="340.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="364.8" font-size="15" fill="#1c2733" font-weight="normal">三种方程运算：交换两式、乘非零常数、行倍加</text>
+<rect x="790.0" y="390.0" width="278.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="390.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="414.8" font-size="15" fill="#1c2733" font-weight="normal">回代：从最后一个方程往上依次求解</text>
+<rect x="790.0" y="440.0" width="287.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="440.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="464.8" font-size="15" fill="#1c2733" font-weight="normal">增广矩阵 [A|b]：只记录系数与常数项</text>
+<rect x="790.0" y="490.0" width="319.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="490.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="514.8" font-size="15" fill="#1c2733" font-weight="normal">矩阵 = 矩形数表 (m×n)；向量 = 有序数组</text>
+<rect x="790.0" y="540.0" width="323.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="540.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="564.8" font-size="15" fill="#1c2733" font-weight="normal">初等行变换：换行、倍乘、倍加，解集不变</text>
+<rect x="790.0" y="590.0" width="323.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="590.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="614.8" font-size="15" fill="#1c2733" font-weight="normal">行阶梯形 REF：零行在最下，主元逐行右移</text>
+<rect x="790.0" y="640.0" width="298.0" height="41.0" rx="10" fill="#eaf3fa" stroke="#2f6f9f" stroke-width="1.2"/>
+<rect x="790.0" y="640.0" width="5" height="41.0" fill="#2f6f9f"/>
+<text x="810.0" y="664.8" font-size="15" fill="#1c2733" font-weight="normal">主元 pivot；高斯消元四步 → 回代求解</text>
+<rect x="430.0" y="1014.0" width="188.0" height="65.0" rx="10" fill="#7a51a6" stroke="#7a51a6" stroke-width="1.2"/>
+<text x="444.0" y="1040.6" font-size="17" fill="#ffffff" font-weight="bold">L2 张成集与线性无关</text>
+<text x="444.0" y="1076.6" font-size="12" fill="#ffffff" fill-opacity="0.85">09/24</text>
+<rect x="790.0" y="751.0" width="307.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="751.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="775.8" font-size="15" fill="#1c2733" font-weight="normal">列视角：Ax = x1a1 + x2a2 + … + xnan</text>
+<rect x="790.0" y="801.0" width="311.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="801.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="825.8" font-size="15" fill="#1c2733" font-weight="normal">Ax = b 相容 当且仅当 b 是 A 的列的组合</text>
+<rect x="790.0" y="851.0" width="271.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="851.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="875.8" font-size="15" fill="#1c2733" font-weight="normal">线性组合 c1v1 + c2v2 + … + ckvk</text>
+<rect x="790.0" y="901.0" width="245.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="901.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="925.8" font-size="15" fill="#1c2733" font-weight="normal">四种组合：线性 / 锥 / 仿射 / 凸</text>
+<rect x="790.0" y="951.0" width="309.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="951.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="975.8" font-size="15" fill="#1c2733" font-weight="normal">张成 span(S) = 全部线性组合构成的集合</text>
+<rect x="790.0" y="1001.0" width="306.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1001.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1025.8" font-size="15" fill="#1c2733" font-weight="normal">标准单位向量 ei；Rn = span{e1, …, en}</text>
+<rect x="790.0" y="1051.0" width="324.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1051.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1075.8" font-size="15" fill="#1c2733" font-weight="normal">一个非零向量 → 直线；两个不平行 → 平面</text>
+<rect x="790.0" y="1101.0" width="306.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1101.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1125.8" font-size="15" fill="#1c2733" font-weight="normal">线性相关：有不全为零的系数使组合为 0</text>
+<rect x="790.0" y="1151.0" width="308.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1151.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1175.8" font-size="15" fill="#1c2733" font-weight="normal">线性无关：只有全 0 系数才能使组合为 0</text>
+<rect x="790.0" y="1201.0" width="292.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1201.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1225.8" font-size="15" fill="#1c2733" font-weight="normal">Ac = 0 只有零解 当且仅当 列向量无关</text>
+<rect x="790.0" y="1251.0" width="293.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1251.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1275.8" font-size="15" fill="#1c2733" font-weight="normal">无自由变量则无关；有自由变量则相关</text>
+<rect x="790.0" y="1301.0" width="258.0" height="41.0" rx="10" fill="#f4eefa" stroke="#7a51a6" stroke-width="1.2"/>
+<rect x="790.0" y="1301.0" width="5" height="41.0" fill="#7a51a6"/>
+<text x="810.0" y="1325.8" font-size="15" fill="#1c2733" font-weight="normal">Rn 中超过 n 个向量一定线性相关</text>
+<rect x="430.0" y="1675.0" width="192.0" height="65.0" rx="10" fill="#2f8f6f" stroke="#2f8f6f" stroke-width="1.2"/>
+<text x="444.0" y="1701.6" font-size="17" fill="#ffffff" font-weight="bold">L3 行空间·基·维数·秩</text>
+<text x="444.0" y="1737.6" font-size="12" fill="#ffffff" fill-opacity="0.85">10/08</text>
+<rect x="790.0" y="1412.0" width="245.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1412.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1436.8" font-size="15" fill="#1c2733" font-weight="normal">两种堆叠：行堆叠 A / 列堆叠 B</text>
+<rect x="790.0" y="1462.0" width="331.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1462.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1486.8" font-size="15" fill="#1c2733" font-weight="normal">行空间 row(A) = span{A 的各行}，在 Rn 中</text>
+<rect x="790.0" y="1512.0" width="334.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1512.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1536.8" font-size="15" fill="#1c2733" font-weight="normal">初等行变换不改变行空间：row(A) = row(R)</text>
+<rect x="790.0" y="1562.0" width="194.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1562.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1586.8" font-size="15" fill="#1c2733" font-weight="normal">基 = 张成 S + 线性无关</text>
+<rect x="790.0" y="1612.0" width="241.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1612.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1636.8" font-size="15" fill="#1c2733" font-weight="normal">基 = 极小张成集 = 极大无关组</text>
+<rect x="790.0" y="1662.0" width="303.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1662.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1686.8" font-size="15" fill="#1c2733" font-weight="normal">维数 dim(S) = 任意一组基中向量的个数</text>
+<rect x="790.0" y="1712.0" width="209.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1712.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1736.8" font-size="15" fill="#1c2733" font-weight="normal">秩 rank(A) = dim row(A)</text>
+<rect x="790.0" y="1762.0" width="308.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1762.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1786.8" font-size="15" fill="#1c2733" font-weight="normal">基定理：同一空间的任意两组基个数相同</text>
+<rect x="790.0" y="1812.0" width="320.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1812.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1836.8" font-size="15" fill="#1c2733" font-weight="normal">坐标唯一：v = c1v1 + … + ckvk 表示唯一</text>
+<rect x="790.0" y="1862.0" width="219.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1862.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1886.8" font-size="15" fill="#1c2733" font-weight="normal">坐标向量 [v]B = (c1, …, ck)</text>
+<rect x="790.0" y="1912.0" width="308.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1912.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1936.8" font-size="15" fill="#1c2733" font-weight="normal">列方法：主元列对应的原矩阵的列构成基</text>
+<rect x="790.0" y="1962.0" width="331.0" height="41.0" rx="10" fill="#e9f6f1" stroke="#2f8f6f" stroke-width="1.2"/>
+<rect x="790.0" y="1962.0" width="5" height="41.0" fill="#2f8f6f"/>
+<text x="810.0" y="1986.8" font-size="15" fill="#1c2733" font-weight="normal">行方法 vs 列方法：同一空间、两组不同的基</text>
+<rect x="430.0" y="2436.0" width="188.0" height="65.0" rx="10" fill="#b4703a" stroke="#b4703a" stroke-width="1.2"/>
+<text x="444.0" y="2462.6" font-size="17" fill="#ffffff" font-weight="bold">L4 子空间与矩阵运算</text>
+<text x="444.0" y="2498.6" font-size="12" fill="#ffffff" fill-opacity="0.85">10/13</text>
+<rect x="790.0" y="2073.0" width="293.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2073.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2097.8" font-size="15" fill="#1c2733" font-weight="normal">子空间：含零向量；对加法、数乘封闭</text>
+<rect x="790.0" y="2123.0" width="248.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2123.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2147.8" font-size="15" fill="#1c2733" font-weight="normal">等价条件：对一切线性组合封闭</text>
+<rect x="790.0" y="2173.0" width="237.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2173.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2197.8" font-size="15" fill="#1c2733" font-weight="normal">span(v1, …, vk) 一定是子空间</text>
+<rect x="790.0" y="2223.0" width="297.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2223.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2247.8" font-size="15" fill="#1c2733" font-weight="normal">三个子空间：row(A)、col(A)、null(A)</text>
+<rect x="790.0" y="2273.0" width="283.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2273.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2297.8" font-size="15" fill="#1c2733" font-weight="normal">b 在 col(A) 中 当且仅当 Ax = b 相容</text>
+<rect x="790.0" y="2323.0" width="278.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2323.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2347.8" font-size="15" fill="#1c2733" font-weight="normal">行变换保行空间，但一般不保列空间</text>
+<rect x="790.0" y="2373.0" width="243.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2373.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2397.8" font-size="15" fill="#1c2733" font-weight="normal">行空间基：RREF 的全部非零行</text>
+<rect x="790.0" y="2423.0" width="267.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2423.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2447.8" font-size="15" fill="#1c2733" font-weight="normal">列空间基：主元列所对应的 A 的列</text>
+<rect x="790.0" y="2473.0" width="320.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2473.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2497.8" font-size="15" fill="#1c2733" font-weight="normal">零空间 null(A) = {x : Ax = 0}，必为子空间</text>
+<rect x="790.0" y="2523.0" width="246.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2523.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2547.8" font-size="15" fill="#1c2733" font-weight="normal">零度 nullity(A) = 自由变量个数</text>
+<rect x="790.0" y="2573.0" width="322.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2573.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2597.8" font-size="15" fill="#1c2733" font-weight="normal">秩定理：rank(A) + nullity(A) = n（列数）</text>
+<rect x="790.0" y="2623.0" width="353.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2623.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2647.8" font-size="15" fill="#1c2733" font-weight="normal">矩阵乘法 c_ij = Σ a_ik b_kj；(m×n)(n×r)=m×r</text>
+<rect x="790.0" y="2673.0" width="291.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2673.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2697.8" font-size="15" fill="#1c2733" font-weight="normal">三种视角：列组合 / 行组合 / 外积之和</text>
+<rect x="790.0" y="2723.0" width="338.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2723.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2747.8" font-size="15" fill="#1c2733" font-weight="normal">不满足交换律；(A+B)² = A² + AB + BA + B²</text>
+<rect x="790.0" y="2773.0" width="181.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2773.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2797.8" font-size="15" fill="#1c2733" font-weight="normal">A² = O 推不出 A = O</text>
+<rect x="790.0" y="2823.0" width="364.0" height="41.0" rx="10" fill="#fdf2e8" stroke="#b4703a" stroke-width="1.2"/>
+<rect x="790.0" y="2823.0" width="5" height="41.0" fill="#b4703a"/>
+<text x="810.0" y="2847.8" font-size="15" fill="#1c2733" font-weight="normal">转置 (AB)^T = B^T A^T；A+A^T、AA^T 对称</text>
+</svg>
+</div>
+<p style="font-size:13px;color:var(--muted)">同目录下另有 <span class="mono">mindmap.png</span>（高清图）与 <span class="mono">mindmap.svg</span>（矢量图），可单独打印或放大。</p>
+
+<!-- ============ 2. L1 ============ -->
+
+</div>
+<div class="chunknav"><a href="lectures-map.html">← 四讲主线：一条线串起来</a><a href="lectures-l1.html">L1 · 线性方程组与高斯消元 →</a></div>
+</body></html>

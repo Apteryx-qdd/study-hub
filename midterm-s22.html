@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>§2.2 直接法：高斯消元（本节是全场核心） · 期中冲刺 · 考点版</title>
+
+
+
+
+<style>
+:root{
+  --s21:#2f6f9f; --s21b:#eaf3fa;
+  --s22:#1f7a8c; --s22b:#e6f4f6;
+  --s23:#7a51a6; --s23b:#f4eefa;
+  --s31:#2f8f6f; --s31b:#e9f6f1;
+  --s32:#5b8c3a; --s32b:#f0f6e8;
+  --s33:#b4703a; --s33b:#fdf2e8;
+  --s35:#a8455a; --s35b:#fbeef0;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.75}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#123a5c 0%,#1c527f 50%,#2f6f9f 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.75}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.92;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:42px 0 6px;padding-top:10px;border-top:2px solid var(--line)}
+h2 .num{display:inline-block;background:#123a5c;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:24px 0 8px}
+h4{font-size:15.5px;margin:16px 0 6px;color:#243447}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:15px 0;box-shadow:0 1px 2px rgba(16,32,48,.04)}
+.card.s21{border-left:5px solid var(--s21)} .card.s22{border-left:5px solid var(--s22)}
+.card.s23{border-left:5px solid var(--s23)} .card.s31{border-left:5px solid var(--s31)}
+.card.s32{border-left:5px solid var(--s32)} .card.s33{border-left:5px solid var(--s33)}
+.card.s35{border-left:5px solid var(--s35)}
+.card h3{margin-top:0}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;margin-right:6px;font-weight:700}
+.t21{background:var(--s21b);color:var(--s21)} .t22{background:var(--s22b);color:var(--s22)}
+.t23{background:var(--s23b);color:var(--s23)} .t31{background:var(--s31b);color:var(--s31)}
+.t32{background:var(--s32b);color:var(--s32)} .t33{background:var(--s33b);color:var(--s33)}
+.t35{background:var(--s35b);color:var(--s35)}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0}
+.thm b{color:#123a5c}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.k{font-weight:700;color:#123a5c}
+.mono{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:14px}
+.formula{background:#f7f9fb;border-left:3px solid #b9c6d3;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+pre.mat{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:13.6px;line-height:1.5;background:#f7f9fb;
+  border:1px solid var(--line);border-left:3px solid #b9c6d3;padding:11px 15px;border-radius:0 8px 8px 0;
+  overflow-x:auto;margin:10px 0;white-space:pre;color:#1c2733}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.5px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f2f5f9;font-weight:700;color:#243447}
+tbody tr:nth-child(even){background:#fafbfc}
+.warn{background:#fff8f0;border:1px solid #f4d9bd;border-left:5px solid #d98b3a;border-radius:10px;padding:12px 16px;margin:12px 0}
+.warn b{color:#a45c14}
+.ok{background:#f1f8f4;border:1px solid #cfe7d9;border-left:5px solid #2f8f6f;border-radius:10px;padding:12px 16px;margin:12px 0}
+.ok b{color:#1f6b51}
+.exam{background:#fdf2f2;border:1px solid #f0cfd3;border-left:5px solid #a8455a;border-radius:10px;padding:12px 16px;margin:12px 0}
+.exam b{color:#8b2f42}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;color:#123a5c;outline:none}
+details[open] summary{margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.q{margin:16px 0 0}
+.q .stem{font-weight:600}
+.ans{color:#1f6b51}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media (max-width:780px){.grid{grid-template-columns:1fr}}
+.pill{display:inline-block;background:#eef2f6;border-radius:999px;padding:2px 10px;font-size:12.5px;color:#465768;margin:2px 6px 2px 0}
+.map{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:16px 0}
+@media (max-width:900px){.map{grid-template-columns:1fr 1fr}}
+.map .m{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.map .m .h{font-weight:700;font-size:14.5px;margin-bottom:4px}
+.map .m .w{font-size:12px;color:var(--muted);margin-bottom:6px}
+.map .m ul{margin:4px 0 0 16px;font-size:13.3px;line-height:1.6}
+.mindmap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;margin:16px 0;max-height:82vh;overflow:auto}
+.mindmap svg{display:block;width:100%;height:auto;aspect-ratio:1195/3557;min-width:900px}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media print{nav.toc{position:static}.card{box-shadow:none}body{font-size:12pt}}
+</style>
+
+    /* --- 锚点跳转增强 --- */
+    h2[id], h3[id], div[id]{scroll-margin-top: 78px;}
+    nav.toc a{cursor:pointer;}
+    nav.toc a.active{background:#e3ecf4;color:#123a5c;font-weight:700;}
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="midterm-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-linear-algebra.html">线性代数</a><span style="opacity:.45">/</span>
+<b>§2.2 直接法：高斯消元（本节是全场核心）</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="midterm-map.html">0</a><a href="midterm-s21.html">1</a><a href="midterm-s22.html" class=cur>2</a><a href="midterm-s23.html">3</a><a href="midterm-s31.html">4</a><a href="midterm-s32.html">5</a><a href="midterm-s33.html">6</a><a href="midterm-s35.html">7</a><a href="midterm-model.html">8</a><a href="midterm-cheat.html">9</a><a href="midterm-pit.html">10</a><a href="midterm-mock.html">11</a></div></div>
+<div class="chunkmain">
+<h2 id="s22"><span class="num">2</span>§2.2 直接法：高斯消元（本节是全场核心）</h2>
+
+
+<div class="card s22">
+  <h3><span class="tag t22">工具</span>增广矩阵与初等行变换</h3>
+  <p>只记录系数与常数项：方程组 → <b>增广矩阵</b> [A | b]。三种方程运算翻译成三种<b>初等行变换</b>：</p>
+<pre class="mat">  R_i ↔ R_j            交换两行
+  R_i ← k·R_i          k ≠ 0
+  R_i ← R_i + k·R_j    把另一行的倍数加过来</pre>
+  <p>行变换把方程组变成<b>等价</b>方程组（解集不变）。</p>
+</div>
+
+<div class="card s22">
+  <h3><span class="tag t22">定义</span>REF / RREF / 主元 / 自由变量</h3>
+  <div class="thm">
+    <b>行阶梯形 REF</b>：① 全零行在最下面；② 每个非零行的第一个非零元（叫<b>主元 pivot</b>）严格位于上一行主元的右侧。<br>
+    <b>简化行阶梯形 RREF</b>：在 REF 基础上再加 ③ 每个主元都是 1；④ 主元所在列的其它元素全是 0。
+  </div>
+  <p><b>主元列</b> = 含主元的那些列；其余列叫<b>自由列</b>，对应的变量叫<b>自由变量</b>（free variable）。</p>
+</div>
+
+<div class="card s22">
+  <h3><span class="tag t22">定理</span>三个必背判据</h3>
+  <div class="thm">
+    <b>判据 1（相容性）</b>：方程组相容 ⇔ RREF 中<b>没有</b>形如 [0 ⋯ 0 | c]（c ≠ 0）的行。<br>
+    <b>判据 2（唯一解）</b>：相容 且 <b>没有自由变量</b>（每列都是主元列）。<br>
+    <b>判据 3（无穷多解）</b>：相容 且 <b>有自由变量</b>。
+  </div>
+  <p>记忆：<b>先看相容（有没有矛盾行），再看自由变量（有没有多余列）。</b></p>
+  <div class="warn"><b>常见错</b>：看到“有自由变量”就说“有无穷多解”。错！若同时出现 [0 ⋯ 0 | c]，那是<b>无解</b>，自由变量不影响结论。</div>
+</div>
+
+<div class="card s22">
+  <h3><span class="tag t22">例题</span>完整消元（唯一解）</h3>
+  <p>解 x + y + z = 6，2x − y + z = 3，x + 2y − z = 2。</p>
+<pre class="mat">  [ 1   1   1 |   6 ]
+  [ 2  −1   1 |   3 ]
+  [ 1   2  −1 |   2 ]
+
+  R2 ← R2 − 2R1,   R3 ← R3 − R1
+  [ 1   1   1 |   6 ]
+  [ 0  −3  −1 |  −9 ]
+  [ 0   1  −2 |  −4 ]
+
+  R2 <-> R3
+  [ 1   1   1 |   6 ]
+  [ 0   1  −2 |  −4 ]
+  [ 0  −3  −1 |  −9 ]
+
+  R3 ← R3 + 3R2
+  [ 1   1   1 |   6 ]
+  [ 0   1  −2 |  −4 ]
+  [ 0   0  −7 | −21 ]      <-- REF 完成</pre>
+  <p>回代：−7z = −21 ⇒ <b>z = 3</b>；y − 2(3) = −4 ⇒ <b>y = 2</b>；x + 2 + 3 = 6 ⇒ <b>x = 1</b>。解 (1, 2, 3)。</p>
+  <p>三个主元、三列全是主元列 ⇒ 唯一解，与计算一致。</p>
+</div>
+
+<div class="card s22">
+  <h3><span class="tag t22">例题</span>无解 与 无穷多解（两种典型长相）</h3>
+  <p><b>(a) 无解</b>：x + y = 2，2x + 2y = 5。</p>
+<pre class="mat">  [ 1  1 | 2 ]  R2−2R1  [ 1  1 |  2 ]
+  [ 2  2 | 5 ]  ──────→ [ 0  0 |  1 ]   ← 0 = 1，矛盾 ⇒ 无解</pre>
+  <p><b>(b) 无穷多解</b>：x + 2y − z = 1，2x + 4y − 2z = 2。</p>
+<pre class="mat">  [ 1  2  −1 | 1 ]  R2−2R1  [ 1  2  −1 | 1 ]
+  [ 2  4  −2 | 2 ]  ──────→ [ 0  0   0 | 0 ]   ← 整行 0，相容</pre>
+  <p>只剩一个方程：x = 1 − 2y + z。令 y = s，z = t（两个自由变量）：</p>
+  <div class="formula">(x, y, z) = (1, 0, 0) + s(−2, 1, 0) + t(1, 0, 1)，s, t ∈ ℝ</div>
+  <p>这是“一个特解 + 齐次通解”的标准写法。</p>
+</div>
+
+<div class="card s22">
+  <h3><span class="tag t22">专题</span>齐次方程组 Ax = 0</h3>
+  <p>齐次方程组<b>一定有解</b>（零解），所以只需区分：</p>
+  <div class="thm">
+    Ax = 0 只有零解 ⇔ <b>没有自由变量</b>（每列都是主元列）；<br>
+    Ax = 0 有<b>非零解</b> ⇔ <b>有自由变量</b>（列数 &gt; 主元个数）。
+  </div>
+  <p><b>快速判断</b>：若 A 是 m×n 且 <b>m &lt; n</b>（方程比未知数少），则齐次方程组必有无穷多非零解。</p>
+  <p><b>解的结构</b>（常考一句话）：Ax = b 的通解 = 一个特解 + Ax = 0 的通解。</p>
+</div>
+
+<div class="card s22">
+  <h3><span class="tag t22">高频</span>含参数讨论（大题常客）</h3>
+  <p><b>例</b>：k 取何值时，方程组 x + y = 1，kx + ky = 3 无解 / 有无穷多解？</p>
+<pre class="mat">  [ 1  1 | 1 ]  R2−kR1  [ 1  1 |   1   ]
+  [ k  k | 3 ]  ──────→ [ 0  0 | 3 − k ]</pre>
+  <ul>
+    <li>k ≠ 3：末行是 0 = 3 − k ≠ 0 ⇒ <b>无解</b>；</li>
+    <li>k = 3：末行全 0，剩下 x + y = 1 ⇒ <b>无穷多解</b>（x = 1 − t, y = t）；</li>
+    <li>本题<b>不可能唯一解</b>（第二行是第一行的倍数，两直线永远平行或重合）。</li>
+  </ul>
+  <div class="ok"><b>套路</b>：把含参数的项留在最后一行，写出“末行 = (0 ⋯ 0 | 表达式)”，再讨论表达式 = 0 / ≠ 0。分类要<b>互斥且完备</b>。</div>
+</div>
+
+<!-- ================= §2.3 ================= -->
+
+</div>
+<div class="chunknav"><a href="midterm-s21.html">← §2.1 线性方程组入门</a><a href="midterm-s23.html">§2.3 张成集与线性无关 →</a></div>
+</body></html>
