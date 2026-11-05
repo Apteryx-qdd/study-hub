@@ -3,7 +3,7 @@ window.SITE_DATA = {
   "name": "复习资料库",
   "subtitle": "Study Hub · 按科目分类的复习站点",
   "owner": "",
-  "updated": "2026-10-30"
+  "updated": "2026-11-04"
  },
  "subjects": [
   {
@@ -64,6 +64,48 @@ window.SITE_DATA = {
      "pdf": "MATH0280_复习提纲_手机版.pdf",
      "img": "mindmap-la-lectures.png",
      "keywords": "高斯消元 行阶梯形 REF 张成 span 线性无关 行空间 基 维数 秩 子空间 矩阵运算 转置 对称 逆矩阵"
+    }
+   ]
+  },
+  {
+   "code": "math-modeling",
+   "name": "数学建模 1",
+   "en": "Mathematical Modeling 1",
+   "course": "ENGSCI 111",
+   "term": "2026 Fall",
+   "teacher": "KP. Wang · Section 1",
+   "color": "#1f7a8c",
+   "accent": "teal",
+   "scope": [
+    "Assignment #5：图形判读（绝对/局部极值）",
+    "闭区间上的绝对最值（EVT 三步法）",
+    "含参数最值 x^a(1−x)^b",
+    "单调性与局部极值（f′ 符号表）",
+    "凹凸性与拐点（f″ 符号表）",
+    "完整作图：f / f′ / f″ 信息表",
+    "隐函数一阶导、二阶导",
+    "切线方程 · Bessel 函数",
+    "取对数求导与 arcsec 的导数"
+   ],
+   "exclude": [],
+   "notes": "Assignment #5 共 14 题，8:15 am Nov 5 课堂交；本页按三条主线（形状 / 求导技巧 / 证明）重排，含全部步骤与速查表。",
+   "docs": [
+    {
+     "id": "a5",
+     "title": "Assignment #5 全解 · 极值与隐函数求导",
+     "file": "a5/index.html",
+     "full": "a5-full.html",
+     "desc": "14 题逐题完整过程：图形极值判读、EVT 闭区间三步法、含参最值、单调/凹凸符号表、作图清单、隐函数与对数求导、arcsec 证明；另附一页纸速查表、标准答案汇总与十个高频失分点。",
+     "tags": [
+      "作业",
+      "极值",
+      "隐函数求导"
+     ],
+     "date": "2026-11-04",
+     "pages": 12,
+     "pdf": "ENGSCI111_Assignment5.pdf",
+     "img": "engsci-p1-graph.png",
+     "keywords": "极值 绝对最大 局部最小 图形判读 EVT 最值定理 单调性 凹性 拐点 三阶导 作图 隐函数求导 dy/dx y'' 切线 对数求导 arcsec sec^-1 取对数 临界点 符号表"
     }
    ]
   }

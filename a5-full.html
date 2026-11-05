@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ENGSCI 111 Assignment #5 · 全解 + 方法总结（极值 / 凹性 / 隐函数求导）</title>
+<style>
+:root{
+  --a:#1f7a8c; --ab:#e6f4f6;
+  --b:#2f6f9f; --bb:#eaf3fa;
+  --c:#7a51a6; --cb:#f4eefa;
+  --d:#2f8f6f; --db:#e9f6f1;
+  --e:#b4703a; --eb:#fdf2e8;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.78}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#0f3d47 0%,#16606e 55%,#1f7a8c 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.95);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:42px 0 6px;padding-top:10px;border-top:2px solid var(--line)}
+h2 .num{display:inline-block;background:#0f3d47;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:24px 0 8px}
+h4{font-size:15.5px;margin:16px 0 6px;color:#243447}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:15px 0;box-shadow:0 1px 2px rgba(16,32,48,.04);border-left:5px solid var(--a)}
+.card h3{margin-top:0}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;margin-right:6px;font-weight:700}
+.t-a{background:var(--ab);color:var(--a)} .t-b{background:var(--bb);color:var(--b)}
+.t-c{background:var(--cb);color:var(--c)} .t-d{background:var(--db);color:var(--d)}
+.t-e{background:var(--eb);color:var(--e)}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0}
+.thm b{color:#0f3d47}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.k{font-weight:700;color:#0f3d47}
+.formula{background:#f7f9fb;border-left:3px solid #b9c6d3;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.formula.center{text-align:center;font-size:16.5px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.5px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f2f5f9;font-weight:700;color:#243447}
+tbody tr:nth-child(even){background:#fafbfc}
+.warn{background:#fff8f0;border:1px solid #f4d9bd;border-left:5px solid #d98b3a;border-radius:10px;padding:12px 16px;margin:12px 0}
+.warn b{color:#a45c14}
+.ok{background:#f1f8f4;border:1px solid #cfe7d9;border-left:5px solid #2f8f6f;border-radius:10px;padding:12px 16px;margin:12px 0}
+.ok b{color:#1f6b51}
+.exam{background:#fdf2f2;border:1px solid #f0cfd3;border-left:5px solid #a8455a;border-radius:10px;padding:12px 16px;margin:12px 0}
+.exam b{color:#8b2f42}
+.stmt{background:#f4f7fa;border:1px dashed #c3d2de;border-radius:10px;padding:11px 15px;margin:10px 0;font-size:14.8px}
+.stmt .no{font-weight:700;color:#0f3d47;margin-right:6px}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+details summary{cursor:pointer;font-weight:700;color:#0f3d47;outline:none}
+details[open] summary{margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media (max-width:780px){.grid{grid-template-columns:1fr}}
+.pill{display:inline-block;background:#eef2f6;border-radius:999px;padding:2px 10px;font-size:12.5px;color:#465768;margin:2px 6px 2px 0}
+.map{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:16px 0}
+@media (max-width:900px){.map{grid-template-columns:1fr 1fr}}
+.map .m{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.map .m .h{font-weight:700;font-size:14.5px;margin-bottom:4px;color:#0f3d47}
+.map .m .w{font-size:12px;color:var(--muted);margin-bottom:6px}
+.map .m ul{margin:4px 0 0 16px;font-size:13.3px;line-height:1.62}
+figure{margin:16px 0;text-align:center}
+figure img{max-width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;padding:8px}
+figcaption{font-size:13px;color:var(--muted);margin-top:6px;font-style:italic}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media print{nav.toc{position:static}.card{box-shadow:none}body{font-size:12pt}}
+</style>
+</head>
+<body id="top">
+<div class="docbar" id="docbar"><div class="docbar-in">
+<a href="index.html">← 资料库</a><span style="opacity:.45">/</span>
+<a href="subject-math-modeling.html">数学建模 1</a><span style="opacity:.45">/</span>
+<b>Assignment #5 全解 · 极值与隐函数求导</b>
+<span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+<a class="pdfbtn" href="ENGSCI111_Assignment5.pdf" target="_blank" rel="noopener">打开 PDF</a>
+</div></div>
+<style>
+.docbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px;line-height:1.6}
+.docbar-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.docbar a{color:#a9c6de;text-decoration:none}
+.docbar a:hover{color:#fff;text-decoration:underline}
+.docbar b{color:#fff;font-weight:600}
+.docbar .spacer{flex:1;min-width:8px}
+.docbar .pdfbtn{border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:1px 12px;color:#fff}
+.docbar .pdfbtn:hover{background:rgba(255,255,255,.14);text-decoration:none}
+@media print{.docbar{display:none}}
+</style>
+
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">ENGSCI 111 · Assignment #5 · Due 8:15 am, Nov 5 (in class)</div>
+    <h1>Assignment #5 · 全解与方法总结</h1>
+    <div class="sub">极值与图形判读　·　闭区间最值　·　单调性与凹性　·　拐点　·　作图　·　隐函数求导　·　对数求导</div>
+    <div class="meta">
+      <span class="chip hot">14 题全部给过程，不只给答案</span>
+      <span class="chip">含 ×6 类题型模板</span>
+      <span class="chip">KP. Wang · Section 1</span>
+      <span class="chip">配套：极值判别 / 隐函数求导速查表</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#map">考点地图</a>
+    <a href="#p1">1 图形判读</a>
+    <a href="#p2">2 闭区间最值</a>
+    <a href="#p3">3 含参最值</a>
+    <a href="#p4">4 单调⇒无极值</a>
+    <a href="#p5">5 单调性·极值</a>
+    <a href="#p6">6 凹性·拐点</a>
+    <a href="#p7">7 作图</a>
+    <a href="#p8">8 隐函数一阶导</a>
+    <a href="#p9">9 隐函数二阶导·切线</a>
+    <a href="#p10">10 对数求导·arcsec</a>
+    <a href="#cheat">速查表</a>
+    <a href="#pit">十个坑</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<h2 id="map"><span class="num">0</span>考点地图：这份作业在考什么</h2>
+
+<p class="lead">14 道题看着杂，其实是三条主线：<b>用导数判断形状</b>（1–8）、<b>用隐函数/对数技巧求导</b>（9–14）、以及<b>用定义证明结论</b>（3、4、7、14 的“证明”部分）。把三条线的模板各背一套，卷面上就只剩代入。</p>
+
+<div class="map">
+  <div class="m">
+    <div class="h">A. 图形与极值（1–2）</div><div class="w">概念 + 计算 · 送分但易漏端点</div>
+    <ul><li>绝对 vs 局部极值</li><li>端点算不算极值</li><li>EVT：闭区间三步法</li></ul>
+  </div>
+  <div class="m">
+    <div class="h">B. 单调性 · 凹性（3–8）</div><div class="w">分值最重 · 表格能得全分</div>
+    <ul><li>f′ 符号表 → 增减 + 极值</li><li>f″ 符号表 → 凹凸 + 拐点</li><li>临界点包含 f′ 不存在处</li></ul>
+  </div>
+  <div class="m">
+    <div class="h">C. 隐函数与技巧求导（9–14）</div><div class="w">纯计算 · 必须全对</div>
+    <ul><li>dy/dx 再求一次 → y″</li><li>切线：斜率 + 点斜式</li><li>取对数求导 (f<sup>g</sup>)</li></ul>
+  </div>
+</div>
+
+<div class="thm">
+  <b>贯穿全篇的两个工具</b><br>
+  ① <b>EVT（最值定理）</b>：f 在闭区间 [a,b] 上连续 ⇒ 必取到最大/最小值，且只可能出现在「临界点（f′=0 或 f′ 不存在）」和「端点」。<br>
+  ② <b>符号表</b>：把 f′（或 f″）的零点按顺序排好，逐段判号，增减/凹凸/极值/拐点全部从表里读出来 —— 表格写全，过程分基本不会丢。
+</div>
+
+<h2 id="p1"><span class="num">1</span>图形判读：绝对极值 / 局部极值 / 都不是</h2>
+
+<div class="stmt"><span class="no">P1.</span> For each of the numbers <i>a, b, c, d, e, r, s,</i> and <i>t</i>, state whether the function whose graph is shown has an absolute maximum or minimum, a local maximum or minimum, or neither a maximum nor a minimum.</div>
+
+<figure>
+  <img src="engsci-p1-graph.png" alt="Problem 1 graph">
+  <figcaption>Figure 1 — 实心点（左端点 a、右端点）都在定义域内；[b,d] 段是水平线段。</figcaption>
+</figure>
+
+<h3>先把图读成一句话</h3>
+<p>曲线从 <b>a</b>（左端点，较高）下降，到 <b>b</b> 后<b>水平</b>直到 <b>d</b>，再上升，在 <b>e</b> 到达<b>全图最高点</b>，随后下沉到 <b>r</b>（谷底），再升到 <b>s</b>（第二个峰，比 e 低），然后急剧下降，在 <b>t</b> 处穿过 x 轴，最后停在轴下方那个<b>实心点</b>（全图最低点）。</p>
+
+<h3>判定表</h3>
+<table>
+<thead><tr><th>点</th><th>绝对？</th><th>局部？</th><th>理由</th></tr></thead>
+<tbody>
+<tr><td><b>a</b></td><td>—</td><td>局部最大</td><td>左端点，向右立即下降，故 f(a) 大于附近的值；但 f(e) &gt; f(a)，所以不是绝对最大。</td></tr>
+<tr><td><b>b</b></td><td>—</td><td>局部最小</td><td>左侧递减到 b，右侧在 [b,d] 上恒等于 f(b)，故附近 f(x) ≥ f(b)。注意它<b>不是</b>局部最大：左边紧邻处 f(x) &gt; f(b)。</td></tr>
+<tr><td><b>c</b></td><td>—</td><td>既是局部最大又是局部最小</td><td>c 在水平段内部，附近 f(x) = f(c) 恒成立，f(c) ≤ f(x) 与 f(c) ≥ f(x) 同时满足（非严格极值）。</td></tr>
+<tr><td><b>d</b></td><td>—</td><td>局部最小</td><td>左侧水平、右侧递增，附近 f(x) ≥ f(d)。</td></tr>
+<tr><td><b>e</b></td><td><b>绝对最大</b></td><td>局部最大</td><td>全图最高点。</td></tr>
+<tr><td><b>r</b></td><td>—</td><td>局部最小</td><td>两峰之间的谷底；但它高于右端点，故不是绝对最小。</td></tr>
+<tr><td><b>s</b></td><td>—</td><td>局部最大</td><td>峰，但 f(s) &lt; f(e)，不是绝对最大。</td></tr>
+<tr><td><b>t</b></td><td>—</td><td>都不是</td><td>曲线在 t 处单调下降穿过 x 轴（f(t) = 0），两侧都在减小，没有极值。</td></tr>
+</tbody>
+</table>
+
+<div class="ok"><b>关键结论：</b>绝对最小值出现在 <b>t 右侧的右端点</b>（那个实心点），它不属于 a…t 任何一个字母。所以本题里“绝对最小”在标注点中<b>无人认领</b>，答“none of the labelled points”才完整。</div>
+
+<div class="warn"><b>考场易错：</b>① 端点能不能算局部极值 —— 本题按教材惯例：<b>只要 f(a) ≥ 附近所有 f(x)，端点 a 就是局部最大</b>；② 水平段上的点容易被判成“什么都不是”，其实按定义它<b>同时</b>是（非严格）局部最大和最小；③ 忘了先找“最低/最高”再谈绝对 —— 绝对性要和<b>全图</b>比，不是和邻居比。</div>
+
+<h2 id="p2"><span class="num">2</span>闭区间上的绝对最值：EVT 三步法</h2>
+
+<div class="stmt"><span class="no">P2.</span> Find the absolute maximum and absolute minimum values of <i>f</i> on the given interval.</div>
+
+<div class="thm"><b>模板（每题 3 行）</b><br>
+① 求 f′(x)，解 f′ = 0 得临界点，<b>只保留落在区间内的</b>（区间内还要留意 f′ 不存在点）；<br>
+② 把「临界点 + 两个端点」的函数值全部算出；<br>
+③ 比大小：最大的那个是绝对最大，最小的是绝对最小，并写出<b>取到的位置</b>。</div>
+
+<h3>(a) f(t) = t√(4 − t²)，[−1, 2]</h3>
+<p>定义域要求 4 − t² ≥ 0，即 [−2, 2]；区间 [−1,2] 含在内，f 连续 ⇒ EVT 适用。</p>
+<div class="formula">f′(t) = √(4 − t²) + t · (−t)/√(4 − t²) = (4 − 2t²)/√(4 − t²)</div>
+<p>f′ = 0 ⇔ t² = 2 ⇔ t = ±√2，其中只有 <b>t = √2</b> 落在 [−1,2] 内。</p>
+<table>
+<thead><tr><th>t</th><th>−1（端点）</th><th>√2（临界点）</th><th>2（端点）</th></tr></thead>
+<tbody>
+<tr><td>f(t)</td><td>−1·√3 = <b>−√3 ≈ −1.732</b></td><td>√2·√2 = <b>2</b></td><td><b>0</b></td></tr>
+</tbody>
+</table>
+<div class="ok"><b>答案：</b>绝对最大 f(√2) = 2；绝对最小 f(−1) = −√3 ≈ −1.732。</div>
+
+<h3>(b) f(x) = x/(x² + 4)，[0, 3]</h3>
+<div class="formula">f′(x) = [(x² + 4) − x·2x] / (x² + 4)² = (4 − x²)/(x² + 4)²</div>
+<p>f′ = 0 ⇔ x = ±2，区间内只有 <b>x = 2</b>。分母恒正，所以 f′ 的符号只由 4 − x² 决定。</p>
+<table>
+<thead><tr><th>x</th><th>0（端点）</th><th>2（临界点）</th><th>3（端点）</th></tr></thead>
+<tbody>
+<tr><td>f(x)</td><td><b>0</b></td><td>2/8 = <b>1/4</b></td><td>3/13 ≈ <b>0.231</b></td></tr>
+</tbody>
+</table>
+<div class="ok"><b>答案：</b>绝对最大 f(2) = 1/4；绝对最小 f(0) = 0。</div>
+<div class="warn"><b>坑：</b>0.231 与 0.25 很接近，<b>不能靠肉眼比</b>——化成 1/4 = 13/52 与 3/13 = 12/52 才敢下结论。</div>
+
+<h3>(c) f(t) = 2cos t + sin 2t，[0, π/2]</h3>
+<div class="formula">f′(t) = −2sin t + 2cos 2t = 0 &nbsp;⇔&nbsp; cos 2t = sin t</div>
+<p>用 cos 2t = 1 − 2sin²t，令 s = sin t：</p>
+<div class="formula">1 − 2s² = s &nbsp;⇒&nbsp; 2s² + s − 1 = 0 &nbsp;⇒&nbsp; (2s − 1)(s + 1) = 0 &nbsp;⇒&nbsp; s = 1/2 或 s = −1</div>
+<p>在 [0, π/2] 上 sin t ≥ 0，s = −1 舍去，得 <b>t = π/6</b>。</p>
+<table>
+<thead><tr><th>t</th><th>0（端点）</th><th>π/6（临界点）</th><th>π/2（端点）</th></tr></thead>
+<tbody>
+<tr><td>f(t)</td><td>2·1 + 0 = <b>2</b></td><td>2(√3/2) + sin(π/3) = √3 + √3/2 = <b>3√3/2 ≈ 2.598</b></td><td>0 + sin π = <b>0</b></td></tr>
+</tbody>
+</table>
+<div class="ok"><b>答案：</b>绝对最大 f(π/6) = 3√3/2 ≈ 2.598；绝对最小 f(π/2) = 0。</div>
+<div class="warn"><b>坑：</b>解 cos 2t = sin t 时用“倍角 → 单角”化简，再解二次方程；只写 t = π/6 而漏掉 s = −1 的讨论会被扣步骤分。</div>
+
+<h2 id="p3"><span class="num">3</span>含参数最值：aᵃbᵇ/(a+b)ᵃ⁺ᵇ</h2>
+
+<div class="stmt"><span class="no">P3.</span> If <i>a</i> and <i>b</i> are positive numbers, find the maximum value of f(x) = x<sup>a</sup>(1 − x)<sup>b</sup>, 0 ≤ x ≤ 1.</div>
+
+<div class="formula">f′(x) = a x<sup>a−1</sup>(1 − x)<sup>b</sup> − b x<sup>a</sup>(1 − x)<sup>b−1</sup>
+= x<sup>a−1</sup>(1 − x)<sup>b−1</sup> · [ a(1 − x) − bx ]</div>
+<p>因为 a, b &gt; 0 且 0 &lt; x &lt; 1，前两个因子都为正，故</p>
+<div class="formula">f′(x) = 0 &nbsp;⇔&nbsp; a − (a + b)x = 0 &nbsp;⇔&nbsp; x = a/(a + b)</div>
+<p>端点值 f(0) = 0、f(1) = 0，而内部 f &gt; 0，所以内部唯一的临界点就是最大值点。代入：</p>
+<div class="formula center">f(a/(a+b)) = (a/(a+b))<sup>a</sup> · (b/(a+b))<sup>b</sup> = <b>a<sup>a</sup> b<sup>b</sup> / (a+b)<sup>a+b</sup></b></div>
+
+<div class="ok"><b>答案：</b>最大值 = a<sup>a</sup>b<sup>b</sup>/(a+b)<sup>a+b</sup>，在 x = a/(a+b) 处取到。</div>
+
+<div class="thm"><b>为什么这个结果值得记住</b><br>
+它是「<b>加权几何平均</b>」的原型：取 a = b = 1 时得 f = x(1−x) 的最大值 1/4，x = 1/2 —— 与二次函数的顶点一致，可以拿来验算参数公式。取 a = 2, b = 1 时最大值为 2²·1/(3³) = 4/27，位置 x = 2/3。</div>
+
+<h2 id="p4"><span class="num">4</span>证明题：严格单调 ⇒ 没有局部极值</h2>
+
+<div class="stmt"><span class="no">P4.</span> Prove that f(x) = x<sup>101</sup> + x<sup>51</sup> + x + 1 has neither a local maximum nor a local minimum.</div>
+
+<div class="formula">f′(x) = 101x<sup>100</sup> + 51x<sup>50</sup> + 1</div>
+<p>对任意实数 x，偶数次幂非负：x<sup>100</sup> ≥ 0、x<sup>50</sup> ≥ 0，于是</p>
+<div class="formula">f′(x) ≥ 0 + 0 + 1 = 1 &gt; 0 &nbsp;（对所有 x）</div>
+<p>f′ 恒正且不为 0 ⇒ f 在 (−∞, +∞) 上<b>严格递增</b>。严格单调函数在任一点两侧的函数值都朝同一方向变化，不可能“先升后降”或“先降后升”，因此既无局部最大也无局部最小。∎</p>
+
+<div class="ok"><b>答题要点：</b>结论必须落到「严格单调 ⇒ 无局部极值」这句话上；只写 “f′ &gt; 0” 而不解释为什么因此无极值，会丢结论分。</div>
+
+<h2 id="p5"><span class="num">5</span>单调区间与局部极值（f′ 符号表）</h2>
+
+<div class="stmt"><span class="no">P5.</span> For (a) f(x) = sin x + cos x, 0 ≤ x ≤ 2π；(b) G(x) = 5x<sup>2/3</sup> − 2x<sup>5/3</sup>：<br>(1) 求增减区间；(2) 求局部最大/最小值；(3) 求凹凸区间与拐点（见下一节）。</div>
+
+<div class="thm"><b>符号表模板</b><br>
+① f′ = 0 的根 + f′ 不存在的点 → 全部列成临界点；<br>
+② 用临界点把定义域切段，每段取一个测试点判 f′ 符号；<br>
+③ 由「+ → −」判局部最大，「− → +」判局部最小，并把函数值算出来。</div>
+
+<h3>(a) f(x) = sin x + cos x，[0, 2π]</h3>
+<div class="formula">f′(x) = cos x − sin x = 0 &nbsp;⇔&nbsp; tan x = 1 &nbsp;⇔&nbsp; x = π/4, 5π/4</div>
+<table>
+<thead><tr><th>区间</th><th>(0, π/4)</th><th>(π/4, 5π/4)</th><th>(5π/4, 2π)</th></tr></thead>
+<tbody>
+<tr><td>f′ 符号</td><td>+</td><td>−</td><td>+</td></tr>
+<tr><td>f</td><td>递增 ↗</td><td>递减 ↘</td><td>递增 ↗</td></tr>
+</tbody>
+</table>
+<p>于是：增区间 [0, π/4] 与 [5π/4, 2π]；减区间 [π/4, 5π/4]。</p>
+<div class="formula">局部最大 f(π/4) = √2/2 + √2/2 = <b>√2</b>； &nbsp; 局部最小 f(5π/4) = −√2/2 − √2/2 = <b>−√2</b></div>
+
+<h3>(b) G(x) = 5x<sup>2/3</sup> − 2x<sup>5/3</sup>（定义域：全体实数）</h3>
+<div class="formula">G′(x) = (10/3)x<sup>−1/3</sup> − (10/3)x<sup>2/3</sup> = (10/3) x<sup>−1/3</sup>(1 − x)</div>
+<p>临界点有两个：<b>x = 1</b>（G′ = 0）与 <b>x = 0</b>（G′ 不存在 —— 这就是最容易漏的那个）。</p>
+<table>
+<thead><tr><th>区间</th><th>x<sup>−1/3</sup></th><th>1 − x</th><th>G′</th><th>G</th></tr></thead>
+<tbody>
+<tr><td>(−∞, 0)</td><td>−</td><td>+</td><td>−</td><td>递减 ↘</td></tr>
+<tr><td>(0, 1)</td><td>+</td><td>+</td><td>+</td><td>递增 ↗</td></tr>
+<tr><td>(1, +∞)</td><td>+</td><td>−</td><td>−</td><td>递减 ↘</td></tr>
+</tbody>
+</table>
+<div class="formula">G(0) = 0（局部最小）&nbsp;&nbsp; G(1) = 5 − 2 = <b>3</b>（局部最大）</div>
+
+<div class="ok"><b>(a)</b> 增 [0, π/4] ∪ [5π/4, 2π]，减 [π/4, 5π/4]；局部最大 √2（x = π/4），局部最小 −√2（x = 5π/4）。<br>
+<b>(b)</b> 减 (−∞, 0)，增 (0, 1)，减 (1, +∞)；局部最小 G(0) = 0，局部最大 G(1) = 3。</div>
+
+<div class="warn"><b>坑：</b>x<sup>2/3</sup> 这类分数幂，<b>x = 0 处导数不存在但函数有极值</b>，必须把“f′ 不存在的点”也当临界点列进表；只解 f′ = 0 会漏掉 (0,0) 这个极小点。</div>
+
+<h2 id="p6"><span class="num">6</span>凹凸性与拐点（f″ 符号表）</h2>
+
+<h3>5(a) 续：f(x) = sin x + cos x</h3>
+<div class="formula">f″(x) = −sin x − cos x = −f(x)</div>
+<p>所以 f″ = 0 恰好发生在 f = 0 处：√2 sin(x + π/4) = 0 ⇒ <b>x = 3π/4, 7π/4</b>。</p>
+<table>
+<thead><tr><th>区间</th><th>(0, 3π/4)</th><th>(3π/4, 7π/4)</th><th>(7π/4, 2π)</th></tr></thead>
+<tbody>
+<tr><td>f″ 符号</td><td>−</td><td>+</td><td>−</td></tr>
+<tr><td>凹凸</td><td>凹向下 ∪→∩</td><td>凹向上 ∪</td><td>凹向下 ∩</td></tr>
+</tbody>
+</table>
+<p>凹凸性在 3π/4 与 7π/4 两处改变 ⇒ 两个拐点：<b>(3π/4, 0)</b> 和 <b>(7π/4, 0)</b>。</p>
+
+<h3>5(b) 续：G(x) = 5x<sup>2/3</sup> − 2x<sup>5/3</sup></h3>
+<div class="formula">G″(x) = (10/3)[ (−1/3)x<sup>−4/3</sup>(1 − x) − x<sup>−1/3</sup> ] = (10/9) x<sup>−4/3</sup>(−1 − 2x)</div>
+<p>G″ = 0 于 x = −1/2；x = 0 处 G″ 不存在。因为 x<sup>−4/3</sup> &gt; 0（x ≠ 0），G″ 的符号只由 −(1 + 2x) 决定：</p>
+<table>
+<thead><tr><th>区间</th><th>(−∞, −1/2)</th><th>(−1/2, 0)</th><th>(0, +∞)</th></tr></thead>
+<tbody>
+<tr><td>G″ 符号</td><td>+</td><td>−</td><td>−</td></tr>
+<tr><td>凹凸</td><td>凹向上 ∪</td><td>凹向下 ∩</td><td>凹向下 ∩</td></tr>
+</tbody>
+</table>
+<p>凹凸只在 x = −1/2 处改变，那一点的函数值：</p>
+<div class="formula">G(−1/2) = 5(1/4)<sup>1/3</sup> − 2(−1/2)<sup>5/3</sup> = 5·2<sup>−2/3</sup> + 2·2<sup>−5/3</sup> = 5·2<sup>−2/3</sup> + 2<sup>−2/3</sup> = 6·2<sup>−2/3</sup> ≈ 3.78</div>
+<div class="ok"><b>(b) 凹性：</b>凹向上 (−∞, −1/2)，凹向下 (−1/2, 0) ∪ (0, +∞)；唯一拐点 (−1/2, 6/2<sup>2/3</sup>) ≈ (−0.5, 3.78)。<b>x = 0 不是拐点</b> —— 虽然 G″(0) 不存在，但两侧都凹向下。</div>
+
+<h3>6. g(x) = x|x| 在 (0,0) 有拐点，但 g″(0) 不存在</h3>
+<div class="formula">g(x) = x² (x ≥ 0)；g(x) = −x² (x &lt; 0)</div>
+<div class="formula">g′(x) = 2x (x &gt; 0)，g′(x) = −2x (x &lt; 0) &nbsp;⇒&nbsp; g′(x) = 2|x|，g′(0) = 0</div>
+<p>于是 g″(x) = 2（x &gt; 0）、−2（x &lt; 0）。在 0 处用定义：</p>
+<div class="formula">lim<sub>h→0⁺</sub> [g′(h) − g′(0)]/h = lim 2h/h = 2 &nbsp;，&nbsp; lim<sub>h→0⁻</sub> 2(−h)/h = −2</div>
+<p>左右不相等 ⇒ <b>g″(0) 不存在</b>。但 x &lt; 0 时 g″ = −2 &lt; 0（凹向下）、x &gt; 0 时 g″ = 2 &gt; 0（凹向上），凹凸性在 0 处改变，且 g(0) = 0，故 <b>(0,0) 是拐点</b>。∎</p>
+<div class="ok"><b>要点：</b>拐点只看“凹凸性是否改变”，<b>不要求 g″ 在该点存在</b>（也不要求 g′(0) = 0）。这题就是反例。</div>
+
+<h3>7. 三阶导判别法</h3>
+<div class="stmt"><span class="no">P7.</span> Suppose f″ is continuous and f′(c) = f″(c) = 0, but f‴(c) &gt; 0. Does f have a local maximum or minimum at c? Does f have a point of inflection at c?</div>
+<p>f‴ = (f″)′，f‴(c) &gt; 0 ⇒ f″ 在 c 处<b>严格递增</b>；又 f″(c) = 0，于是 c 左侧 f″ &lt; 0、右侧 f″ &gt; 0。</p>
+<ul>
+<li>f″ &lt; 0 在左 ⇒ f′ 递减到 f′(c) = 0；f″ &gt; 0 在右 ⇒ f′ 递增离开 0。所以 c 两侧都有 f′(x) &gt; 0，f 在 c 两侧都在<b>上升</b>。</li>
+<li>因此在 c 处既没有局部最大也没有局部最小。</li>
+<li>但凹凸性由“下”变“上”，所以 c <b>是拐点</b>。</li>
+</ul>
+<div class="ok"><b>答案：</b>c 处<b>无极值</b>；c 是<b>拐点</b>（左凹下、右凹上）。<br>
+记忆：f′ = f″ = 0 且 f‴ ≠ 0 —— 极值看<b>最低阶非零导数</b>是不是偶数阶（f′ 的一阶非零是 f″… 这题 f″ 也 = 0，最低非零是 f‴ 的三次阶，奇数阶 ⇒ 拐点）。</div>
+
+<h2 id="p7"><span class="num">7</span>作图题：把 f、f′、f″ 的信息排成一张表</h2>
+
+<div class="stmt"><span class="no">P8.</span> Present all required information about f, f′, and f″. Then sketch the curves.<br>(a) y = x√(5 − x) &nbsp;&nbsp; (b) y = x tan x, −π/2 &lt; x &lt; π/2</div>
+
+<div class="thm"><b>作图的清单（照抄就行）</b>：定义域 → 截距 → 对称性/周期性 → 垂直/水平渐近线 → f′ 符号与增减 → 极值点 → f″ 符号与凹凸 → 拐点 → 端点行为（含垂直切线）。</div>
+
+<h3>(a) y = x√(5 − x)</h3>
+<table>
+<tbody>
+<tr><th style="width:130px">定义域</th><td>5 − x ≥ 0 ⇒ x ≤ 5，即 (−∞, 5]</td></tr>
+<tr><th>截距</th><td>y = 0 ⇔ x = 0 或 x = 5</td></tr>
+<tr><th>端点行为</th><td>x → −∞ 时 y ≈ x√5 → −∞（因为 √(5−x) 为正、x 为负）</td></tr>
+</tbody>
+</table>
+<div class="formula">y′ = √(5 − x) − x/(2√(5 − x)) = [2(5 − x) − x] / (2√(5 − x)) = (10 − 3x)/(2√(5 − x))</div>
+<p>y′ = 0 ⇔ x = 10/3；x = 5 处 y′ → −∞（<b>垂直切线</b>）。</p>
+<table>
+<thead><tr><th>区间</th><th>(−∞, 10/3)</th><th>(10/3, 5)</th></tr></thead>
+<tbody><tr><td>y′</td><td>+ 增 ↗</td><td>− 减 ↘</td></tr></tbody>
+</table>
+<div class="formula">最大（也是绝对最大）：y(10/3) = (10/3)√(5/3) = 10√15/9 ≈ 4.30</div>
+<div class="formula">y″ = (3x − 20) / [4(5 − x)<sup>3/2</sup>] &lt; 0 &nbsp;（当 x &lt; 5）</div>
+<p>分母恒正，而 x &lt; 5 时 3x − 20 &lt; −5 &lt; 0 ⇒ <b>全定义域凹向下，无拐点</b>。</p>
+<div class="ok"><b>(a) 素描要点：</b>从 (−∞, −∞) 上升，穿过原点 (0,0)，在 (3.33, 4.30) 达峰，再下降到 (5,0) 并以竖直切线收尾；整条曲线“拱”形，没有 S 弯。</div>
+
+<h3>(b) y = x tan x，−π/2 &lt; x &lt; π/2</h3>
+<table>
+<tbody>
+<tr><th style="width:130px">定义域</th><td>(−π/2, π/2)</td></tr>
+<tr><th>对称性</th><td>y(−x) = (−x)tan(−x) = x tan x ⇒ <b>偶函数</b>，关于 y 轴对称，只需研究 [0, π/2)</td></tr>
+<tr><th>截距</th><td>(0, 0)</td></tr>
+<tr><th>渐近线</th><td>x → ±π/2 时 tan x → ±∞ 且 x 同号 ⇒ y → +∞，两条垂直渐近线 x = ±π/2</td></tr>
+</tbody>
+</table>
+<div class="formula">y′ = tan x + x sec²x = (sin x cos x + x)/cos²x = (x + ½sin 2x)/cos²x</div>
+<p>记 h(x) = x + ½sin 2x，则 h′(x) = 1 + cos 2x ≥ 0，等号只在 x = ±π/2 成立 ⇒ h 严格递增；h(0) = 0，故 x &lt; 0 时 h &lt; 0，x &gt; 0 时 h &gt; 0。于是 y′ 与 h 同号：</p>
+<table>
+<thead><tr><th>区间</th><th>(−π/2, 0)</th><th>(0, π/2)</th></tr></thead>
+<tbody><tr><td>y′</td><td>− 减 ↘</td><td>+ 增 ↗</td></tr></tbody>
+</table>
+<p>⇒ 在 (0,0) 取<b>绝对最小 0</b>，无局部最大。</p>
+<div class="formula">y″ = sec²x + sec²x + 2x sec²x tan x = 2sec²x (1 + x tan x)</div>
+<p>注意 (1 + x tan x)′ = tan x + x sec²x = y′，所以括号在 (−π/2, 0) 递减、在 (0, π/2) 递增，最小值是 x = 0 处的 1 ⇒ 括号 ≥ 1 &gt; 0。故</p>
+<div class="formula">y″ &gt; 0 &nbsp;（整个 (−π/2, π/2) 上凹向上），无拐点</div>
+<div class="ok"><b>(b) 素描要点：</b>关于 y 轴对称的“碗”，最低点 (0,0) 且该处 y′ = 0（水平切线），两侧升到 +∞，全程凹向上（越来越陡）。</div>
+
+<h2 id="p8"><span class="num">8</span>隐函数求导：dy/dx</h2>
+
+<div class="thm"><b>四步</b>：① 两边对 x 求导（把 y 看成 y(x)，遇到 y 就用链式法则乘 y′）；② 把含 y′ 的项移到一边、其余移到另一边；③ 提出 y′；④ 约分。<b>别忘了把 y′ 全部收集干净，不能只抓一半。</b></div>
+
+<h3>9(a) tan(x/y) = x + y</h3>
+<div class="formula">sec²(x/y) · (y − x y′)/y² = 1 + y′</div>
+<p>记 S = sec²(x/y)，两边乘 y² 整理：</p>
+<div class="formula">S(y − x y′) = y²(1 + y′) &nbsp;⇒&nbsp; Sy − Sx y′ = y² + y² y′ &nbsp;⇒&nbsp; y′(y² + Sx) = Sy − y²</div>
+<div class="ok"><b>答案：</b>dy/dx = [ y sec²(x/y) − y² ] / [ y² + x sec²(x/y) ]</div>
+
+<h3>9(b) √(x + y) = 1 + x²y²</h3>
+<div class="formula">(1 + y′)/(2√(x + y)) = 2xy² + 2x²y y′</div>
+<p>两边乘 2√(x+y)，把 y′ 的项集中：</p>
+<div class="formula">1 + y′ = 4xy²√(x+y) + 4x²y√(x+y) y′</div>
+<div class="formula">y′[4x²y√(x+y) − 1] = 1 − 4xy²√(x+y)</div>
+<div class="ok"><b>答案：</b>dy/dx = [ 1 − 4xy²√(x + y) ] / [ 4x²y√(x + y) − 1 ]</div>
+
+<h2 id="p9"><span class="num">9</span>隐函数二阶导与切线</h2>
+
+<div class="thm"><b>y″ 的套路</b>：先用和上面一样的方法求出一阶 y′ 的表达式 → <b>再把 y′ 表达式代回去</b>（这是关键一步，很多人只求了 y′ 就停）→ 用原方程化简，得到只含 x、y 的干净结果。</div>
+
+<h3>10(a) 9x² + y² = 9</h3>
+<div class="formula">18x + 2y y′ = 0 &nbsp;⇒&nbsp; y′ = −9x/y</div>
+<div class="formula">y″ = −9 · (y − x y′)/y² = −9( y + 9x²/y )/y² = −9(y² + 9x²)/y³</div>
+<p>用原方程 9x² + y² = 9 化简分子：</p>
+<div class="ok"><b>答案：</b>y″ = −81/y³</div>
+
+<h3>10(b) √x + √y = 1</h3>
+<div class="formula">1/(2√x) + y′/(2√y) = 0 &nbsp;⇒&nbsp; y′ = −√y/√x</div>
+<div class="formula">y″ = −[ (y′/(2√y))·x<sup>−1/2</sup> − √y · ½x<sup>−3/2</sup> ] = −[ y′/(2√(xy)) − √y/(2x<sup>3/2</sup>) ]</div>
+<p>代入 y′ = −√y/√x，第一项变成 −1/(2x)：</p>
+<div class="formula">y″ = 1/(2x) + √y/(2x<sup>3/2</sup>) = [ √x + (1 − √x) ] / (2x<sup>3/2</sup>) = 1/(2x<sup>3/2</sup>)</div>
+<div class="ok"><b>答案：</b>y″ = 1/(2x<sup>3/2</sup>)。<br>
+<b>验算捷径：</b>由 √y = 1 − √x 得 y = (1 − √x)²，直接求导：y′ = 1 − x<sup>−1/2</sup>，y″ = ½x<sup>−3/2</sup> ✓（两条路都对，考试时用验算那条更快）。</div>
+
+<h3>11. 切线：x² + y² = (2x² + 2y² − x)² at (0, ½)</h3>
+<p>先验点在曲线上：左边 = 0 + ¼ = ¼；右边 = (0 + ½ − 0)² = ¼ ✓。隐函数求导：</p>
+<div class="formula">2x + 2y y′ = 2(2x² + 2y² − x)(4x + 4y y′ − 1)</div>
+<p>代入 (x, y) = (0, ½)：2x² + 2y² − x = ½，4x + 4y y′ − 1 = 2y′ − 1，2y y′ = y′。</p>
+<div class="formula">y′ = 2 · ½ · (2y′ − 1) = 2y′ − 1 &nbsp;⇒&nbsp; <b>y′ = 1</b></div>
+<div class="ok"><b>答案：</b>y − ½ = 1·(x − 0)，即 <b>y = x + ½</b>（或 2x − 2y + 1 = 0）。</div>
+<div class="warn"><b>坑：</b>这类“高次曲线”代入点之后会得到关于 y′ 的一次方程 —— 但**必须先把所有数值代进去再解**，否则会得到一个乱七八糟的式子。</div>
+
+<h3>12. Bessel 函数 J(x)：J′(0) 与 J″(0)</h3>
+<div class="stmt"><span class="no">P12.</span> y = J(x) satisfies x y″ + y′ + xy = 0 for all x, and J(0) = 1.</div>
+<p><b>(a)</b> 直接令 x = 0：</p>
+<div class="formula">0·J″(0) + J′(0) + 0·J(0) = 0 &nbsp;⇒&nbsp; <b>J′(0) = 0</b></div>
+<p><b>(b)</b> 把整个微分方程再对 x 求导（这就是“对方程做隐函数求导”）：</p>
+<div class="formula">(y″ + x y‴) + y″ + (y + x y′) = 0 &nbsp;⇒&nbsp; x y‴ + 2y″ + y + x y′ = 0</div>
+<p>再令 x = 0，并用 J(0) = 1、J′(0) = 0：</p>
+<div class="formula">0 + 2J″(0) + 1 + 0 = 0 &nbsp;⇒&nbsp; <b>J″(0) = −½</b></div>
+<div class="ok"><b>答案：</b>J′(0) = 0，J″(0) = −1/2。</div>
+<div class="ok"><b>顺带记住：</b>把 x = 0 代进方程能“消掉”含 x 的项，是这类题唯一的技巧；<b>求 n 阶值就把方程求导 n−1 次再代 x = 0</b>。</div>
+
+<h2 id="p10"><span class="num">10</span>取对数求导与 arcsec 的导数</h2>
+
+<div class="thm"><b>什么时候取对数</b>：底和指数都含 x（如 (sin x)<sup>ln x</sup>、x<sup>x</sup>），或连乘连除一大堆因子。步骤：ln y = 指数 × ln 底 → 两边求导得 y′/y → 乘回 y。</div>
+
+<h3>13(a) y = (sin x)<sup>ln x</sup></h3>
+<div class="formula">ln y = ln x · ln(sin x)</div>
+<div class="formula">y′/y = (1/x)·ln(sin x) + ln x · (cos x/sin x) = ln(sin x)/x + ln x · cot x</div>
+<div class="ok"><b>答案：</b>y′ = (sin x)<sup>ln x</sup> [ ln(sin x)/x + ln x · cot x ]</div>
+
+<h3>13(b) y = (ln x)<sup>cos x</sup></h3>
+<div class="formula">ln y = cos x · ln(ln x)</div>
+<div class="formula">y′/y = −sin x · ln(ln x) + cos x · [1/ln x] · [1/x]</div>
+<div class="ok"><b>答案：</b>y′ = (ln x)<sup>cos x</sup> [ −sin x · ln(ln x) + cos x/(x ln x) ]</div>
+<div class="warn"><b>坑：</b>对 ln(ln x) 求导时才是 1/(x ln x)（两层链式）；只写 1/ln x 或 1/x 都错。</div>
+
+<h3>14. 证明 (sec<sup>−1</sup>x)′ = 1/(|x|√(x² − 1))，|x| &gt; 1</h3>
+<p>定义：y = sec<sup>−1</sup>x ⇔ sec y = x，且 y ∈ [0, π/2) ∪ (π/2, π]。两边对 x 求导：</p>
+<div class="formula">sec y tan y · dy/dx = 1 &nbsp;⇒&nbsp; dy/dx = 1/(sec y tan y) = 1/(x tan y)</div>
+<p>由 1 + tan²y = sec²y = x² 得 tan y = ±√(x² − 1)，符号由 y 的范围决定：</p>
+<table>
+<thead><tr><th>x 的范围</th><th>y 的范围</th><th>tan y</th><th>dy/dx</th></tr></thead>
+<tbody>
+<tr><td>x &gt; 1</td><td>[0, π/2)</td><td>+√(x² − 1)</td><td>1/(x√(x² − 1))</td></tr>
+<tr><td>x &lt; −1</td><td>(π/2, π]</td><td>−√(x² − 1)</td><td>−1/(x√(x² − 1)) = 1/(|x|√(x² − 1))</td></tr>
+</tbody>
+</table>
+<p>两种情形合并：x tan y = |x|√(x² − 1)。因此</p>
+<div class="formula center">d/dx (sec<sup>−1</sup>x) = 1/(x tan y) = <b>1/( |x| √(x² − 1) )</b>，|x| &gt; 1 ∎</div>
+<div class="ok"><b>要点：</b>绝对值来自 <b>y 的取值范围</b>（x &lt; 0 时 tan y &lt; 0），不是硬加的。写证明时必须把“为什么是 |x|”讲清楚，这是本题的采分点。</div>
+
+<h2 id="cheat"><span class="num">11</span>速查表</h2>
+
+<h3>三类问题的判别句</h3>
+<table>
+<thead><tr><th>要判断</th><th>看什么</th><th>结论句</th></tr></thead>
+<tbody>
+<tr><td>递增 / 递减</td><td>f′ 的符号</td><td>f′ &gt; 0 ⇒ 递增；f′ &lt; 0 ⇒ 递减（区间按临界点切）</td></tr>
+<tr><td>局部最大 / 最小</td><td>f′ 在临界点两侧的符号变化</td><td>+→− 为局部最大；−→+ 为局部最小；不变则非极值</td></tr>
+<tr><td>凹向上 / 向下</td><td>f″ 的符号</td><td>f″ &gt; 0 凹向上；f″ &lt; 0 凹向下</td></tr>
+<tr><td>拐点</td><td>f″ 变号（且该点在定义域内）</td><td>凹凸性改变即为拐点，<b>不要求 f″ 存在</b></td></tr>
+</tbody>
+</table>
+
+<h3>本次用到的导数</h3>
+<table>
+<thead><tr><th>函数</th><th>导数</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>√(4 − t²)</td><td>−t/√(4 − t²)</td><td>链式，内层 −2t 与 1/2 抵消</td></tr>
+<tr><td>x<sup>2/3</sup>, x<sup>5/3</sup></td><td>(2/3)x<sup>−1/3</sup>, (5/3)x<sup>2/3</sup></td><td>x = 0 处不可导</td></tr>
+<tr><td>sec²(x/y)</td><td>2sec²(x/y)tan(x/y) · (y − xy′)/y²</td><td>链式 + 商法则</td></tr>
+<tr><td>ln(ln x)</td><td>1/(x ln x)</td><td>两层链式</td></tr>
+<tr><td>sec<sup>−1</sup>x</td><td>1/(|x|√(x² − 1))</td><td>|x| &gt; 1</td></tr>
+</tbody>
+</table>
+
+<h3>本次的“标准答案”一页纸</h3>
+<table>
+<thead><tr><th>题</th><th>结论</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>a 局部最大；b 局部最小；c 两者皆是（非严格）；d 局部最小；e 绝对最大；r 局部最小；s 局部最大；t 都不是。绝对最小在右端点。</td></tr>
+<tr><td>2</td><td>(a) max 2 @ t=√2，min −√3 @ t=−1；(b) max 1/4 @ x=2，min 0 @ x=0；(c) max 3√3/2 @ t=π/6，min 0 @ t=π/2</td></tr>
+<tr><td>3</td><td>max = a<sup>a</sup>b<sup>b</sup>/(a+b)<sup>a+b</sup>，x = a/(a+b)</td></tr>
+<tr><td>4</td><td>f′ = 101x<sup>100</sup> + 51x<sup>50</sup> + 1 ≥ 1 &gt; 0 ⇒ 严格递增 ⇒ 无极值</td></tr>
+<tr><td>5</td><td>(a) 增 [0,π/4]∪[5π/4,2π]，减 [π/4,5π/4]；max √2，min −√2；凹上 (3π/4,7π/4)，拐点 (3π/4,0)、(7π/4,0)<br>(b) 减(−∞,0)，增(0,1)，减(1,∞)；min 0，max 3；凹上 (−∞,−1/2)，拐点 (−1/2, 6/2<sup>2/3</sup>)</td></tr>
+<tr><td>6</td><td>g″(0) 不存在（左右分别为 −2 与 2），凹凸性改变 ⇒ (0,0) 是拐点</td></tr>
+<tr><td>7</td><td>c 处无极值；c 是拐点</td></tr>
+<tr><td>8</td><td>(a) 峰 (10/3, 10√15/9)，处处凹下，无拐点，x=5 竖直切线<br>(b) 偶函数，最小 (0,0)，处处凹上，无拐点，渐近线 x=±π/2</td></tr>
+<tr><td>9</td><td>(a) [y sec²(x/y) − y²]/[y² + x sec²(x/y)] &nbsp;(b) [1 − 4xy²√(x+y)]/[4x²y√(x+y) − 1]</td></tr>
+<tr><td>10</td><td>(a) y″ = −81/y³ &nbsp;(b) y″ = 1/(2x<sup>3/2</sup>)</td></tr>
+<tr><td>11</td><td>y = x + 1/2</td></tr>
+<tr><td>12</td><td>J′(0) = 0，J″(0) = −1/2</td></tr>
+<tr><td>13</td><td>(a) (sin x)<sup>ln x</sup>[ln(sin x)/x + ln x cot x] &nbsp;(b) (ln x)<sup>cos x</sup>[−sin x ln(ln x) + cos x/(x ln x)]</td></tr>
+<tr><td>14</td><td>1/(|x|√(x² − 1))，绝对值来自 y 的范围</td></tr>
+</tbody>
+</table>
+
+<h2 id="pit"><span class="num">12</span>十个高频失分点</h2>
+
+<div class="warn">
+<ol>
+<li><b>漏端点</b>：闭区间最值必须把 a、b 两端的值算进去 —— 2(a) 的最小值恰好就在端点 t = −1。</li>
+<li><b>漏 f′ 不存在的临界点</b>：5(b) 的 x = 0、8(a) 的 x = 5 都是这种情况。</li>
+<li><b>只解出根不判符号</b>：题目问“增区间”，必须给出符号表，不能只写 f′ = 0 的根。</li>
+<li><b>把“极值点”和“极值”搞混</b>：问局部最大值时要答<b>函数值</b>（如 √2），位置另附（x = π/4）。</li>
+<li><b>拐点写成 x 值</b>：拐点是<b>点</b>，要写成 (3π/4, 0) 这种坐标形式。</li>
+<li><b>以为拐点必须 f″ = 0</b>：g(x) = x|x| 的拐点处 f″ 根本不存在（第 6 题就是为了纠正这一点）。</li>
+<li><b>y″ 求出后没代回 y′</b>：10(a)、(b) 的 y″ 里不允许残留 y′。</li>
+<li><b>ln(ln x) 求导漏一层</b>：结果是 1/(x ln x)，不是 1/ln x。</li>
+<li><b>arcsec 的绝对值理由不足</b>：|x| 是由 tan y 的符号推出来的，必须写出 x &lt; −1 的情形讨论。</li>
+<li><b>比大小靠小数</b>：1/4 与 3/13 这种要化成同分母再比，别用 ≈0.25 与 ≈0.231 下结论。</li>
+</ol>
+</div>
+
+<div class="exam"><b>交卷前 60 秒自查：</b>① 每道“求最值”的题有没有端点值？② 每个符号表是不是覆盖了整个定义域？③ 所有 y″ 里还有没有 y′？④ 拐点是不是写成了坐标？⑤ 证明题有没有把结论句写完整（“因此……，证毕”）？</div>
+
+<footer>
+  <div>ENGSCI 111 · Mathematical Modeling 1 · Section 1 · Assignment #5 全解与方法总结</div>
+  <div style="margin-top:6px">配套：原题 PDF 可在本页顶部「打开 PDF」查看；建议先自己做一遍，再对步骤。</div>
+</footer>
+
+</div>
+</body>
+</html>
