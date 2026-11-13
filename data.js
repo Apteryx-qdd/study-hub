@@ -3,7 +3,7 @@ window.SITE_DATA = {
   "name": "复习资料库",
   "subtitle": "Study Hub · 按科目分类的复习站点",
   "owner": "",
-  "updated": "2026-11-04"
+  "updated": "2026-11-05"
  },
  "subjects": [
   {
@@ -106,6 +106,48 @@ window.SITE_DATA = {
      "pdf": "ENGSCI111_Assignment5.pdf",
      "img": "engsci-p1-graph.png",
      "keywords": "极值 绝对最大 局部最小 图形判读 EVT 最值定理 单调性 凹性 拐点 三阶导 作图 隐函数求导 dy/dx y'' 切线 对数求导 arcsec sec^-1 取对数 临界点 符号表"
+    }
+   ]
+  },
+  {
+   "code": "general-chemistry",
+   "name": "普通化学",
+   "en": "General Chemistry for Engineers 1",
+   "course": "SCUPI",
+   "term": "2026 Fall",
+   "teacher": "Dr. Jue Gong · Section 1 · Sichuan University – Pittsburgh Institute",
+   "color": "#7a51a6",
+   "accent": "purple",
+   "scope": [
+    "Ch.1 测量：SI 单位、前缀、温度换算、有效数字、准确度与精密度",
+    "Ch.1 物质的分类（元素/化合物/混合物）与强度/广延性质",
+    "Ch.2 亚原子粒子、放射性、Thomson 与 Rutherford 模型",
+    "Ch.2 原子序数、质量数、同位素与平均原子质量",
+    "Ch.2 摩尔与摩尔质量（N_A、M、质量—摩尔—粒子数换算）",
+    "Ch.3 光的波动性、光电效应、Bohr 能级与 Rydberg 公式",
+    "Ch.3 de Broglie、不确定原理、一维势箱、Schrödinger 方程",
+    "Ch.3 四个量子数、轨道形状、Aufbau/Pauli/Hund、电子排布与磁性",
+    "Ch.4 有效核电荷 Zeff（Slater 规则）与周期趋势",
+    "Ch.4 原子半径 / 电离能 / 电子亲和能 / 离子半径与等电子系列",
+    "Ch.5 离子与分子化合物命名、晶格能、化学式、经验式与百分组成"
+   ],
+   "exclude": [],
+   "notes": "覆盖 Lecture 1–4 全部课件；HW5–HW6 考的 Lewis 结构 / VSEPR / 杂化 / MO 单列在附录 A。Blackboard 公告的期中考试为 2026-11-14。",
+   "docs": [
+    {
+     "id": "notes",
+     "title": "概念与公式总复习（Lecture 1–4 ＋ HW1–6）",
+     "file": "notes/index.html",
+     "full": "notes-full.html",
+     "desc": "把四讲课件与六份作业压成一条主线：测量 → 原子组成 → 电子状态 → 周期趋势 → 命名与计量。含 16 张对照表、公式速查表、20 条易错点、6 类题型模板、12 道自测题（附答案），附录 A 补 HW5–HW6 的 Lewis / VSEPR / 杂化 / MO。",
+     "tags": [
+      "讲义",
+      "公式表",
+      "自测"
+     ],
+     "date": "2026-11-05",
+     "pages": 11,
+     "keywords": "有效数字 SI单位 温度换算 同位素 平均原子质量 摩尔 阿伏伽德罗 光电效应 Bohr Rydberg de Broglie 不确定原理 势箱 量子数 电子排布 Aufbau Hund 泡利 顺磁 反磁 有效核电荷 Slater 原子半径 电离能 电子亲和能 离子半径 等电子 命名 含氧酸 水合物 经验式 百分组成 Lewis 形式电荷 VSEPR 杂化 MO 键级"
     }
    ]
   }

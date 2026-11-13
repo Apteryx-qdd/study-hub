@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>普通化学 · 概念与公式总复习（Lecture 1–4 ＋ HW1–6）</title>
+<style>
+:root{
+  --a:#7a51a6; --ab:#f4eefa;
+  --b:#2f6f9f; --bb:#eaf3fa;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#a8455a; --eb:#fdf2f2;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.78}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#2b1b40 0%,#4a2f6b 55%,#7a51a6 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 8px;padding-top:10px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#4a2f6b;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px}
+h3.check{color:#4a2f6b;border-left:4px solid var(--a);padding-left:10px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.formula{background:#f7f4fb;border-left:3px solid #c9b6e0;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.formula.center{text-align:center;font-size:16px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f3eff9;font-weight:700;color:#2b1b40}
+tbody tr:nth-child(even){background:#fafbfc}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:10px;padding:12px 16px;margin:12px 0}
+code{font-family:Consolas,monospace;font-size:13.5px;background:#f4f6f8;padding:1px 5px;border-radius:3px}
+sub{font-size:72%}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} table{font-size:13px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+</head>
+<body id="top">
+<div class="docbar" id="docbar"><div class="docbar-in">
+<a href="index.html">← 资料库</a><span style="opacity:.45">/</span>
+<a href="subject-general-chemistry.html">普通化学</a><span style="opacity:.45">/</span>
+<b>概念与公式总复习（Lecture 1–4 ＋ HW1–6）</b>
+<span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+
+</div></div>
+<style>
+.docbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px;line-height:1.6}
+.docbar-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.docbar a{color:#a9c6de;text-decoration:none}
+.docbar a:hover{color:#fff;text-decoration:underline}
+.docbar b{color:#fff;font-weight:600}
+.docbar .spacer{flex:1;min-width:8px}
+.docbar .pdfbtn{border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:1px 12px;color:#fff}
+.docbar .pdfbtn:hover{background:rgba(255,255,255,.14);text-decoration:none}
+@media print{.docbar{display:none}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">General Chemistry · Lecture 1–4 ＋ HW1–HW6 · 期末总复习</div>
+    <h1>普通化学 · 概念与公式总复习</h1>
+    <div class="sub">测量与有效数字　·　原子结构与摩尔　·　量子理论与电子排布　·　周期趋势　·　命名与化学计量</div>
+    <div class="meta">
+      <span class="chip hot">16 张对照表</span>
+      <span class="chip">公式表 + 20 条易错点</span>
+      <span class="chip">12 道自测题（含答案）</span>
+      <span class="chip">附录 A：Lewis / VSEPR / 杂化 / MO</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap"><a href="#overview">主线</a><a href="#ch1">Ch.1 测量</a><a href="#ch2">Ch.2 原子</a><a href="#ch3">Ch.3 量子</a><a href="#ch4">Ch.4 趋势</a><a href="#ch5">Ch.5 命名</a><a href="#formulas">公式表</a><a href="#pit">易错点</a><a href="#model">题型模板</a><a href="#quiz">自测</a><a href="#appendix">附录 A</a></div>
+</nav>
+
+<div class="wrap">
+
+<h2 id="overview"><span class="num">0</span>一页看懂这门课的主线</h2>
+<p>这门课其实只有一条因果链，考试题几乎都落在这条链的某一环上：</p>
+<ol>
+<li><b>怎么测量、怎么报数</b> → 有效数字、单位换算、误差（Ch.1）</li>
+<li><b>物质由什么组成</b> → 亚原子粒子、Z 与 A、同位素、平均原子质量、摩尔（Ch.2）</li>
+<li><b>电子在原子里的状态</b> → 光的波粒二象性、Bohr 能级、de Broglie、不确定原理、四个量子数、轨道、电子排布（Ch.3）</li>
+<li><b>电子排布决定性质</b> → 有效核电荷 Z<sub>eff</sub> 决定原子半径、电离能、电子亲和能、离子半径（Ch.4）</li>
+<li><b>怎么把物质写清楚、算清楚</b> → 命名、化学式、摩尔质量、百分组成、经验式（Ch.5）</li>
+</ol>
+<p>一句话记忆：<b>结构（电子排布）→ 有效核电荷 → 性质趋势</b>。凡是问&quot;为什么这个更大/更难失去电子/更稳定&quot;，答案最终都要绕回 Z<sub>eff</sub>、屏蔽、半径、以及半满/全满稳定性。</p>
+<h2 id="ch1"><span class="num">1</span>第 1 章 测量、单位与有效数字</h2>
+<h3>1.1 科学方法的四个词（判断题高频）</h3>
+<table><thead><tr><th>术语</th><th>定义</th><th>判据</th></tr></thead><tbody>
+<tr><td>Law 定律</td><td>对一致自然现象的口头或数学描述</td><td>只描述&quot;是什么/怎么变&quot;，不解释原因</td></tr>
+<tr><td>Hypothesis 假说</td><td>对现象提出的可检验解释</td><td>被实验支持后才可能升级为理论</td></tr>
+<tr><td>Experiment 实验</td><td>有目的地验证假说的操作</td><td>——</td></tr>
+<tr><td>Theory 理论</td><td>假说 + 大量支持性实验</td><td>可被新实验修正，但不是&quot;猜测&quot;</td></tr>
+</tbody></table>
+<p>判例：能量不能创生也不能消灭 → <b>law</b>（热力学第一定律）；&quot;吃维生素的人活得更久&quot; → <b>hypothesis</b>（待检验，且是相关性不是因果）。</p>
+<h3>1.2 SI 基本单位（7 个，必须背）</h3>
+<table><thead><tr><th>物理量</th><th>单位</th><th>符号</th></tr></thead><tbody>
+<tr><td>长度 length</td><td>meter</td><td>m</td></tr>
+<tr><td>质量 mass</td><td>kilogram</td><td>kg</td></tr>
+<tr><td>时间 time</td><td>second</td><td>s</td></tr>
+<tr><td>电流 electric current</td><td>ampere</td><td>A</td></tr>
+<tr><td>温度 temperature</td><td>kelvin</td><td>K</td></tr>
+<tr><td>物质的量 amount of substance</td><td>mole</td><td>mol</td></tr>
+<tr><td>发光强度</td><td>candela</td><td>cd</td></tr>
+</tbody></table>
+<p><b>坑</b>：质量的基本单位是 <b>kg</b>，是唯一自带前缀的基本单位；写&quot;1 kg = 1000 g&quot;时别把 kg 当成&quot;千·克&quot;去换算单位。</p>
+<h3>1.3 前缀（十进制倍数，符号大小写要分清）</h3>
+<table><thead><tr><th>前缀</th><th>符号</th><th>倍数</th><th>前缀</th><th>符号</th><th>倍数</th></tr></thead><tbody>
+<tr><td>tera</td><td>T</td><td>10¹²</td><td>deci</td><td>d</td><td>10⁻¹</td></tr>
+<tr><td>giga</td><td>G</td><td>10⁹</td><td>centi</td><td>c</td><td>10⁻²</td></tr>
+<tr><td>mega</td><td>M</td><td>10⁶</td><td>milli</td><td>m</td><td>10⁻³</td></tr>
+<tr><td>kilo</td><td>k</td><td>10³</td><td>micro</td><td>μ</td><td>10⁻⁶</td></tr>
+<tr><td></td><td></td><td></td><td>nano</td><td>n</td><td>10⁻⁹</td></tr>
+<tr><td></td><td></td><td></td><td>pico</td><td>p</td><td>10⁻¹²</td></tr>
+</tbody></table>
+<p><b>坑</b>：M（mega，10⁶）与 m（milli，10⁻³）只差大小写；μ 是 micro 不是 milli。</p>
+<h3>1.4 导出单位与密度</h3>
+<ul>
+<li>力：N = kg·m·s⁻²；能量：J = N·m = kg·m²·s⁻²；功率：W = J/s；压强：Pa = N/m² = kg·m⁻¹·s⁻²；电荷：C = A·s。</li>
+<li>密度 density：<b>d = m / V</b>，常用 g/cm³（= g/mL）或 kg/m³；1 g/cm³ = 1000 kg/m³。</li>
+<li>由定义式&quot;倒推单位&quot;是考试套路：J 的推导 = kg·(m/s)² = kg·m²·s⁻²。</li>
+</ul>
+<h3>1.5 温度换算（三个刻度）</h3>
+<ul>
+<li><b>K = ℃ + 273.15</b>（绝对温标，0 K = 绝对零度 = −273.15 ℃，理论上不可达）</li>
+<li><b>℃ = (℉ − 32) × 5/9</b></li>
+<li><b>℉ = (9/5) × ℃ + 32</b></li>
+<li>温差：ΔT(℃) = ΔT(K) ≠ ΔT(℉)；1 ℃ 的&quot;一度&quot;比 1 ℉ 的&quot;一度&quot;大 1.8 倍。</li>
+<li>换算题的有效数字：先按精确数处理 273.15、5/9、9/5，<b>最终结果按原始测定值的有效数字</b>（HW1 第 6 题就是考这个）。</li>
+</ul>
+<h3>1.6 有效数字（本章失分最多）</h3>
+<p><b>数位规则（5 条）</b></p>
+<ol>
+<li>所有非零数字都有效：2467.1 → 5 位。</li>
+<li>夹在非零数字之间的 0 有效：600.001 → 6 位。</li>
+<li>第一个非零数字左边的 0 无效（只定位小数点）：0.001 → 1 位。</li>
+<li>第一个非零数字右边的 0 有效：0.00100 → 3 位。</li>
+<li>不含小数点的整数，末尾的 0 含义不明：200 可能是 1、2 或 3 位 → 用科学计数法 2.00×10²（3 位）或加小数点 400.（3 位）来消除歧义。</li>
+</ol>
+<p><b>运算规则</b></p>
+<table><thead><tr><th>运算</th><th>规则</th><th>例</th></tr></thead><tbody>
+<tr><td>加减</td><td>结果按<b>小数点后位数最少</b>的（对齐位数）</td><td>14.98 + 2.7340×10⁴ + 84.7593 → 最低位是&quot;个位&quot;，得 2.744×10⁴</td></tr>
+<tr><td>乘除</td><td>结果按<b>有效数字位数最少</b>的</td><td>5.63×10² × 7.4×10³ = 4.2×10⁶</td></tr>
+<tr><td>混合</td><td>先乘除（定有效数字），再加减（定小数位），<b>中间不四舍五入</b></td><td>多步计算保留 1 位多余数字到最后再舍入</td></tr>
+<tr><td>精确数</td><td>无限位有效数字，不限制结果（1 in = 2.54 cm，1 kg = 1000 g，计数）</td><td>3 × 2.5 g = 7.5 g</td></tr>
+</tbody></table>
+<p><b>舍入</b>：一般&quot;四舍六入五成双&quot;或教材的&quot;五入&quot;，同一份作业里保持一致；<b>指数形式的答案</b>要先规范化成 a×10ⁿ（1 ≤ a &lt; 10）再数有效数字。</p>
+<h3>1.7 准确度与精密度</h3>
+<ul>
+<li><b>精密度 precision</b>：同一对象多次测量彼此接近的程度（重复性好，与真值无关）。</li>
+<li><b>准确度 accuracy</b>：测量值与真值的接近程度。</li>
+<li>四种组合：精密但不准（系统误差，可校正）；准但不精密（随机误差大）；既准又精密（最好）；都不行。</li>
+<li>判断句：<b>&quot;精密&quot;不能推出&quot;准确&quot;，&quot;准确&quot;也不能推出&quot;精密&quot;</b>（后者在单次测量时尤其要注意）。</li>
+</ul>
+<h3>1.8 物质的分类与性质</h3>
+<ul>
+<li>状态：solid / liquid / gas（固液气）。</li>
+<li><b>纯物质 pure substance</b>：element（元素，如 Fe、O₂）或 compound（化合物，如 CO₂、NaHCO₃），有固定组成。</li>
+<li><b>混合物 mixture</b>：homogeneous（均相，组成均匀，如盐水、空气）vs heterogeneous（非均相，如沙水、油水）。</li>
+<li><b>物理性质</b>：不改变物质身份即可观察（颜色、密度、熔点、导电性）；<b>化学性质</b>：需发生化学变化才表现（可燃性、与酸反应）。</li>
+<li><b>广延性质 extensive</b>：与物质的量有关（质量、体积、长度）；<b>强度性质 intensive</b>：与量无关（密度、温度、熔点、电导率）。</li>
+<li>分离手段：蒸馏（沸点差）、过滤（溶解度/粒径）、色谱、萃取——依据的是物理性质差异。</li>
+</ul>
+<h3 class="check">★ 第 1 章必须能答</h3>
+<ul>
+<li>0.00100 有几位有效数字？为什么？（3 位，左边 0 无效、右边 0 有效）</li>
+<li>200 为什么有歧义？怎么消除？（末尾 0 不含小数点时不确定；用 2.00×10² 或 400.）</li>
+<li>每加仑汽油 3.20 美元（精确？不精确？）→ 价格是测定/约定值，按题目给定位数处理。</li>
+</ul>
+<h2 id="ch2"><span class="num">2</span>第 2 章 原子结构、同位素与摩尔</h2>
+<h3>2.1 电子的发现（Thomson 与 Millikan）</h3>
+<ul>
+<li><b>阴极射线 cathode ray</b>：加高压后从阴极发出的带负电粒子流 → 命名为 <b>electron</b>。</li>
+<li><b>Thomson 的 e/m 实验</b>（电场 + 磁场交叉）：</li>
+<li>电场力 F_E = qE；磁场力（洛伦兹力）F_B = quB（速度与 B 垂直）。</li>
+<li>电子直线通过 → qE = quB → <b>u = E/B</b>。</li>
+<li>撤去电场后电子做圆周运动 → quB = mu²/r → <b>q/m = E/(B²r)</b>。</li>
+<li>结果：e/m = <b>−1.76×10⁸ C/g</b>（负号表示带负电）。</li>
+<li><b>Millikan 油滴实验</b>：平衡时 qE = mg → 测出基本电荷 <b>q = −1.6022×10⁻¹⁹ C</b>。</li>
+<li>两式合并得电子质量 <b>m<sub>e</sub> = 9.10×10⁻²⁸ g = 9.109×10⁻³¹ kg</b>。</li>
+</ul>
+<h3>2.2 放射性与卢瑟福核式模型</h3>
+<ul>
+<li>α 射线：带正电的氦核（He²⁺），偏向负极；β 射线：电子，偏向正极；γ 射线：高能光子，不带电，不被偏转。</li>
+<li><b>α 粒子散射</b>：绝大多数穿透（原子内部大部分是空的）；极少数大角度反弹（中心有体积小、质量大、集中正电荷的<b>原子核 nucleus</b>）。</li>
+<li>结论：Thomson 的&quot;葡萄干布丁模型&quot;被否证，进入 <b>Rutherford 核式模型</b>（核 + 核外电子）。</li>
+</ul>
+<h3>2.3 亚原子粒子（数据要记数量级）</h3>
+<table><thead><tr><th>粒子</th><th>质量 (g)</th><th>质量 (amu)</th><th>电荷 (C)</th><th>电荷单位</th></tr></thead><tbody>
+<tr><td>electron</td><td>9.10938×10⁻²⁸</td><td>5.4858×10⁻⁴</td><td>−1.6022×10⁻¹⁹</td><td>−1</td></tr>
+<tr><td>proton</td><td>1.67262×10⁻²⁴</td><td>1.0073</td><td>+1.6022×10⁻¹⁹</td><td>+1</td></tr>
+<tr><td>neutron</td><td>1.67493×10⁻²⁴</td><td>1.0086</td><td>0</td><td>0</td></tr>
+</tbody></table>
+<p>要点：质子与中子质量几乎相等（≈1 amu），电子质量约为质子的 1/1836，<b>原子质量几乎全部集中在核内</b>。</p>
+<h3>2.4 原子序数、质量数与同位素</h3>
+<ul>
+<li><b>原子序数 Z</b> = 质子数 = 中性原子的电子数（决定元素身份）。</li>
+<li><b>质量数 A</b> = 质子数 + 中子数 → <b>中子数 = A − Z</b>。</li>
+<li><b>同位素 isotope</b>：Z 相同、A 不同（中子数不同）的原子。化学性质几乎相同，物理性质/质量不同。</li>
+<li>表示法：ᵃ_Z X，如 ¹²₆C、¹⁴₆C；离子还要看电荷：<b>电子数 = Z − 电荷</b>（Mg²⁺ 有 10 个电子）。</li>
+<li>离子/同位素比较题（HW2 第 2 题）：分别数电子数（Z−charge）、中子数（A−Z）、质量（∝A，用 amu 比较）。</li>
+</ul>
+<h3>2.5 平均原子质量</h3>
+<p><b>公式</b></p>
+<div class="thm">平均原子质量 = Σ（同位素质量 × 天然丰度）</div>
+<p>丰度用小数或百分数代入均可（百分比要除以 100）。<b>结果的有效数字由最不精确的丰度决定</b>。</p>
+<p>例（碳）：12.00000×0.9893 + 13.003355×0.0107 = <b>12.011 amu</b>。</p>
+<p>例（铷，HW2/L2 练习）：Rb 平均原子质量 85.4678 amu，⁸⁵Rb（丰度 72.17%）为 84.911794 amu，求 ⁸⁷Rb 质量：</p>
+<div class="formula center">85.4678 = 84.911794×0.7217 + x×0.2783 → x ≈ <b>86.910 amu</b></div>
+<p><b>反向题</b>（给平均质量求丰度）设一个为 x、另一个为 (1−x) 解一次方程即可。</p>
+<h3>2.6 摩尔与摩尔质量</h3>
+<ul>
+<li><b>阿伏伽德罗常数 N<sub>A</sub> = 6.022×10²³ mol⁻¹</b>（常数有单位；&quot;阿伏伽德罗数&quot;本身无单位）。</li>
+<li><b>摩尔质量 M</b>：1 mol 物质的质量，单位 g/mol；数值上等于该物质的原子质量/分子质量（amu）。</li>
+<li>三条互换算，考试必用：</li>
+</ul>
+<div class="formula center">n = m / M　　N = n × N<sub>A</sub>　　m = n × M</div>
+<ul>
+<li>单位链：质量(g) → ÷M → 摩尔(mol) → ×N<sub>A</sub> → 粒子数；反向乘除互换。</li>
+<li><b>摩尔质量越大，单个粒子越重</b>；同质量下粒子数越少。</li>
+<li>由密度求原子半径（HW2 第 3 题套路）：d = m/V → 一个原子的体积 V<sub>atom</sub> = M/(d·N<sub>A</sub>) → 球体积 4/3πr³ → r（注意&quot;26% 是空腔&quot;要乘以 0.74 的堆积因子/或按题意扣除空隙）。</li>
+</ul>
+<h3 class="check">★ 第 2 章必须能答</h3>
+<ul>
+<li>Z、A、中子数、电子数四者的关系？离子怎么算电子数？</li>
+<li>平均原子质量为什么不是各同位素质量的算术平均？（要按丰度加权）</li>
+<li>1 mol 任何物质都含 6.022×10²³ 个粒子，但质量不同——为什么？（M 不同）</li>
+</ul>
+<h2 id="ch3"><span class="num">3</span>第 3 章 量子理论、原子轨道与电子排布</h2>
+<h3>3.1 光：波与粒子</h3>
+<ul>
+<li><b>波参数</b>：波长 λ（m）、频率 ν（Hz = s⁻¹）、波数 ν̃ = 1/λ（cm⁻¹）；<b>c = λν</b>，c = 2.998×10⁸ m/s。</li>
+<li><b>电磁波谱按波长从短到长</b>：γ 射线 &lt; X 射线 &lt; 紫外 UV &lt; 可见（400–700 nm）&lt; 红外 IR &lt; 微波 &lt; 无线电。频率与能量顺序相反。</li>
+<li>可见光中<b>紫光波长最短、能量最高；红光波长最长、能量最低</b>。</li>
+<li>干涉：同相位 → 相长（constructive）；反相位 → 相消（destructive）。</li>
+<li>双缝实验说明光有<b>波动性</b>。</li>
+</ul>
+<h3>3.2 光电效应（光有粒子性）</h3>
+<p>实验事实：① 低于某一<b>阈值频率 ν₀</b>，再强的光也打不出电子；② 高于阈值时，打出电子的<b>数目</b>与光强成正比；③ 打出电子的<b>动能</b>只与频率有关、与光强无关。</p>
+<p><b>爱因斯坦方程</b></p>
+<div class="thm">E<sub>photon</sub> = hν = KE<sub>max</sub> + W　　（W = 功函数 work function = hν₀）</div>
+<ul>
+<li>h = <b>6.626×10⁻³⁴ J·s</b></li>
+<li>阈值频率 ν₀ = W/h；阈值波长 λ₀ = hc/W</li>
+<li>每秒打出的电子数 ∝ 光强（每秒入射光子数）；每个光子的能量只由 ν 决定。</li>
+<li>推论：若 hν &lt; W，无论光多强都无电子逸出（经典波动论无法解释，故必须引入光子）。</li>
+</ul>
+<p><b>变式（HW4 第 5 题，光电子能谱 PES）</b>：用已知波长/频率的 UV 打电子，测其动能反推电离能：</p>
+<div class="formula center">IE = hν − KE</div>
+<h3>3.3 Bohr 氢原子模型</h3>
+<p>三条假设：① 电子只在特定圆轨道（定态）上运动，<b>不辐射能量</b>；② 轨道半径与能量由量子数 n 决定，n = 1, 2, 3…；③ 电子在能级间跃迁时才吸收/放出光子，光子能量 = 能级差。</p>
+<p><b>能级公式</b>（氢及类氢离子，Z = 核电荷）</p>
+<div class="formula center">E<sub>n</sub> = −(2.18×10⁻¹⁸ J) × Z²/n² = −13.6 × Z²/n² (eV) = −1312 × Z²/n² (kJ/mol)</div>
+<ul>
+<li>n = 1 为<b>基态 ground state</b>（最稳定、能量最低、半径最小）；n &gt; 1 为<b>激发态 excited state</b>。</li>
+<li>能量为负表示电子被核束缚；n → ∞ 时 E → 0（自由电子）。<b>束缚态能量 &lt; 自由电子能量</b>。</li>
+<li>半径 r ∝ n²/Z（Z 越大、n 越小，电子被拉得越紧）。</li>
+</ul>
+<p><b>跃迁与光谱</b></p>
+<div class="thm">ΔE = E_高 − E_低 = hν = hc/λ</div>
+<ul>
+<li>发射 emission：高 → 低，放出光子；吸收 absorption：低 → 高，吸收光子（同一条谱线位置相同）。</li>
+<li><b>Rydberg 方程</b>（经验式，与 Bohr 结果一致）：</li>
+</ul>
+<div class="formula center">1/λ = R<sub>H</sub> × Z² × (1/n₁² − 1/n₂²)，　R<sub>H</sub> = 1.09737316×10⁷ m⁻¹，n₂ &gt; n₁</div>
+<ul>
+<li>系列：n₁ = 1 <b>Lyman</b>（UV）；n₁ = 2 <b>Balmer</b>（可见光，Hα 656 nm、Hβ 486 nm、Hγ 434 nm）；n₁ = 3 <b>Paschen</b>（IR）。</li>
+<li>判断&quot;哪次跃迁放出能量更大&quot;：看 |ΔE| ∝ |1/n₁² − 1/n₂²|，能级间隔随 n 增大而变密（n=2→1 最大）。</li>
+</ul>
+<p>例：Balmer 系 n = 5 → 2 的波长：1/λ = 1.097×10⁷ × (1/4 − 1/25) = 2.304×10⁶ m⁻¹ → λ = <b>434 nm</b>。</p>
+<h3>3.4 de Broglie 波粒二象性</h3>
+<div class="thm">λ = h / (mu) = h / p　（m 单位 kg，u 单位 m/s）</div>
+<ul>
+<li>电子等微观粒子也有波动性；<b>宏观物体波长小到不可观测</b>（棒球 0.142 kg、42 m/s → λ ≈ 1.1×10⁻³⁴ m）。</li>
+<li>电子（9.1×10⁻³¹ kg、4×10⁶ m/s）→ λ ≈ 2×10⁻¹⁰ m = 0.2 nm，与原子的尺度（0.5–4 Å）相当 → 可观测。</li>
+<li><b>电子衍射</b>实验（与 X 射线衍射图样类似）直接证明电子有波动性。</li>
+<li>电子经电压 V 加速（HW3 第 4 题）：KE = eV → u = √(2eV/m) → λ = h/(mu)。V = 5.00×10³ V 时 λ ≈ <b>17 pm</b>。</li>
+</ul>
+<h3>3.5 不确定原理</h3>
+<div class="formula center">Δx · Δp ≥ h/(4π)，　Δp = m·Δu</div>
+<ul>
+<li>位置与动量（速度）不能同时精确确定；这不是仪器问题，是<b>原理性限制</b>。</li>
+<li>电子：Δu 为 20% × 5×10⁶ m/s 时，Δx ≈ 5.8×10⁻¹¹ m，与原子半径同量级 → <b>原子内电子的位置无法精确定义</b>，Bohr 的&quot;确定轨道&quot;不成立。</li>
+<li>棒球：Δp 极小 → Δx ≈ 10⁻²⁹ m → 宏观物体位置可精确确定（量子效应可忽略）。</li>
+</ul>
+<h3>3.6 驻波与一维势箱（particle in a box）</h3>
+<ul>
+<li>电子在原子中稳定存在 ↔ 形成<b>驻波</b>：轨道周长必须是波长的整数倍，<b>2πr = nλ</b>（n = 1, 2, 3…）→ 能量只能取分立值 → <b>能量量子化</b>。</li>
+<li>一维势箱（长度 L，电子只能在 0 ≤ x ≤ L 内）：</li>
+</ul>
+<div class="formula center">E<sub>n</sub> = n²h² / (8mL²)，　n = 1, 2, 3…</div>
+<div class="formula center">ψ<sub>n</sub>(x) = √(2/L) · sin(nπx/L)</div>
+<div class="thm">概率 P = ∫ ψ² dx（在某区间找到电子的概率）</div>
+<ul>
+<li>节点 nodes = n − 1；n 越大能量越高、节面越多。</li>
+<li>基态 n=1 时概率密度最大在<b>箱子中央</b>（x = L/2）。</li>
+<li>跃迁：ΔE = E_2 − E_1 = 3h²/(8mL²)，对应光子 λ = hc/ΔE。</li>
+<li>例：L = 1.00×10² pm → ΔE ≈ 1.81×10⁻¹⁷ J，λ ≈ <b>11.0 nm</b>（X 射线区）。</li>
+<li>题目给&quot;0 到 30 pm 之间的概率百分比&quot;：算 ∫₀^30 ψ²dx ÷ ∫₀^150 ψ²dx（或直接对归一化波函数积分）。</li>
+</ul>
+<h3>3.7 Schrödinger 方程与&quot;轨道&quot;</h3>
+<ul>
+<li>解 Schrödinger 方程得到<b>波函数 ψ</b>（wavefunction）；ψ 本身<b>没有直接物理意义</b>，<b>ψ² 表示电子出现的概率密度</b>（electron density）。</li>
+<li>描述一个原子轨道只需要 <b>3 个量子数</b>（n, l, m<sub>l</sub>）；第 4 个 m<sub>s</sub> 描述电子自旋。</li>
+<li><b>orbital（轨道）≠ orbit（玻尔轨道）</b>：orbital 是概率分布的&quot;云&quot;，不是固定路径。</li>
+</ul>
+<h3>3.8 四个量子数（必背表）</h3>
+<table><thead><tr><th>量子数</th><th>符号</th><th>含义</th><th>允许值</th><th>备注</th></tr></thead><tbody>
+<tr><td>主量子数</td><td>n</td><td>电子层、轨道大小、主要能量</td><td>1, 2, 3…（正整数）</td><td>n 越大越大越远，同 n 为同一 shell</td></tr>
+<tr><td>角量子数</td><td>l</td><td>轨道形状、亚层</td><td>0 ~ (n−1)</td><td>l = 0,1,2,3 → s, p, d, f</td></tr>
+<tr><td>磁量子数</td><td>m<sub>l</sub></td><td>空间取向、亚层内轨道数</td><td>−l ~ +l（共 2l+1 个）</td><td>p 有 3 个、d 有 5 个、f 有 7 个</td></tr>
+<tr><td>自旋量子数</td><td>m<sub>s</sub></td><td>电子自旋方向</td><td>+½ 或 −½</td><td>同一轨道最多 2 个电子且自旋相反</td></tr>
+</tbody></table>
+<p><b>容量</b></p>
+<ul>
+<li>一个轨道最多 2 个电子（Pauli）。</li>
+<li>亚层容量 = 2(2l+1)：s=2、p=6、d=10、f=14。</li>
+<li>第 n 层容量 = <b>2n²</b>：n=1→2、n=2→8、n=3→18、n=4→32。</li>
+<li>给定 (n, l)：2(2l+1) 个电子；给定 (n, l, m<sub>l</sub>)：2 个；给定 (n, l, m<sub>l</sub>, m<sub>s</sub>)：1 个。</li>
+</ul>
+<p><b>量子数合法性判断</b>（HW3 第 1 题套路）：逐条查 l &lt; n、|m<sub>l</sub>| ≤ l、m<sub>s</sub> = ±½。例：(2, 2, 0, ½) 中 l = 2 ≥ n = 2 → <b>l 非法</b>。</p>
+<h3>3.9 轨道形状与能级</h3>
+<ul>
+<li>s：球形（1s &lt; 2s &lt; 3s 依次变大）；p：哑铃形，3 个取向 p_x、p_y、p_z；d：5 个；f：7 个。</li>
+<li><b>单电子体系（H、He⁺、Li²⁺）</b>：能量只由 n 决定，同 n 的 s/p/d 简并。</li>
+<li><b>多电子体系</b>：能量由 n 和 l 共同决定，出现能级分裂（电子间排斥 + 屏蔽）→ 顺序：</li>
+</ul>
+<div class="thm"><b>1s &lt; 2s &lt; 2p &lt; 3s &lt; 3p &lt; 4s &lt; 3d &lt; 4p &lt; 5s &lt; 4d &lt; 5p &lt; 6s &lt; 4f &lt; 5d &lt; 6p &lt; 7s &lt; 5f &lt; 6d &lt; 7p</b></div>
+<ul>
+<li>记忆法：(n + l) 越小越先填；相同 (n + l) 时 n 小者先填。<b>4s 先于 3d 填充，但失电子时先失 4s</b>（因为 4s 能量在成键后反而更高）。</li>
+</ul>
+<h3>3.10 电子排布三原则</h3>
+<table><thead><tr><th>原则</th><th>内容</th></tr></thead><tbody>
+<tr><td>Pauli 不相容</td><td>同一原子中不能有 4 个量子数完全相同的两个电子（同一轨道最多 2 个且自旋相反）</td></tr>
+<tr><td>Aufbau 构造原理</td><td>电子从能量最低的轨道开始填（按上面的顺序）</td></tr>
+<tr><td>Hund 规则</td><td>简并轨道（如 3 个 p）上先各占 1 个、自旋平行，再配对</td></tr>
+</tbody></table>
+<p><b>书写</b>：full（1s²2s²2p⁶3s²3p⁶4s¹…）与 noble-gas notation（[Ar]4s¹）。镧系/锕系用 [Xe]4f…。</p>
+<p><b>例外（要靠&quot;半满/全满更稳定&quot;解释）</b></p>
+<table><thead><tr><th>元素</th><th>预期</th><th>实际</th></tr></thead><tbody>
+<tr><td>Cr (24)</td><td>[Ar]4s²3d⁴</td><td><b>[Ar]4s¹3d⁵</b></td></tr>
+<tr><td>Cu (29)</td><td>[Ar]4s²3d⁹</td><td><b>[Ar]4s¹3d¹⁰</b></td></tr>
+<tr><td>Mo (42)</td><td>[Kr]5s²4d⁴</td><td>[Kr]5s¹4d⁵</td></tr>
+<tr><td>Ag (47)</td><td>[Kr]5s²4d⁹</td><td>[Kr]5s¹4d¹⁰</td></tr>
+<tr><td>Au (79)</td><td>[Xe]6s²4f¹⁴5d⁹</td><td>[Xe]6s¹4f¹⁴5d¹⁰</td></tr>
+</tbody></table>
+<h3>3.11 离子的电子排布</h3>
+<ul>
+<li><b>主族</b>：先写原子排布，再按电荷加减电子（加在最高能级，减从最高能级减）。Na → Na⁺：[Ne]；Cl → Cl⁻：[Ar]。</li>
+<li><b>d 区过渡金属</b>：<b>先失去最外层 ns 电子，再失 (n−1)d</b>。</li>
+<li>Fe: [Ar]4s²3d⁶ → Fe²⁺: [Ar]3d⁶；Fe³⁺: [Ar]3d⁵</li>
+<li>Cr³⁺: [Ar]3d³；Mn³⁺: [Ar]3d⁴；Zn²⁺: [Ar]3d¹⁰；Sc³⁺/Ti⁴⁺/V⁵⁺ 都退到 [Ar]。</li>
+<li>注意：Fe³⁺ 的 3d⁵ 是半满 → 特别稳定（这也是 Fe³⁺ 常见的原因之一）。</li>
+</ul>
+<h3>3.12 磁性（顺磁/反磁）</h3>
+<ul>
+<li><b>paramagnetic 顺磁</b>：有未成对电子 → 被外磁场吸引（未成对电子越多，吸引越强）。</li>
+<li><b>diamagnetic 反磁</b>：所有电子成对 → 被外磁场微弱排斥。</li>
+<li>判断：先画轨道图数未成对电子。<b>电子数为奇数 → 一定顺磁</b>；<b>电子数为偶数 → 不一定反磁</b>（如 O₂ 有 2 个未成对电子，是顺磁的）。</li>
+</ul>
+<h3 class="check">★ 第 3 章必须能答</h3>
+<ul>
+<li>为什么光电效应证明光有粒子性？阈值频率的存在说明什么？</li>
+<li>E<sub>n</sub> 为负是什么意思？n→∞ 时能量是多少？</li>
+<li>为什么 4s 先填、失电子却先失 4s？（多电子屏蔽使 3d 在填充后能量更低；失电子时先失 n 最大的）</li>
+<li>同一亚层最多几个电子？第 3 层最多几个？给定 (n, l, m<sub>l</sub>) 最多几个？</li>
+<li>电子数为偶数一定反磁吗？（不一定，O₂）</li>
+</ul>
+<h2 id="ch4"><span class="num">4</span>第 4 章 有效核电荷与周期趋势</h2>
+<h3>4.1 周期表的结构（英文术语要认得）</h3>
+<ul>
+<li>周期 period（行）＝ 电子层 n；族 group（列）。</li>
+<li><b>主族 main group / representative elements</b>：1A–8A（s 区 + p 区）。</li>
+<li>具体族名：1A 碱金属 <b>alkali metals</b>；2A 碱土金属 <b>alkaline earth metals</b>；6A 氧族 <b>chalcogens</b>；7A 卤素 <b>halogens</b>；8A 稀有气体 <b>noble gases</b>。</li>
+<li><b>过渡金属 transition metals</b>：3B–2B（d 区，第 3–12 族）；2B（Zn 族）d 亚层全满，有时称 post-transition。</li>
+<li><b>镧系 lanthanides / 锕系 actinides</b>：f 区。</li>
+<li>按价电子所在亚层分区：<b>s 区</b>（1、2 族 + He）、<b>p 区</b>（13–18 族）、<b>d 区</b>（3–12 族）、<b>f 区</b>。</li>
+<li><b>价电子 valence electrons</b> = 最外层 ns + np（主族）；<b>核心电子 core electrons</b> = 内层。</li>
+</ul>
+<h3>4.2 有效核电荷 Z<sub>eff</sub></h3>
+<ul>
+<li>多电子原子中，电子同时受核吸引与其他电子排斥 → 内层电子<b>屏蔽 shielding</b> 掉一部分核电荷。</li>
+<li>定义：</li>
+</ul>
+<div class="thm"><b>Z<sub>eff</sub> = Z − σ</b>　（Z = 质子数，σ = 屏蔽常数）</div>
+<ul>
+<li>趋势：<b>同周期从左到右 Z<sub>eff</sub> 增大</b>（核电荷增加、屏蔽不变）；<b>同族从上到下 Z<sub>eff</sub> 变化很小</b>（Z 与 σ 同步增加）。</li>
+<li>例（第二周期）：Li 1.28 → Be 1.91 → B 2.42 → C 3.14 → N 3.83 → O 4.45 → F 5.10。</li>
+</ul>
+<p><b>Slater 规则（求 σ）</b></p>
+<ol>
+<li>排成组：(1s)(2s,2p)(3s,3p)(3d)(4s,4p)(4d)(4f)…</li>
+<li>右边（更高 n）的电子贡献 <b>0</b>。</li>
+<li>同组电子每个贡献 <b>0.35</b>（1s 组为 0.30）。</li>
+<li>对 ns/np 电子：n−1 层每个 <b>0.85</b>；n−2 及更内层每个 <b>1.00</b>。</li>
+<li>对 nd/nf 电子：所有在它左边的电子组每个 <b>1.00</b>。</li>
+</ol>
+<p>例：Br 的 3d 电子（[Ar]3d¹⁰4s²4p⁵）</p>
+<div class="formula center">σ = 1.00×(18) + 0.35×(9) = <b>21.15</b> → Z<sub>eff</sub> = 35 − 21.15 = <b>13.85</b></div>
+<p>（18 = 1s²2s²2p⁶3s²3p⁶；9 = 3d 上另外 9 个电子）</p>
+<h3>4.3 原子半径</h3>
+<ul>
+<li>定义：金属半径 = 相邻同种金属原子核间距的一半；共价半径 = 相邻同种原子成键核间距的一半。</li>
+<li>趋势：<b>同周期从左到右减小</b>（Z<sub>eff</sub> 增大，把电子拉得更紧）；<b>同族从上到下增大</b>（n 增大，层数增加）。</li>
+<li>离子比较：同周期阳离子半径 &lt; 原子半径；阴离子半径 &gt; 原子半径。</li>
+</ul>
+<h3>4.4 电离能 IE</h3>
+<ul>
+<li>定义：<b>气态</b>原子失去一个电子所需的最小能量（kJ/mol）。Na(g) → Na⁺(g) + e⁻，IE₁ = 495.8 kJ/mol。</li>
+<li>趋势：<b>同周期从左到右增大</b>（Z<sub>eff</sub>↑、半径↓）；<b>同族从上到下减小</b>（半径↑、屏蔽↑）。</li>
+<li><b>反常（必考）</b>：</li>
+<li><b>Be &gt; B</b>、<b>Mg &gt; Al</b>：Be/Mg 是 ns² 全满，B/Al 要失去 np 电子（能量更高、更易失）。</li>
+<li><b>N &gt; O</b>、<b>P &gt; S</b>：N/P 是半满 p³，O/S 多一个成对电子，电子间排斥使其更易失去。</li>
+<li><b>逐级电离能</b>：IE₁ &lt; IE₂ &lt; IE₃…；当<b>内层</b>开始被剥离时出现<b>巨大跳跃</b>。</li>
+<li>例：Na IE₁ = 496、IE₂ = 4562 kJ/mol → 跳跃在 IE₁/IE₂ 之间 → Na 只有 1 个价电子。</li>
+<li>判断价电子数：找最大跳跃出现在 IE_k 与 IE_{k+1} 之间 → 有 k 个价电子（据此定位族）。</li>
+<li>例（Na vs Mg）：IE₁：Na &lt; Mg（Mg Z<sub>eff</sub> 大）；IE₂：Na &gt; Mg（Na⁺ 已是 [Ne] 全满，再失去要破坏内层）。</li>
+</ul>
+<h3>4.5 电子亲和能 EA</h3>
+<ul>
+<li>定义：气态原子<b>接受</b>一个电子时<b>放出</b>的能量的相反数（即 EA = −ΔE）。Cl(g) + e⁻ → Cl⁻(g)，EA = 349 kJ/mol。</li>
+<li><b>符号约定要小心</b>：放出能量 → EA 为<b>正</b>；需要吸收能量 → EA 为<b>负</b>。</li>
+<li>趋势：同周期从左到右 EA 一般增大（Z<sub>eff</sub>↑，更容易接受电子）；同族从上到下一般减小。</li>
+<li><b>反常</b>：Be、N（2s² 全满、2p³ 半满，加电子要破坏稳定性，EA 很小甚至为负）；<b>EA₂ 总是负</b>（第二个电子要克服负离子排斥）：</li>
+<li>O(g) + e⁻ → O⁻(g)，EA₁ = +141 kJ/mol</li>
+<li>O⁻(g) + e⁻ → O²⁻(g)，EA₂ = −741 kJ/mol</li>
+<li>比较时注意：EA 越大 = 越容易得电子 = 非金属性越强（Cl &gt; F 在某些数据里，因为 F 半径太小、电子排斥大）。</li>
+</ul>
+<h3>4.6 金属性与离子半径</h3>
+<ul>
+<li><b>金属性 metallic character</b>：同周期从左到右减弱，同族从上到下增强（越易失电子）。金属 → 类金属 metalloids（B、Si、Ge、As、Sb、Te）→ 非金属。</li>
+<li><b>离子半径</b>：阳离子 &lt; 其原子（失去电子、电子排斥减小、有时整层消失）；阴离子 &gt; 其原子（电子增多、排斥增大）。</li>
+<li><b>等电子系列 isoelectronic series</b>：电子数相同、核电荷不同 → <b>Z 越大，半径越小</b>。</li>
+<li>例：N³⁻ &gt; O²⁻ &gt; F⁻ &gt; Na⁺ &gt; Mg²⁺（都是 10 电子，Z 从 7 到 12）。</li>
+<li>主族常见离子电荷：1A +1；2A +2；3A +3（Al³⁺）；5A −3；6A −2；7A −1；Ag⁺、Zn²⁺、Cd²⁺ 固定。</li>
+</ul>
+<h2 id="ch5"><span class="num">5</span>第 5 章 化合物、化学式与命名</h2>
+<h3>5.1 离子化合物与晶格能</h3>
+<ul>
+<li><b>离子键</b>：阴、阳离子间的静电吸引；<b>晶格 lattice</b> 是三维交替排列的离子阵列。</li>
+<li><b>晶格能 lattice energy</b>：1 mol 离子晶体完全拆成气态离子所需的能量（越大越稳定、熔点越高）：</li>
+</ul>
+<div class="thm">NaCl(s) → Na⁺(g) + Cl⁻(g)</div>
+<ul>
+<li>决定因素（库仑定律）：<b>电荷越大、核间距越小 → 晶格能越大</b>。</li>
+<li>例：MgO &gt; CaO &gt; SrO（电荷相同，r 增大）；NaCl &lt; MgO（电荷 1/1 vs 2/2）。</li>
+<li>离子化合物：高熔点、硬、脆、熔融或溶液导电；分子化合物：低熔点、不导电。</li>
+</ul>
+<h3>5.2 命名规则（本节是纯记忆，务必一次记清）</h3>
+<p><b>（1）单原子离子</b></p>
+<ul>
+<li>阳离子 = 元素名 + ion（Na⁺ sodium ion、Al³⁺ aluminum ion）。</li>
+<li>阴离子 = 元素词根 + <b>-ide</b>（F⁻ fluoride、Cl⁻ chloride、O²⁻ oxide、N³⁻ nitride、S²⁻ sulfide、H⁻ hydride、Br⁻ bromide、I⁻ iodide）。</li>
+<li>变价金属用<b>罗马数字</b>：Fe²⁺ iron(II)、Fe³⁺ iron(III)、Cu⁺ copper(I)、Cu²⁺ copper(II)、Mn²⁺ manganese(II)、Sn²⁺ tin(II)、Pb²⁺ lead(II)、Hg²⁺ mercury(II)、Cr³⁺ chromium(III)。</li>
+<li>旧命名法：-ous（低价）/ -ic（高价）：ferrous/ferric、cuprous/cupric、stannous/stannic。</li>
+<li>不变价：Ag⁺、Zn²⁺、Cd²⁺、Al³⁺ 直接叫 silver/zinc/cadmium/aluminum ion。</li>
+</ul>
+<p><b>（2）离子化合物</b>：阳离子名 + 阴离子名（不写&quot;mono&quot;）。</p>
+<p>例：CaO calcium oxide；Mg₃N₂ magnesium nitride；Fe₂S₃ iron(III) sulfide；NaCl sodium chloride；Al₂O₃ aluminum oxide。</p>
+<p>写化学式：<b>电荷交叉</b>（criss-cross）→ 化简到最简整数比。例：Al³⁺ + O²⁻ → Al₂O₃；Ca²⁺ + N³⁻ → Ca₃N₂。</p>
+<p><b>（3）多原子离子（背下来）</b></p>
+<table><thead><tr><th>离子</th><th>名称</th><th>离子</th><th>名称</th></tr></thead><tbody>
+<tr><td>NH₄⁺</td><td>ammonium</td><td>NO₃⁻</td><td>nitrate</td></tr>
+<tr><td>OH⁻</td><td>hydroxide</td><td>NO₂⁻</td><td>nitrite</td></tr>
+<tr><td>CN⁻</td><td>cyanide</td><td>SO₄²⁻</td><td>sulfate</td></tr>
+<tr><td>CO₃²⁻</td><td>carbonate</td><td>SO₃²⁻</td><td>sulfite</td></tr>
+<tr><td>HCO₃⁻</td><td>bicarbonate (hydrogen carbonate)</td><td>HSO₄⁻</td><td>bisulfate (hydrogen sulfate)</td></tr>
+<tr><td>PO₄³⁻</td><td>phosphate</td><td>ClO₄⁻</td><td>perchlorate</td></tr>
+<tr><td>CH₃COO⁻</td><td>acetate</td><td>ClO₃⁻</td><td>chlorate</td></tr>
+<tr><td>MnO₄⁻</td><td>permanganate</td><td>ClO₂⁻</td><td>chlorite</td></tr>
+<tr><td>Cr₂O₇²⁻</td><td>dichromate</td><td>ClO⁻</td><td>hypochlorite</td></tr>
+<tr><td>CrO₄²⁻</td><td>chromate</td><td>O₂²⁻</td><td>peroxide</td></tr>
+</tbody></table>
+<p><b>（4）含氧酸 oxoacids</b>：同一元素多个含氧酸按 O 原子数排列</p>
+<div class="thm">per-…-ic（最多 O）&gt; -ic &gt; -ous &gt; hypo-…-ous（最少 O）</div>
+<p>例：HClO₄ perchloric、HClO₃ chloric、HClO₂ chlorous、HClO hypochlorous；HNO₃ nitric / HNO₂ nitrous；H₂SO₄ sulfuric / H₂SO₃ sulfurous。</p>
+<p><b>（5）水合物 hydrates</b>：盐名 + 前缀 + hydrate。CuSO₄·5H₂O = copper(II) sulfate <b>pentahydrate</b>。</p>
+<p><b>（6）分子（共价）化合物</b>：前缀 + 元素名 + 前缀 + -ide；<b>第一个元素前不写 mono-</b>。</p>
+<table><thead><tr><th>数字</th><th>前缀</th><th>数字</th><th>前缀</th></tr></thead><tbody>
+<tr><td>1</td><td>mono-</td><td>6</td><td>hexa-</td></tr>
+<tr><td>2</td><td>di-</td><td>7</td><td>hepta-</td></tr>
+<tr><td>3</td><td>tri-</td><td>8</td><td>octa-</td></tr>
+<tr><td>4</td><td>tetra-</td><td>9</td><td>nona-</td></tr>
+<tr><td>5</td><td>penta-</td><td>10</td><td>deca-</td></tr>
+</tbody></table>
+<p>例：CO₂ carbon dioxide；N₂O₄ dinitrogen tetroxide；SF₆ sulfur hexafluoride；P₄O₁₀ tetraphosphorus decoxide；NO nitrogen monoxide（不是 mononitrogen）。</p>
+<h3>5.3 分子式、经验式与两条定律</h3>
+<ul>
+<li><b>分子式 molecular formula</b>：一个分子中各元素原子的确切数目（C₆H₁₂O₆）。</li>
+<li><b>经验式 empirical formula</b>：最简整数比（CH₂O）。</li>
+<li><b>结构式 structural formula</b>：还给出连接方式。</li>
+<li><b>定组成定律 law of definite proportions</b>：同一化合物无论来源，元素质量比固定。</li>
+<li><b>倍比定律 law of multiple proportions</b>：两元素形成多种化合物时，与固定质量的一种元素化合的另一种元素的质量成<b>小整数比</b>（CO 与 CO₂ 中 O 的质量比 1:2）。</li>
+</ul>
+<h3>5.4 摩尔质量、百分组成、经验式</h3>
+<ul>
+<li>摩尔质量 M = 各原子相对原子质量之和（g/mol）。</li>
+<li><b>百分组成</b>：%X = (n × M<sub>X</sub>) / M<sub>化合物</sub> × 100%。</li>
+<li><b>由百分组成求经验式</b>（四步）：</li>
+</ul>
+<ol>
+<li>取 100 g → 各元素质量即为其百分数（g）；</li>
+<li>各除以原子量 → 摩尔数；</li>
+<li>全部除以最小的摩尔数；</li>
+<li>若得分数，整体乘以最小整数使其变整数。</li>
+</ol>
+<ul>
+<li><b>求分子式</b>：n = M(实验测得) / M(经验式) → 分子式 = (经验式)×n。</li>
+<li>由燃烧分析（CO₂、H₂O 质量反推 C、H，O 用差减法）也是同一套路。</li>
+</ul>
+<h2 id="formulas"><span class="num">6</span>公式速查表（考前最后一眼看这里）</h2>
+<table><thead><tr><th>主题</th><th>公式</th><th>单位/备注</th></tr></thead><tbody>
+<tr><td>密度</td><td>d = m/V</td><td>g/cm³ = g/mL</td></tr>
+<tr><td>温度</td><td>K = ℃ + 273.15；℃ = (℉−32)×5/9；℉ = 9/5℃ + 32</td><td>温差 1℃ = 1K</td></tr>
+<tr><td>摩尔</td><td>n = m/M；N = n·N<sub>A</sub>；m = n·M</td><td>N<sub>A</sub> = 6.022×10²³ mol⁻¹</td></tr>
+<tr><td>平均原子质量</td><td>Σ(同位素质量 × 丰度)</td><td>丰度用小数</td></tr>
+<tr><td>光速</td><td>c = λν</td><td>c = 2.998×10⁸ m/s</td></tr>
+<tr><td>光子能量</td><td>E = hν = hc/λ</td><td>h = 6.626×10⁻³⁴ J·s</td></tr>
+<tr><td>光电效应</td><td>hν = KE + W，W = hν₀</td><td>W = 功函数</td></tr>
+<tr><td>光电子能谱</td><td>IE = hν − KE</td><td>HW4-5</td></tr>
+<tr><td>Bohr 能级</td><td>E<sub>n</sub> = −2.18×10⁻¹⁸ Z²/n² J = −13.6 Z²/n² eV</td><td>负值 = 束缚</td></tr>
+<tr><td>跃迁</td><td>ΔE = E_高 − E_低 = hc/λ</td><td>发射/吸收同位置</td></tr>
+<tr><td>Rydberg</td><td>1/λ = R<sub>H</sub>·Z²(1/n₁² − 1/n₂²)</td><td>R<sub>H</sub> = 1.097×10⁷ m⁻¹</td></tr>
+<tr><td>de Broglie</td><td>λ = h/(mu) = h/p</td><td>m 用 kg</td></tr>
+<tr><td>加速电子</td><td>KE = eV；u = √(2eV/m)</td><td>HW3-4</td></tr>
+<tr><td>不确定原理</td><td>Δx·Δp ≥ h/4π，Δp = mΔu</td><td>——</td></tr>
+<tr><td>一维势箱</td><td>E<sub>n</sub> = n²h²/(8mL²)；ψ = √(2/L)sin(nπx/L)</td><td>节点 = n−1</td></tr>
+<tr><td>概率</td><td>P = ∫ψ²dx</td><td>ψ² = 概率密度</td></tr>
+<tr><td>量子数</td><td>l = 0…n−1；m<sub>l</sub> = −l…+l；m<sub>s</sub> = ±½</td><td>轨道数 2l+1</td></tr>
+<tr><td>容量</td><td>亚层 2(2l+1)；第 n 层 2n²</td><td>n=3 → 18</td></tr>
+<tr><td>有效核电荷</td><td>Z<sub>eff</sub> = Z − σ</td><td>Slater 规则求 σ</td></tr>
+<tr><td>晶格能</td><td>∝ q₁q₂ / r</td><td>电荷大、r 小 → 大</td></tr>
+<tr><td>百分组成</td><td>%X = n·M<sub>X</sub>/M × 100%</td><td>——</td></tr>
+<tr><td>分子式</td><td>(经验式)ₙ，n = M/M<sub>emp</sub></td><td>——</td></tr>
+</tbody></table>
+<p><b>常数</b>：N<sub>A</sub> = 6.022×10²³ mol⁻¹；h = 6.626×10⁻³⁴ J·s；c = 2.998×10⁸ m/s；e = 1.602×10⁻¹⁹ C；m<sub>e</sub> = 9.109×10⁻³¹ kg；1 amu = 1.66054×10⁻²⁴ g；R<sub>H</sub> = 1.097×10⁷ m⁻¹；1 D = 3.336×10⁻³⁰ C·m。</p>
+<h2 id="pit"><span class="num">7</span>高频易错点（20 条，按失分概率排序）</h2>
+<ol>
+<li><b>加减看小数位、乘除看有效数字</b>，混算时中间不提前舍入。</li>
+<li>精确数（1 kg = 1000 g、计数、定义值）<b>不限制</b>结果的有效数字。</li>
+<li>温度换算中 273.15 与 5/9 是精确数，<b>不要</b>用它去定结果位数。</li>
+<li>200、1000 这类整数末尾 0 有歧义 → 用科学计数法或加点。</li>
+<li>平均原子质量必须<b>按丰度加权</b>，不是算术平均。</li>
+<li>离子电子数 = Z − 电荷（Mg²⁺ 是 10 个电子，不是 12）。</li>
+<li>中子数 = A − Z，与电荷无关。</li>
+<li>光电效应中<b>光强只影响电子数目，不影响单个电子动能</b>；动能只由 ν 决定。</li>
+<li>阈值频率以下，再强的光也不出电子。</li>
+<li>E<sub>n</sub> 是负值：<b>n 越大能量越高（越接近 0）</b>，不要被&quot;负号&quot;骗。</li>
+<li>Rydberg 公式中 n₁ 是<b>终态（较小）</b>，n₂ 是初态（较大）；算发射时 ΔE &gt; 0。</li>
+<li>1/λ 的单位是 m⁻¹ 时 R<sub>H</sub> 用 1.097×10⁷；用 nm 时要换算。</li>
+<li>de Broglie 计算 m 必须用 <b>kg</b>，u 用 m/s；宏观物体 λ 小到无意义。</li>
+<li>不确定原理是 ≥，不是 =；Δp 要先由 Δu 乘 m 得到。</li>
+<li>一维势箱中&quot;箱外概率为零&quot;，基态最可几位置在<b>中央</b>，不是两端。</li>
+<li>4s 先填 3d 后填，但<b>过渡金属失电子先失 4s</b>；Cr/Cu 是例外。</li>
+<li>电子数为偶数<b>不一定</b>反磁（O₂ 顺磁）。</li>
+<li>逐级电离能的<b>巨大跳跃位置</b>决定价电子数，进而定族。</li>
+<li>电子亲和能符号：<b>放能为正</b>；EA₂ 一定为负。</li>
+<li>命名：第一个元素前不加 mono-；变价金属必须写罗马数字；含氧酸 per/…/hypo 的顺序别弄反。</li>
+</ol>
+<h2 id="model"><span class="num">8</span>六类题型模板</h2>
+<p><b>模板 1：有效数字与单位换算</b></p>
+<p>写&quot;给定值 → 换算因子 → 结果&quot;，每步标单位，最后一次性定有效数字；答案末位对齐最不精确的那个量。</p>
+<p><b>模板 2：同位素丰度反解</b></p>
+<p>设丰度 x 与 1−x，列 Σ(m_i·x_i) = 平均质量，解一次方程；检验 x 在 0–1 之间。</p>
+<p><b>模板 3：光子能量 / 光电效应 / 光谱</b></p>
+<p>先算 E = hc/λ（或 hν），再用 ΔE = E_光子 与能级差联立；注意 J 与 kJ/mol 的换算（×N<sub>A</sub>/1000）。</p>
+<p><b>模板 4：量子数合法性 / 容量</b></p>
+<p>逐项检查 n ≥ 1、0 ≤ l ≤ n−1、|m<sub>l</sub>| ≤ l、m<sub>s</sub> = ±½；容量用 2(2l+1) 与 2n²。</p>
+<p><b>模板 5：电子排布 + 磁性</b></p>
+<p>按 Aufbau 顺序填 → 写 noble-gas 简式 → 画轨道图（方框箭头）→ 数未成对电子 → 判顺/反磁；离子先失最外层。</p>
+<p><b>模板 6：趋势排序（半径/IE/EA/离子半径）</b></p>
+<p>先定位周期表位置 → 同周期用 Z<sub>eff</sub>、同族用 n → 检查反常（2A/3A、5A/6A、全满/半满）→ 等电子系列按 Z 排序。</p>
+<h2 id="quiz"><span class="num">9</span>自测 12 题（答案在文末）</h2>
+<ol>
+<li>0.004500 有几个有效数字？2. 200. 有几个？</li>
+<li>25.0 ℃ 等于多少 K 与 ℉？（保留 3 位有效数字）</li>
+<li>铜有两种天然同位素：⁶³Cu（62.9296 amu，丰度 69.17%）与 ⁶⁵Cu（64.9278 amu，30.83%），写出平均原子质量的计算式（不必算完）。</li>
+<li>一个光子波长 486 nm，能量是多少 J？每摩尔多少 kJ？</li>
+<li>氢原子 n = 4 → 2 的跃迁属于哪个系列？在可见区吗？</li>
+<li>电子速度 1.0×10⁷ m/s，其 de Broglie 波长是多少 nm？</li>
+<li>判断 (3, 2, −3, +½) 是否合法，指出哪个量子数非法。</li>
+<li>写出 Cu 与 Cu²⁺ 的电子排布（noble-gas 记法），并判断磁性。</li>
+<li>排序：Na⁺、Mg²⁺、F⁻、O²⁻ 的半径（由大到小），说明依据。</li>
+<li>命名：Fe₂O₃、N₂O₅、CuSO₄·5H₂O、HClO₂。</li>
+<li>某化合物含 40.0% C、6.7% H、53.3% O，摩尔质量约 180 g/mol，求经验式与分子式。</li>
+</ol>
+<p><b>答案</b></p>
+<ol>
+<li>4 位（4、5、两个末尾 0）；2. 3 位（含小数点）。</li>
+<li>298.2 K（25.0 + 273.15 = 298.3，按小数点后 1 位取 298.2 K）；77.0 ℉（9/5×25.0 + 32 = 77.0）。</li>
+<li>62.9296×0.6917 + 64.9278×0.3083 ≈ 63.55 amu。</li>
+<li>E = hc/λ = 6.626×10⁻³⁴×2.998×10⁸/4.86×10⁻⁷ ≈ 4.09×10⁻¹⁹ J；×6.022×10²³ ≈ 246 kJ/mol。</li>
+<li>Balmer 系（n₁ = 2）；在可见区（约 486 nm，蓝绿）。</li>
+<li>λ = h/(mu) = 6.626×10⁻³⁴/(9.109×10⁻³¹×1.0×10⁷) ≈ 7.3×10⁻¹¹ m = 0.073 nm。</li>
+<li>非法：|m<sub>l</sub>| = 3 &gt; l = 2（m<sub>l</sub> 只能 −2…+2）。</li>
+<li>Cu: [Ar]4s¹3d¹⁰（1 个未成对 → 顺磁）；Cu²⁺: [Ar]3d⁹（1 个未成对 → 顺磁）。</li>
+<li>O²⁻ &gt; F⁻ &gt; Na⁺ &gt; Mg²⁺（都是 10 电子等电子体，核电荷 Z 越大半径越小）。</li>
+<li>Fe₂O₃ iron(III) oxide；N₂O₅ dinitrogen pentoxide；CuSO₄·5H₂O copper(II) sulfate pentahydrate；HClO₂ chlorous acid。</li>
+<li>C:H:O = 40.0/12.01 : 6.7/1.008 : 53.3/16.00 = 3.33 : 6.65 : 3.33 → CH₂O（经验式，30.03）；n = 180/30.03 ≈ 6 → <b>C₆H₁₂O₆</b>。</li>
+</ol>
+<h2 id="appendix"><span class="num">A</span>附录 A　Lewis 结构、VSEPR、杂化与 MO（HW5–HW6 考查范围）</h2>
+<div class="thm">这部分不在 Lecture 1–4 的 PPT 里，但 HW5、HW6 全考它。Lecture 4 的末尾已经预告了 Ch.5/6 的内容，所以一并整理，方便你把后面几周的课跟前面接起来。</div>
+<h3>A.1 画 Lewis 结构的五步</h3>
+<ol>
+<li>数总价电子数（含离子电荷：阴离子加、阳离子减）。</li>
+<li>确定中心原子（电负性最小、或题目指定；H 和 F 永远在末端）。</li>
+<li>单键连骨架（用掉 2 个电子/键）。</li>
+<li>剩余电子先给末端原子补满八隅体，再给中心原子。</li>
+<li>中心原子不满八隅体 → 把末端孤对电子改成双键/三键。</li>
+</ol>
+<h3>A.2 形式电荷 formal charge</h3>
+<div class="thm">FC = 价电子数 −（孤对电子数 + ½ 成键电子数）</div>
+<ul>
+<li>各原子 FC 之和 = 物种总电荷（<b>检验手段</b>）。</li>
+<li>最稳定的共振式：FC 尽量接近 0，负 FC 落在电负性大的原子上，正 FC 落在电负性小的原子上。</li>
+<li>例：NO₃⁻ 三个等价共振式，每个 N 上 +1、两个 O 上 −1（N 上孤对 → 总 −1）。</li>
+</ul>
+<h3>A.3 八隅体例外（考点）</h3>
+<table><thead><tr><th>类型</th><th>例子</th><th>说明</th></tr></thead><tbody>
+<tr><td>缺电子</td><td>BeCl₂（4 e）、BF₃（6 e）</td><td>中心原子不满 8</td></tr>
+<tr><td>奇电子</td><td>NO、NO₂</td><td>有未成对电子，必然顺磁</td></tr>
+<tr><td>扩展八隅体</td><td>PCl₅（10 e）、SF₆（12 e）、SO₃（12 e）、ClO₄⁻</td><td>第三周期及以后可用 d 轨道容纳 &gt;8 e</td></tr>
+</tbody></table>
+<h3>A.4 共振 resonance</h3>
+<ul>
+<li>同一分子有多个只差电子分布的 Lewis 式 → 真实结构是<b>共振杂化体</b>，键级介于各共振式之间。</li>
+<li>例：NO 的 N–O 键长 115 pm，介于双键（120 pm）与三键（106 pm）之间 → 有双键/三键两种共振式的贡献。</li>
+<li>判断&quot;哪个共振式更重要&quot;：FC 接近 0、负电荷在电负性大原子上、不违背八隅体者更重要。</li>
+<li>例：NO₂ 有未成对电子 → 两个分子二聚成 N₂O₄ 使电子全部配对（这也是 N₂O₄ 易解离回 NO₂ 的原因）。</li>
+</ul>
+<h3>A.5 键的极性与偶极矩</h3>
+<ul>
+<li><b>电负性 electronegativity</b>：原子在化学键中吸引电子的能力。趋势：同周期从左到右增大，同族从上到下减小（F 最大 4.0，Cs/Fr 最小）。</li>
+<li>键型判断：ΔEN &lt; 0.4 非极性共价；0.4–1.7 极性共价；&gt; 1.7 离子性为主（经验判据）。</li>
+<li><b>偶极矩 μ = Q × r</b>（C·m）；1 D = 3.336×10⁻³⁰ C·m。</li>
+<li><b>百分离子性</b> = μ(实验) / μ(假设完全离子) × 100%，其中 μ(完全离子) = e × d（e = 1.602×10⁻¹⁹ C）。</li>
+<li>例（HW5-3）：BrF，μ = 1.42 D、d = 1.76 Å → μ<sub>ionic</sub> = 1.602×10⁻¹⁹ × 1.76×10⁻¹⁰ = 2.82×10⁻²⁹ C·m；μ<sub>exp</sub> = 1.42×3.336×10⁻³⁰ = 4.74×10⁻³⁰ C·m → <b>≈ 16.8%</b> 离子性。</li>
+<li>分子极性 = 各键偶极矩的<b>矢量和</b>：CO₂ 直线、两个 C=O 抵消 → 非极性；H₂O 弯曲 → 极性。</li>
+</ul>
+<h3>A.6 VSEPR：电子域 → 几何形状</h3>
+<table><thead><tr><th>电子域数</th><th>电子域几何</th><th>成键数 / 孤对数</th><th>分子几何</th><th>键角</th><th>例</th></tr></thead><tbody>
+<tr><td>2</td><td>直线</td><td>2 / 0</td><td>linear</td><td>180°</td><td>CO₂、BeCl₂</td></tr>
+<tr><td>3</td><td>平面三角</td><td>3 / 0</td><td>trigonal planar</td><td>120°</td><td>BF₃、SO₃</td></tr>
+<tr><td>3</td><td>平面三角</td><td>2 / 1</td><td>bent</td><td>~120°（&lt;120）</td><td>SO₂、O₃</td></tr>
+<tr><td>4</td><td>四面体</td><td>4 / 0</td><td>tetrahedral</td><td>109.5°</td><td>CH₄、CH₃I</td></tr>
+<tr><td>4</td><td>四面体</td><td>3 / 1</td><td>trigonal pyramidal</td><td>~107°</td><td>NH₃、NBr₃</td></tr>
+<tr><td>4</td><td>四面体</td><td>2 / 2</td><td>bent</td><td>~104.5°</td><td>H₂O、H₂S</td></tr>
+<tr><td>5</td><td>三角双锥</td><td>5 / 0</td><td>trigonal bipyramidal</td><td>90°/120°</td><td>PCl₅</td></tr>
+<tr><td>5</td><td>三角双锥</td><td>4 / 1</td><td>seesaw</td><td>——</td><td>SF₄</td></tr>
+<tr><td>5</td><td>三角双锥</td><td>3 / 2</td><td>T-shaped</td><td>——</td><td>ClF₃</td></tr>
+<tr><td>5</td><td>三角双锥</td><td>2 / 3</td><td>linear</td><td>180°</td><td>XeF₂</td></tr>
+<tr><td>6</td><td>八面体</td><td>6 / 0</td><td>octahedral</td><td>90°</td><td>SF₆</td></tr>
+<tr><td>6</td><td>八面体</td><td>5 / 1</td><td>square pyramidal</td><td>——</td><td>BrF₅</td></tr>
+<tr><td>6</td><td>八面体</td><td>4 / 2</td><td>square planar</td><td>90°</td><td>XeF₄</td></tr>
+</tbody></table>
+<p>规则：<b>孤对电子斥力 &gt; 成键电子对</b>，会把键角压小（NH₃ 107° &lt; CH₄ 109.5° &lt; 弯曲 H₂O 104.5°）；三角双锥中孤对优先占<b>赤道位置</b>。</p>
+<h3>A.7 分子极性判断</h3>
+<ol>
+<li>先看有没有极性键（ΔEN ≠ 0）。</li>
+<li>再看几何是否对称：<b>对称 → 键矩抵消 → 非极性</b>（CO₂、BF₃、CCl₄、XeF₄、SF₆）。</li>
+<li>不对称 → 极性（H₂O、NH₃、SO₂、NBr₃、OCS）。</li>
+<li>有孤对电子几乎一定极性（除 XeF₂ 这类直线对称的）。</li>
+</ol>
+<h3>A.8 分子间作用力与沸点</h3>
+<p>强度顺序：<b>离子–偶极 &gt; 氢键 &gt; 偶极–偶极 &gt; 色散力 LDF</b>。</p>
+<ul>
+<li><b>色散力</b>：所有分子都有，随电子数/摩尔质量/极化率增大而增强（I₂ &gt; Br₂ &gt; Cl₂ &gt; F₂）。</li>
+<li><b>偶极–偶极</b>：极性分子之间。</li>
+<li><b>氢键</b>：H 直接连在 <b>N、O、F</b> 上时才有（HF、H₂O、NH₃、醇、羧酸）。</li>
+<li>沸点比较模板：先看离子化合物（最高）→ 再看氢键 → 再看偶极 → 最后比 LDF。</li>
+<li>例（HW6-4）：RbF（离子）&gt; CH₃OH（氢键）&gt; CH₃Br（偶极）&gt; CO₂（非极性，LDF）；即 CO₂ &lt; CH₃Br &lt; CH₃OH &lt; RbF。</li>
+<li>例（HW6-3）：Br₂ 与 ICl 等电子、摩尔质量相近，但 ICl 有偶极矩 → 偶极–偶极作用 &gt; Br₂ 的纯色散力 → ICl 熔点更高（27.2 ℃ vs −7.2 ℃）。</li>
+</ul>
+<h3>A.9 价键理论 VB 与杂化</h3>
+<ul>
+<li>共价键 = 两个原子各出一个自旋相反的电子，原子轨道<b>重叠</b>形成。</li>
+<li><b>杂化 hybridization</b>：中心原子的价层轨道混合成等价的杂化轨道，以减小斥力、解释实测键角。</li>
+</ul>
+<table><thead><tr><th>电子域数</th><th>杂化</th><th>键角</th><th>例</th></tr></thead><tbody>
+<tr><td>2</td><td>sp</td><td>180°</td><td>BeCl₂、C₂H₂（每个 C）</td></tr>
+<tr><td>3</td><td>sp²</td><td>120°</td><td>BF₃、SO₃、C₂H₄（每个 C）</td></tr>
+<tr><td>4</td><td>sp³</td><td>109.5°</td><td>CH₄、NH₃、H₂O</td></tr>
+<tr><td>5</td><td>sp³d</td><td>90°/120°</td><td>PCl₅</td></tr>
+<tr><td>6</td><td>sp³d²</td><td>90°</td><td>SF₆</td></tr>
+</tbody></table>
+<ul>
+<li>σ 键：头碰头重叠（可绕键轴旋转）；<b>π 键</b>：肩并肩重叠（不能旋转，导致顺反异构）。</li>
+<li>单键 = 1σ；双键 = 1σ + 1π；三键 = 1σ + 2π。</li>
+<li>例（HW6-7）：AlCl₃ 中 Al 为 <b>sp²</b>（平面三角），接受 Cl⁻ 后变 AlCl₄⁻，Al 变 <b>sp³</b>（四面体）。</li>
+<li>例（HW6-5）：基态 P 3s²3p³ → 3 个未成对 → 形成 3 个键；S 3s²3p⁴ → 2 个未成对 → 形成 2 个键。</li>
+<li>例（HW6-6）：BeCl₂（sp，直线 180°）与 Br₂ 可用 VB 解释；SF₆（90°/180°、12 电子）必须靠 sp³d² 扩展八隅体，<b>简单 VB/八隅体理论无法解释</b>，这正是 VB 的局限。</li>
+</ul>
+<h3>A.10 轨道重叠判断 σ / π / 不成键</h3>
+<p>以 x 轴为核间轴：</p>
+<table><thead><tr><th>组合</th><th>结果</th><th>理由</th></tr></thead><tbody>
+<tr><td>1s + 1s</td><td><b>σ</b></td><td>头碰头，轴对称</td></tr>
+<tr><td>1s + 2p<sub>x</sub></td><td><b>σ</b></td><td>沿轴头碰头</td></tr>
+<tr><td>1s + 2s</td><td><b>σ</b></td><td>头碰头（能量不同但可重叠）</td></tr>
+<tr><td>2p<sub>x</sub> + 2p<sub>x</sub></td><td><b>σ</b></td><td>沿轴端对端</td></tr>
+<tr><td>3p<sub>y</sub> + 3p<sub>y</sub></td><td><b>π</b></td><td>平行侧面重叠</td></tr>
+<tr><td>2p<sub>x</sub> + 2p<sub>y</sub></td><td><b>不成键</b></td><td>相互垂直，净重叠为零</td></tr>
+</tbody></table>
+<h3>A.11 分子轨道理论 MO</h3>
+<ul>
+<li>原子轨道线性组合成<b>成键轨道</b>（σ、π，能量低）与<b>反键轨道</b>（σ*、π*，能量高，带 *）。电子按 Aufbau、Pauli、Hund 填入 MO。</li>
+<li><b>键级 bond order = (成键电子数 − 反键电子数) / 2</b>；键级越大 → 键越短、越强。</li>
+<li>键级为 0 → 分子不存在（如 He₂）。</li>
+<li><b>磁性</b>：MO 图中有未成对电子 → 顺磁。<b>O₂ 的 MO 图有两个未成对电子在 π∗ 上 → 顺磁</b>，这是 MO 理论最漂亮的成功（Lewis 结构预测不出来）。</li>
+</ul>
+<p><b>能级顺序（第二周期）</b></p>
+<ul>
+<li>Li₂ ~ N₂（12–14 电子以内）：σ2s &lt; σ∗2s &lt; <b>π2p &lt; σ2p</b> &lt; π∗2p &lt; σ∗2p</li>
+<li>O₂、F₂、Ne₂：σ2s &lt; σ∗2s &lt; <b>σ2p &lt; π2p</b> &lt; π∗2p &lt; σ∗2p</li>
+</ul>
+<div class="thm">关键差异：N₂ 及以前 σ2p 高于 π2p；O₂ 及以后 σ2p 低于 π2p。</div>
+<p><b>几个必记的例子</b></p>
+<table><thead><tr><th>物种</th><th>价电子</th><th>键级</th><th>磁性</th></tr></thead><tbody>
+<tr><td>N₂</td><td>10</td><td>3</td><td>反磁</td></tr>
+<tr><td>O₂</td><td>12</td><td>2</td><td><b>顺磁（2 个未成对）</b></td></tr>
+<tr><td>F₂</td><td>14</td><td>1</td><td>反磁</td></tr>
+<tr><td>C₂</td><td>8</td><td>2</td><td>反磁</td></tr>
+<tr><td>C₂²⁻</td><td>10</td><td>3</td><td>反磁（N₂ 等电子体）</td></tr>
+<tr><td>NO</td><td>11</td><td>2.5</td><td>顺磁</td></tr>
+<tr><td>NO⁺</td><td>10</td><td>3</td><td>反磁</td></tr>
+<tr><td>O₂⁻（超氧）</td><td>13</td><td>1.5</td><td>顺磁</td></tr>
+</tbody></table>
+<ul>
+<li>例（HW6-9）：C₂²⁻ 与 N₂ 等电子（10 个价电子）→ <b>键级 3</b>；C₂ 键级 2 → C₂²⁻ 键更短更强。</li>
+<li>例（HW6-10）：NO₃⁻ 中心 N 为 <b>sp²</b>、平面三角；3 个等价共振式，π 电子共 6 个（4 个原子共享的离域 π 电子），σ 键 3 个（N–O 三个 σ），价电子 24 个。</li>
+</ul>
+<h3 class="check">★ 附录必须能答</h3>
+<ul>
+<li>形式电荷怎么算？总和为什么必须等于物种电荷？</li>
+<li>为什么 CO₂ 非极性而 H₂O 极性？</li>
+<li>CH₄、NH₃、H₂O 键角依次减小的原因？</li>
+<li>O₂ 为什么顺磁？（MO 图 π∗ 上两个未成对电子）</li>
+<li>键级公式？C₂²⁻ 与 C₂ 谁的键更强？</li>
+</ul>
+
+<footer>
+  <div>General Chemistry · 依据 Lecture 1–4 课件与 HW1–HW6 整理　·　Dr. Jue Gong · Section 1</div>
+  <div style="margin-top:6px">建议顺序：先做第 9 节自测 → 按错题回看对应章 → 考前只看第 6、7 节。</div>
+</footer>
+
+</div>
+</body>
+</html>

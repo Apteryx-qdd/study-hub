@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>公式速查表（考前最后一眼看这里） · 概念与公式总复习（Lecture 1–4 ＋ HW1–6）</title>
+
+
+
+
+<style>
+:root{
+  --a:#7a51a6; --ab:#f4eefa;
+  --b:#2f6f9f; --bb:#eaf3fa;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#a8455a; --eb:#fdf2f2;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.78}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#2b1b40 0%,#4a2f6b 55%,#7a51a6 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 8px;padding-top:10px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#4a2f6b;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px}
+h3.check{color:#4a2f6b;border-left:4px solid var(--a);padding-left:10px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.formula{background:#f7f4fb;border-left:3px solid #c9b6e0;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.formula.center{text-align:center;font-size:16px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f3eff9;font-weight:700;color:#2b1b40}
+tbody tr:nth-child(even){background:#fafbfc}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:10px;padding:12px 16px;margin:12px 0}
+code{font-family:Consolas,monospace;font-size:13.5px;background:#f4f6f8;padding:1px 5px;border-radius:3px}
+sub{font-size:72%}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} table{font-size:13px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="notes-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-general-chemistry.html">普通化学</a><span style="opacity:.45">/</span>
+<b>公式速查表（考前最后一眼看这里）</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="notes-overview.html">0</a><a href="notes-ch1.html">1</a><a href="notes-ch2.html">2</a><a href="notes-ch3.html">3</a><a href="notes-ch4.html">4</a><a href="notes-ch5.html">5</a><a href="notes-formulas.html" class=cur>6</a><a href="notes-pit.html">7</a><a href="notes-model.html">8</a><a href="notes-quiz.html">9</a><a href="notes-appendix.html">A</a></div></div>
+<div class="chunkmain">
+<h2 id="formulas"><span class="num">6</span>公式速查表（考前最后一眼看这里）</h2>
+
+<table><thead><tr><th>主题</th><th>公式</th><th>单位/备注</th></tr></thead><tbody>
+<tr><td>密度</td><td>d = m/V</td><td>g/cm³ = g/mL</td></tr>
+<tr><td>温度</td><td>K = ℃ + 273.15；℃ = (℉−32)×5/9；℉ = 9/5℃ + 32</td><td>温差 1℃ = 1K</td></tr>
+<tr><td>摩尔</td><td>n = m/M；N = n·N<sub>A</sub>；m = n·M</td><td>N<sub>A</sub> = 6.022×10²³ mol⁻¹</td></tr>
+<tr><td>平均原子质量</td><td>Σ(同位素质量 × 丰度)</td><td>丰度用小数</td></tr>
+<tr><td>光速</td><td>c = λν</td><td>c = 2.998×10⁸ m/s</td></tr>
+<tr><td>光子能量</td><td>E = hν = hc/λ</td><td>h = 6.626×10⁻³⁴ J·s</td></tr>
+<tr><td>光电效应</td><td>hν = KE + W，W = hν₀</td><td>W = 功函数</td></tr>
+<tr><td>光电子能谱</td><td>IE = hν − KE</td><td>HW4-5</td></tr>
+<tr><td>Bohr 能级</td><td>E<sub>n</sub> = −2.18×10⁻¹⁸ Z²/n² J = −13.6 Z²/n² eV</td><td>负值 = 束缚</td></tr>
+<tr><td>跃迁</td><td>ΔE = E_高 − E_低 = hc/λ</td><td>发射/吸收同位置</td></tr>
+<tr><td>Rydberg</td><td>1/λ = R<sub>H</sub>·Z²(1/n₁² − 1/n₂²)</td><td>R<sub>H</sub> = 1.097×10⁷ m⁻¹</td></tr>
+<tr><td>de Broglie</td><td>λ = h/(mu) = h/p</td><td>m 用 kg</td></tr>
+<tr><td>加速电子</td><td>KE = eV；u = √(2eV/m)</td><td>HW3-4</td></tr>
+<tr><td>不确定原理</td><td>Δx·Δp ≥ h/4π，Δp = mΔu</td><td>——</td></tr>
+<tr><td>一维势箱</td><td>E<sub>n</sub> = n²h²/(8mL²)；ψ = √(2/L)sin(nπx/L)</td><td>节点 = n−1</td></tr>
+<tr><td>概率</td><td>P = ∫ψ²dx</td><td>ψ² = 概率密度</td></tr>
+<tr><td>量子数</td><td>l = 0…n−1；m<sub>l</sub> = −l…+l；m<sub>s</sub> = ±½</td><td>轨道数 2l+1</td></tr>
+<tr><td>容量</td><td>亚层 2(2l+1)；第 n 层 2n²</td><td>n=3 → 18</td></tr>
+<tr><td>有效核电荷</td><td>Z<sub>eff</sub> = Z − σ</td><td>Slater 规则求 σ</td></tr>
+<tr><td>晶格能</td><td>∝ q₁q₂ / r</td><td>电荷大、r 小 → 大</td></tr>
+<tr><td>百分组成</td><td>%X = n·M<sub>X</sub>/M × 100%</td><td>——</td></tr>
+<tr><td>分子式</td><td>(经验式)ₙ，n = M/M<sub>emp</sub></td><td>——</td></tr>
+</tbody></table>
+<p><b>常数</b>：N<sub>A</sub> = 6.022×10²³ mol⁻¹；h = 6.626×10⁻³⁴ J·s；c = 2.998×10⁸ m/s；e = 1.602×10⁻¹⁹ C；m<sub>e</sub> = 9.109×10⁻³¹ kg；1 amu = 1.66054×10⁻²⁴ g；R<sub>H</sub> = 1.097×10⁷ m⁻¹；1 D = 3.336×10⁻³⁰ C·m。</p>
+
+</div>
+<div class="chunknav"><a href="notes-ch5.html">← 第 5 章 化合物、化学式与命名</a><a href="notes-pit.html">高频易错点（20 条，按失分概率排序） →</a></div>
+</body></html>

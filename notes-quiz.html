@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自测 12 题（答案在文末） · 概念与公式总复习（Lecture 1–4 ＋ HW1–6）</title>
+
+
+
+
+<style>
+:root{
+  --a:#7a51a6; --ab:#f4eefa;
+  --b:#2f6f9f; --bb:#eaf3fa;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#a8455a; --eb:#fdf2f2;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.78}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#2b1b40 0%,#4a2f6b 55%,#7a51a6 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 8px;padding-top:10px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#4a2f6b;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px}
+h3.check{color:#4a2f6b;border-left:4px solid var(--a);padding-left:10px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.formula{background:#f7f4fb;border-left:3px solid #c9b6e0;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.formula.center{text-align:center;font-size:16px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f3eff9;font-weight:700;color:#2b1b40}
+tbody tr:nth-child(even){background:#fafbfc}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:10px;padding:12px 16px;margin:12px 0}
+code{font-family:Consolas,monospace;font-size:13.5px;background:#f4f6f8;padding:1px 5px;border-radius:3px}
+sub{font-size:72%}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} table{font-size:13px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="notes-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-general-chemistry.html">普通化学</a><span style="opacity:.45">/</span>
+<b>自测 12 题（答案在文末）</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="notes-overview.html">0</a><a href="notes-ch1.html">1</a><a href="notes-ch2.html">2</a><a href="notes-ch3.html">3</a><a href="notes-ch4.html">4</a><a href="notes-ch5.html">5</a><a href="notes-formulas.html">6</a><a href="notes-pit.html">7</a><a href="notes-model.html">8</a><a href="notes-quiz.html" class=cur>9</a><a href="notes-appendix.html">A</a></div></div>
+<div class="chunkmain">
+<h2 id="quiz"><span class="num">9</span>自测 12 题（答案在文末）</h2>
+
+<ol>
+<li>0.004500 有几个有效数字？2. 200. 有几个？</li>
+<li>25.0 ℃ 等于多少 K 与 ℉？（保留 3 位有效数字）</li>
+<li>铜有两种天然同位素：⁶³Cu（62.9296 amu，丰度 69.17%）与 ⁶⁵Cu（64.9278 amu，30.83%），写出平均原子质量的计算式（不必算完）。</li>
+<li>一个光子波长 486 nm，能量是多少 J？每摩尔多少 kJ？</li>
+<li>氢原子 n = 4 → 2 的跃迁属于哪个系列？在可见区吗？</li>
+<li>电子速度 1.0×10⁷ m/s，其 de Broglie 波长是多少 nm？</li>
+<li>判断 (3, 2, −3, +½) 是否合法，指出哪个量子数非法。</li>
+<li>写出 Cu 与 Cu²⁺ 的电子排布（noble-gas 记法），并判断磁性。</li>
+<li>排序：Na⁺、Mg²⁺、F⁻、O²⁻ 的半径（由大到小），说明依据。</li>
+<li>命名：Fe₂O₃、N₂O₅、CuSO₄·5H₂O、HClO₂。</li>
+<li>某化合物含 40.0% C、6.7% H、53.3% O，摩尔质量约 180 g/mol，求经验式与分子式。</li>
+</ol>
+<p><b>答案</b></p>
+<ol>
+<li>4 位（4、5、两个末尾 0）；2. 3 位（含小数点）。</li>
+<li>298.2 K（25.0 + 273.15 = 298.3，按小数点后 1 位取 298.2 K）；77.0 ℉（9/5×25.0 + 32 = 77.0）。</li>
+<li>62.9296×0.6917 + 64.9278×0.3083 ≈ 63.55 amu。</li>
+<li>E = hc/λ = 6.626×10⁻³⁴×2.998×10⁸/4.86×10⁻⁷ ≈ 4.09×10⁻¹⁹ J；×6.022×10²³ ≈ 246 kJ/mol。</li>
+<li>Balmer 系（n₁ = 2）；在可见区（约 486 nm，蓝绿）。</li>
+<li>λ = h/(mu) = 6.626×10⁻³⁴/(9.109×10⁻³¹×1.0×10⁷) ≈ 7.3×10⁻¹¹ m = 0.073 nm。</li>
+<li>非法：|m<sub>l</sub>| = 3 &gt; l = 2（m<sub>l</sub> 只能 −2…+2）。</li>
+<li>Cu: [Ar]4s¹3d¹⁰（1 个未成对 → 顺磁）；Cu²⁺: [Ar]3d⁹（1 个未成对 → 顺磁）。</li>
+<li>O²⁻ &gt; F⁻ &gt; Na⁺ &gt; Mg²⁺（都是 10 电子等电子体，核电荷 Z 越大半径越小）。</li>
+<li>Fe₂O₃ iron(III) oxide；N₂O₅ dinitrogen pentoxide；CuSO₄·5H₂O copper(II) sulfate pentahydrate；HClO₂ chlorous acid。</li>
+<li>C:H:O = 40.0/12.01 : 6.7/1.008 : 53.3/16.00 = 3.33 : 6.65 : 3.33 → CH₂O（经验式，30.03）；n = 180/30.03 ≈ 6 → <b>C₆H₁₂O₆</b>。</li>
+</ol>
+
+</div>
+<div class="chunknav"><a href="notes-model.html">← 六类题型模板</a><a href="notes-appendix.html">附录 A Lewis 结构、VSEPR、杂化与 MO（HW5–HW6 考查范围） →</a></div>
+</body></html>

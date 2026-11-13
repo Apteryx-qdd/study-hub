@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 3 章 量子理论、原子轨道与电子排布 · 概念与公式总复习（Lecture 1–4 ＋ HW1–6）</title>
+
+
+
+
+<style>
+:root{
+  --a:#7a51a6; --ab:#f4eefa;
+  --b:#2f6f9f; --bb:#eaf3fa;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#a8455a; --eb:#fdf2f2;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.78}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#2b1b40 0%,#4a2f6b 55%,#7a51a6 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 8px;padding-top:10px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#4a2f6b;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px}
+h3.check{color:#4a2f6b;border-left:4px solid var(--a);padding-left:10px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.formula{background:#f7f4fb;border-left:3px solid #c9b6e0;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.formula.center{text-align:center;font-size:16px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f3eff9;font-weight:700;color:#2b1b40}
+tbody tr:nth-child(even){background:#fafbfc}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:10px;padding:12px 16px;margin:12px 0}
+code{font-family:Consolas,monospace;font-size:13.5px;background:#f4f6f8;padding:1px 5px;border-radius:3px}
+sub{font-size:72%}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} table{font-size:13px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="notes-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-general-chemistry.html">普通化学</a><span style="opacity:.45">/</span>
+<b>第 3 章 量子理论、原子轨道与电子排布</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="notes-overview.html">0</a><a href="notes-ch1.html">1</a><a href="notes-ch2.html">2</a><a href="notes-ch3.html" class=cur>3</a><a href="notes-ch4.html">4</a><a href="notes-ch5.html">5</a><a href="notes-formulas.html">6</a><a href="notes-pit.html">7</a><a href="notes-model.html">8</a><a href="notes-quiz.html">9</a><a href="notes-appendix.html">A</a></div></div>
+<div class="chunkmain">
+<h2 id="ch3"><span class="num">3</span>第 3 章 量子理论、原子轨道与电子排布</h2>
+
+<h3>3.1 光：波与粒子</h3>
+<ul>
+<li><b>波参数</b>：波长 λ（m）、频率 ν（Hz = s⁻¹）、波数 ν̃ = 1/λ（cm⁻¹）；<b>c = λν</b>，c = 2.998×10⁸ m/s。</li>
+<li><b>电磁波谱按波长从短到长</b>：γ 射线 &lt; X 射线 &lt; 紫外 UV &lt; 可见（400–700 nm）&lt; 红外 IR &lt; 微波 &lt; 无线电。频率与能量顺序相反。</li>
+<li>可见光中<b>紫光波长最短、能量最高；红光波长最长、能量最低</b>。</li>
+<li>干涉：同相位 → 相长（constructive）；反相位 → 相消（destructive）。</li>
+<li>双缝实验说明光有<b>波动性</b>。</li>
+</ul>
+<h3>3.2 光电效应（光有粒子性）</h3>
+<p>实验事实：① 低于某一<b>阈值频率 ν₀</b>，再强的光也打不出电子；② 高于阈值时，打出电子的<b>数目</b>与光强成正比；③ 打出电子的<b>动能</b>只与频率有关、与光强无关。</p>
+<p><b>爱因斯坦方程</b></p>
+<div class="thm">E<sub>photon</sub> = hν = KE<sub>max</sub> + W　　（W = 功函数 work function = hν₀）</div>
+<ul>
+<li>h = <b>6.626×10⁻³⁴ J·s</b></li>
+<li>阈值频率 ν₀ = W/h；阈值波长 λ₀ = hc/W</li>
+<li>每秒打出的电子数 ∝ 光强（每秒入射光子数）；每个光子的能量只由 ν 决定。</li>
+<li>推论：若 hν &lt; W，无论光多强都无电子逸出（经典波动论无法解释，故必须引入光子）。</li>
+</ul>
+<p><b>变式（HW4 第 5 题，光电子能谱 PES）</b>：用已知波长/频率的 UV 打电子，测其动能反推电离能：</p>
+<div class="formula center">IE = hν − KE</div>
+<h3>3.3 Bohr 氢原子模型</h3>
+<p>三条假设：① 电子只在特定圆轨道（定态）上运动，<b>不辐射能量</b>；② 轨道半径与能量由量子数 n 决定，n = 1, 2, 3…；③ 电子在能级间跃迁时才吸收/放出光子，光子能量 = 能级差。</p>
+<p><b>能级公式</b>（氢及类氢离子，Z = 核电荷）</p>
+<div class="formula center">E<sub>n</sub> = −(2.18×10⁻¹⁸ J) × Z²/n² = −13.6 × Z²/n² (eV) = −1312 × Z²/n² (kJ/mol)</div>
+<ul>
+<li>n = 1 为<b>基态 ground state</b>（最稳定、能量最低、半径最小）；n &gt; 1 为<b>激发态 excited state</b>。</li>
+<li>能量为负表示电子被核束缚；n → ∞ 时 E → 0（自由电子）。<b>束缚态能量 &lt; 自由电子能量</b>。</li>
+<li>半径 r ∝ n²/Z（Z 越大、n 越小，电子被拉得越紧）。</li>
+</ul>
+<p><b>跃迁与光谱</b></p>
+<div class="thm">ΔE = E_高 − E_低 = hν = hc/λ</div>
+<ul>
+<li>发射 emission：高 → 低，放出光子；吸收 absorption：低 → 高，吸收光子（同一条谱线位置相同）。</li>
+<li><b>Rydberg 方程</b>（经验式，与 Bohr 结果一致）：</li>
+</ul>
+<div class="formula center">1/λ = R<sub>H</sub> × Z² × (1/n₁² − 1/n₂²)，　R<sub>H</sub> = 1.09737316×10⁷ m⁻¹，n₂ &gt; n₁</div>
+<ul>
+<li>系列：n₁ = 1 <b>Lyman</b>（UV）；n₁ = 2 <b>Balmer</b>（可见光，Hα 656 nm、Hβ 486 nm、Hγ 434 nm）；n₁ = 3 <b>Paschen</b>（IR）。</li>
+<li>判断&quot;哪次跃迁放出能量更大&quot;：看 |ΔE| ∝ |1/n₁² − 1/n₂²|，能级间隔随 n 增大而变密（n=2→1 最大）。</li>
+</ul>
+<p>例：Balmer 系 n = 5 → 2 的波长：1/λ = 1.097×10⁷ × (1/4 − 1/25) = 2.304×10⁶ m⁻¹ → λ = <b>434 nm</b>。</p>
+<h3>3.4 de Broglie 波粒二象性</h3>
+<div class="thm">λ = h / (mu) = h / p　（m 单位 kg，u 单位 m/s）</div>
+<ul>
+<li>电子等微观粒子也有波动性；<b>宏观物体波长小到不可观测</b>（棒球 0.142 kg、42 m/s → λ ≈ 1.1×10⁻³⁴ m）。</li>
+<li>电子（9.1×10⁻³¹ kg、4×10⁶ m/s）→ λ ≈ 2×10⁻¹⁰ m = 0.2 nm，与原子的尺度（0.5–4 Å）相当 → 可观测。</li>
+<li><b>电子衍射</b>实验（与 X 射线衍射图样类似）直接证明电子有波动性。</li>
+<li>电子经电压 V 加速（HW3 第 4 题）：KE = eV → u = √(2eV/m) → λ = h/(mu)。V = 5.00×10³ V 时 λ ≈ <b>17 pm</b>。</li>
+</ul>
+<h3>3.5 不确定原理</h3>
+<div class="formula center">Δx · Δp ≥ h/(4π)，　Δp = m·Δu</div>
+<ul>
+<li>位置与动量（速度）不能同时精确确定；这不是仪器问题，是<b>原理性限制</b>。</li>
+<li>电子：Δu 为 20% × 5×10⁶ m/s 时，Δx ≈ 5.8×10⁻¹¹ m，与原子半径同量级 → <b>原子内电子的位置无法精确定义</b>，Bohr 的&quot;确定轨道&quot;不成立。</li>
+<li>棒球：Δp 极小 → Δx ≈ 10⁻²⁹ m → 宏观物体位置可精确确定（量子效应可忽略）。</li>
+</ul>
+<h3>3.6 驻波与一维势箱（particle in a box）</h3>
+<ul>
+<li>电子在原子中稳定存在 ↔ 形成<b>驻波</b>：轨道周长必须是波长的整数倍，<b>2πr = nλ</b>（n = 1, 2, 3…）→ 能量只能取分立值 → <b>能量量子化</b>。</li>
+<li>一维势箱（长度 L，电子只能在 0 ≤ x ≤ L 内）：</li>
+</ul>
+<div class="formula center">E<sub>n</sub> = n²h² / (8mL²)，　n = 1, 2, 3…</div>
+<div class="formula center">ψ<sub>n</sub>(x) = √(2/L) · sin(nπx/L)</div>
+<div class="thm">概率 P = ∫ ψ² dx（在某区间找到电子的概率）</div>
+<ul>
+<li>节点 nodes = n − 1；n 越大能量越高、节面越多。</li>
+<li>基态 n=1 时概率密度最大在<b>箱子中央</b>（x = L/2）。</li>
+<li>跃迁：ΔE = E_2 − E_1 = 3h²/(8mL²)，对应光子 λ = hc/ΔE。</li>
+<li>例：L = 1.00×10² pm → ΔE ≈ 1.81×10⁻¹⁷ J，λ ≈ <b>11.0 nm</b>（X 射线区）。</li>
+<li>题目给&quot;0 到 30 pm 之间的概率百分比&quot;：算 ∫₀^30 ψ²dx ÷ ∫₀^150 ψ²dx（或直接对归一化波函数积分）。</li>
+</ul>
+<h3>3.7 Schrödinger 方程与&quot;轨道&quot;</h3>
+<ul>
+<li>解 Schrödinger 方程得到<b>波函数 ψ</b>（wavefunction）；ψ 本身<b>没有直接物理意义</b>，<b>ψ² 表示电子出现的概率密度</b>（electron density）。</li>
+<li>描述一个原子轨道只需要 <b>3 个量子数</b>（n, l, m<sub>l</sub>）；第 4 个 m<sub>s</sub> 描述电子自旋。</li>
+<li><b>orbital（轨道）≠ orbit（玻尔轨道）</b>：orbital 是概率分布的&quot;云&quot;，不是固定路径。</li>
+</ul>
+<h3>3.8 四个量子数（必背表）</h3>
+<table><thead><tr><th>量子数</th><th>符号</th><th>含义</th><th>允许值</th><th>备注</th></tr></thead><tbody>
+<tr><td>主量子数</td><td>n</td><td>电子层、轨道大小、主要能量</td><td>1, 2, 3…（正整数）</td><td>n 越大越大越远，同 n 为同一 shell</td></tr>
+<tr><td>角量子数</td><td>l</td><td>轨道形状、亚层</td><td>0 ~ (n−1)</td><td>l = 0,1,2,3 → s, p, d, f</td></tr>
+<tr><td>磁量子数</td><td>m<sub>l</sub></td><td>空间取向、亚层内轨道数</td><td>−l ~ +l（共 2l+1 个）</td><td>p 有 3 个、d 有 5 个、f 有 7 个</td></tr>
+<tr><td>自旋量子数</td><td>m<sub>s</sub></td><td>电子自旋方向</td><td>+½ 或 −½</td><td>同一轨道最多 2 个电子且自旋相反</td></tr>
+</tbody></table>
+<p><b>容量</b></p>
+<ul>
+<li>一个轨道最多 2 个电子（Pauli）。</li>
+<li>亚层容量 = 2(2l+1)：s=2、p=6、d=10、f=14。</li>
+<li>第 n 层容量 = <b>2n²</b>：n=1→2、n=2→8、n=3→18、n=4→32。</li>
+<li>给定 (n, l)：2(2l+1) 个电子；给定 (n, l, m<sub>l</sub>)：2 个；给定 (n, l, m<sub>l</sub>, m<sub>s</sub>)：1 个。</li>
+</ul>
+<p><b>量子数合法性判断</b>（HW3 第 1 题套路）：逐条查 l &lt; n、|m<sub>l</sub>| ≤ l、m<sub>s</sub> = ±½。例：(2, 2, 0, ½) 中 l = 2 ≥ n = 2 → <b>l 非法</b>。</p>
+<h3>3.9 轨道形状与能级</h3>
+<ul>
+<li>s：球形（1s &lt; 2s &lt; 3s 依次变大）；p：哑铃形，3 个取向 p_x、p_y、p_z；d：5 个；f：7 个。</li>
+<li><b>单电子体系（H、He⁺、Li²⁺）</b>：能量只由 n 决定，同 n 的 s/p/d 简并。</li>
+<li><b>多电子体系</b>：能量由 n 和 l 共同决定，出现能级分裂（电子间排斥 + 屏蔽）→ 顺序：</li>
+</ul>
+<div class="thm"><b>1s &lt; 2s &lt; 2p &lt; 3s &lt; 3p &lt; 4s &lt; 3d &lt; 4p &lt; 5s &lt; 4d &lt; 5p &lt; 6s &lt; 4f &lt; 5d &lt; 6p &lt; 7s &lt; 5f &lt; 6d &lt; 7p</b></div>
+<ul>
+<li>记忆法：(n + l) 越小越先填；相同 (n + l) 时 n 小者先填。<b>4s 先于 3d 填充，但失电子时先失 4s</b>（因为 4s 能量在成键后反而更高）。</li>
+</ul>
+<h3>3.10 电子排布三原则</h3>
+<table><thead><tr><th>原则</th><th>内容</th></tr></thead><tbody>
+<tr><td>Pauli 不相容</td><td>同一原子中不能有 4 个量子数完全相同的两个电子（同一轨道最多 2 个且自旋相反）</td></tr>
+<tr><td>Aufbau 构造原理</td><td>电子从能量最低的轨道开始填（按上面的顺序）</td></tr>
+<tr><td>Hund 规则</td><td>简并轨道（如 3 个 p）上先各占 1 个、自旋平行，再配对</td></tr>
+</tbody></table>
+<p><b>书写</b>：full（1s²2s²2p⁶3s²3p⁶4s¹…）与 noble-gas notation（[Ar]4s¹）。镧系/锕系用 [Xe]4f…。</p>
+<p><b>例外（要靠&quot;半满/全满更稳定&quot;解释）</b></p>
+<table><thead><tr><th>元素</th><th>预期</th><th>实际</th></tr></thead><tbody>
+<tr><td>Cr (24)</td><td>[Ar]4s²3d⁴</td><td><b>[Ar]4s¹3d⁵</b></td></tr>
+<tr><td>Cu (29)</td><td>[Ar]4s²3d⁹</td><td><b>[Ar]4s¹3d¹⁰</b></td></tr>
+<tr><td>Mo (42)</td><td>[Kr]5s²4d⁴</td><td>[Kr]5s¹4d⁵</td></tr>
+<tr><td>Ag (47)</td><td>[Kr]5s²4d⁹</td><td>[Kr]5s¹4d¹⁰</td></tr>
+<tr><td>Au (79)</td><td>[Xe]6s²4f¹⁴5d⁹</td><td>[Xe]6s¹4f¹⁴5d¹⁰</td></tr>
+</tbody></table>
+<h3>3.11 离子的电子排布</h3>
+<ul>
+<li><b>主族</b>：先写原子排布，再按电荷加减电子（加在最高能级，减从最高能级减）。Na → Na⁺：[Ne]；Cl → Cl⁻：[Ar]。</li>
+<li><b>d 区过渡金属</b>：<b>先失去最外层 ns 电子，再失 (n−1)d</b>。</li>
+<li>Fe: [Ar]4s²3d⁶ → Fe²⁺: [Ar]3d⁶；Fe³⁺: [Ar]3d⁵</li>
+<li>Cr³⁺: [Ar]3d³；Mn³⁺: [Ar]3d⁴；Zn²⁺: [Ar]3d¹⁰；Sc³⁺/Ti⁴⁺/V⁵⁺ 都退到 [Ar]。</li>
+<li>注意：Fe³⁺ 的 3d⁵ 是半满 → 特别稳定（这也是 Fe³⁺ 常见的原因之一）。</li>
+</ul>
+<h3>3.12 磁性（顺磁/反磁）</h3>
+<ul>
+<li><b>paramagnetic 顺磁</b>：有未成对电子 → 被外磁场吸引（未成对电子越多，吸引越强）。</li>
+<li><b>diamagnetic 反磁</b>：所有电子成对 → 被外磁场微弱排斥。</li>
+<li>判断：先画轨道图数未成对电子。<b>电子数为奇数 → 一定顺磁</b>；<b>电子数为偶数 → 不一定反磁</b>（如 O₂ 有 2 个未成对电子，是顺磁的）。</li>
+</ul>
+<h3 class="check">★ 第 3 章必须能答</h3>
+<ul>
+<li>为什么光电效应证明光有粒子性？阈值频率的存在说明什么？</li>
+<li>E<sub>n</sub> 为负是什么意思？n→∞ 时能量是多少？</li>
+<li>为什么 4s 先填、失电子却先失 4s？（多电子屏蔽使 3d 在填充后能量更低；失电子时先失 n 最大的）</li>
+<li>同一亚层最多几个电子？第 3 层最多几个？给定 (n, l, m<sub>l</sub>) 最多几个？</li>
+<li>电子数为偶数一定反磁吗？（不一定，O₂）</li>
+</ul>
+
+</div>
+<div class="chunknav"><a href="notes-ch2.html">← 第 2 章 原子结构、同位素与摩尔</a><a href="notes-ch4.html">第 4 章 有效核电荷与周期趋势 →</a></div>
+</body></html>

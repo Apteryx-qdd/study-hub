@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>附录 A Lewis 结构、VSEPR、杂化与 MO（HW5–HW6 考查范围） · 概念与公式总复习（Lecture 1–4 ＋ HW1–6）</title>
+
+
+
+
+<style>
+:root{
+  --a:#7a51a6; --ab:#f4eefa;
+  --b:#2f6f9f; --bb:#eaf3fa;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#a8455a; --eb:#fdf2f2;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.78}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#2b1b40 0%,#4a2f6b 55%,#7a51a6 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 8px;padding-top:10px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#4a2f6b;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px}
+h3.check{color:#4a2f6b;border-left:4px solid var(--a);padding-left:10px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.formula{background:#f7f4fb;border-left:3px solid #c9b6e0;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.formula.center{text-align:center;font-size:16px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f3eff9;font-weight:700;color:#2b1b40}
+tbody tr:nth-child(even){background:#fafbfc}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:10px;padding:12px 16px;margin:12px 0}
+code{font-family:Consolas,monospace;font-size:13.5px;background:#f4f6f8;padding:1px 5px;border-radius:3px}
+sub{font-size:72%}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} table{font-size:13px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="notes-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-general-chemistry.html">普通化学</a><span style="opacity:.45">/</span>
+<b>附录 A Lewis 结构、VSEPR、杂化与 MO（HW5–HW6 考查范围）</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="notes-overview.html">0</a><a href="notes-ch1.html">1</a><a href="notes-ch2.html">2</a><a href="notes-ch3.html">3</a><a href="notes-ch4.html">4</a><a href="notes-ch5.html">5</a><a href="notes-formulas.html">6</a><a href="notes-pit.html">7</a><a href="notes-model.html">8</a><a href="notes-quiz.html">9</a><a href="notes-appendix.html" class=cur>A</a></div></div>
+<div class="chunkmain">
+<h2 id="appendix"><span class="num">A</span>附录 A　Lewis 结构、VSEPR、杂化与 MO（HW5–HW6 考查范围）</h2>
+
+<div class="thm">这部分不在 Lecture 1–4 的 PPT 里，但 HW5、HW6 全考它。Lecture 4 的末尾已经预告了 Ch.5/6 的内容，所以一并整理，方便你把后面几周的课跟前面接起来。</div>
+<h3>A.1 画 Lewis 结构的五步</h3>
+<ol>
+<li>数总价电子数（含离子电荷：阴离子加、阳离子减）。</li>
+<li>确定中心原子（电负性最小、或题目指定；H 和 F 永远在末端）。</li>
+<li>单键连骨架（用掉 2 个电子/键）。</li>
+<li>剩余电子先给末端原子补满八隅体，再给中心原子。</li>
+<li>中心原子不满八隅体 → 把末端孤对电子改成双键/三键。</li>
+</ol>
+<h3>A.2 形式电荷 formal charge</h3>
+<div class="thm">FC = 价电子数 −（孤对电子数 + ½ 成键电子数）</div>
+<ul>
+<li>各原子 FC 之和 = 物种总电荷（<b>检验手段</b>）。</li>
+<li>最稳定的共振式：FC 尽量接近 0，负 FC 落在电负性大的原子上，正 FC 落在电负性小的原子上。</li>
+<li>例：NO₃⁻ 三个等价共振式，每个 N 上 +1、两个 O 上 −1（N 上孤对 → 总 −1）。</li>
+</ul>
+<h3>A.3 八隅体例外（考点）</h3>
+<table><thead><tr><th>类型</th><th>例子</th><th>说明</th></tr></thead><tbody>
+<tr><td>缺电子</td><td>BeCl₂（4 e）、BF₃（6 e）</td><td>中心原子不满 8</td></tr>
+<tr><td>奇电子</td><td>NO、NO₂</td><td>有未成对电子，必然顺磁</td></tr>
+<tr><td>扩展八隅体</td><td>PCl₅（10 e）、SF₆（12 e）、SO₃（12 e）、ClO₄⁻</td><td>第三周期及以后可用 d 轨道容纳 &gt;8 e</td></tr>
+</tbody></table>
+<h3>A.4 共振 resonance</h3>
+<ul>
+<li>同一分子有多个只差电子分布的 Lewis 式 → 真实结构是<b>共振杂化体</b>，键级介于各共振式之间。</li>
+<li>例：NO 的 N–O 键长 115 pm，介于双键（120 pm）与三键（106 pm）之间 → 有双键/三键两种共振式的贡献。</li>
+<li>判断&quot;哪个共振式更重要&quot;：FC 接近 0、负电荷在电负性大原子上、不违背八隅体者更重要。</li>
+<li>例：NO₂ 有未成对电子 → 两个分子二聚成 N₂O₄ 使电子全部配对（这也是 N₂O₄ 易解离回 NO₂ 的原因）。</li>
+</ul>
+<h3>A.5 键的极性与偶极矩</h3>
+<ul>
+<li><b>电负性 electronegativity</b>：原子在化学键中吸引电子的能力。趋势：同周期从左到右增大，同族从上到下减小（F 最大 4.0，Cs/Fr 最小）。</li>
+<li>键型判断：ΔEN &lt; 0.4 非极性共价；0.4–1.7 极性共价；&gt; 1.7 离子性为主（经验判据）。</li>
+<li><b>偶极矩 μ = Q × r</b>（C·m）；1 D = 3.336×10⁻³⁰ C·m。</li>
+<li><b>百分离子性</b> = μ(实验) / μ(假设完全离子) × 100%，其中 μ(完全离子) = e × d（e = 1.602×10⁻¹⁹ C）。</li>
+<li>例（HW5-3）：BrF，μ = 1.42 D、d = 1.76 Å → μ<sub>ionic</sub> = 1.602×10⁻¹⁹ × 1.76×10⁻¹⁰ = 2.82×10⁻²⁹ C·m；μ<sub>exp</sub> = 1.42×3.336×10⁻³⁰ = 4.74×10⁻³⁰ C·m → <b>≈ 16.8%</b> 离子性。</li>
+<li>分子极性 = 各键偶极矩的<b>矢量和</b>：CO₂ 直线、两个 C=O 抵消 → 非极性；H₂O 弯曲 → 极性。</li>
+</ul>
+<h3>A.6 VSEPR：电子域 → 几何形状</h3>
+<table><thead><tr><th>电子域数</th><th>电子域几何</th><th>成键数 / 孤对数</th><th>分子几何</th><th>键角</th><th>例</th></tr></thead><tbody>
+<tr><td>2</td><td>直线</td><td>2 / 0</td><td>linear</td><td>180°</td><td>CO₂、BeCl₂</td></tr>
+<tr><td>3</td><td>平面三角</td><td>3 / 0</td><td>trigonal planar</td><td>120°</td><td>BF₃、SO₃</td></tr>
+<tr><td>3</td><td>平面三角</td><td>2 / 1</td><td>bent</td><td>~120°（&lt;120）</td><td>SO₂、O₃</td></tr>
+<tr><td>4</td><td>四面体</td><td>4 / 0</td><td>tetrahedral</td><td>109.5°</td><td>CH₄、CH₃I</td></tr>
+<tr><td>4</td><td>四面体</td><td>3 / 1</td><td>trigonal pyramidal</td><td>~107°</td><td>NH₃、NBr₃</td></tr>
+<tr><td>4</td><td>四面体</td><td>2 / 2</td><td>bent</td><td>~104.5°</td><td>H₂O、H₂S</td></tr>
+<tr><td>5</td><td>三角双锥</td><td>5 / 0</td><td>trigonal bipyramidal</td><td>90°/120°</td><td>PCl₅</td></tr>
+<tr><td>5</td><td>三角双锥</td><td>4 / 1</td><td>seesaw</td><td>——</td><td>SF₄</td></tr>
+<tr><td>5</td><td>三角双锥</td><td>3 / 2</td><td>T-shaped</td><td>——</td><td>ClF₃</td></tr>
+<tr><td>5</td><td>三角双锥</td><td>2 / 3</td><td>linear</td><td>180°</td><td>XeF₂</td></tr>
+<tr><td>6</td><td>八面体</td><td>6 / 0</td><td>octahedral</td><td>90°</td><td>SF₆</td></tr>
+<tr><td>6</td><td>八面体</td><td>5 / 1</td><td>square pyramidal</td><td>——</td><td>BrF₅</td></tr>
+<tr><td>6</td><td>八面体</td><td>4 / 2</td><td>square planar</td><td>90°</td><td>XeF₄</td></tr>
+</tbody></table>
+<p>规则：<b>孤对电子斥力 &gt; 成键电子对</b>，会把键角压小（NH₃ 107° &lt; CH₄ 109.5° &lt; 弯曲 H₂O 104.5°）；三角双锥中孤对优先占<b>赤道位置</b>。</p>
+<h3>A.7 分子极性判断</h3>
+<ol>
+<li>先看有没有极性键（ΔEN ≠ 0）。</li>
+<li>再看几何是否对称：<b>对称 → 键矩抵消 → 非极性</b>（CO₂、BF₃、CCl₄、XeF₄、SF₆）。</li>
+<li>不对称 → 极性（H₂O、NH₃、SO₂、NBr₃、OCS）。</li>
+<li>有孤对电子几乎一定极性（除 XeF₂ 这类直线对称的）。</li>
+</ol>
+<h3>A.8 分子间作用力与沸点</h3>
+<p>强度顺序：<b>离子–偶极 &gt; 氢键 &gt; 偶极–偶极 &gt; 色散力 LDF</b>。</p>
+<ul>
+<li><b>色散力</b>：所有分子都有，随电子数/摩尔质量/极化率增大而增强（I₂ &gt; Br₂ &gt; Cl₂ &gt; F₂）。</li>
+<li><b>偶极–偶极</b>：极性分子之间。</li>
+<li><b>氢键</b>：H 直接连在 <b>N、O、F</b> 上时才有（HF、H₂O、NH₃、醇、羧酸）。</li>
+<li>沸点比较模板：先看离子化合物（最高）→ 再看氢键 → 再看偶极 → 最后比 LDF。</li>
+<li>例（HW6-4）：RbF（离子）&gt; CH₃OH（氢键）&gt; CH₃Br（偶极）&gt; CO₂（非极性，LDF）；即 CO₂ &lt; CH₃Br &lt; CH₃OH &lt; RbF。</li>
+<li>例（HW6-3）：Br₂ 与 ICl 等电子、摩尔质量相近，但 ICl 有偶极矩 → 偶极–偶极作用 &gt; Br₂ 的纯色散力 → ICl 熔点更高（27.2 ℃ vs −7.2 ℃）。</li>
+</ul>
+<h3>A.9 价键理论 VB 与杂化</h3>
+<ul>
+<li>共价键 = 两个原子各出一个自旋相反的电子，原子轨道<b>重叠</b>形成。</li>
+<li><b>杂化 hybridization</b>：中心原子的价层轨道混合成等价的杂化轨道，以减小斥力、解释实测键角。</li>
+</ul>
+<table><thead><tr><th>电子域数</th><th>杂化</th><th>键角</th><th>例</th></tr></thead><tbody>
+<tr><td>2</td><td>sp</td><td>180°</td><td>BeCl₂、C₂H₂（每个 C）</td></tr>
+<tr><td>3</td><td>sp²</td><td>120°</td><td>BF₃、SO₃、C₂H₄（每个 C）</td></tr>
+<tr><td>4</td><td>sp³</td><td>109.5°</td><td>CH₄、NH₃、H₂O</td></tr>
+<tr><td>5</td><td>sp³d</td><td>90°/120°</td><td>PCl₅</td></tr>
+<tr><td>6</td><td>sp³d²</td><td>90°</td><td>SF₆</td></tr>
+</tbody></table>
+<ul>
+<li>σ 键：头碰头重叠（可绕键轴旋转）；<b>π 键</b>：肩并肩重叠（不能旋转，导致顺反异构）。</li>
+<li>单键 = 1σ；双键 = 1σ + 1π；三键 = 1σ + 2π。</li>
+<li>例（HW6-7）：AlCl₃ 中 Al 为 <b>sp²</b>（平面三角），接受 Cl⁻ 后变 AlCl₄⁻，Al 变 <b>sp³</b>（四面体）。</li>
+<li>例（HW6-5）：基态 P 3s²3p³ → 3 个未成对 → 形成 3 个键；S 3s²3p⁴ → 2 个未成对 → 形成 2 个键。</li>
+<li>例（HW6-6）：BeCl₂（sp，直线 180°）与 Br₂ 可用 VB 解释；SF₆（90°/180°、12 电子）必须靠 sp³d² 扩展八隅体，<b>简单 VB/八隅体理论无法解释</b>，这正是 VB 的局限。</li>
+</ul>
+<h3>A.10 轨道重叠判断 σ / π / 不成键</h3>
+<p>以 x 轴为核间轴：</p>
+<table><thead><tr><th>组合</th><th>结果</th><th>理由</th></tr></thead><tbody>
+<tr><td>1s + 1s</td><td><b>σ</b></td><td>头碰头，轴对称</td></tr>
+<tr><td>1s + 2p<sub>x</sub></td><td><b>σ</b></td><td>沿轴头碰头</td></tr>
+<tr><td>1s + 2s</td><td><b>σ</b></td><td>头碰头（能量不同但可重叠）</td></tr>
+<tr><td>2p<sub>x</sub> + 2p<sub>x</sub></td><td><b>σ</b></td><td>沿轴端对端</td></tr>
+<tr><td>3p<sub>y</sub> + 3p<sub>y</sub></td><td><b>π</b></td><td>平行侧面重叠</td></tr>
+<tr><td>2p<sub>x</sub> + 2p<sub>y</sub></td><td><b>不成键</b></td><td>相互垂直，净重叠为零</td></tr>
+</tbody></table>
+<h3>A.11 分子轨道理论 MO</h3>
+<ul>
+<li>原子轨道线性组合成<b>成键轨道</b>（σ、π，能量低）与<b>反键轨道</b>（σ*、π*，能量高，带 *）。电子按 Aufbau、Pauli、Hund 填入 MO。</li>
+<li><b>键级 bond order = (成键电子数 − 反键电子数) / 2</b>；键级越大 → 键越短、越强。</li>
+<li>键级为 0 → 分子不存在（如 He₂）。</li>
+<li><b>磁性</b>：MO 图中有未成对电子 → 顺磁。<b>O₂ 的 MO 图有两个未成对电子在 π∗ 上 → 顺磁</b>，这是 MO 理论最漂亮的成功（Lewis 结构预测不出来）。</li>
+</ul>
+<p><b>能级顺序（第二周期）</b></p>
+<ul>
+<li>Li₂ ~ N₂（12–14 电子以内）：σ2s &lt; σ∗2s &lt; <b>π2p &lt; σ2p</b> &lt; π∗2p &lt; σ∗2p</li>
+<li>O₂、F₂、Ne₂：σ2s &lt; σ∗2s &lt; <b>σ2p &lt; π2p</b> &lt; π∗2p &lt; σ∗2p</li>
+</ul>
+<div class="thm">关键差异：N₂ 及以前 σ2p 高于 π2p；O₂ 及以后 σ2p 低于 π2p。</div>
+<p><b>几个必记的例子</b></p>
+<table><thead><tr><th>物种</th><th>价电子</th><th>键级</th><th>磁性</th></tr></thead><tbody>
+<tr><td>N₂</td><td>10</td><td>3</td><td>反磁</td></tr>
+<tr><td>O₂</td><td>12</td><td>2</td><td><b>顺磁（2 个未成对）</b></td></tr>
+<tr><td>F₂</td><td>14</td><td>1</td><td>反磁</td></tr>
+<tr><td>C₂</td><td>8</td><td>2</td><td>反磁</td></tr>
+<tr><td>C₂²⁻</td><td>10</td><td>3</td><td>反磁（N₂ 等电子体）</td></tr>
+<tr><td>NO</td><td>11</td><td>2.5</td><td>顺磁</td></tr>
+<tr><td>NO⁺</td><td>10</td><td>3</td><td>反磁</td></tr>
+<tr><td>O₂⁻（超氧）</td><td>13</td><td>1.5</td><td>顺磁</td></tr>
+</tbody></table>
+<ul>
+<li>例（HW6-9）：C₂²⁻ 与 N₂ 等电子（10 个价电子）→ <b>键级 3</b>；C₂ 键级 2 → C₂²⁻ 键更短更强。</li>
+<li>例（HW6-10）：NO₃⁻ 中心 N 为 <b>sp²</b>、平面三角；3 个等价共振式，π 电子共 6 个（4 个原子共享的离域 π 电子），σ 键 3 个（N–O 三个 σ），价电子 24 个。</li>
+</ul>
+<h3 class="check">★ 附录必须能答</h3>
+<ul>
+<li>形式电荷怎么算？总和为什么必须等于物种电荷？</li>
+<li>为什么 CO₂ 非极性而 H₂O 极性？</li>
+<li>CH₄、NH₃、H₂O 键角依次减小的原因？</li>
+<li>O₂ 为什么顺磁？（MO 图 π∗ 上两个未成对电子）</li>
+<li>键级公式？C₂²⁻ 与 C₂ 谁的键更强？</li>
+</ul>
+
+
+</div>
+<div class="chunknav"><a href="notes-quiz.html">← 自测 12 题（答案在文末）</a><span class="dim">已到最后一节 →</span></div>
+</body></html>

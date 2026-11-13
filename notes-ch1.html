@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 1 章 测量、单位与有效数字 · 概念与公式总复习（Lecture 1–4 ＋ HW1–6）</title>
+
+
+
+
+<style>
+:root{
+  --a:#7a51a6; --ab:#f4eefa;
+  --b:#2f6f9f; --bb:#eaf3fa;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#a8455a; --eb:#fdf2f2;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.78}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#2b1b40 0%,#4a2f6b 55%,#7a51a6 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 8px;padding-top:10px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#4a2f6b;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px}
+h3.check{color:#4a2f6b;border-left:4px solid var(--a);padding-left:10px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.formula{background:#f7f4fb;border-left:3px solid #c9b6e0;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.formula.center{text-align:center;font-size:16px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f3eff9;font-weight:700;color:#2b1b40}
+tbody tr:nth-child(even){background:#fafbfc}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:10px;padding:12px 16px;margin:12px 0}
+code{font-family:Consolas,monospace;font-size:13.5px;background:#f4f6f8;padding:1px 5px;border-radius:3px}
+sub{font-size:72%}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} table{font-size:13px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="notes-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-general-chemistry.html">普通化学</a><span style="opacity:.45">/</span>
+<b>第 1 章 测量、单位与有效数字</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="notes-overview.html">0</a><a href="notes-ch1.html" class=cur>1</a><a href="notes-ch2.html">2</a><a href="notes-ch3.html">3</a><a href="notes-ch4.html">4</a><a href="notes-ch5.html">5</a><a href="notes-formulas.html">6</a><a href="notes-pit.html">7</a><a href="notes-model.html">8</a><a href="notes-quiz.html">9</a><a href="notes-appendix.html">A</a></div></div>
+<div class="chunkmain">
+<h2 id="ch1"><span class="num">1</span>第 1 章 测量、单位与有效数字</h2>
+
+<h3>1.1 科学方法的四个词（判断题高频）</h3>
+<table><thead><tr><th>术语</th><th>定义</th><th>判据</th></tr></thead><tbody>
+<tr><td>Law 定律</td><td>对一致自然现象的口头或数学描述</td><td>只描述&quot;是什么/怎么变&quot;，不解释原因</td></tr>
+<tr><td>Hypothesis 假说</td><td>对现象提出的可检验解释</td><td>被实验支持后才可能升级为理论</td></tr>
+<tr><td>Experiment 实验</td><td>有目的地验证假说的操作</td><td>——</td></tr>
+<tr><td>Theory 理论</td><td>假说 + 大量支持性实验</td><td>可被新实验修正，但不是&quot;猜测&quot;</td></tr>
+</tbody></table>
+<p>判例：能量不能创生也不能消灭 → <b>law</b>（热力学第一定律）；&quot;吃维生素的人活得更久&quot; → <b>hypothesis</b>（待检验，且是相关性不是因果）。</p>
+<h3>1.2 SI 基本单位（7 个，必须背）</h3>
+<table><thead><tr><th>物理量</th><th>单位</th><th>符号</th></tr></thead><tbody>
+<tr><td>长度 length</td><td>meter</td><td>m</td></tr>
+<tr><td>质量 mass</td><td>kilogram</td><td>kg</td></tr>
+<tr><td>时间 time</td><td>second</td><td>s</td></tr>
+<tr><td>电流 electric current</td><td>ampere</td><td>A</td></tr>
+<tr><td>温度 temperature</td><td>kelvin</td><td>K</td></tr>
+<tr><td>物质的量 amount of substance</td><td>mole</td><td>mol</td></tr>
+<tr><td>发光强度</td><td>candela</td><td>cd</td></tr>
+</tbody></table>
+<p><b>坑</b>：质量的基本单位是 <b>kg</b>，是唯一自带前缀的基本单位；写&quot;1 kg = 1000 g&quot;时别把 kg 当成&quot;千·克&quot;去换算单位。</p>
+<h3>1.3 前缀（十进制倍数，符号大小写要分清）</h3>
+<table><thead><tr><th>前缀</th><th>符号</th><th>倍数</th><th>前缀</th><th>符号</th><th>倍数</th></tr></thead><tbody>
+<tr><td>tera</td><td>T</td><td>10¹²</td><td>deci</td><td>d</td><td>10⁻¹</td></tr>
+<tr><td>giga</td><td>G</td><td>10⁹</td><td>centi</td><td>c</td><td>10⁻²</td></tr>
+<tr><td>mega</td><td>M</td><td>10⁶</td><td>milli</td><td>m</td><td>10⁻³</td></tr>
+<tr><td>kilo</td><td>k</td><td>10³</td><td>micro</td><td>μ</td><td>10⁻⁶</td></tr>
+<tr><td></td><td></td><td></td><td>nano</td><td>n</td><td>10⁻⁹</td></tr>
+<tr><td></td><td></td><td></td><td>pico</td><td>p</td><td>10⁻¹²</td></tr>
+</tbody></table>
+<p><b>坑</b>：M（mega，10⁶）与 m（milli，10⁻³）只差大小写；μ 是 micro 不是 milli。</p>
+<h3>1.4 导出单位与密度</h3>
+<ul>
+<li>力：N = kg·m·s⁻²；能量：J = N·m = kg·m²·s⁻²；功率：W = J/s；压强：Pa = N/m² = kg·m⁻¹·s⁻²；电荷：C = A·s。</li>
+<li>密度 density：<b>d = m / V</b>，常用 g/cm³（= g/mL）或 kg/m³；1 g/cm³ = 1000 kg/m³。</li>
+<li>由定义式&quot;倒推单位&quot;是考试套路：J 的推导 = kg·(m/s)² = kg·m²·s⁻²。</li>
+</ul>
+<h3>1.5 温度换算（三个刻度）</h3>
+<ul>
+<li><b>K = ℃ + 273.15</b>（绝对温标，0 K = 绝对零度 = −273.15 ℃，理论上不可达）</li>
+<li><b>℃ = (℉ − 32) × 5/9</b></li>
+<li><b>℉ = (9/5) × ℃ + 32</b></li>
+<li>温差：ΔT(℃) = ΔT(K) ≠ ΔT(℉)；1 ℃ 的&quot;一度&quot;比 1 ℉ 的&quot;一度&quot;大 1.8 倍。</li>
+<li>换算题的有效数字：先按精确数处理 273.15、5/9、9/5，<b>最终结果按原始测定值的有效数字</b>（HW1 第 6 题就是考这个）。</li>
+</ul>
+<h3>1.6 有效数字（本章失分最多）</h3>
+<p><b>数位规则（5 条）</b></p>
+<ol>
+<li>所有非零数字都有效：2467.1 → 5 位。</li>
+<li>夹在非零数字之间的 0 有效：600.001 → 6 位。</li>
+<li>第一个非零数字左边的 0 无效（只定位小数点）：0.001 → 1 位。</li>
+<li>第一个非零数字右边的 0 有效：0.00100 → 3 位。</li>
+<li>不含小数点的整数，末尾的 0 含义不明：200 可能是 1、2 或 3 位 → 用科学计数法 2.00×10²（3 位）或加小数点 400.（3 位）来消除歧义。</li>
+</ol>
+<p><b>运算规则</b></p>
+<table><thead><tr><th>运算</th><th>规则</th><th>例</th></tr></thead><tbody>
+<tr><td>加减</td><td>结果按<b>小数点后位数最少</b>的（对齐位数）</td><td>14.98 + 2.7340×10⁴ + 84.7593 → 最低位是&quot;个位&quot;，得 2.744×10⁴</td></tr>
+<tr><td>乘除</td><td>结果按<b>有效数字位数最少</b>的</td><td>5.63×10² × 7.4×10³ = 4.2×10⁶</td></tr>
+<tr><td>混合</td><td>先乘除（定有效数字），再加减（定小数位），<b>中间不四舍五入</b></td><td>多步计算保留 1 位多余数字到最后再舍入</td></tr>
+<tr><td>精确数</td><td>无限位有效数字，不限制结果（1 in = 2.54 cm，1 kg = 1000 g，计数）</td><td>3 × 2.5 g = 7.5 g</td></tr>
+</tbody></table>
+<p><b>舍入</b>：一般&quot;四舍六入五成双&quot;或教材的&quot;五入&quot;，同一份作业里保持一致；<b>指数形式的答案</b>要先规范化成 a×10ⁿ（1 ≤ a &lt; 10）再数有效数字。</p>
+<h3>1.7 准确度与精密度</h3>
+<ul>
+<li><b>精密度 precision</b>：同一对象多次测量彼此接近的程度（重复性好，与真值无关）。</li>
+<li><b>准确度 accuracy</b>：测量值与真值的接近程度。</li>
+<li>四种组合：精密但不准（系统误差，可校正）；准但不精密（随机误差大）；既准又精密（最好）；都不行。</li>
+<li>判断句：<b>&quot;精密&quot;不能推出&quot;准确&quot;，&quot;准确&quot;也不能推出&quot;精密&quot;</b>（后者在单次测量时尤其要注意）。</li>
+</ul>
+<h3>1.8 物质的分类与性质</h3>
+<ul>
+<li>状态：solid / liquid / gas（固液气）。</li>
+<li><b>纯物质 pure substance</b>：element（元素，如 Fe、O₂）或 compound（化合物，如 CO₂、NaHCO₃），有固定组成。</li>
+<li><b>混合物 mixture</b>：homogeneous（均相，组成均匀，如盐水、空气）vs heterogeneous（非均相，如沙水、油水）。</li>
+<li><b>物理性质</b>：不改变物质身份即可观察（颜色、密度、熔点、导电性）；<b>化学性质</b>：需发生化学变化才表现（可燃性、与酸反应）。</li>
+<li><b>广延性质 extensive</b>：与物质的量有关（质量、体积、长度）；<b>强度性质 intensive</b>：与量无关（密度、温度、熔点、电导率）。</li>
+<li>分离手段：蒸馏（沸点差）、过滤（溶解度/粒径）、色谱、萃取——依据的是物理性质差异。</li>
+</ul>
+<h3 class="check">★ 第 1 章必须能答</h3>
+<ul>
+<li>0.00100 有几位有效数字？为什么？（3 位，左边 0 无效、右边 0 有效）</li>
+<li>200 为什么有歧义？怎么消除？（末尾 0 不含小数点时不确定；用 2.00×10² 或 400.）</li>
+<li>每加仑汽油 3.20 美元（精确？不精确？）→ 价格是测定/约定值，按题目给定位数处理。</li>
+</ul>
+
+</div>
+<div class="chunknav"><a href="notes-overview.html">← 一页看懂这门课的主线</a><a href="notes-ch2.html">第 2 章 原子结构、同位素与摩尔 →</a></div>
+</body></html>
