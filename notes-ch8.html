@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 8 章 分子轨道理论 · 概念与公式总复习（Lecture 1–4, 7–9 ＋ HW1–6）</title>
+
+
+
+
+<style>
+:root{
+  --a:#7a51a6; --ab:#f4eefa;
+  --b:#2f6f9f; --bb:#eaf3fa;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#a8455a; --eb:#fdf2f2;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.78}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#2b1b40 0%,#4a2f6b 55%,#7a51a6 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 8px;padding-top:10px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#4a2f6b;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px}
+h3.check{color:#4a2f6b;border-left:4px solid var(--a);padding-left:10px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.formula{background:#f7f4fb;border-left:3px solid #c9b6e0;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.formula.center{text-align:center;font-size:16px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f3eff9;font-weight:700;color:#2b1b40}
+tbody tr:nth-child(even){background:#fafbfc}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:10px;padding:12px 16px;margin:12px 0}
+code{font-family:Consolas,monospace;font-size:13.5px;background:#f4f6f8;padding:1px 5px;border-radius:3px}
+sub{font-size:72%}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} table{font-size:13px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="notes-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-general-chemistry.html">普通化学</a><span style="opacity:.45">/</span>
+<b>第 8 章 分子轨道理论</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="notes-overview.html">0</a><a href="notes-ch1.html">1</a><a href="notes-ch2.html">2</a><a href="notes-ch3.html">3</a><a href="notes-ch4.html">4</a><a href="notes-ch5.html">5</a><a href="notes-ch6.html">6</a><a href="notes-ch7.html">7</a><a href="notes-ch8.html" class=cur>8</a><a href="notes-ch9.html">9</a><a href="notes-formulas.html">10</a><a href="notes-pit.html">11</a><a href="notes-model.html">12</a><a href="notes-quiz.html">13</a></div></div>
+<div class="chunkmain">
+<h2 id="ch8"><span class="num">8</span>第 8 章 分子轨道理论</h2>
+
+<div class="thm">Lecture 8 的 7.7–7.8。为什么需要它：<b>Lewis 结构无法解释 O₂ 的顺磁性</b>。Lewis 说 O₂ 没有未成对电子，但实验测到 O₂ 有 2 个未成对电子。</div>
+<h3>8.1 MO 的基本规则</h3>
+<ul>
+<li>原子轨道组合成<b>属于整个分子</b>的分子轨道（MO）；</li>
+<li><b>轨道数守恒</b>：n 个原子轨道 → n 个 MO；</li>
+<li>每个 MO 最多 2 个电子，按 Pauli、Aufbau、Hund 填充；</li>
+<li>成键 MO（σ、π）能量低于原子轨道，反键 MO（σ∗、π∗）更高，并带 ∗。</li>
+</ul>
+<h3>8.2 键级</h3>
+<div class="thm"><b>键级 bond order = (成键电子数 − 反键电子数) / 2</b></div>
+<ul>
+<li>键级越大 → 键越短、越强、越稳定；键级为 0 → 分子不存在（He₂）。</li>
+<li>H₂：2 个电子都在 σ1s → BO = 1；He₂：σ1s²σ∗1s² → BO = 0，不存在。</li>
+</ul>
+<h3>8.3 第二周期双原子分子的能级顺序（两种，取决于 2s–2p 混合）</h3>
+<ul>
+<li><b>Li₂ ~ N₂</b>（原子序数小，2s 与 2p 能量接近 → 有混合）：</li>
+</ul>
+<div class="thm">σ2s &lt; σ∗2s &lt; <b>π2p &lt; σ2p</b> &lt; π∗2p &lt; σ∗2p</div>
+<ul>
+<li><b>O₂、F₂、Ne₂</b>（核电荷大，几乎不混合）：</li>
+</ul>
+<div class="thm">σ2s &lt; σ∗2s &lt; <b>σ2p &lt; π2p</b> &lt; π∗2p &lt; σ∗2p</div>
+<p>记法：<b>&quot;左边 π 低、右边 σ 低&quot;</b>，分界在 N₂ / O₂ 之间。</p>
+<h3>8.4 必背的 MO 结果表</h3>
+<table><thead><tr><th>分子/离子</th><th>价电子</th><th>键级</th><th>磁性</th></tr></thead><tbody>
+<tr><td>H₂</td><td>2</td><td>1</td><td>反磁</td></tr>
+<tr><td>He₂</td><td>4</td><td>0</td><td>不存在</td></tr>
+<tr><td>Li₂</td><td>2</td><td>1</td><td>反磁</td></tr>
+<tr><td>Be₂</td><td>4</td><td>0</td><td>不存在</td></tr>
+<tr><td>B₂</td><td>6</td><td>1</td><td><b>顺磁</b>（2 个未成对 π）</td></tr>
+<tr><td>C₂</td><td>8</td><td>2</td><td>反磁</td></tr>
+<tr><td>N₂</td><td>10</td><td>3</td><td>反磁</td></tr>
+<tr><td><b>O₂</b></td><td>12</td><td>2</td><td><b>顺磁（2 个未成对 π∗）</b></td></tr>
+<tr><td>F₂</td><td>14</td><td>1</td><td>反磁</td></tr>
+<tr><td>Ne₂</td><td>16</td><td>0</td><td>不存在</td></tr>
+<tr><td>O₂⁻（超氧）</td><td>13</td><td>1.5</td><td>顺磁</td></tr>
+<tr><td>O₂²⁻（过氧）</td><td>14</td><td>1</td><td>反磁</td></tr>
+<tr><td>NO</td><td>11</td><td>2.5</td><td>顺磁</td></tr>
+<tr><td>NO⁺</td><td>10</td><td>3</td><td>反磁</td></tr>
+</tbody></table>
+<ul>
+<li>Worked Example 7.9：O₂⁻ 的 13 个价电子在 π∗ 上有 1 个未成对 → <b>顺磁</b>，键级 <b>1.5</b>。</li>
+<li>顺磁判断只看 MO 里有没有未成对电子，<b>与电子数奇偶无必然关系</b>（O₂ 是偶数但顺磁）。</li>
+</ul>
+<h3>8.5 四种键理论的分工（考&quot;用哪个理论解释&quot;时用）</h3>
+<table><thead><tr><th>理论</th><th>强项</th><th>弱点</th></tr></thead><tbody>
+<tr><td>Lewis</td><td>快速给出连接方式、定性键强/键长</td><td>2D、不解释键为何形成</td></tr>
+<tr><td>VSEPR</td><td>预测形状与键角</td><td>不解释成键本质</td></tr>
+<tr><td>VB + 杂化</td><td>解释几何与键角、σ/π</td><td>无法解释磁性（如 O₂）</td></tr>
+<tr><td>MO</td><td>正确预测磁性、光谱、离域</td><td>计算复杂、直观性差</td></tr>
+</tbody></table>
+<h3>8.6 离域键（delocalized bonding）</h3>
+<ul>
+<li><b>苯</b>：6 个 C 都是 sp² → 6 个 σ（C–C）+ 6 个 σ（C–H）；6 个未杂化 2p 组合成 <b>6 个 π MO</b>（3 成键 + 3 反键），6 个 π 电子全填在成键轨道 → 三个 C=C 等价、键级 1.5。</li>
+<li><b>CO₃²⁻</b>：24 个价电子；C 为 sp²；3 个 σ 键；<b>6 个 π 电子</b>由 4 个原子的 2p 组成离域体系（三个 C–O 键等价）。</li>
+<li><b>NO₃⁻</b>：24 个价电子；N 为 sp²；3 个 σ；<b>6 个 π 电子</b>，来自 <b>4 个 2p 轨道</b>（N 的 1 个 + 每个 O 各 1 个）。</li>
+</ul>
+<h3 class="check">★ 第 8 章必须能答</h3>
+<ul>
+<li>为什么一定要用 MO 理论解释 O₂？（Lewis 预测反磁，实验是顺磁）</li>
+<li>键级公式？He₂ 为什么不存在？</li>
+<li>N₂ 的键级是多少？O₂⁻ 呢？</li>
+<li>Li₂~N₂ 与 O₂~Ne₂ 的能级顺序差在哪？</li>
+<li>苯的 6 个 π 电子填在几个成键 MO 里？</li>
+</ul>
+
+</div>
+<div class="chunknav"><a href="notes-ch7.html">← 第 7 章 价键理论与杂化</a><a href="notes-ch9.html">第 8–9 章 化学计量与水溶液中的反应 →</a></div>
+</body></html>

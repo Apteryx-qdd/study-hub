@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 7 章 价键理论与杂化 · 概念与公式总复习（Lecture 1–4, 7–9 ＋ HW1–6）</title>
+
+
+
+
+<style>
+:root{
+  --a:#7a51a6; --ab:#f4eefa;
+  --b:#2f6f9f; --bb:#eaf3fa;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#a8455a; --eb:#fdf2f2;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.78}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#2b1b40 0%,#4a2f6b 55%,#7a51a6 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 8px;padding-top:10px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#4a2f6b;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px}
+h3.check{color:#4a2f6b;border-left:4px solid var(--a);padding-left:10px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.formula{background:#f7f4fb;border-left:3px solid #c9b6e0;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.formula.center{text-align:center;font-size:16px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f3eff9;font-weight:700;color:#2b1b40}
+tbody tr:nth-child(even){background:#fafbfc}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:10px;padding:12px 16px;margin:12px 0}
+code{font-family:Consolas,monospace;font-size:13.5px;background:#f4f6f8;padding:1px 5px;border-radius:3px}
+sub{font-size:72%}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} table{font-size:13px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="notes-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-general-chemistry.html">普通化学</a><span style="opacity:.45">/</span>
+<b>第 7 章 价键理论与杂化</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="notes-overview.html">0</a><a href="notes-ch1.html">1</a><a href="notes-ch2.html">2</a><a href="notes-ch3.html">3</a><a href="notes-ch4.html">4</a><a href="notes-ch5.html">5</a><a href="notes-ch6.html">6</a><a href="notes-ch7.html" class=cur>7</a><a href="notes-ch8.html">8</a><a href="notes-ch9.html">9</a><a href="notes-formulas.html">10</a><a href="notes-pit.html">11</a><a href="notes-model.html">12</a><a href="notes-quiz.html">13</a></div></div>
+<div class="chunkmain">
+<h2 id="ch7"><span class="num">7</span>第 7 章 价键理论与杂化</h2>
+
+<div class="thm">Lecture 7 的 7.4–7.6 与 Lecture 8 的开头。核心：<b>键 = 轨道重叠</b>；<b>杂化 = 为了让重叠更有效、键角更合理</b>。</div>
+<h3>7.1 价键理论（VB）三条</h3>
+<ol>
+<li>键在两个<b>单占据</b>原子轨道的重叠中形成。</li>
+<li>重叠区共享的两个电子必须<b>自旋相反</b>（Pauli）。</li>
+<li>成键使体系势能降低（所以键能 &gt; 0）。</li>
+</ol>
+<ul>
+<li>HF：H 的 1s 与 F 的 2p 重叠。</li>
+<li>F₂：两个 F 的 2p 重叠。</li>
+</ul>
+<h3>7.2 VB 的两个不足（为什么会需要杂化）</h3>
+<ul>
+<li><b>H₂S</b>：实验键角 92°，接近 90°（纯 p 轨道夹角）；但 VSEPR 按 4 个电子域预测 ~109.5° → VB 无法解释，需要杂化。</li>
+<li><b>BeCl₂</b>：基态 Be 是 2s²，<b>没有未成对电子</b>，按 VB 一个键都形成不了，但实测有两个等价 Be–Cl 键、180° → 必须先激发再杂化。</li>
+</ul>
+<h3>7.3 杂化的图像与&quot;六步法&quot;</h3>
+<p><b>核心等式：杂化轨道数 = 中心原子的电子域数 = 参与杂化的原子轨道数。</b></p>
+<p>步骤（以 BF₃ 为例）：</p>
+<ol>
+<li>画 Lewis 结构；</li>
+<li>数中心原子的电子域 → 3；</li>
+<li>画基态轨道图（B：2s²2p¹）；</li>
+<li><b>激发</b>使未成对电子数最大（2s¹2p<sub>x</sub>¹2p<sub>y</sub>¹）；</li>
+<li>混合 3 个原子轨道 → 3 个 sp² 杂化轨道；</li>
+<li>填电子（先单占再加对），再与配体轨道重叠成键。</li>
+</ol>
+<div class="thm">激发的能量消耗由成键释放的能量补偿 —— 这也是&quot;为什么能杂化&quot;的答案。</div>
+<h3>7.4 杂化类型一览表</h3>
+<table><thead><tr><th>域数</th><th>杂化</th><th>键角</th><th>几何</th><th>典型分子</th></tr></thead><tbody>
+<tr><td>2</td><td><b>sp</b></td><td>180°</td><td>直线</td><td>BeCl₂、CO₂、C₂H₂（每个 C）</td></tr>
+<tr><td>3</td><td><b>sp²</b></td><td>120°</td><td>平面三角</td><td>BF₃、SO₃、C₂H₄（每个 C）</td></tr>
+<tr><td>4</td><td><b>sp³</b></td><td>109.5°</td><td>四面体</td><td>CH₄、NH₃、H₂O</td></tr>
+<tr><td>5</td><td><b>sp³d</b></td><td>90°/120°</td><td>三角双锥</td><td>PCl₅</td></tr>
+<tr><td>6</td><td><b>sp³d²</b></td><td>90°</td><td>八面体</td><td>SF₆</td></tr>
+</tbody></table>
+<ul>
+<li><b>NH₃</b>：sp³，但一对孤对占据一个杂化轨道 → 三角锥、107°；<b>H₂O</b>：sp³、两对孤对 → 弯曲、104.5°。</li>
+<li>孤对越占位，键角越小：CH₄ 109.5° &gt; NH₃ 107° &gt; H₂O 104.5°。</li>
+</ul>
+<h3>7.5 σ 键与 π 键</h3>
+<table><thead><tr><th></th><th>σ 键</th><th>π 键</th></tr></thead><tbody>
+<tr><td>重叠方式</td><td>头碰头（沿核间轴）</td><td>肩并肩（侧面）</td></tr>
+<tr><td>电子云位置</td><td>沿轴集中</td><td>轴上下两瓣</td></tr>
+<tr><td>能否旋转</td><td><b>可以</b>自由旋转</td><td><b>不能</b>旋转</td></tr>
+<tr><td>出现</td><td>每个键都有且只有一个 σ</td><td>双键 1 个、三键 2 个</td></tr>
+</tbody></table>
+<ul>
+<li>单键 = 1σ；双键 = 1σ + 1π；三键 = 1σ + 2π。</li>
+<li><b>π 键不能旋转 → 顺反异构</b>：1,2-二氯乙烯的 cis/trans 就是这么来的。</li>
+</ul>
+<h3>7.6 多重键的杂化</h3>
+<p><b>乙烯 C₂H₄（sp²）</b></p>
+<ul>
+<li>每个 C 有 3 个电子域：2 个 C–H + 1 个 C=C → <b>sp²</b>。</li>
+<li>5 个 σ 键：1 个 C–C（sp²–sp²）+ 4 个 C–H（sp²–1s）。</li>
+<li>每个 C 剩 1 个<b>未杂化 2p</b>，垂直于分子平面，侧面重叠成 <b>1 个 π 键</b>。</li>
+<li>全部原子共平面，C=C 不能旋转。</li>
+</ul>
+<p><b>乙炔 C₂H₂（sp）</b></p>
+<ul>
+<li>每个 C 有 2 个电子域 → <b>sp</b>，直线形。</li>
+<li>3 个 σ 键：1 个 C–C（sp–sp）+ 2 个 C–H（sp–1s）。</li>
+<li>每个 C 剩 2 个未杂化 2p → <b>2 个 π 键</b>，互相垂直。</li>
+</ul>
+<p><b>苯 C₆H₆</b>：每个 C 为 sp²，3 个 σ（2 个 C–C + 1 个 C–H），每个 C 剩 1 个 2p；6 个 2p 共同形成离域 π 体系（见 8.6）。</p>
+<h3>7.7 轨道重叠判断 σ / π / 不成键</h3>
+<p>以 x 轴为核间轴：</p>
+<table><thead><tr><th>组合</th><th>结果</th><th>理由</th></tr></thead><tbody>
+<tr><td>1s + 1s</td><td><b>σ</b></td><td>头碰头，轴对称</td></tr>
+<tr><td>1s + 2s</td><td><b>σ</b></td><td>头碰头</td></tr>
+<tr><td>1s + 2p<sub>x</sub></td><td><b>σ</b></td><td>沿轴头碰头</td></tr>
+<tr><td>2p<sub>x</sub> + 2p<sub>x</sub></td><td><b>σ</b></td><td>端对端</td></tr>
+<tr><td>3p<sub>y</sub> + 3p<sub>y</sub></td><td><b>π</b></td><td>平行侧面重叠</td></tr>
+<tr><td>2p<sub>x</sub> + 2p<sub>y</sub></td><td><b>不成键</b></td><td>相互垂直，净重叠为零</td></tr>
+</tbody></table>
+<h3 class="check">★ 第 7 章必须能答</h3>
+<ul>
+<li>为什么 BeCl₂ 必须先&quot;激发&quot;才能成两个键？</li>
+<li>杂化轨道数由什么决定？（电子域数）</li>
+<li>CH₄、NH₃、H₂O 键角为什么依次减小？</li>
+<li>双键里几个 σ 几个 π？三键呢？</li>
+<li>为什么 C=C 不能自由旋转，而 C–C 可以？</li>
+</ul>
+
+</div>
+<div class="chunknav"><a href="notes-ch6.html">← 第 6 章 分子形状、极性与分子间作用力</a><a href="notes-ch8.html">第 8 章 分子轨道理论 →</a></div>
+</body></html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 8–9 章 化学计量与水溶液中的反应 · 概念与公式总复习（Lecture 1–4, 7–9 ＋ HW1–6）</title>
+
+
+
+
+<style>
+:root{
+  --a:#7a51a6; --ab:#f4eefa;
+  --b:#2f6f9f; --bb:#eaf3fa;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#a8455a; --eb:#fdf2f2;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.78}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#2b1b40 0%,#4a2f6b 55%,#7a51a6 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 8px;padding-top:10px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#4a2f6b;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px}
+h3.check{color:#4a2f6b;border-left:4px solid var(--a);padding-left:10px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.formula{background:#f7f4fb;border-left:3px solid #c9b6e0;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.formula.center{text-align:center;font-size:16px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f3eff9;font-weight:700;color:#2b1b40}
+tbody tr:nth-child(even){background:#fafbfc}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:10px;padding:12px 16px;margin:12px 0}
+code{font-family:Consolas,monospace;font-size:13.5px;background:#f4f6f8;padding:1px 5px;border-radius:3px}
+sub{font-size:72%}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} table{font-size:13px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="notes-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-general-chemistry.html">普通化学</a><span style="opacity:.45">/</span>
+<b>第 8–9 章 化学计量与水溶液中的反应</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="notes-overview.html">0</a><a href="notes-ch1.html">1</a><a href="notes-ch2.html">2</a><a href="notes-ch3.html">3</a><a href="notes-ch4.html">4</a><a href="notes-ch5.html">5</a><a href="notes-ch6.html">6</a><a href="notes-ch7.html">7</a><a href="notes-ch8.html">8</a><a href="notes-ch9.html" class=cur>9</a><a href="notes-formulas.html">10</a><a href="notes-pit.html">11</a><a href="notes-model.html">12</a><a href="notes-quiz.html">13</a></div></div>
+<div class="chunkmain">
+<h2 id="ch9"><span class="num">9</span>第 8–9 章 化学计量与水溶液中的反应</h2>
+
+<div class="thm">Lecture 8 末尾（8.3–8.4）与 Lecture 9 全部（9.1–9.6）。这一章是&quot;算&quot;的主战场：配平 → 找限量试剂 → 算产率 → 换算浓度 → 判断反应类型 → 写净离子方程。</div>
+<h3>9.1 化学方程式与配平</h3>
+<ul>
+<li>系数代表<b>摩尔比</b>，不是质量比；配平后两边原子数与电荷数都要守恒。</li>
+<li>常见反应类型：combination（化合）、decomposition（分解）、combustion（燃烧）、displacement（置换）、metathesis / double replacement（复分解）、disproportionation（歧化）。</li>
+</ul>
+<h3>9.2 限量试剂与产率</h3>
+<ul>
+<li><b>限量试剂 limiting reactant</b>：最先被消耗完的反应物，决定产量。</li>
+<li>判断方法：把每种反应物的 n 都除以它的系数，<b>商最小的是限量试剂</b>。</li>
+<li>过量试剂剩余量 = 初始量 − 已反应量。</li>
+<li><b>理论产量</b>按限量试剂算；<b>实际产量</b>由实验给出。</li>
+</ul>
+<div class="thm">百分产率 %yield = (实际产量 / 理论产量) × 100%</div>
+<p>例（Worked Example 8.7，Alka-Seltzer）：3NaHCO₃ + H₃C₆H₅O₇ → 3CO₂ + 3H₂O + Na₃C₆H₅O₇；1.700 g NaHCO₃（84.01）与 1.000 g 柠檬酸（192.12）。n(NaHCO₃) = 0.02023 mol，n(酸) = 0.005205 mol；按系数比 NaHCO₃ 需要 3×0.005205 = 0.01562 mol &lt; 0.02023 → <b>柠檬酸是限量试剂</b>，NaHCO₃ 过量 0.00461 mol ≈ 0.387 g，CO₂ 产量 3×0.005205×44.01 ≈ <b>0.687 g</b>。</p>
+<h3>9.3 溶液的浓度</h3>
+<div class="thm"><b>M = n(溶质) / V(溶液，L)</b>　　（mol/L，注意分母是溶液体积不是溶剂体积）</div>
+<div class="thm">稀释：<b>M₁V₁ = M₂V₂</b>（稀释前后溶质的物质的量不变）</div>
+<ul>
+<li>用 mL 时可直接写 <b>M_c × mL_c = M_d × mL_d</b>。</li>
+<li><b>系列稀释 serial dilution</b>：多次等倍数稀释，浓度按倍率连乘。</li>
+<li>溶液化学计量：V × M → mol → 用系数比 → 目标物的 mol → 再转回 V 或 m。</li>
+</ul>
+<h3>9.4 电解质与沉淀反应</h3>
+<ul>
+<li>溶液 = 溶剂（量最多）+ 溶质；<b>电解质</b>溶后导电（解离或电离），非电解质不导电（如蔗糖）。</li>
+<li><b>强电解质</b>：可溶离子化合物、强酸、强碱（完全解离）；<b>弱电解质</b>：弱酸弱碱（部分电离，以分子为主）。</li>
+<li><b>必背 7 个强酸</b>：HCl、HBr、HI、HNO₃、H₂SO₄、HClO₄、HClO₃。</li>
+<li>常见强碱：LiOH、NaOH、KOH、RbOH、CsOH、Ca(OH)₂、Sr(OH)₂、Ba(OH)₂。</li>
+</ul>
+<p><b>溶解度规则（Table 9.2 / 9.3）</b></p>
+<table><thead><tr><th>通常可溶</th><th>例外</th></tr></thead><tbody>
+<tr><td>碱金属（Li⁺、Na⁺、K⁺…）与 NH₄⁺ 的盐</td><td>几乎没有</td></tr>
+<tr><td>硝酸盐、醋酸盐、氯酸盐、高氯酸盐</td><td>几乎没有</td></tr>
+<tr><td>卤化物（Cl⁻、Br⁻、I⁻）</td><td>Ag⁺、Pb²⁺、Hg₂²⁺</td></tr>
+<tr><td>硫酸盐</td><td>Ba²⁺、Pb²⁺、Ca²⁺、Sr²⁺、Ag⁺</td></tr>
+</tbody></table>
+<table><thead><tr><th>通常不溶</th><th>例外</th></tr></thead><tbody>
+<tr><td>碳酸盐、磷酸盐</td><td>碱金属与 NH₄⁺ 的盐可溶</td></tr>
+<tr><td>氢氧化物</td><td>强碱（1A）与 Ba²⁺ 可溶，Ca(OH)₂ 微溶</td></tr>
+<tr><td>硫化物</td><td>1A、2A 与 NH₄⁺ 可溶</td></tr>
+</tbody></table>
+<p><b>三种方程式</b></p>
+<ol>
+<li><b>分子方程</b>：全部写化学式。</li>
+<li><b>完全离子方程</b>：强电解质拆成离子，沉淀/弱电解质/气体保留分子式。</li>
+<li><b>净离子方程</b>：删去两边相同的<b>旁观离子 spectator ions</b>，只留真正参与反应的物种。</li>
+</ol>
+<div class="thm">例：Na₂SO₄(aq) + Ba(OH)₂(aq) → 2NaOH(aq) + BaSO₄(s)</div>
+<div class="thm">净离子：<b>Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)</b></div>
+<h3>9.5 酸碱反应</h3>
+<ul>
+<li><b>Arrhenius</b>：酸在水中产生 H⁺，碱产生 OH⁻。</li>
+<li><b>Brønsted</b>：酸 = 质子给体，碱 = 质子受体；H⁺ 与 H₃O⁺ 指同一物种。</li>
+<li>一元酸 monoprotic / 多元酸 polyprotic：H₂SO₄ 第一步强、第二步很弱（逐级电离）。</li>
+<li>中和：酸 + 碱 → 水 + 盐；绝大多数净离子式就是</li>
+</ul>
+<div class="thm"><b>H⁺(aq) + OH⁻(aq) → H₂O(l)</b></div>
+<h3>9.6 氧化还原反应</h3>
+<ul>
+<li>氧化 = 失电子（氧化数升高）；还原 = 得电子（氧化数降低）；两者同时发生。</li>
+<li>还原剂被氧化，氧化剂被还原（口诀：<b>升失氧、降得还</b>）。</li>
+</ul>
+<p><b>氧化数规则</b></p>
+<ol>
+<li>单质的氧化数 = 0。</li>
+<li>同种物种各原子氧化数之和 = 该物种的电荷。</li>
+<li>单原子离子的氧化数 = 离子电荷。</li>
+<li>常见固定值：F = −1；O = −2（过氧化物中 −1）；H = +1（金属氢化物中 −1）；1A = +1、2A = +2。</li>
+</ol>
+<p><b>活性顺序 activity series</b>：按&quot;越靠上越易被氧化&quot;排列（Li &gt; K &gt; Ba &gt; Ca &gt; Na &gt; Mg &gt; Al &gt; Zn &gt; Fe &gt; Ni &gt; Sn &gt; Pb &gt; H₂ &gt; Cu &gt; Hg &gt; Ag &gt; Au）。上面的金属能把下面金属的离子置换出来；反方向不反应。</p>
+<p><b>半反应法配平</b></p>
+<ol>
+<li>拆成氧化、还原两个半反应；</li>
+<li>各自配平原子（O 用 H₂O、H 用 H⁺）；</li>
+<li>各自配平电荷（加 e⁻）；</li>
+<li>两边乘系数使<b>电子数相等</b>；</li>
+<li>相加，约去电子，检查原子与电荷。</li>
+</ol>
+<p>例：Cr + Ni²⁺ → Cr³⁺ + Ni → 2×{Cr → Cr³⁺ + 3e⁻} + 3×{Ni²⁺ + 2e⁻ → Ni} → <b>2Cr + 3Ni²⁺ → 2Cr³⁺ + 3Ni</b>。</p>
+<p><b>其他 redox 类型</b>：化合（N₂ + 3H₂ → 2NH₃）、分解（2NaH → 2Na + H₂）、置换、歧化（同一元素既升又降，如 H₂O₂ 中 O 为 −1）、燃烧。</p>
+<h3>9.7 pH</h3>
+<div class="formula center"><b>pH = −log[H₃O⁺]</b>，　<b>[H₃O⁺] = 10^(−pH)</b></div>
+<ul>
+<li>25 ℃ 纯水：[H₃O⁺] = 1.0×10⁻⁷ M → pH = 7.00（中性）；pH 无量纲。</li>
+<li>例：3.5×10⁻⁴ M → pH = 3.46；2×10⁻⁷ M → pH = 6.70。</li>
+</ul>
+<h3>9.8 重量分析与滴定</h3>
+<ul>
+<li><b>重量分析 gravimetric analysis</b>：靠称沉淀质量反推被测组分（要求反应完全、接近 100% 产率）。例：AgCl 沉淀 → %Cl = (m(AgCl)/M(AgCl) × M(Cl)) / m(样品) × 100%。</li>
+<li><b>滴定 titration</b>：用已知浓度的标准溶液（buret）滴定待测液，<b>当量点 equivalence point</b> 由指示剂变色（endpoint）指示。</li>
+<li>NaOH 溶液需用 <b>KHP</b>（邻苯二甲酸氢钾，一元酸）标定，因为 NaOH 会吸收 CO₂ 变质。</li>
+<li>计算骨架：n(酸) × 系数比 = n(碱) → 由 M、V 互算。</li>
+</ul>
+<h3 class="check">★ 第 9 章必须能答</h3>
+<ul>
+<li>怎么判断限量试剂？商最小的那个。</li>
+<li>净离子方程里哪些要拆、哪些不拆？</li>
+<li>7 个强酸是哪几个？</li>
+<li>氧化数与化合价的关系？歧化反应怎么认？</li>
+<li>M 与 m 的区别？稀释公式为什么成立？</li>
+<li>当量点和终点是一回事吗？（不是：终点是颜色变化点，应尽量接近当量点）</li>
+</ul>
+
+</div>
+<div class="chunknav"><a href="notes-ch8.html">← 第 8 章 分子轨道理论</a><a href="notes-formulas.html">公式速查表（考前最后一眼看这里） →</a></div>
+</body></html>
