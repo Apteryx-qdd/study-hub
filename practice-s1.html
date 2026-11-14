@@ -1,0 +1,154 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>试卷 · 综合练习 · Ch.1–8（10 题 + 详解）</title>
+
+
+
+
+<style>
+:root{
+  --a:#7a51a6; --ab:#f4eefa;
+  --b:#2f6f9f; --bb:#eaf3fa;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#a8455a; --eb:#fdf2f2;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.78}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#2b1b40 0%,#4a2f6b 55%,#7a51a6 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 8px;padding-top:10px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#4a2f6b;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px}
+h3.check{color:#4a2f6b;border-left:4px solid var(--a);padding-left:10px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.formula{background:#f7f4fb;border-left:3px solid #c9b6e0;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.formula.center{text-align:center;font-size:16px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f3eff9;font-weight:700;color:#2b1b40}
+tbody tr:nth-child(even){background:#fafbfc}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:10px;padding:12px 16px;margin:12px 0}
+code{font-family:Consolas,monospace;font-size:13.5px;background:#f4f6f8;padding:1px 5px;border-radius:3px}
+sub{font-size:72%}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} table{font-size:13px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="practice-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-general-chemistry.html">普通化学</a><span style="opacity:.45">/</span>
+<b>试卷</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="practice-s1.html" class=cur>1</a><a href="practice-s2.html">2</a><a href="practice-s3.html">3</a></div></div>
+<div class="chunkmain">
+<h2 id="s1"><span class="num">1</span>试卷</h2>
+
+<h3>第 1 题（10 分）一根金属棒</h3>
+<p>某金属棒为圆柱体，测得半径 0.500 cm、长 3.60 cm、质量 20.15 g。</p>
+<p>(a) 计算该金属的密度（保留正确有效数字）。　（3 分）</p>
+<p>(b) 已知下列密度：Al 2.70、Ti 4.54、Fe 7.87、Zn 7.14 g/cm³。判断这是什么金属。　（2 分）</p>
+<p>(c) 该棒中含多少个原子？（用你判断出的金属，M 取 65.38 g/mol）　（3 分）</p>
+<p>(d) 把该金属与同周期的 Cu、以及上一周期的 Mg 比较原子半径，由大到小排序，并用有效核电荷 Z<sub>eff</sub> 解释。　（2 分）</p>
+<h3>第 2 题（10 分）Lyman-α 与光电效应</h3>
+<p>用波长 121.6 nm 的紫外光照射某金属表面，测得逸出电子的最大动能为 3.20×10⁻¹⁹ J。</p>
+<p>(a) 该光子的能量是多少 J？多少 eV？　（2 分）</p>
+<p>(b) 求该金属的功函数 W 与阈值频率 ν₀。　（4 分）</p>
+<p>(c) 求阈值波长 λ₀。　（2 分）</p>
+<p>(d) 若改用 250 nm 的光，能否打出电子？说明理由。　（2 分）</p>
+<h3>第 3 题（10 分）一条谱线与一个电子</h3>
+<p>氢原子中电子由 n = 3 跃迁到 n = 2。</p>
+<p>(a) 求发射光子的波长（nm）与颜色。　（3 分）</p>
+<p>(b) 求该光子的能量（J 与 eV）。　（3 分）</p>
+<p>(c) 若一个静止电子获得同样多的动能，它的 de Broglie 波长是多少？　（3 分）</p>
+<p>(d) 一句话解释：为什么棒球（0.142 kg、42 m/s）的波动性观察不到？　（1 分）</p>
+<h3>第 4 题（10 分）一个&quot;反常&quot;的元素</h3>
+<p>某元素的基态电子排布为 [Ar]3d⁵4s¹。</p>
+<p>(a) 写出它的完整电子排布与元素符号。　（2 分）</p>
+<p>(b) 这个排布为什么&quot;反常&quot;？用一句话解释。　（2 分）</p>
+<p>(c) 未成对电子有几个？该原子顺磁还是反磁？　（3 分）</p>
+<p>(d) 写出 Cr³⁺ 的排布，并说明为什么第三电离能之后出现巨大跳跃（提示：看它有几个价电子）。　（3 分）</p>
+<h3>第 5 题（8 分）排序并解释</h3>
+<p>对下列各组，由小到大排序，并用 Z<sub>eff</sub>、屏蔽、n 或半满/全满稳定性解释（每题 2 分）：</p>
+<p>(a) 原子半径：Na、Mg、Si、K</p>
+<p>(b) 第一电离能：Na、Mg、Al、Si</p>
+<p>(c) 离子半径：N³⁻、O²⁻、F⁻、Na⁺、Mg²⁺</p>
+<p>(d) 电子亲和能（EA₁）：O、F、S、Cl</p>
+<h3>第 6 题（12 分）从名字到结构</h3>
+<p>(a) 命名：Ca₃(PO₄)₂、N₂O₅、CuSO₄·5H₂O、HClO₃。　（4 分）</p>
+<p>(b) 计算 Ca₃(PO₄)₂ 的摩尔质量与磷的百分含量。　（4 分）</p>
+<p>(c) 画出 PO₄³⁻ 的 Lewis 结构（标形式电荷），指出中心 P 的电子域数、杂化类型与几何。　（4 分）</p>
+<h3>第 7 题（12 分）五张&quot;体检表&quot;</h3>
+<p>完成下表（每行 2 分，共 10 分），并回答最后一问（2 分）：</p>
+<table><thead><tr><th>分子</th><th>电子域数</th><th>分子几何</th><th>中心原子杂化</th><th>键角</th><th>极性</th></tr></thead><tbody>
+<tr><td>CH₄</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>NH₃</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>H₂O</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>BF₃</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>SF₆</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<p>追问：H₂O 的沸点（100 ℃）远高于 H₂S（−60 ℃），用分子间作用力解释；再说明为什么 CCl₄ 与 CHCl₃ 的沸点也不同。</p>
+<h3>第 8 题（12 分）O₂ 的&quot;反常&quot;</h3>
+<p>(a) 按分子轨道理论写出 O₂ 的价电子排布（用 σ2s、σ∗2s、σ2p、π2p、π∗2p、σ∗2p 表示），求键级。　（4 分）</p>
+<p>(b) O₂ 是顺磁还是反磁？未成对电子在哪两个轨道上？　（3 分）</p>
+<p>(c) 求 N₂ 的键级，并比较 N₂ 与 O₂ 的键长、键能。　（3 分）</p>
+<p>(d) 求 O₂⁺ 与 O₂⁻ 的键级，并判断磁性。　（2 分）</p>
+<h3>第 9 题（10 分）未知液体</h3>
+<p>某只含 C、H、O 的液体 0.5000 g 完全燃烧，生成 1.137 g CO₂ 和 0.4654 g H₂O。</p>
+<p>(a) 求样品中 C、H、O 的质量。　（3 分）</p>
+<p>(b) 求经验式。　（3 分）</p>
+<p>(c) 若测得摩尔质量为 58.08 g/mol，求分子式。　（2 分）</p>
+<p>(d) 该化合物是丙酮（CH₃COCH₃）。画出它的 Lewis 结构，指出羰基碳的杂化与几何，并判断分子是否有极性。　（2 分）</p>
+<h3>第 10 题（6 分）从 He⁺ 到光电效应</h3>
+<p>(a) 计算 He⁺ 由 n = 2 跃迁到 n = 1 所发射光子的能量（J 与 eV）。　（3 分）</p>
+<p>(b) 用该光子照射铯（W = 2.14 eV），逸出电子的最大动能是多少 eV？　（2 分）</p>
+<p>(c) 该光子能否电离基态氢原子（IE = 13.6 eV）？能否电离基态氦原子（IE = 24.6 eV）？为什么 He 的 IE 比 H 大近一倍？（1 分）</p>
+
+</div>
+<div class="chunknav"><span class="dim">← 已是第一节</span><a href="practice-s2.html">详解 →</a></div>
+</body></html>

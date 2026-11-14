@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>综合练习 · Ch.1–8（10 题 + 详解）</title>
+<style>
+:root{
+  --a:#7a51a6; --ab:#f4eefa;
+  --b:#2f6f9f; --bb:#eaf3fa;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#a8455a; --eb:#fdf2f2;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.78}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#2b1b40 0%,#4a2f6b 55%,#7a51a6 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 8px;padding-top:10px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#4a2f6b;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px}
+h3.check{color:#4a2f6b;border-left:4px solid var(--a);padding-left:10px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:15px;margin-bottom:14px}
+ul,ol{margin:8px 0 8px 22px;padding:0}
+li{margin:5px 0}
+.formula{background:#f7f4fb;border-left:3px solid #c9b6e0;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.formula.center{text-align:center;font-size:16px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#f3eff9;font-weight:700;color:#2b1b40}
+tbody tr:nth-child(even){background:#fafbfc}
+.thm{background:#f7f9fb;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:10px;padding:12px 16px;margin:12px 0}
+code{font-family:Consolas,monospace;font-size:13.5px;background:#f4f6f8;padding:1px 5px;border-radius:3px}
+sub{font-size:72%}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} table{font-size:13px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+</head>
+<body id="top">
+<div class="docbar" id="docbar"><div class="docbar-in">
+<a href="index.html">← 资料库</a><span style="opacity:.45">/</span>
+<a href="subject-general-chemistry.html">普通化学</a><span style="opacity:.45">/</span>
+<b>综合练习 · Ch.1–8（10 题 + 详解）</b>
+<span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+
+</div></div>
+<style>
+.docbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px;line-height:1.6}
+.docbar-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.docbar a{color:#a9c6de;text-decoration:none}
+.docbar a:hover{color:#fff;text-decoration:underline}
+.docbar b{color:#fff;font-weight:600}
+.docbar .spacer{flex:1;min-width:8px}
+.docbar .pdfbtn{border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:1px 12px;color:#fff}
+.docbar .pdfbtn:hover{background:rgba(255,255,255,.14);text-decoration:none}
+@media print{.docbar{display:none}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">General Chemistry · 期中/期末综合 · 100 分 90 分钟</div>
+    <h1>综合练习 · Ch.1–8（10 题 + 详解）</h1>
+    <div class="sub">测量与有效数字 · 原子结构 · 量子与排布 · 周期趋势 · 命名与结构 · 分子形状与杂化 · 分子轨道</div>
+    <div class="meta"><span class="chip hot">10 道跨章综合题</span><span class="chip">逐题详解</span><span class="chip">附评分与 8 个易错点</span></div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap"><a href="#s1">试卷</a><a href="#s2">详解</a><a href="#s3">评分、时间与易错点</a></div>
+</nav>
+
+<div class="wrap">
+
+<h2 id="s1"><span class="num">1</span>试卷</h2>
+<h3>第 1 题（10 分）一根金属棒</h3>
+<p>某金属棒为圆柱体，测得半径 0.500 cm、长 3.60 cm、质量 20.15 g。</p>
+<p>(a) 计算该金属的密度（保留正确有效数字）。　（3 分）</p>
+<p>(b) 已知下列密度：Al 2.70、Ti 4.54、Fe 7.87、Zn 7.14 g/cm³。判断这是什么金属。　（2 分）</p>
+<p>(c) 该棒中含多少个原子？（用你判断出的金属，M 取 65.38 g/mol）　（3 分）</p>
+<p>(d) 把该金属与同周期的 Cu、以及上一周期的 Mg 比较原子半径，由大到小排序，并用有效核电荷 Z<sub>eff</sub> 解释。　（2 分）</p>
+<h3>第 2 题（10 分）Lyman-α 与光电效应</h3>
+<p>用波长 121.6 nm 的紫外光照射某金属表面，测得逸出电子的最大动能为 3.20×10⁻¹⁹ J。</p>
+<p>(a) 该光子的能量是多少 J？多少 eV？　（2 分）</p>
+<p>(b) 求该金属的功函数 W 与阈值频率 ν₀。　（4 分）</p>
+<p>(c) 求阈值波长 λ₀。　（2 分）</p>
+<p>(d) 若改用 250 nm 的光，能否打出电子？说明理由。　（2 分）</p>
+<h3>第 3 题（10 分）一条谱线与一个电子</h3>
+<p>氢原子中电子由 n = 3 跃迁到 n = 2。</p>
+<p>(a) 求发射光子的波长（nm）与颜色。　（3 分）</p>
+<p>(b) 求该光子的能量（J 与 eV）。　（3 分）</p>
+<p>(c) 若一个静止电子获得同样多的动能，它的 de Broglie 波长是多少？　（3 分）</p>
+<p>(d) 一句话解释：为什么棒球（0.142 kg、42 m/s）的波动性观察不到？　（1 分）</p>
+<h3>第 4 题（10 分）一个&quot;反常&quot;的元素</h3>
+<p>某元素的基态电子排布为 [Ar]3d⁵4s¹。</p>
+<p>(a) 写出它的完整电子排布与元素符号。　（2 分）</p>
+<p>(b) 这个排布为什么&quot;反常&quot;？用一句话解释。　（2 分）</p>
+<p>(c) 未成对电子有几个？该原子顺磁还是反磁？　（3 分）</p>
+<p>(d) 写出 Cr³⁺ 的排布，并说明为什么第三电离能之后出现巨大跳跃（提示：看它有几个价电子）。　（3 分）</p>
+<h3>第 5 题（8 分）排序并解释</h3>
+<p>对下列各组，由小到大排序，并用 Z<sub>eff</sub>、屏蔽、n 或半满/全满稳定性解释（每题 2 分）：</p>
+<p>(a) 原子半径：Na、Mg、Si、K</p>
+<p>(b) 第一电离能：Na、Mg、Al、Si</p>
+<p>(c) 离子半径：N³⁻、O²⁻、F⁻、Na⁺、Mg²⁺</p>
+<p>(d) 电子亲和能（EA₁）：O、F、S、Cl</p>
+<h3>第 6 题（12 分）从名字到结构</h3>
+<p>(a) 命名：Ca₃(PO₄)₂、N₂O₅、CuSO₄·5H₂O、HClO₃。　（4 分）</p>
+<p>(b) 计算 Ca₃(PO₄)₂ 的摩尔质量与磷的百分含量。　（4 分）</p>
+<p>(c) 画出 PO₄³⁻ 的 Lewis 结构（标形式电荷），指出中心 P 的电子域数、杂化类型与几何。　（4 分）</p>
+<h3>第 7 题（12 分）五张&quot;体检表&quot;</h3>
+<p>完成下表（每行 2 分，共 10 分），并回答最后一问（2 分）：</p>
+<table><thead><tr><th>分子</th><th>电子域数</th><th>分子几何</th><th>中心原子杂化</th><th>键角</th><th>极性</th></tr></thead><tbody>
+<tr><td>CH₄</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>NH₃</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>H₂O</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>BF₃</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>SF₆</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<p>追问：H₂O 的沸点（100 ℃）远高于 H₂S（−60 ℃），用分子间作用力解释；再说明为什么 CCl₄ 与 CHCl₃ 的沸点也不同。</p>
+<h3>第 8 题（12 分）O₂ 的&quot;反常&quot;</h3>
+<p>(a) 按分子轨道理论写出 O₂ 的价电子排布（用 σ2s、σ∗2s、σ2p、π2p、π∗2p、σ∗2p 表示），求键级。　（4 分）</p>
+<p>(b) O₂ 是顺磁还是反磁？未成对电子在哪两个轨道上？　（3 分）</p>
+<p>(c) 求 N₂ 的键级，并比较 N₂ 与 O₂ 的键长、键能。　（3 分）</p>
+<p>(d) 求 O₂⁺ 与 O₂⁻ 的键级，并判断磁性。　（2 分）</p>
+<h3>第 9 题（10 分）未知液体</h3>
+<p>某只含 C、H、O 的液体 0.5000 g 完全燃烧，生成 1.137 g CO₂ 和 0.4654 g H₂O。</p>
+<p>(a) 求样品中 C、H、O 的质量。　（3 分）</p>
+<p>(b) 求经验式。　（3 分）</p>
+<p>(c) 若测得摩尔质量为 58.08 g/mol，求分子式。　（2 分）</p>
+<p>(d) 该化合物是丙酮（CH₃COCH₃）。画出它的 Lewis 结构，指出羰基碳的杂化与几何，并判断分子是否有极性。　（2 分）</p>
+<h3>第 10 题（6 分）从 He⁺ 到光电效应</h3>
+<p>(a) 计算 He⁺ 由 n = 2 跃迁到 n = 1 所发射光子的能量（J 与 eV）。　（3 分）</p>
+<p>(b) 用该光子照射铯（W = 2.14 eV），逸出电子的最大动能是多少 eV？　（2 分）</p>
+<p>(c) 该光子能否电离基态氢原子（IE = 13.6 eV）？能否电离基态氦原子（IE = 24.6 eV）？为什么 He 的 IE 比 H 大近一倍？（1 分）</p>
+<h2 id="s2"><span class="num">2</span>详解</h2>
+<h3>第 1 题</h3>
+<p><b>(a)</b> V = πr²h = π × (0.500)² × 3.60 = 2.827 cm³；d = m/V = 20.15 / 2.827 = <b>7.13 g/cm³</b>（3 位有效数字，由 20.15 与 3.60 中最少的 3 位决定）。</p>
+<p><b>(b)</b> 7.13 与 Zn 的 7.14 一致 → <b>锌 Zn</b>。（Al 2.70、Ti 4.54 差得远；Fe 7.87 也偏高。）</p>
+<p><b>(c)</b> n = 20.15 / 65.38 = 0.3082 mol；N = 0.3082 × 6.022×10²³ = <b>1.86×10²³ 个原子</b>。</p>
+<p><b>(d)</b> 半径：<b>Mg &gt; Zn &gt; Cu</b>。同周期从左到右 Z<sub>eff</sub> 增大、核把电子拉得更紧 → Cu（Z=29）&lt; Zn（Z=30）？注意 Zn 与 Cu 半径接近（Zn 略大，因为 3d¹⁰ 全满后屏蔽略增），教材数据 Cu 128 pm、Zn 134 pm，所以 <b>Cu &lt; Zn</b>；而 Mg 多一个电子层（n=3 vs n=4 的 Zn？）——准确说 Mg 是第三周期、Zn 是第四周期，<b>层数多 → 半径大</b>，故 Mg &lt; Zn。综合：<b>Cu &lt; Zn &lt; Mg</b>（若按&quot;同族上到下增大&quot;单独看 Zn 与 Mg 也一致）。</p>
+<h3>第 2 题</h3>
+<p><b>(a)</b> E = hc/λ = (6.626×10⁻³⁴ × 2.998×10⁸) / (121.6×10⁻⁹) = <b>1.63×10⁻¹⁸ J</b>；换算 eV：1.63×10⁻¹⁸ / 1.602×10⁻¹⁹ ≈ <b>10.2 eV</b>。</p>
+<p><b>(b)</b> W = hν − KE = 1.63×10⁻¹⁸ − 3.20×10⁻¹⁹ = <b>1.31×10⁻¹⁸ J</b>（≈ 8.2 eV）；</p>
+<p>ν₀ = W/h = 1.31×10⁻¹⁸ / 6.626×10⁻³⁴ = <b>1.98×10¹⁵ Hz</b>。</p>
+<p><b>(c)</b> λ₀ = hc/W = 1.986×10⁻²⁵ / 1.31×10⁻¹⁸ = <b>1.5×10⁻⁷ m = 151 nm</b>。</p>
+<p><b>(d)</b> 250 nm 的光子能量 E = hc/λ = 7.95×10⁻¹⁹ J <b>&lt; W</b>，低于阈值 → <b>打不出电子</b>（无论光多强）。</p>
+<h3>第 3 题</h3>
+<p><b>(a)</b> 1/λ = R<sub>H</sub>(1/2² − 1/3²) = 1.097×10⁷ × 0.1389 = 1.524×10⁶ m⁻¹ → λ = <b>656 nm</b>，红色（Balmer 系的 Hα 线）。</p>
+<p><b>(b)</b> E = hc/λ = 1.986×10⁻²⁵ / 6.56×10⁻⁷ = <b>3.03×10⁻¹⁹ J ≈ 1.89 eV</b>。</p>
+<p><b>(c)</b> p = √(2mE) = √(2 × 9.109×10⁻³¹ × 3.03×10⁻¹⁹) = 7.43×10⁻²⁵ kg·m/s；</p>
+<p>λ = h/p = 6.626×10⁻³⁴ / 7.43×10⁻²⁵ = <b>8.9×10⁻¹⁰ m ≈ 0.89 nm</b>。</p>
+<p><b>(d)</b> 棒球的 λ = h/(mu) ≈ 1.1×10⁻³⁴ m，比原子核还小十几个数量级，<b>没有任何仪器能分辨</b>，所以宏观物体的波动性观测不到。</p>
+<h3>第 4 题</h3>
+<p><b>(a)</b> 1s²2s²2p⁶3s²3p⁶3d⁵4s¹，即 [Ar]3d⁵4s¹ → <b>Cr（Z = 24）</b>。</p>
+<p><b>(b)</b> 按 Aufbau 应为 4s²3d⁴；把 4s 的一个电子挪到 3d，得到<b>半满的 3d⁵</b>，交换能更大、体系更稳定。</p>
+<p><b>(c)</b> 3d⁵ 有 5 个单电子、4s¹ 有 1 个 → <b>6 个未成对电子</b>，<b>顺磁</b>（磁矩最大的一类原子之一）。</p>
+<p><b>(d)</b> Cr³⁺：[Ar]3d³。Cr 有 6 个价电子（3d⁵4s¹），失去 3 个后剩 3 个 3d 电子；IE₄ 要从<b>内层 3p</b> 拔电子，能量陡增 → IE₁~IE₃ 平缓、IE₄ 出现巨大跳跃，正好对应&quot;3 个价电子&quot;。</p>
+<h3>第 5 题</h3>
+<p><b>(a)</b> 半径：<b>Si &lt; Mg &lt; Na &lt; K</b>（同周期左→右减小：Na &gt; Mg &gt; Si；K 多一层，最大）。</p>
+<p><b>(b)</b> IE₁：<b>Na &lt; Al &lt; Mg &lt; Si</b>。整体左→右增大，但 <b>Mg（3s² 全满）&gt; Al（3p¹ 易失）</b>，这是第二周期的经典反常。</p>
+<p><b>(c)</b> 离子半径：<b>Mg²⁺ &lt; Na⁺ &lt; F⁻ &lt; O²⁻ &lt; N³⁻</b>。五者都是 10 电子等电子体，核电荷越大（Mg 12 &gt; Na 11 &gt; F 9 &gt; O 8 &gt; N 7）半径越小。</p>
+<p><b>(d)</b> EA₁：<b>O &lt; S &lt; F &lt; Cl</b>（教材值 O 141、S 200、F 328、Cl 349 kJ/mol）。同族上→下略增（半径大、电子排斥小），同周期左→右增大；F 因半径过小、电子间排斥强而低于 Cl。</p>
+<h3>第 6 题</h3>
+<p><b>(a)</b> Ca₃(PO₄)₂ = <b>calcium phosphate</b>；N₂O₅ = <b>dinitrogen pentoxide</b>；CuSO₄·5H₂O = <b>copper(II) sulfate pentahydrate</b>；HClO₃ = <b>chloric acid</b>。</p>
+<p><b>(b)</b> M = 3×40.08 + 2×(30.97 + 4×16.00) = 120.24 + 189.94 = <b>310.2 g/mol</b>；</p>
+<p>%P = (2 × 30.97) / 310.2 × 100% = <b>20.0%</b>。</p>
+<p><b>(c)</b> 价电子：5 + 4×6 + 3 = 32。P 居中，4 个 P–O 单键（8 e），每个 O 补 3 对孤对（24 e），P 上无孤对 → P 周围 8 e，各 O 8 e。</p>
+<p>形式电荷：P 有 4 个键 → FC = 5 − (0 + 4) = <b>+1</b>；每个 O 带 3 对孤对 → FC = 6 − (6 + 1) = <b>−1</b>；总和 −3 ✓。</p>
+<p>电子域 = 4 → <b>sp³</b>，<b>正四面体</b>，键角 109.5°。（更好的写法是让一个 P=O 双键把 FC 降到 0，但那就是扩展八隅体了。）</p>
+<h3>第 7 题</h3>
+<table><thead><tr><th>分子</th><th>电子域数</th><th>分子几何</th><th>杂化</th><th>键角</th><th>极性</th></tr></thead><tbody>
+<tr><td>CH₄</td><td>4</td><td>正四面体</td><td>sp³</td><td>109.5°</td><td>非极性</td></tr>
+<tr><td>NH₃</td><td>4</td><td>三角锥</td><td>sp³</td><td>~107°</td><td>极性</td></tr>
+<tr><td>H₂O</td><td>4</td><td>弯曲</td><td>sp³</td><td>~104.5°</td><td>极性</td></tr>
+<tr><td>BF₃</td><td>3</td><td>平面三角</td><td>sp²</td><td>120°</td><td>非极性</td></tr>
+<tr><td>SF₆</td><td>6</td><td>正八面体</td><td>sp³d²</td><td>90°</td><td>非极性</td></tr>
+</tbody></table>
+<p><b>追问</b>：H₂O 有<b>氢键</b>（O–H），H₂S 只有偶极–偶极与色散力，所以沸点差 160 ℃。CCl₄ 与 CHCl₃ 都是四面体：CHCl₃ 不对称、有净偶极矩，但 <b>CCl₄ 的沸点反而更高（76.7 ℃ vs 61.2 ℃）</b>——CCl₄ 分子更大、电子更多，色散力压过了偶极作用。比较沸点要先看分子大小与极化率，再看有没有偶极、氢键。</p>
+<h3>第 8 题</h3>
+<p><b>(a)</b> O₂ 有 12 个价电子：σ2s² σ∗2s² σ2p² π2p⁴ π∗2p²；</p>
+<p>键级 = (8 − 4)/2 = <b>2</b>。</p>
+<p><b>(b)</b> π∗2p 上有 2 个未成对电子（分占两个简并轨道）→ <b>顺磁</b>。这是 Lewis 结构（O=O，全部成对）预测不出来的。</p>
+<p><b>(c)</b> N₂ 有 10 个价电子：σ2s² σ∗2s² π2p⁴ σ2p² → 键级 <b>3</b>。键级越大键越短越强：<b>N₂ 键长（109.8 pm）&lt; O₂（120.7 pm）</b>，键能 N₂（945）&gt; O₂（498 kJ/mol）。</p>
+<p><b>(d)</b> O₂⁺ 有 11 个价电子（从 π∗ 拿走 1 个）→ 键级 <b>2.5</b>，1 个未成对 → 顺磁；O₂⁻ 有 13 个 → 键级 <b>1.5</b>，1 个未成对 → 顺磁。</p>
+<h3>第 9 题</h3>
+<p><b>(a)</b> n(C) = n(CO₂) = 1.137/44.01 = 0.02583 mol → m(C) = <b>0.3103 g</b>；</p>
+<p>n(H) = 2 × n(H₂O) = 2 × 0.4654/18.02 = 0.05166 mol → m(H) = <b>0.0521 g</b>；</p>
+<p>m(O) = 0.5000 − 0.3103 − 0.0521 = <b>0.1376 g</b>。</p>
+<p><b>(b)</b> n(O) = 0.1376/16.00 = 0.00860 mol；</p>
+<p>C : H : O = 0.02583 : 0.05166 : 0.00860 = 3.00 : 6.01 : 1 → <b>C₃H₆O</b>（M = 58.08）。</p>
+<p><b>(c)</b> n = 58.08 / 58.08 = 1 → 分子式就是 <b>C₃H₆O</b>。</p>
+<p><b>(d)</b> 丙酮：CH₃–C(=O)–CH₃，中心羰基碳有 3 个电子域（2 个 C–C、1 个 C=O）→ <b>sp²</b>、<b>平面三角（120°）</b>；C=O 使分子不对称、有净偶极矩 → <b>极性分子</b>（还带来较强的偶极–偶极作用，沸点 56 ℃，远高于同分子量的丙烷 −42 ℃）。</p>
+<h3>第 10 题</h3>
+<p><b>(a)</b> E<sub>n</sub> = −2.18×10⁻¹⁸ Z²/n²，He⁺ 的 Z = 2：</p>
+<p>ΔE = 2.18×10⁻¹⁸ × 4 × (1/1² − 1/2²) = 2.18×10⁻¹⁸ × 4 × 0.75 = <b>6.54×10⁻¹⁸ J ≈ 40.8 eV</b>。</p>
+<p><b>(b)</b> KE = hν − W = 40.8 − 2.14 = <b>38.7 eV</b>（≈ 6.19×10⁻¹⁸ J）。</p>
+<p><b>(c)</b> 40.8 eV &gt; 13.6 eV → <b>能</b>电离基态氢；40.8 eV &gt; 24.6 eV → <b>也能</b>电离基态氦。He 的 IE 约为 H 的两倍，因为核电荷从 +1 增到 +2（Z<sub>eff</sub> 翻倍），1s 电子被拉得更紧。</p>
+<h2 id="s3"><span class="num">3</span>评分、时间与易错点</h2>
+<p><b>时间分配（90 分钟）</b>：第 1–4 题各 8 分钟（约 32 分钟）→ 第 5 题 6 分钟 → 第 6–8 题各 10 分钟（30 分钟）→ 第 9 题 12 分钟 → 第 10 题 6 分钟 → 留 4 分钟检查有效数字与单位。</p>
+<p><b>本套最容易丢分的 8 处</b></p>
+<ol>
+<li>第 1(a) 忘了 π 的位数不影响结果，但<b>有效数字由 0.500 与 3.60 的 3 位决定</b>。</li>
+<li>第 2(b) 把 hν 与 KE 相减时<b>忘记统一到 J 或 eV</b>。</li>
+<li>第 3(c) 直接用光子能量当电子动能算 λ，<b>忘记 p = √(2mE)</b>。</li>
+<li>第 4(c) 只数 3d⁵ 的 5 个，漏掉 4s¹ 的 1 个。</li>
+<li>第 5(b) 把 Al 排在 Mg 前面（<b>Mg &gt; Al</b> 是全满 vs 3p¹ 的反常）。</li>
+<li>第 6(c) 形式电荷算成 −4 或 0（P 是 +1、每个 O 是 −1，总和 −3）。</li>
+<li>第 7 表里把 NH₃ 的几何写成&quot;四面体&quot;（那是<b>电子域几何</b>，分子几何是三角锥）。</li>
+<li>第 8 题答&quot;O₂ 反磁&quot;（π∗ 上有 2 个未成对电子，是顺磁；键级 2 与顺磁不矛盾）。</li>
+</ol>
+
+<footer>
+  <div>General Chemistry · 依据 Lecture 1–8 与 HW1–HW7 编写</div><div style="margin-top:6px">用法：先闭卷 90 分钟做完第 1 节，再对照第 2 节详解逐题改错。</div>
+</footer>
+
+</div>
+</body>
+</html>
