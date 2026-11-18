@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>工程静力学 · 9 讲知识点 / 经典例题 / 解题技巧</title>
+<style>
+:root{
+  --a:#1f4e79; --ab:#eaf1f9;
+  --b:#8e1245; --bb:#fdeef4;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#5a6b7a; --eb:#f2f5f8;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.85}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#0e2b44 0%,#1f4e79 55%,#3a7ca5 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:46px 0 10px;padding-top:12px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#1f4e79;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px;color:#233f57}
+p{margin:9px 0}
+ul,ol{margin:9px 0 9px 24px;padding:0}
+li{margin:6px 0}
+.formula{background:#f4f8fc;border-left:3px solid #a9c6de;padding:10px 15px;border-radius:0 8px 8px 0;margin:12px 0;overflow-x:auto;line-height:2.0}
+.formula .big{font-size:16.5px}
+sub{font-size:70%;vertical-align:-.25em}
+sup{font-size:70%;vertical-align:.5em}
+.vec,.bar{text-decoration:overline;text-underline-offset:2px;padding:0 1px}
+.note{color:var(--muted);font-size:14px;background:#f7f9fb;border-left:3px solid var(--line);padding:8px 14px;border-radius:0 8px 8px 0}
+figure.fig{margin:18px 0 22px;text-align:center}
+figure.fig img{max-width:100%;border:1px solid var(--line);border-radius:10px;background:#fff;padding:8px}
+figure.fig figcaption{color:var(--muted);font-size:13.5px;margin-top:8px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#eef3f9;color:#12293f}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+</head>
+<body id="top">
+<div class="docbar" id="docbar"><div class="docbar-in">
+<a href="index.html">← 资料库</a><span style="opacity:.45">/</span>
+<a href="subject-statics.html">工程静力学</a><span style="opacity:.45">/</span>
+<b>9 讲知识点 · 经典例题 · 解题技巧（L1–L9）</b>
+<span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+
+</div></div>
+<style>
+.docbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px;line-height:1.6}
+.docbar-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.docbar a{color:#a9c6de;text-decoration:none}
+.docbar a:hover{color:#fff;text-decoration:underline}
+.docbar b{color:#fff;font-weight:600}
+.docbar .spacer{flex:1;min-width:8px}
+.docbar .pdfbtn{border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:1px 12px;color:#fff}
+.docbar .pdfbtn:hover{background:rgba(255,255,255,.14);text-decoration:none}
+@media print{.docbar{display:none}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Engineering Mechanics · Statics · L1–L9 ＋ HW1–HW5</div>
+    <h1>工程静力学 · 复习总结</h1>
+    <div class="sub">静力学基础　·　力系与力矩　·　平面/三维平衡　·　桁架　·　框架与形心　·　梁的内力　·　剪力图与弯矩图</div>
+    <div class="meta">
+      <span class="chip hot">8 张示意图</span>
+      <span class="chip">手写式符号（真下标 / 矢量箭头）</span>
+      <span class="chip">课堂 Sample Problem 逐个标注</span>
+      <span class="chip">作业题型对照 ＋ 高频错误</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap"><a href="#s1">静力学基础</a><a href="#s2">力系</a><a href="#s3">平面力系的合成与</a><a href="#s4">三维力系</a><a href="#s5">三维平衡</a><a href="#s6">平面桁架</a><a href="#s7">框架、机器与形心</a><a href="#s8">梁的内力</a><a href="#s9">剪力弯矩图</a><a href="#s10">附录 A　作业题</a><a href="#s11">附录 B　高频错</a><a href="#s12">附录 C　公式速</a><a href="#s13">附录 D　图形速</a><a href="#s14">附录 E　梁的四</a><a href="#s15">附录 F　常用换</a></div>
+</nav>
+
+<div class="wrap">
+<h2 id="s1"><span class="num">1</span>一、静力学基础（L1）</h2>
+<h3>1.1 基本概念</h3>
+<p>刚体（rigid body）与质点（particle）：刚体尺寸形状不变，只关心外效应；质点有质量无尺寸，不涉及转动。</p>
+<ul><li>牛顿三定律：惯性；F = ma；作用与反作用（等值、反向、共线）。</li><li>向量分类：自由向量、滑移向量（可传性原理）、固定向量。</li></ul>
+<h3>1.2 单位与量纲</h3>
+<div class="formula"><span class="big">SI：力 N = kg·m/s<sup>2</sup>，g = 9.806 65 m/s<sup>2</sup>　｜　US：力 lb，质量 slug = lb·s<sup>2</sup>/ft，g = 32.174 ft/s<sup>2</sup></span></div>
+<p>量纲齐性是最快的检错工具：方程两边逐项量纲必须相同。它能立刻发现错误，但不能证明方程正确。</p>
+<div class="formula"><span class="big">T = C L<sup>a</sup> m<sup>b</sup> g<sup>c</sup>　⟹　M<sup>0</sup>L<sup>0</sup>T<sup>1</sup>　⟹　a = ½，c = −½，b = 0　⟹　T = 2π√(L/g)</span></div>
+<p class="note">单摆这个例子说明：量纲分析能“逼出”函数形式，只差一个无量纲常数 2π。</p>
+<h3>1.3 万有引力与重量</h3>
+<div class="formula"><span class="big">F = G m<sub>1</sub>m<sub>2</sub> / r<sup>2</sup>，　G = 6.673×10<sup>−11</sup> m<sup>3</sup>/(kg·s<sup>2</sup>)，　W = m g</span></div>
+<h3>1.4 有效数字与解题六步</h3>
+<ul><li>有效数字：答案首位为 1 时写 4 位，为 2–9 时写 3 位；中间计算保留全精度，只在结果处圆整。</li><li>解题六步：明确已知与未知 → 画完整受力图 → 选坐标系 → 写平衡方程 → 方程数 = 未知数 → 求解并检查。</li></ul>
+<h2 id="s2"><span class="num">2</span>二、力系（L2）</h2>
+<h3>2.1 力与力的等效</h3>
+<p>力是固定向量（大小、方向、作用点）。对刚体只需考虑外效应，因此力可以沿作用线滑移——这就是可传性原理。</p>
+<p>汇交力系用平行四边形法则合成；平行力系加一对等值反向共线力，转化成汇交问题。</p>
+<figure class="fig"><img src="statics-f1.png" alt="图 1"><figcaption>图 1　力矩 M = F·d 与力偶 M = Fd（力偶是自由矢量，与矩心无关）</figcaption></figure>
+<h3>2.2 分量与投影</h3>
+<p>分量沿任意两根轴分解，服从平行四边形法则；投影是垂直落影。只有两轴正交时，两者才相等——这是最常混淆的一点。</p>
+<div class="formula"><span class="big">F = F<sub>x</sub> i + F<sub>y</sub> j，　F = √(F<sub>x</sub><sup>2</sup> + F<sub>y</sub><sup>2</sup>)，　tan θ = F<sub>y</sub> / F<sub>x</sub></span></div>
+<h3>2.3 力矩</h3>
+<div class="formula"><span class="big">M<sub>O</sub> = F d = F r sin α，　矢量式　<span class="vec">M</span><sub>O</sub> = <span class="vec">r</span> × <span class="vec">F</span></span></div>
+<p>CCW（逆时针）取正。r 从矩心指向作用线上任意一点；叉乘顺序不能颠倒。</p>
+<p>Varignon 定理：力对某点的矩等于其各分量对同一点的矩之和。斜力拆成水平与竖直后，力臂往往一眼可见。</p>
+<h3>2.4 力偶</h3>
+<div class="formula"><span class="big">M = F d，　与矩心无关；只要 Fd 相同、方向相同，任意平行平面上的力偶都等效。</span></div>
+<h3>2.5 力–偶系统</h3>
+<p>把力从一个位置平移到另一个位置时，需要补上一个力偶，其大小等于原力对新点的矩。</p>
+<figure class="fig"><img src="statics-f2.png" alt="图 2"><figcaption>图 2　力平移 → 等效力 + 力偶 M = Fd（力的外效应完全不变）</figcaption></figure>
+<p>典型用途：把偏心的齿轮力、缆绳力平移到轴线上，再与轴的反力一起做平衡。</p>
+<h2 id="s3"><span class="num">3</span>三、平面力系的合成与平衡（L3）</h2>
+<h3>3.1 合力与作用线</h3>
+<p>三步：把各力平移到参考点 O（每移一个力补一个力偶 M = r × F）→ 求 R 与 M<sub>O</sub> → 由 <span class="vec">r</span> × <span class="vec">R</span> = <span class="vec">M</span><sub>O</sub> 反求作用线位置。</p>
+<div class="formula"><span class="big">R = ΣF，　M<sub>O</sub> = ΣM<sub>O</sub>，　<span class="vec">r</span> × <span class="vec">R</span> = <span class="vec">M</span><sub>O</sub></span></div>
+<p class="note">课堂例题 2/9：四力一偶合成后作用线为 132.4x − 66.9y = −237，令 y = 0 得 x = −1.792 m。</p>
+<h3>3.2 自由体图（FBD）</h3>
+<p>四步：选对象并隔离 → 画外边界 → 画全部外力（已知力与未知约束力）→ 标坐标轴与尺寸。</p>
+<ul><li>约束建模：绳索沿绳拉、光滑面法向、辊轴一个法向、铰链两个分量、固定端两力一矩。</li></ul>
+<h3>3.3 平衡条件</h3>
+<div class="formula"><span class="big">ΣF<sub>x</sub> = 0，　ΣF<sub>y</sub> = 0，　ΣM<sub>O</sub> = 0</span></div>
+<p>替代形式：一矩两力式（ΣM<sub>A</sub> = ΣM<sub>B</sub> = 0，ΣF<sub>x</sub> = 0，且 AB 不垂直于 x 轴）；三矩式（三个矩心不共线）。</p>
+<p>二力杆：等值、反向、共线，方向沿两铰连线。三力杆：三力必汇交于一点，或相互平行。抓住这两条，方程能少一半。</p>
+<h3>3.4 静定与约束</h3>
+<p>未知数个数等于独立方程数 → 静定；多于 → 超静定（次数 = 多余约束数）；反力汇交或平行 → 约束不完全，几何不稳定。</p>
+<h2 id="s4"><span class="num">4</span>四、三维力系（L4）</h2>
+<h3>4.1 方向余弦与分量</h3>
+<div class="formula"><span class="big"><span class="vec">F</span> = F <span class="vec">n</span>，　<span class="vec">n</span> = cos θ<sub>x</sub> i + cos θ<sub>y</sub> j + cos θ<sub>z</sub> k，　l<sup>2</sup> + m<sup>2</sup> + n<sup>2</sup> = 1</span></div>
+<p>两种给法：给两点 → 先写位置矢量再除以长度；给两个角 → 先得 F<sub>xy</sub> = F cos φ、F<sub>z</sub> = F sin φ，再把 F<sub>xy</sub> 分到 x、y。</p>
+<h3>4.2 点积与投影</h3>
+<div class="formula"><span class="big"><span class="vec">P</span> · <span class="vec">Q</span> = P Q cos θ，　标量投影 F<sub>n</sub> = <span class="vec">F</span> · <span class="vec">n</span>，　矢量投影 <span class="vec">F</span><sub>n</sub> = (<span class="vec">F</span> · <span class="vec">n</span>) <span class="vec">n</span></span></div>
+<figure class="fig"><img src="statics-f3.png" alt="图 3"><figcaption>图 3　三维分量（左）与力矩 M = r × F（右）</figcaption></figure>
+<h3>4.3 三维力矩与轴矩</h3>
+<div class="formula"><span class="big"><span class="vec">M</span><sub>O</sub> = <span class="vec">r</span> × <span class="vec">F</span>，　对任意轴 λ 的矩　M<sub>λ</sub> = (<span class="vec">r</span> × <span class="vec">F</span>) · <span class="vec">n</span></span></div>
+<p>求轴矩时先算 <span class="vec">M</span><sub>O</sub> 再向轴投影，比硬找力臂快得多；混合积 (P × Q)·R 可以循环换序。</p>
+<h3>4.4 合成与力螺旋</h3>
+<p>若 <span class="vec">M</span><sub>O</sub> 与 <span class="vec">R</span> 不垂直，把它拆成平行分量 M<sub>1</sub> = (<span class="vec">M</span><sub>O</sub> · <span class="vec">n</span>)<span class="vec">n</span> 与垂直分量；垂直分量可由移动 <span class="vec">R</span> 抵消，剩下平行分量 → 一个力加一个沿其作用线的力偶，称为力螺旋（wrench）。</p>
+<div class="formula"><span class="big"><span class="vec">R</span> = Σ<span class="vec">F</span>，　<span class="vec">M</span><sub>O</sub> = Σ<span class="vec">M</span><sub>O</sub>，　<span class="vec">r</span> × <span class="vec">R</span> + M<sub>1</sub><span class="vec">n</span> = <span class="vec">M</span><sub>O</sub></span></div>
+<h2 id="s5"><span class="num">5</span>五、三维平衡（L5）</h2>
+<div class="formula"><span class="big">Σ<span class="vec">F</span> = 0（三个分量），　Σ<span class="vec">M</span><sub>O</sub> = 0（三个分量）　⟹　最多 6 个独立方程</span></div>
+<ul><li>支座建模：球铰 3 个分量；止推轴承 3 个分量；径向轴承 2 个分量（无轴向力矩）；缆绳 1 个；光滑面 1 个。</li><li>约束充分性：完全固定（静定）、多余约束（超静定）、不完全固定（反力汇交或平行 → 失稳）。</li></ul>
+<p>技巧：取矩轴穿过未知力最多的那条线，一个轴矩方程就能解出一个未知量，避免 6×6 联立。</p>
+<h2 id="s6"><span class="num">6</span>六、平面桁架（L6）</h2>
+<h3>6.1 基本假设与判定</h3>
+<p>节点视为光滑铰、载荷只作用在节点、杆重忽略 → 每根杆都是二力杆。基本单元是三角形，简单桁架几何不变。</p>
+<div class="formula"><span class="big">内部静定判据：　m + 3 = 2j　（m 杆数，j 节点数）</span></div>
+<figure class="fig"><img src="statics-f4.png" alt="图 4"><figcaption>图 4　同一榀桁架的两种解法：圈住的节点用节点法，虚线处用截面法</figcaption></figure>
+<h3>6.2 节点法</h3>
+<p>每节点只有两个方程，所以一次最多解两个未知力。从“有已知载荷、最多两根未知杆”的节点开始，逐个推进。</p>
+<p>约定：拉力离开节点、压力指向节点。一律先假设受拉，算出负号即为压。</p>
+<ul><li>零杆：两杆不共线且节点无外载 → 两杆皆零；三杆中两杆共线且无外载 → 第三杆为零杆。</li></ul>
+<h3>6.3 截面法</h3>
+<p>一次最多切三根杆（因为只有三个方程），取任一侧做整体平衡。矩心取在另外两根被切杆的交点，方程里就只剩目标杆。</p>
+<h2 id="s7"><span class="num">7</span>七、框架、机器与形心（L7）</h2>
+<h3>7.1 框架与机器</h3>
+<p>框架（frame）刚性、不可动：先求整体外部反力，再拆件求内部力。机器（machine）含运动部件：先拆件求内部力，最后求外部反力。</p>
+<p>多力杆两端的作用力不一定沿杆方向；只有二力杆才能沿两铰连线假设——这是本章最易错的判断。</p>
+<p class="note">课堂例题 4/6：400 kg 载荷，AB 为二力杆，F<sub>CD</sub> = 13.08 kN，另一半 6.58 kN。</p>
+<h3>7.2 重心、质心与形心</h3>
+<div class="formula"><span class="big"><span class="bar">x</span> = ∫x dW / ∫dW　（重心）；把 W 换成 m 得质心；换成 L、A、V 得线、面、体形心</span></div>
+<p>均匀场下三者重合。组合体用表格法：</p>
+<figure class="fig"><img src="statics-f5.png" alt="图 5"><figcaption>图 5　组合形心：矩形 + 三角形 减去圆孔，挖孔按负面积处理</figcaption></figure>
+<p>积分技巧：取一阶微元（细竖条 dA = y dx、薄圆盘 dV = πr² dx）以减少重积分；先定微元、再定上下限；对称性可以先把某个坐标定为 0。</p>
+<h2 id="s8"><span class="num">8</span>八、梁的内力（L8）</h2>
+<h3>8.1 分布载荷的等效</h3>
+<p>合力等于载荷图的面积，作用线过该面积的形心。均布→中点；三角形→距零端 2/3（距峰值端 1/3）。</p>
+<figure class="fig"><img src="statics-f6.png" alt="图 6"><figcaption>图 6　均布与三角载荷的合力位置</figcaption></figure>
+<h3>8.2 三个内力与符号</h3>
+<p>切开后截面上有轴力 N、剪力 V、弯矩 M（三维还有扭矩 T）。平面梁只需 V、M。</p>
+<ul><li>符号：V 使微段顺时针转（左段右面朝下）为正；M 使梁下凹、下缘受拉为正。</li></ul>
+<h3>8.3 截面法求内力的三条式子</h3>
+<div class="formula"><span class="big">V = Σ（切口左侧各力的竖向分量，↑ 为正）</span></div>
+<div class="formula"><span class="big">M = Σ (x − x<sub>i</sub>) F<sub>yi</sub> − Σ C<sub>i</sub>　（力矩心取切口，力偶逆时针为正）</span></div>
+<h2 id="s9"><span class="num">9</span>九、剪力弯矩图（L9）</h2>
+<h3>9.1 微分关系</h3>
+<div class="formula"><span class="big">dV/dx = −w　（w 向下为正），　dM/dx = V</span></div>
+<p>由此得到图形规则：无载荷段 V 水平、M 斜线；均布段 V 斜线、M 抛物线（开口朝载荷方向）；线性载荷段 M 为三次曲线。</p>
+<ul><li>集中力：V 突变 = 该力，M 斜率突变但数值连续。</li><li>集中力偶：M 突变 = 该力偶，V 不变。</li><li>V = 0 处 M 取极值；面积法：ΔV = −载荷面积，ΔM = V 图面积。</li></ul>
+<figure class="fig"><img src="statics-f7.png" alt="图 7"><figcaption>图 7　载荷图 / V 图 / M 图三图对齐；注意 V 的跳变、M 的跳变与极值位置</figcaption></figure>
+<h3>9.2 画图规范（考试扣分点）</h3>
+<p>三张图自上而下对齐；每个关键点标数值与单位；突变位置必须标出。缺单位、不对齐、漏标极值都会被扣分。</p>
+<h2 id="s10"><span class="num">10</span>附录 A　作业题型对照</h2>
+<ul><li>HW1：量纲分析（θ = TL/JG 求 J 的量纲）、力的矩、等效力–偶系统、四发动机推力合力、平行力系合力过 y 轴某点　⟵ L1–L3</li><li>HW2：三维方向角、力沿某线投影、对轴取矩、力系合成为单力 + 力偶、wrench 与一般力–偶系统的区别　⟵ L4</li><li>HW3：二维平衡、梁的支座反力、弹簧 + 滑轮、四腿桌缺一条腿、三维吊臂（球铰 + 三缆）　⟵ L3、L5</li><li>HW4：节点法、截面法、交叉杆截面法、桁架理想化假设　⟵ L6</li><li>HW5：组合体质心、半球挖方孔求 z̄ 最大、钳子夹紧力、脚踏气泵、三杆框架反力与销钉力　⟵ L7</li></ul>
+<h2 id="s11"><span class="num">11</span>附录 B　高频错误</h2>
+<ul><li>把分量当投影用；力矩力臂量错；受力图漏约束力、把内力当外力。</li><li>二力杆与多力杆搞混；节点法没从两未知点起步；截面法一次切超过三根杆。</li><li>梁的 V、M 符号反了；把集中力偶当成集中力处理；画完图不做 dM/dx = V 的自检。</li><li>单位混用（N 与 kN、ft 与 in、lb 与 slug）；结果不写单位、有效数字不合约定。</li></ul>
+<h2 id="s12"><span class="num">12</span>附录 C　公式速查</h2>
+<div class="formula"><span class="big"><span class="vec">M</span><sub>O</sub> = <span class="vec">r</span> × <span class="vec">F</span>，　M<sub>O</sub> = F d，　力偶 M = F d</span></div>
+<div class="formula"><span class="big">M<sub>λ</sub> = (<span class="vec">r</span> × <span class="vec">F</span>) · <span class="vec">n</span>，　投影 F<sub>n</sub> = <span class="vec">F</span> · <span class="vec">n</span></span></div>
+<div class="formula"><span class="big"><span class="vec">R</span> = Σ<span class="vec">F</span>，　<span class="vec">r</span> × <span class="vec">R</span> = <span class="vec">M</span><sub>O</sub>，　力螺旋 M<sub>1</sub> = (<span class="vec">M</span><sub>O</sub> · <span class="vec">n</span>)<span class="vec">n</span></span></div>
+<div class="formula"><span class="big">二维 3 个方程；三维 6 个方程；桁架 m + 3 = 2j</span></div>
+<div class="formula"><span class="big">形心 <span class="bar">x</span> = ΣA<sub>i</sub>x<sub>i</sub> / ΣA<sub>i</sub>（挖孔取负）</span></div>
+<div class="formula"><span class="big">梁 dV/dx = −w，dM/dx = V，　ΔM = V 图面积</span></div>
+<div class="formula"><span class="big">均布 R = wL 于中点；三角 R = ½wL 距零端 2/3</span></div>
+<h2 id="s13"><span class="num">13</span>附录 D　图形速记（V–M 图）</h2>
+<div class="formula"><span class="big">无载荷段：V 为水平线，M 为斜直线</span></div>
+<div class="formula"><span class="big">均布载荷：V 为斜线，M 为抛物线（开口朝载荷方向）</span></div>
+<div class="formula"><span class="big">线性载荷：V 为抛物线，M 为三次曲线</span></div>
+<div class="formula"><span class="big">集中力处：V 跳变 = 该力，M 连续但折一个角</span></div>
+<div class="formula"><span class="big">集中力偶处：M 跳变 = 该力偶，V 不受影响</span></div>
+<div class="formula"><span class="big">V = 0 处：M 取极值（常为最大弯矩）</span></div>
+<h2 id="s14"><span class="num">14</span>附录 E　梁的四种支承形式</h2>
+<figure class="fig"><img src="statics-f8.png" alt="图 8"><figcaption>图 8　支座形式不同 → 反力个数与静定性不同（悬臂梁的固定端提供两力一矩）</figcaption></figure>
+<h2 id="s15"><span class="num">15</span>附录 F　常用换算</h2>
+<div class="formula"><span class="big">g = 9.806 m/s² = 32.17 ft/s²；　1 kip = 1000 lb</span></div>
+<div class="formula"><span class="big">1 lb = 4.448 N；　1 kN = 224.8 lb；　1 slug = 14.59 kg</span></div>
+<div class="formula"><span class="big">1 ft = 0.3048 m；　1 in = 25.4 mm；　1 psi = 6.895 kPa</span></div>
+<footer>
+  <div>Engineering Mechanics · Statics　·　依据 L1–L9 课件与 HW1–HW5 整理　·　教材 Meriam &amp; Kraige</div>
+  <div style="margin-top:6px">建议顺序：先过第 9 节（V–M 图）与附录 D，再回头按错题看对应章。</div>
+</footer>
+
+</div>
+</body>
+</html>

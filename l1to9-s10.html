@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>附录 A 作业题型对照 · 9 讲知识点 · 经典例题 · 解题技巧（L1–L9）</title>
+
+
+
+
+<style>
+:root{
+  --a:#1f4e79; --ab:#eaf1f9;
+  --b:#8e1245; --bb:#fdeef4;
+  --c:#2f8f6f; --cb:#e9f6f1;
+  --d:#b4703a; --db:#fdf2e8;
+  --e:#5a6b7a; --eb:#f2f5f8;
+  --ink:#1c2733; --muted:#5d6b7a; --line:#e3e8ee; --bg:#fbfcfd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.85}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#0e2b44 0%,#1f4e79 55%,#3a7ca5 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px;letter-spacing:.5px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:46px 0 10px;padding-top:12px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#1f4e79;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:18px;margin:26px 0 8px;scroll-margin-top:64px;color:#233f57}
+p{margin:9px 0}
+ul,ol{margin:9px 0 9px 24px;padding:0}
+li{margin:6px 0}
+.formula{background:#f4f8fc;border-left:3px solid #a9c6de;padding:10px 15px;border-radius:0 8px 8px 0;margin:12px 0;overflow-x:auto;line-height:2.0}
+.formula .big{font-size:16.5px}
+sub{font-size:70%;vertical-align:-.25em}
+sup{font-size:70%;vertical-align:.5em}
+.vec,.bar{text-decoration:overline;text-underline-offset:2px;padding:0 1px}
+.note{color:var(--muted);font-size:14px;background:#f7f9fb;border-left:3px solid var(--line);padding:8px 14px;border-radius:0 8px 8px 0}
+figure.fig{margin:18px 0 22px;text-align:center}
+figure.fig img{max-width:100%;border:1px solid var(--line);border-radius:10px;background:#fff;padding:8px}
+figure.fig figcaption{color:var(--muted);font-size:13.5px;margin-top:8px}
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#eef3f9;color:#12293f}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){ body{font-size:15px} h2{font-size:20px} }
+@media print{nav.toc{position:static} body{font-size:12pt}}
+</style>
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="l1to9-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-statics.html">工程静力学</a><span style="opacity:.45">/</span>
+<b>附录 A 作业题型对照</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="l1to9-s1.html">1</a><a href="l1to9-s2.html">2</a><a href="l1to9-s3.html">3</a><a href="l1to9-s4.html">4</a><a href="l1to9-s5.html">5</a><a href="l1to9-s6.html">6</a><a href="l1to9-s7.html">7</a><a href="l1to9-s8.html">8</a><a href="l1to9-s9.html">9</a><a href="l1to9-s10.html" class=cur>10</a><a href="l1to9-s11.html">11</a><a href="l1to9-s12.html">12</a><a href="l1to9-s13.html">13</a><a href="l1to9-s14.html">14</a><a href="l1to9-s15.html">15</a></div></div>
+<div class="chunkmain">
+<h2 id="s10"><span class="num">10</span>附录 A　作业题型对照</h2>
+
+<ul><li>HW1：量纲分析（θ = TL/JG 求 J 的量纲）、力的矩、等效力–偶系统、四发动机推力合力、平行力系合力过 y 轴某点　⟵ L1–L3</li><li>HW2：三维方向角、力沿某线投影、对轴取矩、力系合成为单力 + 力偶、wrench 与一般力–偶系统的区别　⟵ L4</li><li>HW3：二维平衡、梁的支座反力、弹簧 + 滑轮、四腿桌缺一条腿、三维吊臂（球铰 + 三缆）　⟵ L3、L5</li><li>HW4：节点法、截面法、交叉杆截面法、桁架理想化假设　⟵ L6</li><li>HW5：组合体质心、半球挖方孔求 z̄ 最大、钳子夹紧力、脚踏气泵、三杆框架反力与销钉力　⟵ L7</li></ul>
+
+</div>
+<div class="chunknav"><a href="l1to9-s9.html">← 九、剪力弯矩图（L9）</a><a href="l1to9-s11.html">附录 B 高频错误 →</a></div>
+</body></html>
