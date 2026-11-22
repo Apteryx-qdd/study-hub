@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>十二种形状 · 平面图形形心速查 · 12 种形状</title>
+
+
+
+
+<style>
+:root{--a:#1f4e79;--ink:#1c2733;--muted:#5d6b7a;--line:#e3e8ee;--bg:#fbfcfd}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:15.5px;line-height:1.85}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+header.hero{background:linear-gradient(135deg,#0e2b44 0%,#1f4e79 55%,#3a7ca5 100%);color:#fff;padding:44px 0 32px}
+header.hero .wrap{padding-bottom:0}
+.eyebrow{letter-spacing:.2em;font-size:12px;opacity:.78}
+h1{font-size:30px;margin:10px 0 6px}
+.sub{opacity:.93;font-size:15px}
+.meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:13px}
+.chip.hot{background:rgba(255,214,102,.22);border-color:rgba(255,214,102,.5)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin-bottom:26px}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:9px 22px;font-size:13.5px}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav.toc a:hover{background:#eef2f6;color:var(--ink)}
+h2{font-size:23px;margin:44px 0 10px;padding-top:12px;border-top:2px solid var(--line);scroll-margin-top:64px}
+h2 .num{display:inline-block;background:#1f4e79;color:#fff;border-radius:8px;font-size:14px;padding:2px 9px;margin-right:10px;vertical-align:2px}
+h3{font-size:17.5px;margin:26px 0 6px;color:#233f57;scroll-margin-top:64px}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 24px;padding:0}
+li{margin:5px 0}
+.formula{background:#f4f8fc;border-left:3px solid #a9c6de;padding:9px 14px;border-radius:0 8px 8px 0;margin:10px 0;overflow-x:auto}
+.note{color:var(--muted);font-size:14px;background:#f7f9fb;border-left:3px solid var(--line);padding:8px 14px;border-radius:0 8px 8px 0}
+figure.fig{margin:16px 0 18px;text-align:center}
+figure.fig img{max-width:100%;border:1px solid var(--line);border-radius:10px;background:#fff;padding:8px}
+figure.fig figcaption{color:var(--muted);font-size:13.5px;margin-top:6px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.2px;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#eef3f9;color:#12293f}
+tbody tr:nth-child(even){background:#fafbfc}
+sub{font-size:70%;vertical-align:-.25em}
+sup{font-size:70%;vertical-align:.5em}
+.vec,.bar{text-decoration:overline}
+footer{margin-top:46px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:780px){body{font-size:15px}h2{font-size:20px}}
+@media print{nav.toc{position:static}}
+</style>
+
+<style>
+body{margin:0;background:#fbfcfd;color:#1c2733;font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;-webkit-text-size-adjust:100%}
+.chunkbar{background:#0e2b44;color:#cfe0ef;font-size:13.2px}
+.chunkbar-in{max-width:1080px;margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chunkbar a{color:#a9c6de;text-decoration:none}
+.chunkbar a:hover{color:#fff}
+.chunkbar b{color:#fff;font-weight:600}
+.chunkbar .spacer{flex:1}
+.chunktoc{background:#fff;border-bottom:1px solid #e3e8ee;position:sticky;top:0;z-index:20}
+.chunktoc-in{max-width:1080px;margin:0 auto;padding:8px 22px;display:flex;gap:6px;overflow-x:auto}
+.chunktoc a{color:#5d6b7a;text-decoration:none;font-size:13.5px;padding:5px 10px;border-radius:8px;white-space:nowrap}
+.chunktoc a:hover{background:#eef2f6}
+.chunktoc a.cur{background:#123a5c;color:#fff;font-weight:700}
+.chunkmain{max-width:1080px;margin:0 auto;padding:6px 22px 40px}
+.chunknav{max-width:1080px;margin:0 auto;padding:14px 22px 60px;display:flex;gap:10px;flex-wrap:wrap}
+.chunknav a{display:inline-block;padding:8px 16px;border-radius:10px;border:1px solid #e3e8ee;background:#fff;color:#123a5c;text-decoration:none;font-size:14.5px}
+.chunknav a:hover{background:#eef3f7}
+.chunknav .dim{color:#a8b4c0;border-color:#eef2f6;pointer-events:none}
+.toclist a{display:block;padding:10px 14px;border:1px solid #e3e8ee;border-radius:10px;margin:8px 0;background:#fff;color:#1c2733;text-decoration:none}
+.toclist a:hover{border-color:#9dbdd6;background:#f6fafd}
+.toclist .n{display:inline-block;min-width:26px;color:#2f6f9f;font-weight:700}
+@media print{.chunkbar,.chunktoc,.chunknav{display:none}}
+</style></head><body id="top">
+<div class="chunkbar"><div class="chunkbar-in">
+<a href="centroid-index.html">☰ 目录</a><span style="opacity:.45">/</span>
+<a href="index.html">资料库</a><span style="opacity:.45">/</span>
+<a href="subject-statics.html">工程静力学</a><span style="opacity:.45">/</span>
+<b>十二种形状</b><span class="spacer"></span>
+<a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 顶部</a>
+</div></div>
+<div class="chunktoc"><div class="chunktoc-in"><a href="centroid-table.html" class=cur>1</a><a href="centroid-rules.html">5</a></div></div>
+<div class="chunkmain">
+<h2 id="table"><span class="num">1</span>十二种形状</h2>
+<p>每个公式都从图形自身的边或对称轴量起；十字标记为形心 C。</p><figure class="fig"><img src="statics-centroid.png" alt="一页速查表（含形心十字标记）"><figcaption>一页速查表（含形心十字标记）</figcaption></figure><ul><li>线（不是面积）：半圆弧 ȳ = 2r/π；四分之一圆弧 x̄ = ȳ = 2r/π。</li></ul>
+</div>
+<div class="chunknav"><span class="dim">← 已是第一节</span><a href="centroid-rules.html">用法与前提 →</a></div>
+</body></html>
